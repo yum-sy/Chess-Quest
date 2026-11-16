@@ -41,6 +41,22 @@ for ch,piece,name in [(3,'R','rook'),(4,'B','bishop'),(5,'Q','queen')]:
  start='b2'; attack='e5' if ch==4 else 'e4'
  add(ch,'MOVE',{start:piece},f'Move the {name}!','룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.',piece=piece.lower(),dest='d4' if ch==4 else 'b4')
  add(ch,'CAPTURE',{'b2':piece,'d4' if ch==4 else 'b5':'p'},'Capture the pawn!','새 친구와 상대 폰을 잡아요.',piece=piece.lower())
+ if ch==4:
+  scenarios=[
+   ('CAPTURE',{'c1':'B','f1':'P','f4':'r','a5':'p'},'Capture the rook!','룩이 우리 폰을 노리고 있어요. 비숍으로 룩을 잡아 폰을 구해요.','f4',['f4','f1'],'룩을 잡았어요! 이제 우리 폰은 그 룩에게 잡히지 않아요.'),
+   ('PROTECT',{'b1':'B','c4':'P','c6':'r'},'Protect the pawn!','폰이 룩의 공격을 받고 있어요. 폰이 잡히면 비숍으로 되잡을 수 있게 지켜요.','c4',['c6','c4'],'이제 룩이 폰을 잡으면 비숍이 룩을 되잡을 수 있어요. 보호는 상대의 포획 자체를 금지하지는 않아요.'),
+   ('SAFE_MOVE',{'e3':'B','e6':'r','c5':'p'},'Save the bishop!','비숍이 룩에게 잡힐 위험이에요! 룩과 폰 모두 공격하지 않는 칸으로 피하세요.','',['e6','e3'],'비숍이 공격받는 줄에서 벗어났어요. 도착한 칸도 상대의 공격 밖이에요.'),
+   ('CAPTURE',{'b2':'B','e5':'r','e1':'R','a5':'p'},'Capture the rook!','상대 룩이 우리 룩을 노려요. 비숍으로 상대 룩을 먼저 잡아 친구를 구하세요.','e5',['e5','e1'],'상대 룩을 먼저 잡았어요! 우리 룩은 그 공격에서 벗어났어요.'),
+   ('PROTECT',{'f1':'B','c2':'R','c6':'r'},'Protect the rook!','상대 룩이 우리 룩을 노려요. 우리 룩이 잡히면 비숍으로 되잡을 수 있게 지켜요.','c2',['c6','c2'],'룩에 수비수가 생겼어요. 상대 룩이 우리 룩을 잡아도 비숍으로 되잡아 손해를 막을 수 있어요.'),
+   ('SAFE_MOVE',{'c3':'B','f3':'r','d5':'p'},'Save the bishop!','룩이 비숍을 노리고 있어요. 도망갈 때 상대 폰의 대각선 공격도 피하세요.','',['f3','c3'],'룩의 공격을 피하고 폰의 함정에도 빠지지 않았어요!')
+  ]
+  for kind,position,phrase,brief,target,threat,result in scenarios:
+   add(4,kind,position,phrase,brief,target=target,piece='b')
+   m=missions[-1];m.update(briefing=brief,threat=threat,explanation=result,revision=2)
+   m['objective']['requireThreatened']=kind=='SAFE_MOVE'
+   m['objective']['requireNewDefense']=kind=='PROTECT'
+   m['hints']=[brief,'주황색 공격선을 살펴보세요. 선택한 비숍의 초록 칸을 비교해요.','금색 경로가 목표를 해결하는 이동이에요.']
+  continue
  add(ch,'ATTACK',{'b2':piece,attack:'r'},'Attack the rook!','움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.',target=attack,piece=piece.lower())
  add(ch,'PROTECT',{'b2':piece,'d4':'P','d6':'r'},'Protect the pawn!','상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.',target='d4',piece=piece.lower())
  add(ch,'SAFE_MOVE',{'b2':piece,'f5':'r'},'Find a safe move!','상대의 공격을 받지 않는 칸으로 움직여요.',piece=piece.lower())

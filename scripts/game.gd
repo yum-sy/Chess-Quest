@@ -25,6 +25,8 @@ var korean_used=false
 var audio=AudioStreamPlayer.new()
 var clock=0.0
 var status_tick=0
+var board_view=preload("res://scripts/board_3d.gd").new()
+var board_area=Rect2()
 var board_origin=Vector2.ZERO
 var tile=Vector2(70,35)
 var panel=Rect2()
@@ -54,6 +56,7 @@ func _ready():
 	get_window().size_changed.connect(responsive)
 	responsive()
 	add_child(audio)
+	add_child(board_view)
 	learner.load_save()
 	rules.bridge=true
 	index=clampi(int(learner.data.lastMission),0,55)
@@ -65,10 +68,26 @@ func _process(delta):
 	clock+=delta
 	if OS.has_feature("web") and int(clock*2)>status_tick:
 		status_tick=int(clock*2)
-		var state={"screen":screen,"mission":missions[index].id,"modal":modal,"completed":learner.data.completed.size(),"turn":rules.turn,"audioPlaying":audio.playing,"busy":busy,"fen":rules.fen()}
+		var state={"screen":screen,"mission":missions[index].id,"modal":modal,"completed":learner.data.completed.size(),"turn":rules.turn,"audioPlaying":audio.playing,"busy":busy,"fen":rules.fen(),"selected":selected,"squares":square_centers(),"actors":actor_centers()}
 		JavaScriptBridge.eval("window.CQ.state="+JSON.stringify(state))
 	if anim_t<1:anim_t=minf(1,anim_t+delta*2.5)
+	board_view.moving_from=anim_from;board_view.moving_to=anim_to
+	board_view.moving_progress=anim_t;board_view.moving_letter=anim_piece
+	board_view.animate(delta)
+	board_view.render_target_update_mode=SubViewport.UPDATE_ALWAYS if screen in ["play","home","ending"] else SubViewport.UPDATE_DISABLED
 	queue_redraw()
+func square_centers()->Array:
+	var result=[]
+	if screen=="play":
+		for i in range(rules.n*rules.n):
+			var p=point(i%rules.n,i/rules.n);result.append([p.x,p.y])
+	return result
+func actor_centers()->Dictionary:
+	var result={}
+	if screen=="play":
+		for i in board_view.pieces:
+			var p=board_view.portrait_rect(i).get_center();result[str(i)]=[p.x,p.y]
+	return result
 func size_now()->Vector2:return get_viewport_rect().size
 func text(s:String,p:Vector2,fs:int=22,col:Color=Color("263e45")):
 	draw_string(font,p,s,HORIZONTAL_ALIGNMENT_LEFT,-1,fs,col)
@@ -124,9 +143,12 @@ func draw_home(s:Vector2):
 		var x=center.x-160+i*155
 		box(Rect2(x-45,center.y-165,90,245),Color("b5cab6"),8)
 		for j in range(3):box(Rect2(x-45+j*33,center.y-185,23,36),Color("b5cab6"),4)
-	piece("K",center+Vector2(0,80),2.3)
-	piece("P",center+Vector2(-140,110),1.6)
-	piece("N",center+Vector2(140,110),1.6)
+	var hero_rect=Rect2(s.x*.42,270,s.x*.57,410) if s.x>=1050 else Rect2(20,s.y*.58,s.x-40,s.y*.38)
+	board_view.configure(4,hero_rect,0)
+	var cast=["R","N","B","Q","","P","K","","","","","","","","",""]
+	board_view.update_position(cast,-1,[],false,learner.data.settings.motion)
+	board_view.update_markers([],-1,-1)
+	draw_texture_rect(board_view.get_texture(),hero_rect,false)
 	book(center+Vector2(0,-190),1.3)
 func header(title:String,sub:String,s:Vector2):
 	text(title,Vector2(44,57),30)
@@ -161,85 +183,74 @@ func draw_map(s:Vector2):
 	if learner.data.completed.has("7-8"):button("자유 체스",Rect2(44+w,745,w-18,88) if narrow else Rect2(550,s.y-78,200,54),"free",true)
 func layout_board(s:Vector2):
 	var narrow=s.x<1050
-	var area=Rect2(30,150,s.x-60,minf(s.y*.30,400)) if narrow else Rect2(25,150,s.x*.66-30,s.y-220)
-	var tw=minf(area.size.x/(rules.n*2+1),area.size.y/(rules.n+2.4))
-	tile=Vector2(tw,tw*.52)
-	board_origin=Vector2(area.get_center().x,area.position.y+90)
-	panel=Rect2(30,area.end.y+15,s.x-60,s.y-area.end.y-40) if narrow else Rect2(s.x*.68,140,s.x*.29,s.y-174)
-func point(file:float,rank:float)->Vector2:
-	var row=rules.n-1-rank
-	return board_origin+Vector2((file-row)*tile.x,(file+row)*tile.y)
-func poly(i:int)->PackedVector2Array:
-	var p=point(i%rules.n,i/rules.n)
-	return PackedVector2Array([p+Vector2(0,-tile.y),p+Vector2(tile.x,0),p+Vector2(0,tile.y),p+Vector2(-tile.x,0)])
+	board_area=Rect2(8,135,s.x-16,minf(520,maxf(440,s.y-800))) if narrow else Rect2(8,120,s.x*.68-14,s.y-160)
+	panel=Rect2(30,board_area.end.y+24,s.x-60,s.y-board_area.end.y-49) if narrow else Rect2(s.x*.70,135,s.x*.275,s.y-169)
+	board_view.configure(rules.n,board_area,int(learner.data.settings.theme))
+	tile=Vector2(board_area.size.x/(rules.n+1.0),board_area.size.y/(rules.n+1.0))
+func point(file:float,rank:float)->Vector2:return board_view.projected(file,rank)
+func poly(i:int)->PackedVector2Array:return board_view.polygon(i)
+func team_label(label:String,at:Vector2,color:Color):
+	var width=168.0
+	box(Rect2(at-Vector2(width/2,17),Vector2(width,34)),color,15)
+	centered(label,at+Vector2(0,7),18,Color.WHITE)
 func draw_play(s:Vector2):
 	var m=missions[index]
 	header("CHESS QUEST   /   "+chapters[m.chapter-1].title,("도감 복습" if review else "모험 "+str(index%8+1)+" / 8")+"  ·  "+str(rules.n)+" × "+str(rules.n)+(" 훈련 보드" if rules.n<8 else " 정식 체스")+("  ·  왕관 수호자" if m.boss else ""),s)
 	layout_board(s)
-	var base=PackedVector2Array([point(0,rules.n-1)+Vector2(-tile.x,0),point(rules.n-1,rules.n-1)+Vector2(tile.x,0),point(rules.n-1,0)+Vector2(tile.x,0),point(0,0)+Vector2(-tile.x,0)])
-	var shadow=PackedVector2Array()
-	for p in base:shadow.append(p+Vector2(0,25))
-	draw_colored_polygon(shadow,Color("a9b8a0"))
-	draw_colored_polygon(base,Color("976238"))
-	var legal=rules.legal() if selected>=0 and not busy else []
 	var destinations=[]
-	for move in legal:
-		if rules.square(move.substr(0,2))==selected:destinations.append(rules.square(move.substr(2,2)))
-	var solution=[]
-	if hints>=3 and m.type!="GAME":solution=Goals.solutions(rules,m)
-	for depth in range(rules.n*2-1):
-		for x in range(rules.n):
-			var row=depth-x
-			if row<0 or row>=rules.n:continue
-			var i=x+(rules.n-1-row)*rules.n
-			var p=poly(i)
-			var c=Color("eddcba") if (x+row)%2==0 else Color("b99168")
-			var theme_idx=clampi(int(learner.data.settings.theme),0,7)
-			if theme_idx>0:c=c.lerp(Color(THEME_COLORS[theme_idx]),.35)
-			if selected==i:c=Color("6daec6")
-			if rules.cells[i].to_lower()=="k" and rules.check(rules.color(rules.cells[i])):c=Color("d56c5d")
-			draw_colored_polygon(p,c)
-			draw_polyline(PackedVector2Array([p[0],p[1],p[2],p[3],p[0]]),Color("c8a46b"),1.5,true)
-			var at=point(x,rules.n-1-row)
-			if i in destinations:
-				draw_circle(at,tile.y*.29,Color("397e68") if rules.cells[i]=="" else Color("b44842"))
-				draw_arc(at,tile.y*.5,0,TAU,24,cream,2,true)
-			if hints>0 and m.objective.target!="" and i==rules.square(m.objective.target):draw_arc(at,tile.y*.8,0,TAU,32,gold,4,true)
-			if not rules.cells[i].is_empty() and not (i==anim_to and anim_t<1):piece(rules.cells[i],at,tile.x/54.0)
-	if last_move.length()>=4 and learner.data.rewards.size()>0 and learner.data.settings.motion:
-		var end=rules.square(last_move.substr(2,2));var at=point(end%rules.n,end/rules.n)
-		for j in range(5):draw_circle(at+Vector2(cos(clock+j*1.2)*tile.x*.45,sin(clock+j*1.2)*tile.y*.45-12),2.5,gold)
-	if solution.size()>0:
-		var a=rules.square(solution[0].substr(0,2));var b=rules.square(solution[0].substr(2,2))
-		draw_line(point(a%rules.n,a/rules.n),point(b%rules.n,b/rules.n),Color("f8d76a"),6,true)
-	if anim_t<1:
-		var a=point(anim_from%rules.n,anim_from/rules.n)
-		var b=point(anim_to%rules.n,anim_to/rules.n)
-		var moving=a.lerp(b,anim_t)
-		if anim_piece.to_lower() in ["n","p"]:moving+=Vector2(0,-sin(anim_t*PI)*(40 if anim_piece.to_lower()=="n" else 17))
-		if anim_piece.to_lower() in ["q","b"]:draw_line(a,moving,Color("fff7c080"),5,true)
-		piece(anim_piece,moving,tile.x/54.0)
-	for x in range(rules.n):text("abcdefgh"[x],point(x,0)+Vector2(0,tile.y+25),15,muted)
-	for r in range(rules.n):text(str(r+1),point(0,r)+Vector2(-tile.x-20,7),15,muted)
+	if selected>=0 and not busy:
+		for move in rules.legal():
+			if rules.square(move.substr(0,2))==selected:destinations.append(rules.square(move.substr(2,2)))
+	var checked=[]
+	for i in range(rules.cells.size()):
+		if rules.cells[i].to_lower()=="k" and rules.check(rules.color(rules.cells[i])):checked.append(i)
+	board_view.update_position(rules.cells,selected,checked,modal=="success",learner.data.settings.motion)
+	var target=rules.square(m.objective.target) if hints>0 and m.objective.target!="" else -1
+	board_view.update_markers(destinations,selected,target)
+	draw_texture_rect(board_view.get_texture(),board_area,false)
+	# Coordinates and badges stay in screen space, anchored to the actual 3D board.
+	for x in range(rules.n):centered("abcdefgh"[x],point(x,-.72)+Vector2(0,8),16,Color("355f84"))
+	for rank in range(rules.n):centered(str(rank+1),point(-.77,rank)+Vector2(0,5),16,muted)
+	team_label("내 진영 · WHITE",point((rules.n-1)*.5,-1.15)+Vector2(0,35),Color("367db2"))
+	team_label("상대 진영 · BLACK",Vector2(board_area.get_center().x,board_area.position.y-3),Color("896296"))
+	# One unobtrusive forward arrow makes pawn direction explicit even in empty training boards.
+	var arrow_start=point(-.92,.15);var arrow_end=point(-.92,1.1)
+	draw_line(arrow_start,arrow_end,Color("468fc0"),3,true)
+	var d=(arrow_end-arrow_start).normalized();var side=Vector2(-d.y,d.x)
+	draw_colored_polygon(PackedVector2Array([arrow_end,arrow_end-d*12+side*6,arrow_end-d*12-side*6]),Color("468fc0"))
+	if hints>=3 and m.type!="GAME":
+		var solution=Goals.solutions(rules,m)
+		if solution.size()>0:
+			var a=rules.square(solution[0].substr(0,2));var b=rules.square(solution[0].substr(2,2))
+			draw_line(point(a%rules.n,a/rules.n),point(b%rules.n,b/rules.n),Color("ffe19c"),5,true)
+	if hints>0 and m.has("threat"):
+		var a=rules.square(m.threat[0]);var b=rules.square(m.threat[1])
+		if rules.attacks(a,b):
+			var start=point(a%rules.n,a/rules.n);var end=point(b%rules.n,b/rules.n)
+			draw_line(start,end,Color("d66f4280"),3,true)
 	var px=panel.position.x;var py=panel.position.y;var pw=panel.size.x
 	box(panel,Color("fff9e9"),24)
-	book(Vector2(px+pw/2,py+56),.8)
-	text("THE MAGIC CHESSBOOK",Vector2(px+24,py+115),15,teal)
-	if introducing!="":text(introducing,Vector2(px+24,py+205),20,teal)
+	var compact=s.x<1050
+	book(Vector2(px+pw/2,py+(40 if compact else 56)),.65 if compact else .8)
+	var names={"p":"폰","n":"나이트","b":"비숍","r":"룩","q":"퀸","k":"킹"}
+	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" 선택됨" if selected>=0 else "THE MAGIC CHESSBOOK"
+	text(caption,Vector2(px+24,py+(85 if compact else 115)),18 if selected>=0 else 15,teal)
+	if introducing!="":text(introducing,Vector2(px+24,py+(155 if compact else 205)),20,teal)
 	var expr=expression(m.englishExpressionIds[0])
-	wrapped(expr.wordOrSentence,Rect2(px+24,py+138,pw-48,100),30,ink)
+	wrapped(expr.wordOrSentence,Rect2(px+24,py+(115 if compact else 138),pw-48,100),30,ink)
 	var body=m.hints[mini(maxi(hints-1,0),2)] if hints else (expr.meaning if learner.data.settings.korean else "Listen. Think. Move.")
-	wrapped(body,Rect2(px+24,py+232,pw-48,100),20,muted)
-	var by=py+335
+	if learner.data.settings.korean and m.has("briefing") and hints<2:body=m.briefing
+	wrapped(body,Rect2(px+24,py+(190 if compact else 232),pw-48,100),19 if m.has("briefing") else 20,muted)
+	var by=py+(265 if compact else 335)
 	var bh=88 if s.x<1050 else 50
-	var gap=100 if s.x<1050 else 62
+	var gap=96 if s.x<1050 else 62
 	button("▶ 다시 듣기",Rect2(px+20,by,(pw-48)/2,bh),"listen")
 	button("느리게",Rect2(px+28+(pw-48)/2,by,(pw-48)/2,bh),"slow")
 	button("힌트",Rect2(px+20,by+gap,(pw-48)/2,bh),"hint",true)
 	button("↶ 무르기" if m.type=="GAME" else "다시 시작",Rect2(px+28+(pw-48)/2,by+gap,(pw-48)/2,bh),"undo" if m.type=="GAME" else "restart")
 	button("지도",Rect2(px+20,by+gap*2,(pw-48)/2,bh),"map")
 	button("설정",Rect2(px+28+(pw-48)/2,by+gap*2,(pw-48)/2,bh),"settings")
-	wrapped(feedback,Rect2(44,s.y-78,s.x-88 if s.x<1050 else s.x*.62,64),20,teal)
+	wrapped(feedback,Rect2(44,s.y-60,s.x-88,64) if s.x<1050 else Rect2(px+24,by+210,pw-48,72),18,teal)
 	if rules.n==8 and rules.notation.size()>0:text("기보  "+" ".join(rules.notation.slice(maxi(0,rules.notation.size()-8))),Vector2(44,s.y-20),16,muted)
 func wrapped(value:String,r:Rect2,fs:int,col:Color):
 	var line="";var y=r.position.y
@@ -341,7 +352,11 @@ func draw_ending(s:Vector2):
 	book(Vector2(s.x/2,150),1.5)
 	centered("왕관의 빛이 돌아왔어요!",Vector2(s.x/2,290),46,ink)
 	centered("듣고, 생각하고, 움직인 모든 순간이 왕국을 구했어요.",Vector2(s.x/2,355),24,teal)
-	piece("K",Vector2(s.x/2,535),2.1)
+	var parade=Rect2(s.x/2-320,380,640,210)
+	board_view.configure(4,parade,7)
+	board_view.update_position(["R","N","B","Q","","P","K","","","","","","","","",""],-1,[],true,learner.data.settings.motion)
+	board_view.update_markers([],-1,-1)
+	draw_texture_rect(board_view.get_texture(),parade,false)
 	button("자유 체스 대전",Rect2(s.x/2-240,610,230,60),"free",true)
 	button("왕국으로 돌아가기",Rect2(s.x/2+10,610,230,60),"map")
 func draw_modal(s:Vector2):
@@ -355,7 +370,7 @@ func draw_modal(s:Vector2):
 		button("함께 출발!",Rect2(x+44,y+290,w-88,60),"begin",true)
 	elif modal=="success":
 		centered("멋진 모험이었어!",Vector2(s.x/2,y+70),36,ink)
-		wrapped(chapters[chapter-1].outro if index%8==7 else "새로운 빛을 모았어요. 다음 모험에서도 함께해요!",Rect2(x+44,y+140,w-88,100),25,teal)
+		wrapped(missions[index].get("explanation",chapters[chapter-1].outro if index%8==7 else "새로운 빛을 모았어요. 다음 모험에서도 함께해요!"),Rect2(x+44,y+140,w-88,100),25,teal)
 		button("다음 모험  →",Rect2(x+44,y+290,w-88,60),"next",true)
 	elif modal=="promotion":
 		centered("폰이 자랐어요! 새 기물을 골라요.",Vector2(s.x/2,y+70),28,ink)
@@ -406,7 +421,7 @@ func start_mission(i:int,resume=false):
 	e.audioHeard=false
 	hints=0 if e.familiarityState in ["PRACTICING","FAMILIAR","REVIEW"] else 1
 	was_assisted=hints>0;korean_used=learner.data.settings.korean
-	if resume and learner.data.current.get("id","")==m.id:
+	if resume and learner.data.current.get("id","")==m.id and int(learner.data.current.get("revision",1))==int(m.get("revision",1)):
 		var saved=learner.data.current
 		rules.load_fen(saved.fen,int(m.boardSize))
 		rules.history=saved.get("history",[]);rules.positions=saved.get("positions",[]);rules.notation=saved.get("notation",[])
@@ -418,7 +433,7 @@ func start_mission(i:int,resume=false):
 	if rules.turn=="b" and m.type=="GAME":ai_turn()
 func persist():
 	if review:return
-	learner.data.current={"id":missions[index].id,"fen":rules.fen(),"history":rules.history,"positions":rules.positions,"notation":rules.notation}
+	learner.data.current={"id":missions[index].id,"revision":missions[index].get("revision",1),"fen":rules.fen(),"history":rules.history,"positions":rules.positions,"notation":rules.notation}
 	learner.save()
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:tap(event.position)
@@ -432,8 +447,9 @@ func tap(p:Vector2):
 				action(b.action)
 			return
 	if screen!="play" or modal!="" or busy or rules.turn!="w":return
+	var actor_hit=board_view.pick_actor(p)
 	for i in range(rules.n*rules.n):
-		if Geometry2D.is_point_in_polygon(p,poly(i)):
+		if i==actor_hit or (actor_hit<0 and Geometry2D.is_point_in_polygon(p,poly(i))):
 			var current=missions[index]
 			var target=current.objective.target
 			var identified=(target!="" and i==rules.square(target)) or (current.type=="CAPTURE" and rules.cells[i]=="p")

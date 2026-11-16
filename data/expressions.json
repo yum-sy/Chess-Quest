@@ -242,6 +242,72 @@
     }
   },
   {
+    "expressionId": "capture_the_rook",
+    "wordOrSentence": "Capture the rook!",
+    "meaning": "상대 룩이 우리 룩을 노려요. 비숍으로 상대 룩을 먼저 잡아 친구를 구하세요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "CAPTURE"
+    ],
+    "relatedPieces": [
+      "b"
+    ],
+    "audioId": "capture_the_rook",
+    "animationId": "CAPTURE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "save_the_bishop",
+    "wordOrSentence": "Save the bishop!",
+    "meaning": "룩이 비숍을 노리고 있어요. 도망갈 때 상대 폰의 대각선 공격도 피하세요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "SAFE_MOVE"
+    ],
+    "relatedPieces": [
+      "b"
+    ],
+    "audioId": "save_the_bishop",
+    "animationId": "SAFE_MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "protect_the_rook",
+    "wordOrSentence": "Protect the rook!",
+    "meaning": "상대 룩이 우리 룩을 노려요. 우리 룩이 잡히면 비숍으로 되잡을 수 있게 지켜요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "PROTECT"
+    ],
+    "relatedPieces": [
+      "b"
+    ],
+    "audioId": "protect_the_rook",
+    "animationId": "PROTECT",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
     "expressionId": "move_the_queen",
     "wordOrSentence": "Move the queen!",
     "meaning": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",

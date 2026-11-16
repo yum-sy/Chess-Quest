@@ -9,9 +9,19 @@ static func success(r, m: Dictionary, move: String, before: Array) -> bool:
 		"MOVE": return o.destination=="" or b==r.square(o.destination)
 		"CAPTURE": return before[b]!="" and r.color(before[b])=="b" and (target<0 or b==target)
 		"ATTACK": return target>=0 and r.color(r.cells[target])=="b" and r.attacks(b,target)
-		"SAFE_MOVE": return not r.attacked(b,"b")
+		"SAFE_MOVE":
+			if o.get("requireThreatened",false):
+				var after=r.cells;r.cells=before
+				var threatened=r.attacked(a,"b");r.cells=after
+				if not threatened:return false
+			return not r.attacked(b,"b")
 		"PROTECT":
 			if target<0 or r.color(r.cells[target])!="w" or not r.attacks(b,target): return false
+			if o.get("requireNewDefense",false):
+				var after=r.cells;r.cells=before
+				var already=r.attacks(a,target);r.cells=after
+				if already:return false
+			if r.attacked(b,"b"):return false
 			# Require an actual legal capture threat and a legal recapture, not just an extra defender.
 			var original=r.fen()
 			var threats=0

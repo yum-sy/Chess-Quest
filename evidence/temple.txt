@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+4-3 CAPTURE real threat ["f4", "f1"] solutions ["c1f4"]
+4-4 PROTECT real threat ["c6", "c4"] solutions ["b1a2", "b1d3"]
+4-5 SAFE_MOVE real threat ["e6", "e3"] solutions ["e3c1", "e3d2", "e3f2", "e3f4", "e3c5"]
+4-6 CAPTURE real threat ["e5", "e1"] solutions ["b2e5"]
+4-7 PROTECT real threat ["c6", "c2"] solutions ["f1d3"]
+4-8 SAFE_MOVE real threat ["f3", "c3"] solutions ["c3a1", "c3e1", "c3b2", "c3d2", "c3b4", "c3d4", "c3a5", "c3e5"]
+TEMPLE 6 redesigned missions; failures 0
