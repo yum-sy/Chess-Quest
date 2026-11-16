@@ -190,13 +190,13 @@ func layout_board(s:Vector2):
 func point(file:float,rank:float)->Vector2:return board_view.projected(file,rank)
 func poly(i:int)->PackedVector2Array:return board_view.polygon(i)
 func team_label(label:String,at:Vector2,color:Color):
-	var width=168.0
+	var width=100.0
 	box(Rect2(at-Vector2(width/2,17),Vector2(width,34)),color,15)
 	centered(label,at+Vector2(0,7),18,Color.WHITE)
 func draw_play(s:Vector2):
 	var m=missions[index]
-	text(chapters[m.chapter-1].title+" · 모험 "+str(index%8+1)+" / 8",Vector2(24,36),23,ink)
-	button("홈",Rect2(s.x-88,12,68,42),"home")
+	text(chapters[m.chapter-1].subtitle+" · QUEST "+str(index%8+1)+" / 8",Vector2(24,36),23,ink)
+	button("Home",Rect2(s.x-104,12,88,42),"home")
 	layout_board(s)
 	var destinations=[]
 	if selected>=0 and not busy:
@@ -211,10 +211,14 @@ func draw_play(s:Vector2):
 	board_view.update_markers(destinations,selected,target)
 	draw_texture_rect(board_view.get_texture(),board_area,false)
 	# Coordinates and badges stay in screen space, anchored to the actual 3D board.
-	for x in range(rules.n):centered("abcdefgh"[x],point(x,-.72)+Vector2(0,8),16,Color("355f84"))
-	for rank in range(rules.n):centered(str(rank+1),point(-.77,rank)+Vector2(0,5),16,muted)
-	team_label("내 진영 · WHITE",Vector2(board_area.get_center().x,board_area.end.y-8),Color("367db2"))
-	team_label("상대 진영 · BLACK",Vector2(board_area.get_center().x,board_area.position.y-3),Color("896296"))
+	for x in range(rules.n):
+		centered("abcdefgh"[x],point(x,-.69)+Vector2(0,6),16,Color("355f84"))
+		centered("abcdefgh"[x],point(x,rules.n-.31)-Vector2(0,(point(0,1)-point(0,0)).length()*.92 if rules.cells[(rules.n-1)*rules.n+x]!="" else 5),16,Color("355f84"))
+	for rank in range(rules.n):
+		centered(str(rank+1),point(-.70,rank)+Vector2(0,5),16,muted)
+		centered(str(rank+1),point(rules.n-.30,rank)+Vector2(0,5),16,muted)
+	team_label("WHITE",point((rules.n-1)*.5,-.82)+Vector2(0,33),Color("367db2"))
+	team_label("BLACK",point(-.70,rules.n-.40)+Vector2(-48,-12),Color("896296"))
 	# One unobtrusive forward arrow makes pawn direction explicit even in empty training boards.
 	var arrow_start=point(-.92,.15);var arrow_end=point(-.92,1.1)
 	draw_line(arrow_start,arrow_end,Color("468fc0"),3,true)
@@ -233,8 +237,8 @@ func draw_play(s:Vector2):
 	var px=panel.position.x;var py=panel.position.y;var pw=panel.size.x
 	box(panel,Color("fff9e9"),24)
 	var compact=s.x<1050
-	var names={"p":"폰","n":"나이트","b":"비숍","r":"룩","q":"퀸","k":"킹"}
-	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" 선택됨" if selected>=0 else "기물을 눌러 움직여 보세요"
+	var names={"p":"Pawn","n":"Knight","b":"Bishop","r":"Rook","q":"Queen","k":"King"}
+	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" selected" if selected>=0 else "Choose a piece"
 	text(caption,Vector2(px+16,py+27),17,teal)
 	var expr=expression(m.englishExpressionIds[0])
 	wrapped(expr.wordOrSentence,Rect2(px+16,py+60,pw-32,90),24,ink)
@@ -242,14 +246,14 @@ func draw_play(s:Vector2):
 	if learner.data.settings.korean and m.has("briefing") and hints<2:body=m.briefing
 	wrapped(body,Rect2(px+16,py+(96 if compact else 154),pw-32,100),18,muted)
 	var by=py+(148 if compact else 290)
-	var labels=["▶ 듣기","느리게","힌트","↶ 무르기" if m.type=="GAME" else "다시 시작","지도","설정"]
+	var labels=["▶ Listen","Slow","Hint","Undo" if m.type=="GAME" else "Restart","Map","Settings"]
 	var actions=["listen","slow","hint","undo" if m.type=="GAME" else "restart","map","settings"]
 	var columns=3 if compact else 2
 	var bw=(pw-32-(columns-1)*8)/columns
 	for j in range(6):
 		button(labels[j],Rect2(px+16+(j%columns)*(bw+8),by+(j/columns)*54,bw,46),actions[j],j==2)
 	wrapped(feedback,Rect2(px+16,py+266 if compact else by+192,pw-32,66),16,teal)
-	if rules.n==8 and rules.notation.size()>0:text("기보  "+" ".join(rules.notation.slice(maxi(0,rules.notation.size()-8))),Vector2(44,s.y-20),16,muted)
+	if rules.n==8 and rules.notation.size()>0:text("Moves  "+" ".join(rules.notation.slice(maxi(0,rules.notation.size()-8))),Vector2(44,s.y-20),16,muted)
 func wrapped(value:String,r:Rect2,fs:int,col:Color):
 	var line="";var y=r.position.y
 	for word in value.split(" "):
@@ -335,6 +339,7 @@ func draw_book(s:Vector2):
 	if ids.size()>page_size:button("다음 페이지",Rect2(260,s.y-70,200,50),"bookpage")
 func draw_settings(s:Vector2):
 	header("나에게 맞는 모험", "설정과 진행은 이 기기의 저장 공간에 자동 저장돼요",s)
+	text("AI 생성 음성 · OpenAI",Vector2(80,112),16,muted)
 	var opts=[["sound","영어 음성"],["korean","한국어 도움말"],["motion","캐릭터 애니메이션"]]
 	for i in range(opts.size()):
 		text(opts[i][1],Vector2(80,180+i*84),26)
@@ -363,20 +368,20 @@ func draw_modal(s:Vector2):
 	box(r,cream,28)
 	var x=r.position.x;var y=r.position.y
 	if modal=="intro":
-		centered(chapters[chapter-1].title,Vector2(s.x/2,y+64),32,ink)
+		centered(chapters[chapter-1].subtitle,Vector2(s.x/2,y+64),32,ink)
 		wrapped(chapters[chapter-1].intro,Rect2(x+44,y+127,w-88,100),25,teal)
-		button("함께 출발!",Rect2(x+44,y+290,w-88,60),"begin",true)
+		button("Let’s go!",Rect2(x+44,y+290,w-88,60),"begin",true)
 	elif modal=="success":
-		centered("멋진 모험이었어!",Vector2(s.x/2,y+70),36,ink)
+		centered("Great adventure!",Vector2(s.x/2,y+70),36,ink)
 		wrapped(missions[index].get("explanation",chapters[chapter-1].outro if index%8==7 else "새로운 빛을 모았어요. 다음 모험에서도 함께해요!"),Rect2(x+44,y+140,w-88,100),25,teal)
-		button("다음 모험  →",Rect2(x+44,y+290,w-88,60),"next",true)
+		button("Next quest  →",Rect2(x+44,y+290,w-88,60),"next",true)
 	elif modal=="promotion":
-		centered("폰이 자랐어요! 새 기물을 골라요.",Vector2(s.x/2,y+70),28,ink)
-		for j in range(promotion.size()):button({"q":"퀸","r":"룩","b":"비숍","n":"나이트"}[promotion[j][4]],Rect2(x+30+j*(w-60)/4,y+170,(w-80)/4,70),"promote:"+promotion[j],true)
+		centered("Promotion! Choose a piece.",Vector2(s.x/2,y+70),28,ink)
+		for j in range(promotion.size()):button({"q":"Queen","r":"Rook","b":"Bishop","n":"Knight"}[promotion[j][4]],Rect2(x+30+j*(w-60)/4,y+170,(w-80)/4,70),"promote:"+promotion[j],true)
 	else:
-		centered("다시 도전해 볼까요?",Vector2(s.x/2,y+70),32,ink)
+		centered("Ready to try again?",Vector2(s.x/2,y+70),32,ink)
 		wrapped(feedback,Rect2(x+44,y+140,w-88,100),24,teal)
-		button("다시 시작",Rect2(x+44,y+290,w-88,60),"restart",true)
+		button("Restart",Rect2(x+44,y+290,w-88,60),"restart",true)
 func expression(id:String)->Dictionary:
 	for e in expressions:
 		if e.expressionId==id:return e
@@ -405,7 +410,7 @@ func speak_mission():
 	if word!="":
 		introducing=expression(word).wordOrSentence+"  ·  "+expression(word).meaning
 		say_id(word);last_review_word=word
-		await get_tree().create_timer(1.8).timeout
+		await get_tree().create_timer(maxf(1.8,audio.stream.get_length()+.15) if audio.playing else 1.8).timeout
 		if token!=generation:return
 	introducing=""
 	say_id(missions[index].englishExpressionIds[0])

@@ -12,7 +12,7 @@ engine=engine[:engine.rfind('export {')]
 html=(d/'index.html').read_text().replace('"serviceWorker":"index.service.worker.js"','"serviceWorker":""')
 html=html.replace('<head>','<head>\n<script src="chess.js"></script>\n<link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#367f7b">')
 html=html.replace('</body>','''<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js');</script>
-<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">설치 · 도움말 · 소스</a></body>''')
+<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">Help · Source</a></body>''')
 (d/'index.html').write_text(html)
 manifest={'name':'Chess Quest: The Lost Crown','short_name':'Chess Quest','start_url':'./index.html','scope':'./','id':'./','display':'standalone','orientation':'any','background_color':'#e8efdc','theme_color':'#367f7b','icons':[{'src':f'icon-{s}.png','sizes':f'{s}x{s}','type':'image/png','purpose':'any maskable'} for s in [192,512]]}
 (d/'index.manifest.json').write_text(json.dumps(manifest))
@@ -29,7 +29,7 @@ for size in [192,512]:
   rows.append(b'\0'+row)
  def chunk(t,b):return struct.pack('!I',len(b))+t+b+struct.pack('!I',zlib.crc32(t+b)&0xffffffff)
  (d/f'icon-{size}.png').write_bytes(b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!2I5B',size,size,8,6,0,0,0))+chunk(b'IDAT',zlib.compress(b''.join(rows)))+chunk(b'IEND',b''))
-(d/'guide.html').write_text('''<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Chess Quest 도움말</title><style>body{font:18px/1.8 system-ui;max-width:760px;margin:40px auto;padding:24px;background:#fff6df;color:#263e45}a{color:#367f7b}</style><h1>Chess Quest</h1><p>기물을 누르고 초록 점이 있는 목적지를 누르세요. 영어를 다시 듣거나 힌트를 자유롭게 사용할 수 있어요. 폰이 끝에 도착하면 새 기물을 고릅니다.</p><h2>설치와 오프라인</h2><p>인터넷에 연결된 상태로 처음 실행하고 다운로드를 기다리세요. iPad에서는 Safari의 공유 → 홈 화면에 추가를 사용하세요. Galaxy Chrome에서는 메뉴 → 앱 설치 / 홈 화면에 추가를 선택하세요. 오프라인 실행에는 최초 캐시 완료가 필요합니다.</p><h2>저장</h2><p>진행과 현재 대국은 기기에 자동 저장됩니다. 브라우저 데이터 삭제 시 사라질 수 있습니다. 브라우저와 설치 앱 간 자동 동기화는 제공하지 않습니다.</p><p><a href="./">게임 시작</a> · <a href="source.zip">전체 소스 코드</a> · <a href="CREDITS.txt">라이선스와 크레딧</a></p></html>''')
+(d/'guide.html').write_text('''<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Chess Quest 도움말</title><style>body{font:18px/1.8 system-ui;max-width:760px;margin:40px auto;padding:24px;background:#fff6df;color:#263e45}a{color:#367f7b}</style><h1>Chess Quest</h1><p>기물을 누르고 초록 점이 있는 목적지를 누르세요. 영어를 다시 듣거나 힌트를 자유롭게 사용할 수 있어요. 폰이 끝에 도착하면 새 기물을 고릅니다.</p><h2>설치와 오프라인</h2><p>인터넷에 연결된 상태로 처음 실행하고 다운로드를 기다리세요. iPad에서는 Safari의 공유 → 홈 화면에 추가를 사용하세요. Galaxy Chrome에서는 메뉴 → 앱 설치 / 홈 화면에 추가를 선택하세요. 오프라인 실행에는 최초 캐시 완료가 필요합니다.</p><h2>음성</h2><p>영어 안내는 OpenAI로 생성한 AI 음성입니다.</p><h2>저장</h2><p>진행과 현재 대국은 기기에 자동 저장됩니다. 브라우저 데이터 삭제 시 사라질 수 있습니다. 브라우저와 설치 앱 간 자동 동기화는 제공하지 않습니다.</p><p><a href="./">게임 시작</a> · <a href="source.zip">전체 소스 코드</a> · <a href="CREDITS.txt">라이선스와 크레딧</a></p></html>''')
 (d/'CREDITS.txt').write_text((r/'CREDITS.txt').read_text())
 with zipfile.ZipFile(d/'source.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in r.rglob('*'):
