@@ -7,7 +7,7 @@ root=Path(__file__).resolve().parents[1]
 ffmpeg,reference=sys.argv[1],Path(sys.argv[2])
 manifest=json.loads((root/'assets/audio/gpt-provenance.json').read_text())
 for clip in manifest['clips']:
- name=clip['id']+'.wav';raw=Path.home()/'.cache/chess-quest/gpt-voice-v1'/name
+ name=clip['id']+'.wav';raw=Path.home()/'.cache/chess-quest/gpt-voice-v2'/name
  with wave.open(str(raw)) as wav:
   rate=wav.getframerate();channels=wav.getnchannels();pcm=wav.readframes(wav.getnframes())
   assert channels==1 and wav.getsampwidth()==2
@@ -23,9 +23,9 @@ for clip in manifest['clips']:
   with wave.open(str(source),'wb') as wav:
    wav.setnchannels(1);wav.setsampwidth(2);wav.setframerate(rate);wav.writeframes(samples[start:end].tobytes())
   dest=root/'assets/audio'/name
-  subprocess.run([ffmpeg,'-v','error','-y','-i',str(source),'-af',f'atempo={tempo:.5f}',str(dest)],check=True)
+  subprocess.run([ffmpeg,'-v','error','-y','-i',str(source),'-af',f'asetrate={rate}*1.122462,aresample={rate},atempo={tempo/1.122462:.5f},loudnorm=I=-16:TP=-1.5:LRA=7,aresample={rate}',str(dest)],check=True)
  with wave.open(str(dest)) as wav:clip['duration']=round(wav.getnframes()/wav.getframerate(),3)
  clip['tempo']=round(tempo,5);clip['previous_duration']=round(target,3)
-manifest['processing']='Trim outer silence with 45ms/100ms padding; pitch-preserving tempo matching, maximum 1.45x.'
+manifest['processing']='Trim outer silence with 45ms/100ms padding; tempo matching up to 1.45x; +2 semitone brightening with duration compensation; loudness normalized to -16 LUFS / -1.5 dBTP.'
 (root/'assets/audio/gpt-provenance.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2))
 print('Polished',len(manifest['clips']),'clips')

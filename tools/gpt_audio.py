@@ -2,13 +2,17 @@
 import json, os, urllib.request, urllib.error, wave, io, time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
-STAGE=Path.home()/'.cache/chess-quest/gpt-voice-v1'
+STAGE=Path.home()/'.cache/chess-quest/gpt-voice-v2'
 MODEL='gpt-4o-mini-tts'
-VOICE='shimmer'
-INSTRUCTIONS=('Speak English with a soft, warm, bright, slightly high-pitched feminine voice, '
- 'like a gentle storybook companion. Smooth natural phrasing and a subtle smile. '
- 'Keep a steady pace around 145 words per minute. Clearly pronounce chess vocabulary. '
- 'Avoid whispering, exaggerated excitement, baby talk, and long pauses. Say only the supplied text.')
+VOICE='coral'
+INSTRUCTIONS=('Use a distinctly HIGH-PITCHED, bright, youthful ADULT FEMALE voice. '
+ 'You are a cheerful female primary-school English teacher speaking clearly to a child. '
+ 'Keep your speaking register high and light throughout each phrase, with a smiling upward lilt. '
+ 'Project your voice clearly at a confident, full conversational volume. '
+ 'Warm and friendly, never hushed, breathy, whispered, low-register, sleepy or intimate. '
+ 'Gentle means kind, NOT quiet or low-pitched. Crisp vowels and consonants, smooth natural delivery. '
+ 'Speak around 145 words per minute, without long pauses or drawn-out syllables. '
+ 'No baby talk, cartoon squeaks or shouting. Say only the supplied text.')
 def main():
  key=os.environ.get('OPENAI_API_KEY','')
  if not key:

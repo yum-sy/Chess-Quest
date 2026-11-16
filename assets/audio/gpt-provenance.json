@@ -1,401 +1,401 @@
 {
   "provider": "OpenAI",
   "model": "gpt-4o-mini-tts",
-  "voice": "shimmer",
-  "instructions": "Speak English with a soft, warm, bright, slightly high-pitched feminine voice, like a gentle storybook companion. Smooth natural phrasing and a subtle smile. Keep a steady pace around 145 words per minute. Clearly pronounce chess vocabulary. Avoid whispering, exaggerated excitement, baby talk, and long pauses. Say only the supplied text.",
+  "voice": "coral",
+  "instructions": "Use a distinctly HIGH-PITCHED, bright, youthful ADULT FEMALE voice. You are a cheerful female primary-school English teacher speaking clearly to a child. Keep your speaking register high and light throughout each phrase, with a smiling upward lilt. Project your voice clearly at a confident, full conversational volume. Warm and friendly, never hushed, breathy, whispered, low-register, sleepy or intimate. Gentle means kind, NOT quiet or low-pitched. Crisp vowels and consonants, smooth natural delivery. Speak around 145 words per minute, without long pauses or drawn-out syllables. No baby talk, cartoon squeaks or shouting. Say only the supplied text.",
   "clips": [
     {
       "id": "move_forward",
       "text": "Move forward!",
-      "duration": 1.041,
-      "tempo": 1.45,
-      "previous_duration": 0.931
+      "duration": 1.055,
+      "tempo": 1.39447,
+      "previous_duration": 1.041
     },
     {
       "id": "move_two",
       "text": "Move two!",
-      "duration": 0.954,
+      "duration": 0.984,
       "tempo": 1.45,
-      "previous_duration": 0.722
+      "previous_duration": 0.954
     },
     {
       "id": "capture_the_pawn",
       "text": "Capture the pawn!",
-      "duration": 1.105,
-      "tempo": 1.14903,
-      "previous_duration": 1.099
+      "duration": 1.109,
+      "tempo": 1.36597,
+      "previous_duration": 1.105
     },
     {
       "id": "find_a_safe_move",
       "text": "Find a safe move!",
-      "duration": 1.268,
-      "tempo": 1.3673,
-      "previous_duration": 1.253
+      "duration": 1.277,
+      "tempo": 1.35147,
+      "previous_duration": 1.268
     },
     {
       "id": "jump_over_the_pawn",
       "text": "Jump over the pawn!",
-      "duration": 1.232,
-      "tempo": 1.24361,
-      "previous_duration": 1.22
+      "duration": 1.554,
+      "tempo": 1.45,
+      "previous_duration": 1.232
     },
     {
       "id": "jump_to_safety",
       "text": "Jump to safety!",
-      "duration": 1.092,
-      "tempo": 1.0922,
+      "duration": 1.129,
+      "tempo": 1.45,
       "previous_duration": 1.092
     },
     {
       "id": "move_the_rook",
       "text": "Move the rook!",
-      "duration": 0.945,
-      "tempo": 1.45,
-      "previous_duration": 0.85
+      "duration": 0.955,
+      "tempo": 1.3875,
+      "previous_duration": 0.945
     },
     {
       "id": "attack_the_rook",
       "text": "Attack the rook!",
-      "duration": 1.169,
-      "tempo": 1.45,
-      "previous_duration": 1.005
+      "duration": 1.177,
+      "tempo": 1.32105,
+      "previous_duration": 1.169
     },
     {
       "id": "protect_the_pawn",
       "text": "Protect the pawn!",
-      "duration": 1.133,
-      "tempo": 1.33206,
+      "duration": 1.14,
+      "tempo": 1.41726,
       "previous_duration": 1.133
     },
     {
       "id": "attack_the_queen",
       "text": "Attack the queen!",
-      "duration": 1.211,
-      "tempo": 1.45,
-      "previous_duration": 1.11
+      "duration": 1.201,
+      "tempo": 1.015,
+      "previous_duration": 1.211
     },
     {
       "id": "move_the_bishop",
       "text": "Move the bishop!",
-      "duration": 0.909,
-      "tempo": 1.43468,
-      "previous_duration": 0.908
+      "duration": 0.978,
+      "tempo": 1.45,
+      "previous_duration": 0.909
     },
     {
       "id": "capture_the_rook",
       "text": "Capture the rook!",
-      "duration": 1.047,
-      "tempo": 1.41552,
-      "previous_duration": 1.041
+      "duration": 1.144,
+      "tempo": 1.45,
+      "previous_duration": 1.047
     },
     {
       "id": "save_the_bishop",
       "text": "Save the bishop!",
-      "duration": 1.059,
-      "tempo": 1.45,
-      "previous_duration": 0.976
+      "duration": 1.061,
+      "tempo": 1.23761,
+      "previous_duration": 1.059
     },
     {
       "id": "protect_the_rook",
       "text": "Protect the rook!",
-      "duration": 1.075,
-      "tempo": 1.36643,
-      "previous_duration": 1.063
+      "duration": 1.127,
+      "tempo": 1.45,
+      "previous_duration": 1.075
     },
     {
       "id": "move_the_queen",
       "text": "Move the queen!",
-      "duration": 0.956,
-      "tempo": 1.26324,
-      "previous_duration": 0.942
+      "duration": 0.966,
+      "tempo": 1.32974,
+      "previous_duration": 0.956
     },
     {
       "id": "attack_together",
       "text": "Attack together!",
-      "duration": 1.132,
-      "tempo": 1.45,
-      "previous_duration": 0.994
+      "duration": 1.142,
+      "tempo": 1.24874,
+      "previous_duration": 1.132
     },
     {
       "id": "check_the_king",
       "text": "Check the king!",
-      "duration": 0.857,
-      "tempo": 1.15845,
-      "previous_duration": 0.854
+      "duration": 0.958,
+      "tempo": 1.45,
+      "previous_duration": 0.857
     },
     {
       "id": "protect_the_king",
       "text": "Protect the king!",
-      "duration": 1.128,
+      "duration": 1.215,
       "tempo": 1.45,
-      "previous_duration": 1.063
+      "previous_duration": 1.128
     },
     {
       "id": "checkmate_in_one",
       "text": "Checkmate in one!",
-      "duration": 1.306,
-      "tempo": 1.45,
-      "previous_duration": 1.098
+      "duration": 1.312,
+      "tempo": 1.37843,
+      "previous_duration": 1.306
     },
     {
       "id": "save_your_rook",
       "text": "Save your rook!",
-      "duration": 0.998,
-      "tempo": 1.12237,
-      "previous_duration": 0.987
+      "duration": 1.097,
+      "tempo": 1.45,
+      "previous_duration": 0.998
     },
     {
       "id": "checkmate_you_win",
       "text": "Checkmate! You win!",
-      "duration": 1.52,
-      "tempo": 1.4192,
-      "previous_duration": 1.516
+      "duration": 1.526,
+      "tempo": 1.30113,
+      "previous_duration": 1.52
     },
     {
       "id": "great_move",
       "text": "Great move!",
-      "duration": 0.708,
+      "duration": 0.744,
       "tempo": 1.45,
-      "previous_duration": 0.688
+      "previous_duration": 0.708
     },
     {
       "id": "protect_your_king",
       "text": "Protect your king!",
-      "duration": 1.157,
-      "tempo": 1.37958,
-      "previous_duration": 1.156
+      "duration": 1.226,
+      "tempo": 1.45,
+      "previous_duration": 1.157
     },
     {
       "id": "word_pawn",
       "text": "Pawn!",
-      "duration": 0.532,
-      "tempo": 1.45,
-      "previous_duration": 0.471
+      "duration": 0.546,
+      "tempo": 1.23193,
+      "previous_duration": 0.532
     },
     {
       "id": "word_move",
       "text": "Move!",
-      "duration": 0.471,
+      "duration": 0.538,
       "tempo": 1.45,
-      "previous_duration": 0.42
+      "previous_duration": 0.471
     },
     {
       "id": "word_forward",
       "text": "Forward!",
-      "duration": 1.23,
-      "tempo": 1.45,
-      "previous_duration": 0.684
+      "duration": 0.838,
+      "tempo": 1.0,
+      "previous_duration": 1.23
     },
     {
       "id": "word_one",
       "text": "One!",
-      "duration": 0.469,
-      "tempo": 1.35293,
-      "previous_duration": 0.465
+      "duration": 0.476,
+      "tempo": 1.22683,
+      "previous_duration": 0.469
     },
     {
       "id": "word_two",
       "text": "Two!",
-      "duration": 0.406,
-      "tempo": 1.31024,
+      "duration": 0.409,
+      "tempo": 1.15181,
       "previous_duration": 0.406
     },
     {
       "id": "word_capture",
       "text": "Capture!",
-      "duration": 0.64,
-      "tempo": 1.45,
-      "previous_duration": 0.623
+      "duration": 0.596,
+      "tempo": 1.0,
+      "previous_duration": 0.64
     },
     {
       "id": "word_knight",
       "text": "Knight!",
-      "duration": 0.475,
-      "tempo": 1.45,
-      "previous_duration": 0.423
+      "duration": 0.477,
+      "tempo": 1.35154,
+      "previous_duration": 0.475
     },
     {
       "id": "word_jump",
       "text": "Jump!",
-      "duration": 0.545,
-      "tempo": 1.27414,
-      "previous_duration": 0.533
+      "duration": 0.547,
+      "tempo": 1.23751,
+      "previous_duration": 0.545
     },
     {
       "id": "word_over",
       "text": "Over!",
-      "duration": 0.443,
-      "tempo": 1.45,
-      "previous_duration": 0.432
+      "duration": 0.435,
+      "tempo": 1.16184,
+      "previous_duration": 0.443
     },
     {
       "id": "word_left",
       "text": "Left!",
-      "duration": 0.518,
+      "duration": 0.569,
       "tempo": 1.45,
-      "previous_duration": 0.49
+      "previous_duration": 0.518
     },
     {
       "id": "word_right",
       "text": "Right!",
-      "duration": 0.458,
-      "tempo": 1.45,
-      "previous_duration": 0.435
+      "duration": 0.465,
+      "tempo": 1.21732,
+      "previous_duration": 0.458
     },
     {
       "id": "word_rook",
       "text": "Rook!",
-      "duration": 0.463,
+      "duration": 0.482,
       "tempo": 1.45,
-      "previous_duration": 0.458
+      "previous_duration": 0.463
     },
     {
       "id": "word_straight",
       "text": "Straight!",
-      "duration": 0.599,
-      "tempo": 1.37737,
-      "previous_duration": 0.604
+      "duration": 0.645,
+      "tempo": 1.45,
+      "previous_duration": 0.599
     },
     {
       "id": "word_attack",
       "text": "Attack!",
-      "duration": 0.623,
-      "tempo": 1.1994,
-      "previous_duration": 0.622
+      "duration": 0.68,
+      "tempo": 1.45,
+      "previous_duration": 0.623
     },
     {
       "id": "word_protect",
       "text": "Protect!",
-      "duration": 0.714,
-      "tempo": 1.17167,
-      "previous_duration": 0.703
+      "duration": 0.723,
+      "tempo": 1.34834,
+      "previous_duration": 0.714
     },
     {
       "id": "word_bishop",
       "text": "Bishop!",
-      "duration": 0.497,
-      "tempo": 1.45,
-      "previous_duration": 0.477
+      "duration": 0.477,
+      "tempo": 1.32621,
+      "previous_duration": 0.497
     },
     {
       "id": "word_diagonal",
       "text": "Diagonal!",
-      "duration": 0.771,
-      "tempo": 1.05341,
-      "previous_duration": 0.769
+      "duration": 0.777,
+      "tempo": 1.26653,
+      "previous_duration": 0.771
     },
     {
       "id": "word_find",
       "text": "Find!",
-      "duration": 0.593,
-      "tempo": 1.2546,
-      "previous_duration": 0.58
+      "duration": 0.609,
+      "tempo": 1.33504,
+      "previous_duration": 0.593
     },
     {
       "id": "word_safe",
       "text": "Safe!",
-      "duration": 0.575,
-      "tempo": 1.33845,
-      "previous_duration": 0.569
+      "duration": 0.584,
+      "tempo": 1.30601,
+      "previous_duration": 0.575
     },
     {
       "id": "word_queen",
       "text": "Queen!",
-      "duration": 0.591,
-      "tempo": 1.45,
-      "previous_duration": 0.522
+      "duration": 0.6,
+      "tempo": 1.44396,
+      "previous_duration": 0.591
     },
     {
       "id": "word_powerful",
       "text": "Powerful!",
-      "duration": 0.718,
-      "tempo": 1.34017,
-      "previous_duration": 0.716
+      "duration": 0.724,
+      "tempo": 1.14578,
+      "previous_duration": 0.718
     },
     {
       "id": "word_together",
       "text": "Together!",
-      "duration": 0.579,
-      "tempo": 1.30569,
-      "previous_duration": 0.577
+      "duration": 0.589,
+      "tempo": 1.37416,
+      "previous_duration": 0.579
     },
     {
       "id": "word_save",
       "text": "Save!",
-      "duration": 0.572,
+      "duration": 0.661,
       "tempo": 1.45,
-      "previous_duration": 0.5
+      "previous_duration": 0.572
     },
     {
       "id": "word_king",
       "text": "King!",
-      "duration": 0.449,
-      "tempo": 1.45,
-      "previous_duration": 0.43
+      "duration": 0.45,
+      "tempo": 1.29167,
+      "previous_duration": 0.449
     },
     {
       "id": "word_danger",
       "text": "Danger!",
-      "duration": 0.555,
-      "tempo": 1.35162,
-      "previous_duration": 0.549
+      "duration": 0.656,
+      "tempo": 1.45,
+      "previous_duration": 0.555
     },
     {
       "id": "word_check",
       "text": "Check!",
-      "duration": 0.482,
-      "tempo": 1.38352,
-      "previous_duration": 0.467
+      "duration": 0.486,
+      "tempo": 1.20047,
+      "previous_duration": 0.482
     },
     {
       "id": "word_checkmate",
       "text": "Checkmate!",
-      "duration": 0.746,
-      "tempo": 1.34412,
-      "previous_duration": 0.738
+      "duration": 0.74,
+      "tempo": 1.127,
+      "previous_duration": 0.746
     },
     {
       "id": "word_win",
       "text": "Win!",
-      "duration": 0.42,
+      "duration": 0.516,
       "tempo": 1.45,
-      "previous_duration": 0.395
+      "previous_duration": 0.42
     },
     {
       "id": "word_defend",
       "text": "Defend!",
-      "duration": 0.619,
-      "tempo": 1.45,
-      "previous_duration": 0.596
+      "duration": 0.625,
+      "tempo": 1.30858,
+      "previous_duration": 0.619
     },
     {
       "id": "word_great_move",
       "text": "Great move!",
-      "duration": 0.826,
-      "tempo": 1.45,
-      "previous_duration": 0.688
+      "duration": 0.834,
+      "tempo": 1.33306,
+      "previous_duration": 0.826
     },
     {
       "id": "praise",
       "text": "Great move!",
-      "duration": 0.71,
+      "duration": 0.862,
       "tempo": 1.45,
-      "previous_duration": 0.688
+      "previous_duration": 0.71
     },
     {
       "id": "retry",
       "text": "Let’s try again!",
-      "duration": 1.149,
-      "tempo": 1.16761,
-      "previous_duration": 1.152
+      "duration": 1.159,
+      "tempo": 1.17836,
+      "previous_duration": 1.149
     },
     {
       "id": "check",
       "text": "Your king is in danger!",
-      "duration": 1.387,
+      "duration": 1.557,
       "tempo": 1.45,
-      "previous_duration": 1.314
+      "previous_duration": 1.387
     }
   ],
-  "processing": "Trim outer silence with 45ms/100ms padding; pitch-preserving tempo matching, maximum 1.45x."
+  "processing": "Trim outer silence with 45ms/100ms padding; tempo matching up to 1.45x; +2 semitone brightening with duration compensation; loudness normalized to -16 LUFS / -1.5 dBTP."
 }
