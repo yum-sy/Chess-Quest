@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "title": "작은 병사의 출발",
+    "subtitle": "THE GARDEN",
+    "intro": "왕관의 빛이 사라졌어. 작은 병사와 첫걸음을 내딛자!",
+    "outro": "정원의 길이 열렸어! 다리 너머 기사를 찾아가자."
+  },
+  {
+    "id": 2,
+    "title": "뛰어넘는 기사",
+    "subtitle": "THE BROKEN BRIDGE",
+    "intro": "다리가 무너졌어. 기사는 친구들을 뛰어넘을 수 있어!",
+    "outro": "멋진 점프야! 마법의 탑이 보인다."
+  },
+  {
+    "id": 3,
+    "title": "마법의 탑",
+    "subtitle": "THE MAGIC TOWER",
+    "intro": "든든한 룩과 함께 성벽을 지키자.",
+    "outro": "성벽을 지켰어! 사원에 숨은 마법사를 만나자."
+  },
+  {
+    "id": 4,
+    "title": "비밀의 사원",
+    "subtitle": "THE SECRET TEMPLE",
+    "intro": "비숍은 대각선을 따라 빛의 길을 찾아.",
+    "outro": "안전한 길을 찾았어! 여왕의 궁전으로 가자."
+  },
+  {
+    "id": 5,
+    "title": "여왕의 귀환",
+    "subtitle": "THE QUEEN RETURNS",
+    "intro": "여왕과 힘을 합쳐 왕국의 친구들을 구하자.",
+    "outro": "여왕이 돌아왔어! 이제 위험에 빠진 왕을 지켜야 해."
+  },
+  {
+    "id": 6,
+    "title": "위험에 빠진 왕",
+    "subtitle": "THE KING’S CASTLE",
+    "intro": "왕은 잡히지 않아. 체크를 막고 체크메이트를 만들어 보자.",
+    "outro": "왕을 구했어! 마지막 왕관의 전쟁이 기다려."
+  },
+  {
+    "id": 7,
+    "title": "왕관의 전쟁",
+    "subtitle": "THE LOST CROWN",
+    "intro": "배운 모든 기물과 함께 모험을 완성하자. 천천히 두어도 괜찮아.",
+    "outro": "왕관을 되찾았어! 왕국에 빛과 웃음이 돌아왔어. 우리의 모험은 계속돼!"
+  }
+]

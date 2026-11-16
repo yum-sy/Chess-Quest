@@ -1,0 +1,1636 @@
+[
+  {
+    "acceptedSolutions": [
+      "b2b3",
+      "b2b4"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 1.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "move_forward"
+    ],
+    "hints": [
+      "폰을 앞으로 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-1",
+    "initialPosition": "4/4/1P2/4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "p",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-1",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "a2a4"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 1.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "move_two"
+    ],
+    "hints": [
+      "처음 자리에서는 두 칸도 갈 수 있어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-2",
+    "initialPosition": "4/4/P3/4 w - - 0 1",
+    "objective": {
+      "destination": "a4",
+      "piece": "p",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-2",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2c3"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 1.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "대각선의 상대 폰을 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-3",
+    "initialPosition": "4/2p1/1P2/4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "p",
+      "target": "c3"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-3",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "a2a3",
+      "a2a4",
+      "c2c3",
+      "c2c4"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 1.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "move_forward"
+    ],
+    "hints": [
+      "폰을 앞으로 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-4",
+    "initialPosition": "4/4/P1P1/4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "p",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-4",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2b3",
+      "b2b4"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 1.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "상대 폰이 공격하지 않는 칸을 찾아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-5",
+    "initialPosition": "3p/4/1P2/4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "p",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-5",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "c2b3",
+      "c2d3"
+    ],
+    "boardSize": 4.0,
+    "boss": true,
+    "chapter": 1.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "상대 폰 하나를 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-6",
+    "initialPosition": "4/1p1p/2P1/4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "p",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-6",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "a2a3",
+      "a2a4"
+    ],
+    "boardSize": 4.0,
+    "boss": true,
+    "chapter": 1.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "안전한 칸으로 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-7",
+    "initialPosition": "2p1/4/P3/4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "p",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-7",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "a2b3"
+    ],
+    "boardSize": 4.0,
+    "boss": true,
+    "chapter": 1.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "마지막 문지기 폰을 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "1-8",
+    "initialPosition": "3p/1p2/P3/4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "p",
+      "target": "b3"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-1-8",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "b1d2",
+      "b1a3",
+      "b1c3"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 2.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "jump_over_the_pawn"
+    ],
+    "hints": [
+      "나이트는 친구를 뛰어넘어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-1",
+    "initialPosition": "4/4/1P2/1NP1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-1",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "c1a2",
+      "c1b3",
+      "c1d3"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 2.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "jump_over_the_pawn"
+    ],
+    "hints": [
+      "나이트는 친구를 뛰어넘어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-2",
+    "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-2",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b1c3"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 2.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "나이트로 상대 폰을 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-3",
+    "initialPosition": "4/2p1/1P2/1N2 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": "c3"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-3",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "c1a2",
+      "c1b3",
+      "c1d3"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 2.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "jump_over_the_pawn"
+    ],
+    "hints": [
+      "나이트는 친구를 뛰어넘어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-4",
+    "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-4",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "c1a2"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "chapter": 2.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "jump_to_safety"
+    ],
+    "hints": [
+      "나이트가 안전하게 착지할 곳을 찾아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-5",
+    "initialPosition": "2p1/4/4/2N1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-5",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "c1a2",
+      "c1b3",
+      "c1d3"
+    ],
+    "boardSize": 4.0,
+    "boss": true,
+    "chapter": 2.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "jump_over_the_pawn"
+    ],
+    "hints": [
+      "나이트는 친구를 뛰어넘어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-6",
+    "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-6",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "c1a2"
+    ],
+    "boardSize": 4.0,
+    "boss": true,
+    "chapter": 2.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "jump_to_safety"
+    ],
+    "hints": [
+      "나이트가 안전하게 착지할 곳을 찾아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-7",
+    "initialPosition": "2p1/4/4/2N1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-7",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b1c3"
+    ],
+    "boardSize": 4.0,
+    "boss": true,
+    "chapter": 2.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "나이트로 상대 폰을 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "2-8",
+    "initialPosition": "4/2p1/1P2/1N2 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "n",
+      "target": "c3"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-2-8",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2b1",
+      "b2a2",
+      "b2c2",
+      "b2d2",
+      "b2e2",
+      "b2f2",
+      "b2b3",
+      "b2b4",
+      "b2b5",
+      "b2b6"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 3.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "move_the_rook"
+    ],
+    "hints": [
+      "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-1",
+    "initialPosition": "6/6/6/6/1R4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-1",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2b5"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 3.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "새 친구와 상대 폰을 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-2",
+    "initialPosition": "6/1p4/6/6/1R4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-2",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2e2",
+      "b2b4"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 3.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "attack_the_rook"
+    ],
+    "hints": [
+      "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-3",
+    "initialPosition": "6/6/4r1/6/1R4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": "e4"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-3",
+    "type": "ATTACK"
+  },
+  {
+    "acceptedSolutions": [
+      "b2d2",
+      "b2b4"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 3.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "protect_the_pawn"
+    ],
+    "hints": [
+      "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-4",
+    "initialPosition": "3r2/6/3P2/6/1R4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": "d4"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-4",
+    "type": "PROTECT"
+  },
+  {
+    "acceptedSolutions": [
+      "b2b1",
+      "b2a2",
+      "b2c2",
+      "b2d2",
+      "b2e2",
+      "b2b3",
+      "b2b4",
+      "b2b6"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 3.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "상대의 공격을 받지 않는 칸으로 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-5",
+    "initialPosition": "6/5r/6/6/1R4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-5",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "a1f1",
+      "a1a5"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 3.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "attack_the_queen"
+    ],
+    "hints": [
+      "움직인 뒤 상대 퀸을 공격해요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-6",
+    "initialPosition": "6/5q/6/6/6/R5 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": "f5"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-6",
+    "type": "ATTACK"
+  },
+  {
+    "acceptedSolutions": [
+      "a1c1",
+      "a1a3"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 3.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "protect_the_pawn"
+    ],
+    "hints": [
+      "상대가 폰을 잡으면 되잡을 수 있게 지켜요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-7",
+    "initialPosition": "2r3/6/6/2P3/6/R5 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": "c3"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-7",
+    "type": "PROTECT"
+  },
+  {
+    "acceptedSolutions": [
+      "c3c1",
+      "c3c2",
+      "c3a3",
+      "c3b3",
+      "c3d3",
+      "c3e3",
+      "c3c4",
+      "c3c5"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 3.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "안전한 이동으로 다음 길을 열어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "3-8",
+    "initialPosition": "5r/p5/6/2R3/6/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-3-8",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2c1",
+      "b2a3",
+      "b2c3",
+      "b2d4",
+      "b2e5",
+      "b2f6"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 4.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "move_the_bishop"
+    ],
+    "hints": [
+      "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-1",
+    "initialPosition": "6/6/6/6/1B4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-1",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2d4"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 4.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "새 친구와 상대 폰을 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-2",
+    "initialPosition": "6/6/3p2/6/1B4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-2",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2c3",
+      "b2d4"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 4.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "attack_the_rook"
+    ],
+    "hints": [
+      "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-3",
+    "initialPosition": "6/4r1/6/6/1B4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": "e5"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-3",
+    "type": "ATTACK"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2c3"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 4.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "protect_the_pawn"
+    ],
+    "hints": [
+      "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-4",
+    "initialPosition": "3r2/6/3P2/6/1B4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": "d4"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-4",
+    "type": "PROTECT"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2c1",
+      "b2a3",
+      "b2c3",
+      "b2d4"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 4.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "상대의 공격을 받지 않는 칸으로 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-5",
+    "initialPosition": "6/5r/6/6/1B4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-5",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "a1b2",
+      "a1c3",
+      "a1d4"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 4.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "attack_the_queen"
+    ],
+    "hints": [
+      "움직인 뒤 상대 퀸을 공격해요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-6",
+    "initialPosition": "6/4q1/6/6/6/B5 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": "e5"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-6",
+    "type": "ATTACK"
+  },
+  {
+    "acceptedSolutions": [
+      "a1b2"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 4.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "protect_the_pawn"
+    ],
+    "hints": [
+      "상대가 폰을 잡으면 되잡을 수 있게 지켜요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-7",
+    "initialPosition": "2r3/6/6/2P3/6/B5 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": "c3"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-7",
+    "type": "PROTECT"
+  },
+  {
+    "acceptedSolutions": [
+      "c3a1",
+      "c3e1",
+      "c3b2",
+      "c3d2",
+      "c3d4",
+      "c3a5",
+      "c3e5",
+      "c3f6"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 4.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "안전한 이동으로 다음 길을 열어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "4-8",
+    "initialPosition": "5r/p5/6/2B3/6/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-4-8",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2b1",
+      "b2c1",
+      "b2a2",
+      "b2c2",
+      "b2d2",
+      "b2e2",
+      "b2f2",
+      "b2a3",
+      "b2b3",
+      "b2c3",
+      "b2b4",
+      "b2d4",
+      "b2b5",
+      "b2e5",
+      "b2b6",
+      "b2f6"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 5.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "move_the_queen"
+    ],
+    "hints": [
+      "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-1",
+    "initialPosition": "6/6/6/6/1Q4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-1",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2b5"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 5.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "hints": [
+      "새 친구와 상대 폰을 잡아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-2",
+    "initialPosition": "6/1p4/6/6/1Q4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-2",
+    "type": "CAPTURE"
+  },
+  {
+    "acceptedSolutions": [
+      "b2b1",
+      "b2c2",
+      "b2e2",
+      "b2b4",
+      "b2d4",
+      "b2e5"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 5.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "attack_the_rook"
+    ],
+    "hints": [
+      "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-3",
+    "initialPosition": "6/6/4r1/6/1Q4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": "e4"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-3",
+    "type": "ATTACK"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2d2",
+      "b2f2",
+      "b2c3",
+      "b2b4",
+      "b2b6"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 5.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "protect_the_pawn"
+    ],
+    "hints": [
+      "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-4",
+    "initialPosition": "3r2/6/3P2/6/1Q4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": "d4"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-4",
+    "type": "PROTECT"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2b1",
+      "b2c1",
+      "b2a2",
+      "b2c2",
+      "b2d2",
+      "b2e2",
+      "b2a3",
+      "b2b3",
+      "b2c3",
+      "b2b4",
+      "b2d4",
+      "b2b6"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "chapter": 5.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "상대의 공격을 받지 않는 칸으로 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-5",
+    "initialPosition": "6/5r/6/6/1Q4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-5",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "a1b1",
+      "a1f1",
+      "a1a5",
+      "a1e5",
+      "a1f6"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 5.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "attack_the_queen"
+    ],
+    "hints": [
+      "움직인 뒤 상대 퀸을 공격해요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-6",
+    "initialPosition": "6/5q/6/6/6/Q5 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": "f5"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-6",
+    "type": "ATTACK"
+  },
+  {
+    "acceptedSolutions": [
+      "b2a1",
+      "b2c3",
+      "b2b5"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 5.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "attack_together"
+    ],
+    "hints": [
+      "퀸 하나로 상대 룩 둘을 동시에 공격해요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-7",
+    "initialPosition": "6/r3r1/6/6/1Q4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-7",
+    "type": "FORK"
+  },
+  {
+    "acceptedSolutions": [
+      "c3a1",
+      "c3c1",
+      "c3e1",
+      "c3b2",
+      "c3c2",
+      "c3d2",
+      "c3a3",
+      "c3b3",
+      "c3d3",
+      "c3e3",
+      "c3c4",
+      "c3d4",
+      "c3a5",
+      "c3c5",
+      "c3e5",
+      "c3f6"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "chapter": 5.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "hints": [
+      "안전한 이동으로 다음 길을 열어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "5-8",
+    "initialPosition": "5r/p5/6/2Q3/6/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-5-8",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "a2e2",
+      "a2a8"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 6.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "check_the_king"
+    ],
+    "hints": [
+      "상대 왕을 공격하되 우리 왕을 안전하게 지켜요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-1",
+    "initialPosition": "4k3/8/8/8/8/8/R7/4K3 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-1",
+    "type": "CHECK"
+  },
+  {
+    "acceptedSolutions": [
+      "e1d1",
+      "e1f1",
+      "e1d2",
+      "e1f2"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 6.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "protect_the_king"
+    ],
+    "hints": [
+      "왕이 체크를 받았어요. 체크에서 벗어나요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-2",
+    "initialPosition": "4r1k1/8/8/8/8/8/8/4K3 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "k",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-2",
+    "type": "ESCAPE_CHECK"
+  },
+  {
+    "acceptedSolutions": [
+      "f7g7",
+      "f7h7",
+      "f7e8",
+      "f7f8"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 6.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "checkmate_in_one"
+    ],
+    "hints": [
+      "상대 왕이 빠져나올 수 없는 체크를 만들어요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-3",
+    "initialPosition": "7k/5Q2/6K1/8/8/8/8/8 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-3",
+    "type": "CHECKMATE"
+  },
+  {
+    "acceptedSolutions": [
+      "c7a7",
+      "c7b7",
+      "c7c8",
+      "c7d8"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 6.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "checkmate_in_one"
+    ],
+    "hints": [
+      "다른 배치에서도 체크메이트를 찾아요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-4",
+    "initialPosition": "k7/2Q5/1K6/8/8/8/8/8 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-4",
+    "type": "CHECKMATE"
+  },
+  {
+    "acceptedSolutions": [
+      "c3c1",
+      "c3c2",
+      "c3a3",
+      "c3b3",
+      "c3d3",
+      "c3e3",
+      "c3f3",
+      "c3h3",
+      "c3c4",
+      "c3c5",
+      "c3c6",
+      "c3c8"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 6.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "save_your_rook"
+    ],
+    "hints": [
+      "공격받는 룩을 안전한 칸으로 움직여요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-5",
+    "initialPosition": "6k1/8/8/4b3/8/2R5/8/6K1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-5",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": true,
+    "chapter": 6.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "checkmate_you_win"
+    ],
+    "hints": [
+      "AI와 번갈아 두어 체크메이트를 완성해요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-6",
+    "initialPosition": "7k/8/5K2/3Q4/8/8/8/8 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-6",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": true,
+    "chapter": 6.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "checkmate_you_win"
+    ],
+    "hints": [
+      "AI와 번갈아 두어 체크메이트를 완성해요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-7",
+    "initialPosition": "k7/8/2K5/4Q3/8/8/8/8 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-7",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": true,
+    "chapter": 6.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "checkmate_you_win"
+    ],
+    "hints": [
+      "AI와 번갈아 두어 체크메이트를 완성해요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "6-8",
+    "initialPosition": "7k/8/8/4K3/8/1Q6/8/8 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-6-8",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 7.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "great_move"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-1",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-1",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 7.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "protect_your_king"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-2",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-2",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 7.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "great_move"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-3",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-3",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 7.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "protect_your_king"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-4",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-4",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": false,
+    "chapter": 7.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "great_move"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-5",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-5",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": true,
+    "chapter": 7.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "protect_your_king"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-6",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-6",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": true,
+    "chapter": 7.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "great_move"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-7",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-7",
+    "type": "GAME"
+  },
+  {
+    "acceptedSolutions": [],
+    "boardSize": 8.0,
+    "boss": true,
+    "chapter": 7.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "protect_your_king"
+    ],
+    "hints": [
+      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "초록 점은 이동할 수 있는 칸이에요.",
+      "빛나는 경로를 따라 움직여 보세요."
+    ],
+    "id": "7-8",
+    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "rewardId": "reward-7-8",
+    "type": "GAME"
+  }
+]

@@ -1,0 +1,199 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 프로젝트 초기화 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 파일 구조 스캔 중...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 전역 클래스 이름을 불러오는 중...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | GDExtensions 검증 중...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 오토로드 스크립트를 만드는 중...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 플러그인을 초기화 중...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 파일 스캔 시작 중...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 전역 클래스를 등록하는 중... (4 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  40% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 액션 스캔 중... (7 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | web-fold-home.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | web-fold-play.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | web-home.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | web-ipad.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | web-offline.png[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | web-play.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | web-success.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 애셋 (다시) 가져오는 중 (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  12% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  25% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  37% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  50% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  62% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  75% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[   0% ] [90m[1mreimport[22m | 다시 가져오기 전 작업을 수행 중...[39m[0m
+[   0% ] [90m[1mreimport[22m | web-fold-home.png[39m[0m
+[  12% ] [90m[1mreimport[22m | web-fold-play.png[39m[0m
+[  25% ] [90m[1mreimport[22m | web-home.png[39m[0m
+[  37% ] [90m[1mreimport[22m | web-ipad.png[39m[0m
+[  50% ] [90m[1mreimport[22m | web-offline.png[39m[0m
+[  62% ] [90m[1mreimport[22m | web-play.png[39m[0m
+[  75% ] [90m[1mreimport[22m | web-success.png[39m[0m
+[  87% ] [90m[1mreimport[22m | 애셋 가져오기 마무리 중...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started 애셋 (다시) 가져오는 중 (7 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | 다시 가져오기 후 작업을 수행 중...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started 편집기를 불러오는 중 (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | 편집기 레이아웃을 불러오는 중...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | 독을 불러오는 중...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started 프로젝트 초기화 (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | 파일 구조 스캔 중...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | 전역 클래스 이름을 불러오는 중...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | GDExtensions 검증 중...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | 오토로드 스크립트를 만드는 중...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | 플러그인을 초기화 중...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | 파일 스캔 시작 중...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1msavepack[22m | Started 패킹 중 (102 steps)[39m[0m
+[   1% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/attack_the_queen.wav-ad1b66247a13e5ff4e1f7fdb39d40204.sample[39m[0m
+[   1% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/attack_the_queen.wav.import[39m[0m
+[   2% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/attack_the_rook.wav-4903b9e282f82c4f3212477f00fffb80.sample[39m[0m
+[   2% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/attack_the_rook.wav.import[39m[0m
+[   4% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/attack_together.wav-07f698e5fec152e542d306ee8f8d4a61.sample[39m[0m
+[   4% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/attack_together.wav.import[39m[0m
+[   5% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/capture_the_pawn.wav-c6c8adaa10b85300be989a732bea6cac.sample[39m[0m
+[   5% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/capture_the_pawn.wav.import[39m[0m
+[   7% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/check.wav-d62285616bef5ca07669739c0c1359ce.sample[39m[0m
+[   7% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/check.wav.import[39m[0m
+[   8% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/checkmate_in_one.wav-b8599535d9d7fd53f834be13db18ecb5.sample[39m[0m
+[   8% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/checkmate_in_one.wav.import[39m[0m
+[  10% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/checkmate_you_win.wav-5fc72a82e99ca3abc6561bf3a75ff7fe.sample[39m[0m
+[  10% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/checkmate_you_win.wav.import[39m[0m
+[  11% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/check_the_king.wav-695100dceadb0993e43fe572a05491f5.sample[39m[0m
+[  11% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/check_the_king.wav.import[39m[0m
+[  13% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/find_a_safe_move.wav-5ae886c3c6fa6a6a6e0f37aa26aaae56.sample[39m[0m
+[  13% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/find_a_safe_move.wav.import[39m[0m
+[  14% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/great_move.wav-e44e7a255df37d97ad9c5b427a6a5f83.sample[39m[0m
+[  14% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/great_move.wav.import[39m[0m
+[  16% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/jump_over_the_pawn.wav-7908984ca3cb8f95860d14d0e0dc05de.sample[39m[0m
+[  16% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/jump_over_the_pawn.wav.import[39m[0m
+[  17% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/jump_to_safety.wav-ed9694268a2da412f86dac1c4b175813.sample[39m[0m
+[  17% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/jump_to_safety.wav.import[39m[0m
+[  19% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/move_forward.wav-4355ab3902c8062bbe27ba599a4697ab.sample[39m[0m
+[  19% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/move_forward.wav.import[39m[0m
+[  21% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/move_the_bishop.wav-e3489a5a7fc0f2819ff80c17a502fea1.sample[39m[0m
+[  21% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/move_the_bishop.wav.import[39m[0m
+[  22% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/move_the_queen.wav-4a80e5fe1867e26dcf8ebeb7f4ece795.sample[39m[0m
+[  22% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/move_the_queen.wav.import[39m[0m
+[  24% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/move_the_rook.wav-6529bbfc06be749404735d45197e41fa.sample[39m[0m
+[  24% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/move_the_rook.wav.import[39m[0m
+[  25% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/move_two.wav-f92e80efae4162c10097e9ef345be78b.sample[39m[0m
+[  25% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/move_two.wav.import[39m[0m
+[  27% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/praise.wav-fc4ea4219e80ac3eac6f995a4e446fe6.sample[39m[0m
+[  27% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/praise.wav.import[39m[0m
+[  28% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/protect_the_king.wav-7b6108cecca43b4c3ac80b4b3f342401.sample[39m[0m
+[  28% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/protect_the_king.wav.import[39m[0m
+[  30% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/protect_the_pawn.wav-68b920a1cdd3f57914c827f3a0c583ce.sample[39m[0m
+[  30% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/protect_the_pawn.wav.import[39m[0m
+[  31% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/protect_your_king.wav-42390accd2565d630b6efd25c69777e7.sample[39m[0m
+[  31% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/protect_your_king.wav.import[39m[0m
+[  33% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/retry.wav-625424eeb0c4aff76ab538f0a0549947.sample[39m[0m
+[  33% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/retry.wav.import[39m[0m
+[  33% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/save_your_rook.wav-d6d590291f8aa7e4dfca97de6a3b9c29.sample[39m[0m
+[  33% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/save_your_rook.wav.import[39m[0m
+[  35% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_attack.wav-c1a40dd84d7b42c8e5aeda6ea515ac3a.sample[39m[0m
+[  35% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_attack.wav.import[39m[0m
+[  36% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_bishop.wav-2679e276c89b7314b171fe6d1810a226.sample[39m[0m
+[  36% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_bishop.wav.import[39m[0m
+[  38% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_capture.wav-0c8e1f17e33ea2e6106bee9d6d4782a3.sample[39m[0m
+[  38% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_capture.wav.import[39m[0m
+[  40% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_check.wav-698bc1a4ea2c66c94eba220e6557c058.sample[39m[0m
+[  40% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_check.wav.import[39m[0m
+[  41% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_checkmate.wav-3cd720ba0a4a8ad89d91ab0ed50fa3c9.sample[39m[0m
+[  41% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_checkmate.wav.import[39m[0m
+[  43% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_danger.wav-a7f8a2fd73100bb6a2a737a1c7710323.sample[39m[0m
+[  43% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_danger.wav.import[39m[0m
+[  44% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_defend.wav-19d599537ec13787917bffaeb93c0a5c.sample[39m[0m
+[  44% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_defend.wav.import[39m[0m
+[  46% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_diagonal.wav-0d80ab0cc333a60848d08d33e4856a67.sample[39m[0m
+[  46% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_diagonal.wav.import[39m[0m
+[  47% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_find.wav-5faf1bd83e471a99ab9fdbe31f1f8818.sample[39m[0m
+[  47% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_find.wav.import[39m[0m
+[  49% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_forward.wav-4fa23efbc1a4601321cc84c58336b32a.sample[39m[0m
+[  49% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_forward.wav.import[39m[0m
+[  50% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_great_move.wav-67ca86a6c4e563fcad7827b2a2133d0f.sample[39m[0m
+[  50% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_great_move.wav.import[39m[0m
+[  52% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_jump.wav-33880d087b26ea7c701d87e528672051.sample[39m[0m
+[  52% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_jump.wav.import[39m[0m
+[  53% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_king.wav-082d246166134f94db86f92d298925d8.sample[39m[0m
+[  53% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_king.wav.import[39m[0m
+[  55% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_knight.wav-b9925e17193ccbbe4ea5d507b7753ccb.sample[39m[0m
+[  55% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_knight.wav.import[39m[0m
+[  56% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_left.wav-4404e048078ba7fedc16497f600f4b7b.sample[39m[0m
+[  56% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_left.wav.import[39m[0m
+[  58% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_move.wav-ab65a34b13d8cd6826aa050f9b6ae974.sample[39m[0m
+[  58% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_move.wav.import[39m[0m
+[  60% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_one.wav-24dfa18f5a620826030ba4ce17a1050c.sample[39m[0m
+[  60% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_one.wav.import[39m[0m
+[  61% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_over.wav-dc4e1634463e0506075d332ff8ecca3e.sample[39m[0m
+[  61% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_over.wav.import[39m[0m
+[  63% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_pawn.wav-9e60008e11f63c83707a3dff0c197850.sample[39m[0m
+[  63% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_pawn.wav.import[39m[0m
+[  64% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_powerful.wav-2644a7704a7643f79931e2986a8eca6b.sample[39m[0m
+[  64% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_powerful.wav.import[39m[0m
+[  66% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_protect.wav-1a4b7dca59b0060c68a0cad8f58211cc.sample[39m[0m
+[  66% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_protect.wav.import[39m[0m
+[  66% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_queen.wav-9cde852d75f38554d122c445c320748e.sample[39m[0m
+[  66% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_queen.wav.import[39m[0m
+[  68% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_right.wav-36b8fa4852085bc75ba98346633abe5d.sample[39m[0m
+[  68% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_right.wav.import[39m[0m
+[  69% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_rook.wav-d0a5690c2d034197438a30a9fabcc3ce.sample[39m[0m
+[  69% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_rook.wav.import[39m[0m
+[  71% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_safe.wav-150ccbd933492001e96cf66b55fcffaf.sample[39m[0m
+[  71% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_safe.wav.import[39m[0m
+[  72% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_save.wav-9f0bc67ae1daaac5774a89decd30d1e3.sample[39m[0m
+[  72% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_save.wav.import[39m[0m
+[  74% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_straight.wav-88bba7152bde9c423105c58aa9d2346a.sample[39m[0m
+[  74% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_straight.wav.import[39m[0m
+[  75% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_together.wav-5415da8bf223498ff4667a02fdbbb89f.sample[39m[0m
+[  75% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_together.wav.import[39m[0m
+[  77% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_two.wav-f12df015467e97d2d79a2a8a0396dbfc.sample[39m[0m
+[  77% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_two.wav.import[39m[0m
+[  79% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/word_win.wav-8c3164ace2669f65e710ce8c48e1367f.sample[39m[0m
+[  79% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/audio/word_win.wav.import[39m[0m
+[  80% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/font-medium.ttf-9a6c608a4066ffa42ad3fa8efcf0ff6c.fontdata[39m[0m
+[  80% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/font-medium.ttf.import[39m[0m
+[  82% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/imported/font.ttf-976a98412f76666fef587cd4874204ca.fontdata[39m[0m
+[  82% ] [90m[1msavepack[22m | 파일 저장 중: res://assets/font.ttf.import[39m[0m
+[  83% ] [90m[1msavepack[22m | 파일 저장 중: res://data/chapters.json[39m[0m
+[  85% ] [90m[1msavepack[22m | 파일 저장 중: res://data/expressions.json[39m[0m
+[  86% ] [90m[1msavepack[22m | 파일 저장 중: res://data/missions.json[39m[0m
+[  88% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn[39m[0m
+[  89% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/game.gdc[39m[0m
+[  91% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/rules.gdc[39m[0m
+[  92% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/objectives.gdc[39m[0m
+[  94% ] [90m[1msavepack[22m | 파일 저장 중: res://package-lock.json[39m[0m
+[  95% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/learning.gdc[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://package.json[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://main.tscn.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/game.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/rules.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/objectives.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://scripts/learning.gd.remap[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/global_script_class_cache.cfg[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://.godot/uid_cache.bin[39m[0m
+[  97% ] [90m[1msavepack[22m | 파일 저장 중: res://project.binary[39m[0m
+[92m[ DONE ][39m [1msavepack[22m
+[0m
+BUILD b580818da571dbc3 FILES 19 BYTES 51183014

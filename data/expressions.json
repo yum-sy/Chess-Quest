@@ -1,0 +1,1102 @@
+[
+  {
+    "expressionId": "move_forward",
+    "wordOrSentence": "Move forward!",
+    "meaning": "폰을 앞으로 움직여요.",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [
+      "p"
+    ],
+    "audioId": "move_forward",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "move_two",
+    "wordOrSentence": "Move two!",
+    "meaning": "처음 자리에서는 두 칸도 갈 수 있어요.",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [
+      "p"
+    ],
+    "audioId": "move_two",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "capture_the_pawn",
+    "wordOrSentence": "Capture the pawn!",
+    "meaning": "새 친구와 상대 폰을 잡아요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "CAPTURE"
+    ],
+    "relatedPieces": [
+      "q"
+    ],
+    "audioId": "capture_the_pawn",
+    "animationId": "CAPTURE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "find_a_safe_move",
+    "wordOrSentence": "Find a safe move!",
+    "meaning": "안전한 이동으로 다음 길을 열어요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "SAFE_MOVE"
+    ],
+    "relatedPieces": [
+      "q"
+    ],
+    "audioId": "find_a_safe_move",
+    "animationId": "SAFE_MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "jump_over_the_pawn",
+    "wordOrSentence": "Jump over the pawn!",
+    "meaning": "나이트는 친구를 뛰어넘어요.",
+    "learningLevel": 2,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [
+      "n"
+    ],
+    "audioId": "jump_over_the_pawn",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "jump_to_safety",
+    "wordOrSentence": "Jump to safety!",
+    "meaning": "나이트가 안전하게 착지할 곳을 찾아요.",
+    "learningLevel": 2,
+    "relatedActions": [
+      "SAFE_MOVE"
+    ],
+    "relatedPieces": [
+      "n"
+    ],
+    "audioId": "jump_to_safety",
+    "animationId": "SAFE_MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "move_the_rook",
+    "wordOrSentence": "Move the rook!",
+    "meaning": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
+    "learningLevel": 3,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [
+      "r"
+    ],
+    "audioId": "move_the_rook",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "attack_the_rook",
+    "wordOrSentence": "Attack the rook!",
+    "meaning": "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "ATTACK"
+    ],
+    "relatedPieces": [
+      "q"
+    ],
+    "audioId": "attack_the_rook",
+    "animationId": "ATTACK",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "protect_the_pawn",
+    "wordOrSentence": "Protect the pawn!",
+    "meaning": "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "PROTECT"
+    ],
+    "relatedPieces": [
+      "q"
+    ],
+    "audioId": "protect_the_pawn",
+    "animationId": "PROTECT",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "attack_the_queen",
+    "wordOrSentence": "Attack the queen!",
+    "meaning": "움직인 뒤 상대 퀸을 공격해요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "ATTACK"
+    ],
+    "relatedPieces": [
+      "q"
+    ],
+    "audioId": "attack_the_queen",
+    "animationId": "ATTACK",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "move_the_bishop",
+    "wordOrSentence": "Move the bishop!",
+    "meaning": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [
+      "b"
+    ],
+    "audioId": "move_the_bishop",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "move_the_queen",
+    "wordOrSentence": "Move the queen!",
+    "meaning": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [
+      "q"
+    ],
+    "audioId": "move_the_queen",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "attack_together",
+    "wordOrSentence": "Attack together!",
+    "meaning": "퀸 하나로 상대 룩 둘을 동시에 공격해요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "FORK"
+    ],
+    "relatedPieces": [
+      "q"
+    ],
+    "audioId": "attack_together",
+    "animationId": "FORK",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "check_the_king",
+    "wordOrSentence": "Check the king!",
+    "meaning": "상대 왕을 공격하되 우리 왕을 안전하게 지켜요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "CHECK"
+    ],
+    "relatedPieces": [
+      "r"
+    ],
+    "audioId": "check_the_king",
+    "animationId": "CHECK",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "protect_the_king",
+    "wordOrSentence": "Protect the king!",
+    "meaning": "왕이 체크를 받았어요. 체크에서 벗어나요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "ESCAPE_CHECK"
+    ],
+    "relatedPieces": [
+      "k"
+    ],
+    "audioId": "protect_the_king",
+    "animationId": "ESCAPE_CHECK",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "checkmate_in_one",
+    "wordOrSentence": "Checkmate in one!",
+    "meaning": "다른 배치에서도 체크메이트를 찾아요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "CHECKMATE"
+    ],
+    "relatedPieces": [
+      ""
+    ],
+    "audioId": "checkmate_in_one",
+    "animationId": "CHECKMATE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "save_your_rook",
+    "wordOrSentence": "Save your rook!",
+    "meaning": "공격받는 룩을 안전한 칸으로 움직여요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "SAFE_MOVE"
+    ],
+    "relatedPieces": [
+      "r"
+    ],
+    "audioId": "save_your_rook",
+    "animationId": "SAFE_MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "checkmate_you_win",
+    "wordOrSentence": "Checkmate! You win!",
+    "meaning": "AI와 번갈아 두어 체크메이트를 완성해요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "GAME"
+    ],
+    "relatedPieces": [
+      ""
+    ],
+    "audioId": "checkmate_you_win",
+    "animationId": "GAME",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "great_move",
+    "wordOrSentence": "Great move!",
+    "meaning": "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "GAME"
+    ],
+    "relatedPieces": [
+      ""
+    ],
+    "audioId": "great_move",
+    "animationId": "GAME",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "protect_your_king",
+    "wordOrSentence": "Protect your king!",
+    "meaning": "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+    "learningLevel": 4,
+    "relatedActions": [
+      "GAME"
+    ],
+    "relatedPieces": [
+      ""
+    ],
+    "audioId": "protect_your_king",
+    "animationId": "GAME",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "expressionId": "word_pawn",
+    "wordOrSentence": "Pawn!",
+    "meaning": "폰",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_pawn",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 1,
+    "practiceMission": 0
+  },
+  {
+    "expressionId": "word_move",
+    "wordOrSentence": "Move!",
+    "meaning": "움직여요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_move",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 1,
+    "practiceMission": 0
+  },
+  {
+    "expressionId": "word_forward",
+    "wordOrSentence": "Forward!",
+    "meaning": "앞으로",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_forward",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 1,
+    "practiceMission": 0
+  },
+  {
+    "expressionId": "word_one",
+    "wordOrSentence": "One!",
+    "meaning": "하나",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_one",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 1,
+    "practiceMission": 0
+  },
+  {
+    "expressionId": "word_two",
+    "wordOrSentence": "Two!",
+    "meaning": "둘",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_two",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 1,
+    "practiceMission": 0
+  },
+  {
+    "expressionId": "word_capture",
+    "wordOrSentence": "Capture!",
+    "meaning": "잡아요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_capture",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 1,
+    "practiceMission": 0
+  },
+  {
+    "expressionId": "word_knight",
+    "wordOrSentence": "Knight!",
+    "meaning": "나이트",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_knight",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 2,
+    "practiceMission": 8
+  },
+  {
+    "expressionId": "word_jump",
+    "wordOrSentence": "Jump!",
+    "meaning": "뛰어요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_jump",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 2,
+    "practiceMission": 8
+  },
+  {
+    "expressionId": "word_over",
+    "wordOrSentence": "Over!",
+    "meaning": "넘어서",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_over",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 2,
+    "practiceMission": 8
+  },
+  {
+    "expressionId": "word_left",
+    "wordOrSentence": "Left!",
+    "meaning": "왼쪽",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_left",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 2,
+    "practiceMission": 8
+  },
+  {
+    "expressionId": "word_right",
+    "wordOrSentence": "Right!",
+    "meaning": "오른쪽",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_right",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 2,
+    "practiceMission": 8
+  },
+  {
+    "expressionId": "word_rook",
+    "wordOrSentence": "Rook!",
+    "meaning": "룩",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_rook",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 3,
+    "practiceMission": 16
+  },
+  {
+    "expressionId": "word_straight",
+    "wordOrSentence": "Straight!",
+    "meaning": "직선으로",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_straight",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 3,
+    "practiceMission": 16
+  },
+  {
+    "expressionId": "word_attack",
+    "wordOrSentence": "Attack!",
+    "meaning": "공격해요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_attack",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 3,
+    "practiceMission": 16
+  },
+  {
+    "expressionId": "word_protect",
+    "wordOrSentence": "Protect!",
+    "meaning": "지켜요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_protect",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 3,
+    "practiceMission": 16
+  },
+  {
+    "expressionId": "word_bishop",
+    "wordOrSentence": "Bishop!",
+    "meaning": "비숍",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_bishop",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 4,
+    "practiceMission": 24
+  },
+  {
+    "expressionId": "word_diagonal",
+    "wordOrSentence": "Diagonal!",
+    "meaning": "대각선으로",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_diagonal",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 4,
+    "practiceMission": 24
+  },
+  {
+    "expressionId": "word_find",
+    "wordOrSentence": "Find!",
+    "meaning": "찾아요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_find",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 4,
+    "practiceMission": 24
+  },
+  {
+    "expressionId": "word_safe",
+    "wordOrSentence": "Safe!",
+    "meaning": "안전해요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_safe",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 4,
+    "practiceMission": 24
+  },
+  {
+    "expressionId": "word_queen",
+    "wordOrSentence": "Queen!",
+    "meaning": "퀸",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_queen",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 5,
+    "practiceMission": 32
+  },
+  {
+    "expressionId": "word_powerful",
+    "wordOrSentence": "Powerful!",
+    "meaning": "강해요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_powerful",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 5,
+    "practiceMission": 32
+  },
+  {
+    "expressionId": "word_together",
+    "wordOrSentence": "Together!",
+    "meaning": "함께",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_together",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 5,
+    "practiceMission": 32
+  },
+  {
+    "expressionId": "word_save",
+    "wordOrSentence": "Save!",
+    "meaning": "구해요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_save",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 5,
+    "practiceMission": 32
+  },
+  {
+    "expressionId": "word_king",
+    "wordOrSentence": "King!",
+    "meaning": "킹",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_king",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 6,
+    "practiceMission": 40
+  },
+  {
+    "expressionId": "word_danger",
+    "wordOrSentence": "Danger!",
+    "meaning": "위험해요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_danger",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 6,
+    "practiceMission": 40
+  },
+  {
+    "expressionId": "word_check",
+    "wordOrSentence": "Check!",
+    "meaning": "체크",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_check",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 6,
+    "practiceMission": 40
+  },
+  {
+    "expressionId": "word_checkmate",
+    "wordOrSentence": "Checkmate!",
+    "meaning": "체크메이트",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_checkmate",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 6,
+    "practiceMission": 40
+  },
+  {
+    "expressionId": "word_win",
+    "wordOrSentence": "Win!",
+    "meaning": "이겨요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_win",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 7,
+    "practiceMission": 40
+  },
+  {
+    "expressionId": "word_defend",
+    "wordOrSentence": "Defend!",
+    "meaning": "방어해요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_defend",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 7,
+    "practiceMission": 40
+  },
+  {
+    "expressionId": "word_great_move",
+    "wordOrSentence": "Great move!",
+    "meaning": "멋진 수예요",
+    "learningLevel": 1,
+    "relatedActions": [
+      "MOVE"
+    ],
+    "relatedPieces": [],
+    "audioId": "word_great_move",
+    "animationId": "MOVE",
+    "reviewRules": {
+      "intervalDays": [
+        1,
+        3,
+        7,
+        14
+      ]
+    },
+    "chapter": 7,
+    "practiceMission": 40
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "name": "chess-quest",
+  "version": "1.0.0",
+  "description": "Godot 4 chess and action-based English adventure",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "python3 tools/test.py",
+    "build": "python3 tools/build_web.py",
+    "test:browser": "node tests/browser.mjs",
+    "test:oracle": "node tests/oracle.mjs",
+    "test:campaign": "node tests/campaign.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "chess.js": "1.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "stockfish": "17.1.0"
+  }
+}

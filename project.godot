@@ -1,0 +1,20 @@
+config_version=5
+[application]
+config/name="Chess Quest: The Lost Crown"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="ChessQuestLostCrown"
+run/main_scene="res://main.tscn"
+[display]
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
+[audio]
+general/text_to_speech=true
+[input_devices]
+pointing/emulate_touch_from_mouse=false
+pointing/emulate_mouse_from_touch=false
