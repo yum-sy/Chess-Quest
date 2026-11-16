@@ -20,6 +20,7 @@ var chosen=-1
 var checked=[]
 var happy=false
 var theme=0
+var gold_skin=false
 var view_rect=Rect2()
 var marker_key=""
 var moving_from=-1
@@ -112,7 +113,7 @@ func build_board():
 	sphere(ground,Vector3(0,-.25,n*.5+.30),Vector3(.16,.18,.04),material("ffe3a0",.3))
 func update_position(cells:Array,selected:int,check_squares:Array,celebrate:bool,enabled:bool):
 	chosen=selected;checked=check_squares;happy=celebrate;motion=enabled
-	var key="|".join(cells)
+	var key="|".join(cells)+str(gold_skin)
 	if key==signature:return
 	signature=key;clear(actors);pieces.clear()
 	for i in range(cells.size()):
@@ -133,6 +134,9 @@ func character(letter:String)->Node3D:
 	sprite.offset.y=229-128
 	sprite.offset.x=128-BASE_X[COLUMN[letter.to_lower()]]
 	node.add_child(sprite)
+	if gold_skin and letter==letter.to_upper():
+		var ring=TorusMesh.new();ring.inner_radius=.28;ring.outer_radius=.32;ring.rings=32;ring.ring_segments=8
+		var ornament=mesh_node(node,ring,Vector3(0,.025,0),material("ffd274",.25));ornament.name="RewardRing"
 	# A contact shadow keeps the cutout anchored to its actual square.
 	var shadow=CylinderMesh.new();shadow.top_radius=.19;shadow.bottom_radius=.19;shadow.height=.008;shadow.radial_segments=32
 	var mat=StandardMaterial3D.new();mat.albedo_color=Color(0.20,.13,.10,.12)

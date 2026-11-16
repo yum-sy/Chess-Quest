@@ -9,48 +9,46 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [  83% ] [90m[1mfirst_scan_filesystem[22m | 파일 스캔 시작 중...[39m[0m
 [92m[ DONE ][39m [1mfirst_scan_filesystem[22m
 [0m
-[   0% ] [90m[1m_update_scan_actions[22m | Started 액션 스캔 중... (11 steps)[39m[0m
-[   0% ] [90m[1m_update_scan_actions[22m | dense-portrait.png[39m[0m
-[   8% ] [90m[1m_update_scan_actions[22m | temple-defense.png[39m[0m
-[  16% ] [90m[1m_update_scan_actions[22m | temple-explanation.png[39m[0m
-[  25% ] [90m[1m_update_scan_actions[22m | web-fold-home.png[39m[0m
-[  33% ] [90m[1m_update_scan_actions[22m | web-fold-play.png[39m[0m
-[  41% ] [90m[1m_update_scan_actions[22m | web-home.png[39m[0m
-[  50% ] [90m[1m_update_scan_actions[22m | web-ipad.png[39m[0m
-[  58% ] [90m[1m_update_scan_actions[22m | web-offline.png[39m[0m
-[  66% ] [90m[1m_update_scan_actions[22m | web-play.png[39m[0m
-[  75% ] [90m[1m_update_scan_actions[22m | web-selected.png[39m[0m
-[  83% ] [90m[1m_update_scan_actions[22m | web-success.png[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | Started 전역 클래스를 등록하는 중... (4 steps)[39m[0m
+[   0% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  20% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  40% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[  60% ] [90m[1mupdate_scripts_classes[22m | [39m[0m
+[92m[ DONE ][39m [1mupdate_scripts_classes[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started 액션 스캔 중... (8 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | web-fold-home.png[39m[0m
+[  11% ] [90m[1m_update_scan_actions[22m | web-fold-play.png[39m[0m
+[  22% ] [90m[1m_update_scan_actions[22m | web-home.png[39m[0m
+[  33% ] [90m[1m_update_scan_actions[22m | web-ipad.png[39m[0m
+[  44% ] [90m[1m_update_scan_actions[22m | web-offline.png[39m[0m
+[  55% ] [90m[1m_update_scan_actions[22m | web-play.png[39m[0m
+[  66% ] [90m[1m_update_scan_actions[22m | web-selected.png[39m[0m
+[  77% ] [90m[1m_update_scan_actions[22m | web-success.png[39m[0m
 [92m[ DONE ][39m [1m_update_scan_actions[22m
 [0m
-[   0% ] [90m[1mreimport[22m | Started 애셋 (다시) 가져오는 중 (11 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Started 애셋 (다시) 가져오는 중 (8 steps)[39m[0m
 [   0% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[   8% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[  16% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[  25% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  11% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  22% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
 [  33% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[  41% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[  50% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[  58% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  44% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  55% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
 [  66% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[  75% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
-[  83% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
+[  77% ] [90m[1mreimport[22m | 다시 가져올 파일을 준비 중...[39m[0m
 [   0% ] [90m[1mreimport[22m | 다시 가져오기 전 작업을 수행 중...[39m[0m
-[   0% ] [90m[1mreimport[22m | dense-portrait.png[39m[0m
-[   8% ] [90m[1mreimport[22m | temple-defense.png[39m[0m
-[  16% ] [90m[1mreimport[22m | temple-explanation.png[39m[0m
-[  25% ] [90m[1mreimport[22m | web-fold-home.png[39m[0m
-[  33% ] [90m[1mreimport[22m | web-fold-play.png[39m[0m
-[  41% ] [90m[1mreimport[22m | web-home.png[39m[0m
-[  50% ] [90m[1mreimport[22m | web-ipad.png[39m[0m
-[  58% ] [90m[1mreimport[22m | web-offline.png[39m[0m
-[  66% ] [90m[1mreimport[22m | web-play.png[39m[0m
-[  75% ] [90m[1mreimport[22m | web-selected.png[39m[0m
-[  83% ] [90m[1mreimport[22m | web-success.png[39m[0m
-[  91% ] [90m[1mreimport[22m | 애셋 가져오기 마무리 중...[39m[0m
+[   0% ] [90m[1mreimport[22m | web-fold-home.png[39m[0m
+[  11% ] [90m[1mreimport[22m | web-fold-play.png[39m[0m
+[  22% ] [90m[1mreimport[22m | web-home.png[39m[0m
+[  33% ] [90m[1mreimport[22m | web-ipad.png[39m[0m
+[  44% ] [90m[1mreimport[22m | web-offline.png[39m[0m
+[  55% ] [90m[1mreimport[22m | web-play.png[39m[0m
+[  66% ] [90m[1mreimport[22m | web-selected.png[39m[0m
+[  77% ] [90m[1mreimport[22m | web-success.png[39m[0m
+[  88% ] [90m[1mreimport[22m | 애셋 가져오기 마무리 중...[39m[0m
 [92m[ DONE ][39m [1mreimport[22m
 [0m
-[   0% ] [90m[1mreimport[22m | Started 애셋 (다시) 가져오는 중 (11 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Started 애셋 (다시) 가져오는 중 (8 steps)[39m[0m
 [   0% ] [90m[1mreimport[22m | 다시 가져오기 후 작업을 수행 중...[39m[0m
 [92m[ DONE ][39m [1mreimport[22m
 [0m
@@ -213,4 +211,4 @@ Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 [  97% ] [90m[1msavepack[22m | 파일 저장 중: res://project.binary[39m[0m
 [92m[ DONE ][39m [1msavepack[22m
 [0m
-BUILD c57306913b368eba FILES 19 BYTES 52957574
+BUILD a669b87222e6e698 FILES 19 BYTES 52957894

@@ -25,6 +25,8 @@ func run():
 	g.selected=4;g.board_view.update_position(g.rules.cells,4,[4],false,false)
 	g.board_view.animate(.1)
 	if g.board_view.pieces[4].get_node("Portrait").frame!=11:fails+=1
+	g.board_view.gold_skin=true;g.board_view.update_position(g.rules.cells,4,[],false,false)
+	if not g.board_view.pieces[4].has_node("RewardRing"):fails+=1
 	print("SELECTION ",count," character centers across three sizes and two viewports; failures ",fails)
 	await create_timer(2).timeout
 	quit(1 if fails else 0)

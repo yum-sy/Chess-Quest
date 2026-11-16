@@ -204,6 +204,7 @@ func draw_play(s:Vector2):
 	var checked=[]
 	for i in range(rules.cells.size()):
 		if rules.cells[i].to_lower()=="k" and rules.check(rules.color(rules.cells[i])):checked.append(i)
+	board_view.gold_skin=learner.data.settings.get("gold_skin",false)
 	board_view.update_position(rules.cells,selected,checked,modal=="success",learner.data.settings.motion)
 	var target=rules.square(m.objective.target) if hints>0 and m.objective.target!="" else -1
 	board_view.update_markers(destinations,selected,target)
