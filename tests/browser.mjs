@@ -22,6 +22,23 @@ if(savedCompleted!==1){failed++;errors.push('completion not recorded');}
 
 const engine=await page.evaluate(()=>JSON.parse(CQ.legal('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')).length);
 if(engine!==20){failed++;errors.push('browser engine failed');}
+const puzzleMissions=JSON.parse(fs.readFileSync(new URL('../data/missions.json',import.meta.url))).filter(m=>m.mateLimit);
+const puzzleErrors=await page.evaluate(missions=>{
+ const out=[];
+ for(const m of missions)for(const [key,moves] of Object.entries(m.puzzleBook)){
+  const [position,budget]=key.split('|'),fen=position+' 0 1';
+  const legal=JSON.parse(CQ.legal(fen)),white=position.split(' ')[1]==='w';
+  if(!white&&moves.length!==legal.length)out.push(m.id+' missing defense');
+  for(const move of moves){
+   if(!legal.includes(move)){out.push(m.id+' illegal '+move);continue;}
+   const next=JSON.parse(CQ.move(fen,move)).fen;
+   const left=Number(budget)-(white?1:0),nextKey=next.split(' ').slice(0,4).join(' ')+'|'+left;
+   if(JSON.parse(CQ.legal(next)).length&&!m.puzzleBook[nextKey])out.push(m.id+' missing continuation');
+  }
+ }
+ return out;
+},puzzleMissions);
+errors.push(...puzzleErrors);
 await page.evaluate(()=>navigator.serviceWorker.ready);await page.waitForTimeout(2000);
 const cache=await page.evaluate(async()=>{const keys=await caches.keys();const c=await caches.open(keys.find(k=>k.startsWith('chess-quest-')));return (await c.keys()).length;});
 if(cache<15){failed++;errors.push('cache incomplete '+cache);}

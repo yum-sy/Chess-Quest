@@ -43,6 +43,7 @@ var free_play=false
 var target_evidence=false
 var introducing=""
 var last_review_word=""
+var lesson_step=0
 const THEME_COLORS=["eddcba","b7d3ba","b9ccd9","d6c7e4","e8c5c6","d8d8ea","d3bfdf","f1d78f"]
 const THEME_NAMES=["정원","다리","마법의 탑","사원","궁전","왕의 성","검은 성","왕관"]
 var cream=Color("fff6df")
@@ -172,7 +173,7 @@ func draw_map(s:Vector2):
 			var done=learner.data.completed.has(str(c+1)+"-"+str(j+1))
 			var open=unlocked and (j==0 or learner.data.completed.has(str(c+1)+"-"+str(j)))
 			var cells_per_row=2 if narrow else 4
-			button(("★" if done else "보스" if j>=5 else str(j+1)),Rect2(x+16+(j%cells_per_row)*((w-50)/cells_per_row),y+94+(j/cells_per_row)*(94 if narrow else 52),(w-65)/cells_per_row,88 if narrow else 44),"mission:"+str(c*8+j),done,not open)
+			button(("★" if done else ("대국" if c==6 else "보스") if j>=5 else str(j+1)),Rect2(x+16+(j%cells_per_row)*((w-50)/cells_per_row),y+94+(j/cells_per_row)*(94 if narrow else 52),(w-65)/cells_per_row,88 if narrow else 44),"mission:"+str(c*8+j),done,not open)
 	if narrow:
 		button("도감",Rect2(44,s.y-110,190,88),"book",true)
 		button("설정",Rect2(250,s.y-110,190,88),"settings")
@@ -193,8 +194,21 @@ func team_label(label:String,at:Vector2,color:Color):
 	var width=100.0
 	box(Rect2(at-Vector2(width/2,17),Vector2(width,34)),color,15)
 	centered(label,at+Vector2(0,7),18,Color.WHITE)
+func active_mission()->Dictionary:
+	var base=missions[index]
+	if not base.has("sequence"):return base
+	var m=base.duplicate();m.objective=base.objective.duplicate()
+	var step=base.sequence[clampi(lesson_step,0,base.sequence.size()-1)]
+	m.objective.merge(step.objective,true);m.briefing=step.briefing
+	return m
+func puzzle_remaining()->int:
+	return int(missions[index].get("mateLimit",0))-int((rules.history.size()+1)/2)
+func puzzle_moves()->Array:
+	var fields=rules.fen().split(" ")
+	var key=" ".join(fields.slice(0,4))+"|"+str(puzzle_remaining())
+	return missions[index].get("puzzleBook",{}).get(key,[])
 func draw_play(s:Vector2):
-	var m=missions[index]
+	var m=active_mission()
 	text(chapters[m.chapter-1].subtitle+" · QUEST "+str(index%8+1)+" / 8",Vector2(24,36),23,ink)
 	button("Home",Rect2(s.x-104,12,88,42),"home")
 	layout_board(s)
@@ -238,7 +252,7 @@ func draw_play(s:Vector2):
 	box(panel,Color("fff9e9"),24)
 	var compact=s.x<1050
 	var names={"p":"Pawn","n":"Knight","b":"Bishop","r":"Rook","q":"Queen","k":"King"}
-	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" selected" if selected>=0 else "Choose a piece"
+	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" selected" if selected>=0 else ("STEP "+str(lesson_step+1)+" / "+str(m.sequence.size()) if m.has("sequence") else "MATE IN "+str(maxi(0,puzzle_remaining())) if m.has("mateLimit") else "Choose a piece")
 	text(caption,Vector2(px+16,py+27),17,teal)
 	var expr=expression(m.englishExpressionIds[0])
 	wrapped(expr.wordOrSentence,Rect2(px+16,py+60,pw-32,90),24,ink)
@@ -369,7 +383,7 @@ func draw_modal(s:Vector2):
 	var x=r.position.x;var y=r.position.y
 	if modal=="intro":
 		centered(chapters[chapter-1].subtitle,Vector2(s.x/2,y+64),32,ink)
-		wrapped(chapters[chapter-1].intro,Rect2(x+44,y+127,w-88,100),25,teal)
+		wrapped(missions[index].get("story",chapters[chapter-1].intro),Rect2(x+44,y+127,w-88,100),25,teal)
 		button("Let’s go!",Rect2(x+44,y+290,w-88,60),"begin",true)
 	elif modal=="success":
 		centered("Great adventure!",Vector2(s.x/2,y+70),36,ink)
@@ -415,7 +429,7 @@ func speak_mission():
 	introducing=""
 	say_id(missions[index].englishExpressionIds[0])
 func start_mission(i:int,resume=false):
-	generation+=1;busy=false;index=i;chapter=int(missions[i].chapter)
+	generation+=1;lesson_step=0;busy=false;index=i;chapter=int(missions[i].chapter)
 	selected=-1;mistakes=0;feedback="";modal="";promotion=[];anim_t=1;target_evidence=false;last_move="";introducing=""
 	rules=Rules.new();rules.bridge=true
 	var m=missions[i]
@@ -426,17 +440,18 @@ func start_mission(i:int,resume=false):
 	was_assisted=hints>0;korean_used=learner.data.settings.korean
 	if resume and learner.data.current.get("id","")==m.id and int(learner.data.current.get("revision",1))==int(m.get("revision",1)):
 		var saved=learner.data.current
+		lesson_step=clampi(int(saved.get("lessonStep",0)),0,m.get("sequence",[{}]).size()-1)
 		rules.load_fen(saved.fen,int(m.boardSize))
 		rules.history=saved.get("history",[]);rules.positions=saved.get("positions",[]);rules.notation=saved.get("notation",[])
 	screen="play"
 	if not review:learner.data.lastMission=index
-	if i%8==0 and not resume:modal="intro"
+	if m.get("storyBeat",i%8==0) and not resume:modal="intro"
 	else:speak_mission()
 	persist()
 	if rules.turn=="b" and m.type=="GAME":ai_turn()
 func persist():
 	if review:return
-	learner.data.current={"id":missions[index].id,"revision":missions[index].get("revision",1),"fen":rules.fen(),"history":rules.history,"positions":rules.positions,"notation":rules.notation}
+	learner.data.current={"id":missions[index].id,"revision":missions[index].get("revision",1),"lessonStep":lesson_step,"fen":rules.fen(),"history":rules.history,"positions":rules.positions,"notation":rules.notation}
 	learner.save()
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index==MOUSE_BUTTON_LEFT:tap(event.position)
@@ -453,14 +468,14 @@ func tap(p:Vector2):
 	var actor_hit=board_view.pick_actor(p)
 	for i in range(rules.n*rules.n):
 		if i==actor_hit or (actor_hit<0 and Geometry2D.is_point_in_polygon(p,poly(i))):
-			var current=missions[index]
+			var current=active_mission()
 			var target=current.objective.target
 			var identified=(target!="" and i==rules.square(target)) or (current.type=="CAPTURE" and rules.cells[i]=="p")
 			if identified:
 				learner.selected(current.englishExpressionIds[0],was_assisted,korean_used);target_evidence=true;learner.save()
 			if rules.color(rules.cells[i])=="w":
 				selected=i
-				var m=missions[index]
+				var m=active_mission()
 				if m.type in ["MOVE","SAFE_MOVE","ESCAPE_CHECK"] and m.objective.piece!="" and rules.cells[i].to_lower()==m.objective.piece:
 					learner.selected(m.englishExpressionIds[0],was_assisted,korean_used);target_evidence=true
 				return
@@ -487,9 +502,13 @@ func action(a:String):
 	elif a in ["listen","slow"]:say_id(missions[index].englishExpressionIds[0],a=="slow",true)
 	elif a=="hint":
 		hints=mini(3,hints+1);was_assisted=true;learner.chess(missions[index].id).hintCount+=1
-		if missions[index].type=="GAME":feedback="추천하는 수: "+rules.choose_ai(true)
+		if missions[index].has("mateLimit"):
+			var moves=puzzle_moves()
+			if moves.size():
+				feedback="추천하는 수: "+moves[0];selected=rules.square(moves[0].substr(0,2))
+		elif missions[index].type=="GAME":feedback="추천하는 수: "+rules.choose_ai(true)
 		elif hints>=2:
-			var sol=Goals.solutions(rules,missions[index])
+			var sol=Goals.solutions(rules,active_mission())
 			if sol.size():selected=rules.square(sol[0].substr(0,2))
 		learner.save()
 	elif a=="restart":start_mission(index)
@@ -523,12 +542,16 @@ func animate(move:String,p:String):
 	anim_t=0 if learner.data.settings.motion else 1
 func player_move(move:String):
 	if busy:return
-	var m=missions[index];var token=generation
+	var m=active_mission();var token=generation
 	var before=rules.cells.duplicate();var old=rules.fen()
 	var c=learner.chess(m.id);c.attemptCount+=1
 	var p=rules.cells[rules.square(move.substr(0,2))]
 	if m.type=="CAPTURE" and before[rules.square(move.substr(2,2))]=="p":
 		learner.selected(m.englishExpressionIds[0],was_assisted,korean_used);target_evidence=true
+	if m.has("mateLimit") and not move in puzzle_moves():
+		c.wrongCount+=1;mistakes+=1;hints=mini(3,hints+1);was_assisted=true
+		feedback="합법적인 수지만 남은 "+str(puzzle_remaining())+"수 안의 메이트를 보장하지 못해요. 상대의 도망갈 길을 다시 살펴요."
+		say_id("retry");persist();return
 	if not rules.play(move):return
 	c.legalMoveCount+=1;selected=-1;busy=true
 	animate(move,p);last_move=move
@@ -538,7 +561,11 @@ func player_move(move:String):
 		persist()
 		if finish_game():busy=false;return
 		await ai_turn();return
-	if Goals.success(rules,m,move,before):win();busy=false;return
+	if Goals.success(rules,m,move,before):
+		if m.has("sequence") and lesson_step+1<m.sequence.size():
+			lesson_step+=1;rules.turn="w";feedback="첫 계획을 완성했어요. 다음 도착점까지 이어가요."
+			busy=false;hints=0;persist();say_id(m.englishExpressionIds[0]);return
+		win();busy=false;return
 	c.wrongCount+=1;mistakes+=1
 	var replies=rules.legal()
 	if replies.size():
@@ -560,7 +587,8 @@ func ai_turn():
 	var token=generation
 	await get_tree().create_timer(.65).timeout
 	if token!=generation:return
-	var move=rules.choose_ai(false)
+	var moves=puzzle_moves() if missions[index].has("mateLimit") else []
+	var move=moves.pick_random() if moves.size() else rules.choose_ai(false)
 	if move!="":
 		var p=rules.cells[rules.square(move.substr(0,2))]
 		rules.play(move);animate(move,p)

@@ -10,7 +10,7 @@ const games=[];let seed=5678;const rand=n=>{seed=(Math.imul(seed,1664525)+101390
 for(const m of missions.filter(m=>m.type==='GAME')){
  const c=new Chess(m.initialPosition);const moves=[];
  for(let ply=0;ply<450&&!c.isGameOver();ply++){
-  let uci;if(c.turn()==='w')uci=await best(c.fen());else {const all=c.moves({verbose:true});const x=all[rand(all.length)];uci=x.from+x.to+(x.promotion||'');}
+  let uci;if(m.mateLimit){const key=c.fen().split(' ').slice(0,4).join(' ')+'|'+(m.mateLimit-Math.ceil(moves.length/2));const choices=m.puzzleBook[key];if(!choices?.length)throw Error('Missing proof '+m.id);uci=choices[rand(choices.length)];}else if(c.turn()==='w')uci=await best(c.fen());else {const all=c.moves({verbose:true});const x=all[rand(all.length)];uci=x.from+x.to+(x.promotion||'');}
   c.move({from:uci.slice(0,2),to:uci.slice(2,4),promotion:uci[4]||'q'});moves.push(uci);
  }
  const won=c.isCheckmate()&&c.turn()==='b';games.push({id:m.id,initial:m.initialPosition,moves,won,final:c.fen()});console.log(m.id,moves.length,'plies',won?'WHITE CHECKMATE':'FAIL');

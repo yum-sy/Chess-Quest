@@ -25,7 +25,7 @@ func run():
 		g.start_mission(0 if n==4 else 16 if n==6 else 48);g.modal=""
 		await process_frame
 		for i in range(n*n):check(Geometry2D.is_point_in_polygon(g.point(i%n,i/n),g.poly(i)),"touch center")
-	g.start_mission(48);g.modal="";g.player_move("e2e4")
+	g.start_mission(53);g.modal="";g.player_move("e2e4")
 	await create_timer(1.4).timeout
 	check(g.rules.turn=="w" and g.rules.history.size()==2,"AI legal response")
 	g.action("undo");check(g.rules.fen()==g.Rules.START,"undo turn pair")

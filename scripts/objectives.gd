@@ -7,7 +7,7 @@ static func success(r, m: Dictionary, move: String, before: Array) -> bool:
 	var target=r.square(o.target) if o.target!="" else -1
 	match m.type:
 		"MOVE": return o.destination=="" or b==r.square(o.destination)
-		"CAPTURE": return before[b]!="" and r.color(before[b])=="b" and (target<0 or b==target)
+		"CAPTURE": return before[b]!="" and r.color(before[b])=="b" and (target<0 or b==target) and (not o.get("safeCapture",false) or not r.attacked(b,"b"))
 		"ATTACK": return target>=0 and r.color(r.cells[target])=="b" and r.attacks(b,target)
 		"SAFE_MOVE":
 			if o.get("requireThreatened",false):

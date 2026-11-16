@@ -9,7 +9,7 @@ func run():
 	g.player_move("b1d3")
 	await create_timer(.65).timeout
 	root.get_texture().get_image().save_png("res://evidence/temple-explanation.png")
-	root.size=Vector2i(720,1280);g.responsive();g.start_mission(48);g.modal=""
+	root.size=Vector2i(720,1280);g.responsive();g.start_mission(53);g.modal=""
 	await create_timer(.6).timeout
 	root.get_texture().get_image().save_png("res://evidence/dense-portrait.png")
 	await create_timer(2).timeout

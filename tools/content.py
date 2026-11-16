@@ -71,9 +71,60 @@ add(6,'CHECKMATE',{},'Checkmate in one!','다른 배치에서도 체크메이트
 add(6,'SAFE_MOVE',{},'Save your rook!','공격받는 룩을 안전한 칸으로 움직여요.',piece='r',position='6k1/8/8/4b3/8/2R5/8/6K1 w - - 0 1')
 for pos in ['7k/8/5K2/3Q4/8/8/8/8 w - - 0 1','k7/8/2K5/4Q3/8/8/8/8 w - - 0 1','7k/8/8/4K3/8/1Q6/8/8 w - - 0 1']:
  add(6,'GAME',{},'Checkmate! You win!','AI와 번갈아 두어 체크메이트를 완성해요.',position=pos)
-for i in range(8):add(7,'GAME',{},'Protect your king!' if i%2 else 'Great move!','정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.',position='rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
+# Five short endgame lessons, then three complete games.
+finals=[
+ ('6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - - 0 18',1,'닫힌 뒷줄을 찾아 룩으로 한 수 안에 체크메이트해요.'),
+ ('7k/5Q2/6K1/8/8/8/8/8 w - - 0 27',1,'왕의 도움을 받는 퀸으로 한 수 안에 체크메이트해요. 스테일메이트에 주의해요.'),
+ ('7k/8/8/8/8/8/1R6/R5K1 w - - 0 28',2,'두 룩이 번갈아 길을 막아요. 내 두 수 안에 체크메이트해요.'),
+ ('7k/8/5K2/3Q4/8/8/8/8 w - - 0 32',2,'먼저 왕의 도망갈 길을 좁히고, 내 두 수 안에 체크메이트해요.'),
+ ('7k/8/8/5K2/8/1Q6/8/8 w - - 0 36',3,'퀸으로 가두고 우리 왕을 가까이 데려와요. 내 세 수 안에 체크메이트해요.')]
+for pos,limit,brief in finals:
+ add(7,'GAME',{},'Checkmate in one!' if limit==1 else 'Checkmate! You win!',brief,position=pos)
+ missions[-1].update(mateLimit=limit,briefing=brief,revision=2,opponentResponsePolicy='verified_defense')
+for brief in ['첫 정식 대국이에요. 중앙으로 나아가고 왕을 안전하게 지켜요.','두 번째 정식 대국이에요. 공격 전에 내 기물이 안전한지 살펴봐요.','왕관을 되찾는 마지막 대국이에요. 배운 계획을 연결해 체크메이트를 완성해요.']:
+ add(7,'GAME',{},'Protect your king!','정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.',position='rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
+ missions[-1].update(briefing=brief,revision=2)
+# Retain explicit destinations. Moving somewhere unrelated is no longer a solution.
+by_id={m['id']:m for m in missions}
+def revise(id,p,**objective):
+ m=by_id[id];m['initialPosition']=fen(m['boardSize'],p);m['objective'].update(objective);m['revision']=2
+revise('1-5',{'b2':'P','c3':'p','a4':'p'},requireThreatened=True)
+revise('1-6',{'c2':'P','b3':'p','d3':'p','a4':'p'},safeCapture=True)
+revise('1-7',{'c2':'P','b3':'p','d4':'p'},requireThreatened=True)
+revise('2-4',{'c1':'N','c2':'P','b1':'P'},destination='b3')
+revise('2-5',{'c1':'N','b2':'p','c4':'p'},requireThreatened=True)
+revise('2-7',{'b1':'N','c2':'p','b4':'p'},requireThreatened=True)
+revise('2-8',{'b1':'N','c3':'p','a4':'p','b2':'P'},target='c3')
+revise('3-5',{'b2':'R','f2':'r','c5':'p'},requireThreatened=True)
+revise('3-8',{'c3':'R','f3':'r','a5':'p'},requireThreatened=True)
+revise('5-4',{'b1':'Q','d4':'P','d6':'r'},requireNewDefense=True)
+revise('5-5',{'b2':'Q','f2':'r','c4':'p'},requireThreatened=True)
+revise('5-8',{'c3':'Q','f3':'r','a5':'p'},requireThreatened=True)
+for id in ['3-4','3-7']:
+ by_id[id]['objective']['requireNewDefense']=True
+# Continuous path practice: the opponent stands still; finish both steps to earn the reward.
+for id,goals,texts in [
+ ('1-4',[{'destination':'c3'},{'destination':'c4'}],['하늘길로 갈 편지를 옮겨요. 먼저 c3으로 한 칸 전진해요.','편지를 문까지 배달해요. 이제 c4로 한 칸 더 전진해요.']),
+ ('2-4',[{'destination':'b3'},{'destination':'d4'}],['끊어진 다리의 첫 발판 b3으로 뛰어요. 상대는 움직이지 않는 경로 연습이에요.','다음 발판 d4까지 한 번 더 뛰어 다리를 건너요.']),
+ ('2-8',[{'target':'c3'},{'target':'a4'}],['다리의 두 문지기를 차례로 잡아요. 먼저 c3의 폰을 잡아요.','다리 끝 a4의 문지기까지 잡으면 친구들이 건널 수 있어요.'])]:
+ m=by_id[id];m['sequence']=[dict(objective=g,briefing=t) for g,t in zip(goals,texts)];m['revision']=2
+# Story beats frame a real purpose for each lesson, with longer scenes only at milestones.
+stories=[
+ ['왕관의 빛이 사라지자 정원의 문이 닫혔어요. 작은 폰이 첫 편지를 들고 길을 나섭니다.', '첫 걸음은 두 칸도 갈 수 있어요. 멀리 가기 전에 길이 비었는지 확인해요.', '문지기는 앞길이 아닌 대각선에 있어요. 폰의 이동과 잡는 방향을 구별해요.', '편지를 다리 입구까지 배달해야 해요. 폰은 돌아갈 수 없으니 두 걸음을 차례로 계획해요.', '숨어 있던 상대 폰이 다가왔어요. 지금 자리와 도착할 자리의 위험을 모두 살펴요.', '두 문지기 중 하나는 친구의 보호를 받고 있어요. 잡은 뒤에도 안전한 쪽을 골라요.', '정원 끝에는 대각선 함정이 있어요. 첫 두 칸 전진을 기억하며 안전한 길을 찾아요.', '마지막 문지기를 지나면 다리의 기사에게 편지를 전할 수 있어요.'],
+ ['편지는 도착했지만 다리가 끊어졌어요. 나이트는 친구를 뛰어넘어 발판에 착지할 수 있어요.', '반대편 발판에서도 같은 모양으로 뛸 수 있을까요? 도착할 칸을 먼저 찾아요.', '다리 위 문지기를 잡아야 친구들이 따라올 수 있어요.', '두 발판을 이어 건너야 해요. 첫 점프만 성공해도 끝나는 것은 아니에요.', '발판 위 나이트가 공격받아요. 뛰어넘는 동안은 안전해도 착지하는 칸은 살펴야 해요.', '다리의 좁은 길은 친구가 막고 있어요. 나이트의 특별한 점프를 다시 사용해요.', '반대쪽에도 함정이 있어요. 상대 폰이 실제로 공격하는 대각선을 찾아요.', '두 문지기를 차례로 지나 마지막 밧줄을 풀어요. 나이트가 길을 열면 탑의 친구가 기다려요.'],
+ ['탑의 불이 꺼졌어요. 룩이 곧은 복도를 따라 등불을 찾아 나섭니다.', '복도를 막은 문지기를 잡고 등불을 되찾아요.', '상대 룩을 겨냥하면 다음 길을 열 수 있어요. 잡기와 공격 준비는 달라요.', '등불을 든 폰이 공격받아요. 친구가 잡히면 되잡을 수 있게 지켜요.', '등불을 떨어뜨리지 않도록 상대의 공격 밖으로 옮겨요.', '탑 꼭대기에서 상대 퀸이 길을 막아요. 룩의 긴 직선으로 겨냥해요.', '마지막 등불을 운반하는 폰 곁에 수비수를 보내요.', '탑의 불을 밝혔어요. 안전한 길을 골라 사원으로 향할 준비를 해요.'],
+ ['탑에서 비춘 빛이 사원의 대각선 길을 드러냈어요. 비숍과 함께 잃어버린 문양을 찾아요.', '같은 색의 길 위에 문지기가 있어요. 비숍으로 대각선을 따라가요.', '상대 룩이 문양을 든 폰을 노려요. 공격자를 먼저 막아야 해요.', '이번에는 폰을 직접 구할 수 없어요. 잡히더라도 되잡을 수 있게 준비해요.', '문양을 찾던 비숍이 공격받아요. 도망갈 곳에도 함정이 없는지 살펴요.', '친구 룩이 출구를 지키고 있어요. 비숍으로 친구를 위협하는 룩을 잡아요.', '출구 앞의 룩을 혼자 두지 마세요. 서로 지키는 자리를 찾아요.', '마지막 함정을 피하면 사원의 문양이 완성돼요. 문양은 여왕의 궁전을 가리킵니다.'],
+ ['사원의 문양이 궁전 문을 열었어요. 여왕은 직선과 대각선의 힘을 함께 사용해요.', '궁전 계단의 문지기를 잡아 여왕의 길을 열어요.', '궁전의 긴 길을 이용해 상대 룩을 겨냥해요.', '왕에게 소식을 전할 폰을 지켜야 해요.', '여왕도 공격받을 수 있어요. 강한 기물일수록 도착할 칸을 살펴요.', '상대 퀸을 겨냥해 친구들이 지나갈 틈을 만들어요.', '두 곳을 함께 공격하면 상대는 모두 지키기 어려워져요.', '여왕과 함께 안전한 길을 찾았어요. 이제 왕의 성에서 들리는 도움 요청을 따라가요.'],
+ ['왕의 성에 도착했어요. 왕은 잡는 기물이 아니라 공격받으면 반드시 피해야 하는 기물이에요.', '우리 왕에게 체크가 걸렸어요. 먼저 위험을 없애야 다른 계획을 세울 수 있어요.', '왕을 공격하는 것만으로는 끝나지 않아요. 빠져나갈 길이 하나도 없는 체크를 찾아요.', '반대편 모서리에서도 왕과 퀸의 협력을 확인해요.', '왕을 돕는 룩이 위험해요. 안전하게 구해야 마지막 계획을 이어갈 수 있어요.', '이제 상대가 실제로 응수해요. 왕과 퀸을 함께 움직여 도망갈 공간을 좁혀요.', '성의 다른 문에서도 같은 원리를 연습해요. 급히 체크하기보다 길을 막는 수를 찾아요.', '왕의 성을 지켜냈어요. 마지막 왕관을 찾기 전에 끝내는 기술을 정리해요.'],
+ ['왕관의 성으로 가는 길에서 이미 진행된 대국을 만났어요. 먼저 닫힌 뒷줄을 이용해 한 수로 끝내요.', '두 번째 문은 왕과 퀸이 함께 열어요. 체크가 없는 막힘은 승리가 아니라 무승부예요.', '세 번째 문에는 두 룩이 필요해요. 하나가 길을 막으면 다른 하나가 마무리해요.', '바로 체크할 필요는 없어요. 상대의 다음 수까지 생각해 도망갈 길을 먼저 좁혀요.', '마지막 연습은 세 수 계획이에요. 퀸으로 가두고 왕을 도우러 보내 마무리해요.', '이제 처음 배치부터 정식 대국을 시작해요. 폰과 나이트로 길을 열고 왕을 지키세요.', '다음 대국에서는 서로 지키는 기물을 만들어 보세요. 한 수마다 상대의 위협도 확인해요.', '왕관을 되찾을 마지막 대국이에요. 정원에서 배운 첫 걸음부터 함께 만든 모든 계획을 연결해요.']]
 for m in missions:
- if m['type']=='MOVE' and m['englishExpressionIds'][0]!='move_two':m['objective']['destination']=''
+ idx=int(m['id'].split('-')[1])-1
+ m['story']=stories[m['chapter']-1][idx];m['storyBeat']=idx in [0,3,7] or (m['chapter']==7 and idx==5)
+ m.setdefault('briefing',m['hints'][0])
+ if m['chapter']<=2:m['briefing']=m['story']
+ if m['type']=='MOVE':m['briefing']+=' 도착점: '+m['objective']['destination']+'.'
+ if m['chapter']<=3:m['revision']=max(2,m.get('revision',1))
+ if m['id']=='1-6':m['objective']['safeCapture']=True
 json.dump(missions,open(R/'data/missions.json','w'),ensure_ascii=False,indent=2)
 vocab=[['pawn','move','forward','one','two','capture'],['knight','jump','over','left','right'],['rook','straight','attack','protect'],['bishop','diagonal','find','safe'],['queen','powerful','together','save'],['king','danger','check','checkmate'],['win','defend','great move']]
 meanings=['폰,움직여요,앞으로,하나,둘,잡아요','나이트,뛰어요,넘어서,왼쪽,오른쪽','룩,직선으로,공격해요,지켜요','비숍,대각선으로,찾아요,안전해요','퀸,강해요,함께,구해요','킹,위험해요,체크,체크메이트','이겨요,방어해요,멋진 수예요']
@@ -82,3 +133,7 @@ for ch,words in enumerate(vocab,1):
   eid='word_'+word.replace(' ','_')
   expressions[eid]=dict(expressionId=eid,wordOrSentence=word.capitalize()+'!',meaning=meaning,learningLevel=1,relatedActions=['MOVE'],relatedPieces=[],audioId=eid,animationId='MOVE',reviewRules={'intervalDays':[1,3,7,14]},chapter=ch,practiceMission=(ch-1)*8 if ch<7 else 40)
 json.dump(list(expressions.values()),open(R/'data/expressions.json','w'),ensure_ascii=False,indent=2)
+
+# Keep bounded-mate proofs synchronized whenever content is regenerated.
+import subprocess
+subprocess.run(["node",str(R/"tools/puzzle_book.mjs")],check=True)

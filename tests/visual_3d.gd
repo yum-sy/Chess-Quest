@@ -5,7 +5,7 @@ func run():
 	game.learner.path="user://visual-render-test.json"
 	await create_timer(.5).timeout
 	root.get_texture().get_image().save_png("res://evidence/3d-home.png")
-	for idx in [0,34,48]:
+	for idx in [0,34,53]:
 		game.start_mission(idx);game.modal="";game.audio.stop()
 		await create_timer(.5).timeout
 		root.get_texture().get_image().save_png("res://evidence/3d-board-"+str(game.rules.n)+".png")

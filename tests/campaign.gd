@@ -18,8 +18,14 @@ func _initialize():
 					plies+=1
 				success=r.status()=="checkmate" and r.turn=="b"
 		else:
-			var sol=O.solutions(r,m);var before=r.cells.duplicate()
-			if sol.size():r.play(sol[0]);success=O.success(r,m,sol[0],before);plies+=1
+			success=true
+			for step in m.get("sequence",[{}]):
+				var active=m.duplicate();active.objective=m.objective.duplicate()
+				active.objective.merge(step.get("objective",{}),true)
+				var sol=O.solutions(r,active);var before=r.cells.duplicate()
+				if sol.is_empty():success=false;break
+				r.play(sol[0]);success=success and O.success(r,active,sol[0],before);plies+=1
+				r.turn="w"
 		if not success:failures+=1;printerr("UNSOLVED ",m.id)
 		else:l.complete(m,true,true)
 	var restored=L.new();restored.path=l.path;restored.load_save()

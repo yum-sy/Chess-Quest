@@ -398,16 +398,16 @@
   {
     "expressionId": "checkmate_in_one",
     "wordOrSentence": "Checkmate in one!",
-    "meaning": "다른 배치에서도 체크메이트를 찾아요.",
+    "meaning": "왕의 도움을 받는 퀸으로 한 수 안에 체크메이트해요. 스테일메이트에 주의해요.",
     "learningLevel": 4,
     "relatedActions": [
-      "CHECKMATE"
+      "GAME"
     ],
     "relatedPieces": [
       ""
     ],
     "audioId": "checkmate_in_one",
-    "animationId": "CHECKMATE",
+    "animationId": "GAME",
     "reviewRules": {
       "intervalDays": [
         1,
@@ -442,7 +442,7 @@
   {
     "expressionId": "checkmate_you_win",
     "wordOrSentence": "Checkmate! You win!",
-    "meaning": "AI와 번갈아 두어 체크메이트를 완성해요.",
+    "meaning": "퀸으로 가두고 우리 왕을 가까이 데려와요. 내 세 수 안에 체크메이트해요.",
     "learningLevel": 4,
     "relatedActions": [
       "GAME"
@@ -451,28 +451,6 @@
       ""
     ],
     "audioId": "checkmate_you_win",
-    "animationId": "GAME",
-    "reviewRules": {
-      "intervalDays": [
-        1,
-        3,
-        7,
-        14
-      ]
-    }
-  },
-  {
-    "expressionId": "great_move",
-    "wordOrSentence": "Great move!",
-    "meaning": "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
-    "learningLevel": 4,
-    "relatedActions": [
-      "GAME"
-    ],
-    "relatedPieces": [
-      ""
-    ],
-    "audioId": "great_move",
     "animationId": "GAME",
     "reviewRules": {
       "intervalDays": [

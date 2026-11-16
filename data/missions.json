@@ -1,11 +1,11 @@
 [
   {
     "acceptedSolutions": [
-      "b2b3",
-      "b2b4"
+      "b2b3"
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "왕관의 빛이 사라지자 정원의 문이 닫혔어요. 작은 폰이 첫 편지를 들고 길을 나섭니다. 도착점: b3.",
     "chapter": 1.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -19,12 +19,15 @@
     "id": "1-1",
     "initialPosition": "4/4/1P2/4 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "b3",
       "piece": "p",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-1",
+    "story": "왕관의 빛이 사라지자 정원의 문이 닫혔어요. 작은 폰이 첫 편지를 들고 길을 나섭니다.",
+    "storyBeat": true,
     "type": "MOVE"
   },
   {
@@ -33,6 +36,7 @@
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "첫 걸음은 두 칸도 갈 수 있어요. 멀리 가기 전에 길이 비었는지 확인해요. 도착점: a4.",
     "chapter": 1.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -51,7 +55,10 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-2",
+    "story": "첫 걸음은 두 칸도 갈 수 있어요. 멀리 가기 전에 길이 비었는지 확인해요.",
+    "storyBeat": false,
     "type": "MOVE"
   },
   {
@@ -60,6 +67,7 @@
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "문지기는 앞길이 아닌 대각선에 있어요. 폰의 이동과 잡는 방향을 구별해요.",
     "chapter": 1.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -78,18 +86,19 @@
       "target": "c3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-3",
+    "story": "문지기는 앞길이 아닌 대각선에 있어요. 폰의 이동과 잡는 방향을 구별해요.",
+    "storyBeat": false,
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
-      "a2a3",
-      "a2a4",
-      "c2c3",
-      "c2c4"
+      "c2c3"
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "편지를 다리 입구까지 배달해야 해요. 폰은 돌아갈 수 없으니 두 걸음을 차례로 계획해요. 도착점: c3.",
     "chapter": 1.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -103,21 +112,39 @@
     "id": "1-4",
     "initialPosition": "4/4/P1P1/4 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "c3",
       "piece": "p",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-4",
+    "sequence": [
+      {
+        "briefing": "하늘길로 갈 편지를 옮겨요. 먼저 c3으로 한 칸 전진해요.",
+        "objective": {
+          "destination": "c3"
+        }
+      },
+      {
+        "briefing": "편지를 문까지 배달해요. 이제 c4로 한 칸 더 전진해요.",
+        "objective": {
+          "destination": "c4"
+        }
+      }
+    ],
+    "story": "편지를 다리 입구까지 배달해야 해요. 폰은 돌아갈 수 없으니 두 걸음을 차례로 계획해요.",
+    "storyBeat": true,
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "b2b3",
+      "b2c3",
       "b2b4"
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "숨어 있던 상대 폰이 다가왔어요. 지금 자리와 도착할 자리의 위험을 모두 살펴요.",
     "chapter": 1.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -129,23 +156,27 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "1-5",
-    "initialPosition": "3p/4/1P2/4 w - - 0 1",
+    "initialPosition": "p3/2p1/1P2/4 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "p",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-5",
+    "story": "숨어 있던 상대 폰이 다가왔어요. 지금 자리와 도착할 자리의 위험을 모두 살펴요.",
+    "storyBeat": false,
     "type": "SAFE_MOVE"
   },
   {
     "acceptedSolutions": [
-      "c2b3",
       "c2d3"
     ],
     "boardSize": 4.0,
     "boss": true,
+    "briefing": "두 문지기 중 하나는 친구의 보호를 받고 있어요. 잡은 뒤에도 안전한 쪽을 골라요.",
     "chapter": 1.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -157,23 +188,28 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "1-6",
-    "initialPosition": "4/1p1p/2P1/4 w - - 0 1",
+    "initialPosition": "p3/1p1p/2P1/4 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "p",
+      "safeCapture": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-6",
+    "story": "두 문지기 중 하나는 친구의 보호를 받고 있어요. 잡은 뒤에도 안전한 쪽을 골라요.",
+    "storyBeat": false,
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
-      "a2a3",
-      "a2a4"
+      "c2b3",
+      "c2c4"
     ],
     "boardSize": 4.0,
     "boss": true,
+    "briefing": "정원 끝에는 대각선 함정이 있어요. 첫 두 칸 전진을 기억하며 안전한 길을 찾아요.",
     "chapter": 1.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -185,14 +221,18 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "1-7",
-    "initialPosition": "2p1/4/P3/4 w - - 0 1",
+    "initialPosition": "3p/1p2/2P1/4 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "p",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-7",
+    "story": "정원 끝에는 대각선 함정이 있어요. 첫 두 칸 전진을 기억하며 안전한 길을 찾아요.",
+    "storyBeat": false,
     "type": "SAFE_MOVE"
   },
   {
@@ -201,6 +241,7 @@
     ],
     "boardSize": 4.0,
     "boss": true,
+    "briefing": "마지막 문지기를 지나면 다리의 기사에게 편지를 전할 수 있어요.",
     "chapter": 1.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -219,17 +260,19 @@
       "target": "b3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-1-8",
+    "story": "마지막 문지기를 지나면 다리의 기사에게 편지를 전할 수 있어요.",
+    "storyBeat": true,
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
-      "b1d2",
-      "b1a3",
       "b1c3"
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "편지는 도착했지만 다리가 끊어졌어요. 나이트는 친구를 뛰어넘어 발판에 착지할 수 있어요. 도착점: c3.",
     "chapter": 2.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -243,22 +286,24 @@
     "id": "2-1",
     "initialPosition": "4/4/1P2/1NP1 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "c3",
       "piece": "n",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-1",
+    "story": "편지는 도착했지만 다리가 끊어졌어요. 나이트는 친구를 뛰어넘어 발판에 착지할 수 있어요.",
+    "storyBeat": true,
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "c1a2",
-      "c1b3",
-      "c1d3"
+      "c1b3"
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "반대편 발판에서도 같은 모양으로 뛸 수 있을까요? 도착할 칸을 먼저 찾아요. 도착점: b3.",
     "chapter": 2.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -272,12 +317,15 @@
     "id": "2-2",
     "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "b3",
       "piece": "n",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-2",
+    "story": "반대편 발판에서도 같은 모양으로 뛸 수 있을까요? 도착할 칸을 먼저 찾아요.",
+    "storyBeat": false,
     "type": "MOVE"
   },
   {
@@ -286,6 +334,7 @@
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "다리 위 문지기를 잡아야 친구들이 따라올 수 있어요.",
     "chapter": 2.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -304,17 +353,19 @@
       "target": "c3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-3",
+    "story": "다리 위 문지기를 잡아야 친구들이 따라올 수 있어요.",
+    "storyBeat": false,
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
-      "c1a2",
-      "c1b3",
-      "c1d3"
+      "c1b3"
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "두 발판을 이어 건너야 해요. 첫 점프만 성공해도 끝나는 것은 아니에요. 도착점: b3.",
     "chapter": 2.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -328,12 +379,29 @@
     "id": "2-4",
     "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "b3",
       "piece": "n",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-4",
+    "sequence": [
+      {
+        "briefing": "끊어진 다리의 첫 발판 b3으로 뛰어요. 상대는 움직이지 않는 경로 연습이에요.",
+        "objective": {
+          "destination": "b3"
+        }
+      },
+      {
+        "briefing": "다음 발판 d4까지 한 번 더 뛰어 다리를 건너요.",
+        "objective": {
+          "destination": "d4"
+        }
+      }
+    ],
+    "story": "두 발판을 이어 건너야 해요. 첫 점프만 성공해도 끝나는 것은 아니에요.",
+    "storyBeat": true,
     "type": "MOVE"
   },
   {
@@ -342,6 +410,7 @@
     ],
     "boardSize": 4.0,
     "boss": false,
+    "briefing": "발판 위 나이트가 공격받아요. 뛰어넘는 동안은 안전해도 착지하는 칸은 살펴야 해요.",
     "chapter": 2.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -353,24 +422,27 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "2-5",
-    "initialPosition": "2p1/4/4/2N1 w - - 0 1",
+    "initialPosition": "2p1/4/1p2/2N1 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "n",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-5",
+    "story": "발판 위 나이트가 공격받아요. 뛰어넘는 동안은 안전해도 착지하는 칸은 살펴야 해요.",
+    "storyBeat": false,
     "type": "SAFE_MOVE"
   },
   {
     "acceptedSolutions": [
-      "c1a2",
-      "c1b3",
-      "c1d3"
+      "c1b3"
     ],
     "boardSize": 4.0,
     "boss": true,
+    "briefing": "다리의 좁은 길은 친구가 막고 있어요. 나이트의 특별한 점프를 다시 사용해요. 도착점: b3.",
     "chapter": 2.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -384,20 +456,24 @@
     "id": "2-6",
     "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "b3",
       "piece": "n",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-6",
+    "story": "다리의 좁은 길은 친구가 막고 있어요. 나이트의 특별한 점프를 다시 사용해요.",
+    "storyBeat": false,
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "c1a2"
+      "b1d2"
     ],
     "boardSize": 4.0,
     "boss": true,
+    "briefing": "반대쪽에도 함정이 있어요. 상대 폰이 실제로 공격하는 대각선을 찾아요.",
     "chapter": 2.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -409,14 +485,18 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "2-7",
-    "initialPosition": "2p1/4/4/2N1 w - - 0 1",
+    "initialPosition": "1p2/4/2p1/1N2 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "n",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-7",
+    "story": "반대쪽에도 함정이 있어요. 상대 폰이 실제로 공격하는 대각선을 찾아요.",
+    "storyBeat": false,
     "type": "SAFE_MOVE"
   },
   {
@@ -425,6 +505,7 @@
     ],
     "boardSize": 4.0,
     "boss": true,
+    "briefing": "두 문지기를 차례로 지나 마지막 밧줄을 풀어요. 나이트가 길을 열면 탑의 친구가 기다려요.",
     "chapter": 2.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -436,31 +517,40 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "2-8",
-    "initialPosition": "4/2p1/1P2/1N2 w - - 0 1",
+    "initialPosition": "p3/2p1/1P2/1N2 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "n",
       "target": "c3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-2-8",
+    "sequence": [
+      {
+        "briefing": "다리의 두 문지기를 차례로 잡아요. 먼저 c3의 폰을 잡아요.",
+        "objective": {
+          "target": "c3"
+        }
+      },
+      {
+        "briefing": "다리 끝 a4의 문지기까지 잡으면 친구들이 건널 수 있어요.",
+        "objective": {
+          "target": "a4"
+        }
+      }
+    ],
+    "story": "두 문지기를 차례로 지나 마지막 밧줄을 풀어요. 나이트가 길을 열면 탑의 친구가 기다려요.",
+    "storyBeat": true,
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
-      "b2b1",
-      "b2a2",
-      "b2c2",
-      "b2d2",
-      "b2e2",
-      "b2f2",
-      "b2b3",
-      "b2b4",
-      "b2b5",
-      "b2b6"
+      "b2b4"
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요. 도착점: b4.",
     "chapter": 3.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -474,12 +564,15 @@
     "id": "3-1",
     "initialPosition": "6/6/6/6/1R4/6 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "b4",
       "piece": "r",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-1",
+    "story": "탑의 불이 꺼졌어요. 룩이 곧은 복도를 따라 등불을 찾아 나섭니다.",
+    "storyBeat": true,
     "type": "MOVE"
   },
   {
@@ -488,6 +581,7 @@
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "새 친구와 상대 폰을 잡아요.",
     "chapter": 3.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -506,7 +600,10 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-2",
+    "story": "복도를 막은 문지기를 잡고 등불을 되찾아요.",
+    "storyBeat": false,
     "type": "CAPTURE"
   },
   {
@@ -516,6 +613,7 @@
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
     "chapter": 3.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -534,7 +632,10 @@
       "target": "e4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-3",
+    "story": "상대 룩을 겨냥하면 다음 길을 열 수 있어요. 잡기와 공격 준비는 달라요.",
+    "storyBeat": false,
     "type": "ATTACK"
   },
   {
@@ -544,6 +645,7 @@
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
     "chapter": 3.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -559,25 +661,27 @@
     "objective": {
       "destination": "",
       "piece": "r",
+      "requireNewDefense": true,
       "target": "d4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-4",
+    "story": "등불을 든 폰이 공격받아요. 친구가 잡히면 되잡을 수 있게 지켜요.",
+    "storyBeat": true,
     "type": "PROTECT"
   },
   {
     "acceptedSolutions": [
       "b2b1",
-      "b2a2",
-      "b2c2",
-      "b2d2",
-      "b2e2",
+      "b2f2",
       "b2b3",
-      "b2b4",
+      "b2b5",
       "b2b6"
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "상대의 공격을 받지 않는 칸으로 움직여요.",
     "chapter": 3.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -589,14 +693,18 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "3-5",
-    "initialPosition": "6/5r/6/6/1R4/6 w - - 0 1",
+    "initialPosition": "6/2p3/6/6/1R3r/6 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "r",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-5",
+    "story": "등불을 떨어뜨리지 않도록 상대의 공격 밖으로 옮겨요.",
+    "storyBeat": false,
     "type": "SAFE_MOVE"
   },
   {
@@ -606,6 +714,7 @@
     ],
     "boardSize": 6.0,
     "boss": true,
+    "briefing": "움직인 뒤 상대 퀸을 공격해요.",
     "chapter": 3.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -624,7 +733,10 @@
       "target": "f5"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-6",
+    "story": "탑 꼭대기에서 상대 퀸이 길을 막아요. 룩의 긴 직선으로 겨냥해요.",
+    "storyBeat": false,
     "type": "ATTACK"
   },
   {
@@ -634,6 +746,7 @@
     ],
     "boardSize": 6.0,
     "boss": true,
+    "briefing": "상대가 폰을 잡으면 되잡을 수 있게 지켜요.",
     "chapter": 3.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -649,25 +762,28 @@
     "objective": {
       "destination": "",
       "piece": "r",
+      "requireNewDefense": true,
       "target": "c3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-7",
+    "story": "마지막 등불을 운반하는 폰 곁에 수비수를 보내요.",
+    "storyBeat": false,
     "type": "PROTECT"
   },
   {
     "acceptedSolutions": [
       "c3c1",
       "c3c2",
-      "c3a3",
-      "c3b3",
-      "c3d3",
-      "c3e3",
+      "c3f3",
       "c3c4",
-      "c3c5"
+      "c3c5",
+      "c3c6"
     ],
     "boardSize": 6.0,
     "boss": true,
+    "briefing": "안전한 이동으로 다음 길을 열어요.",
     "chapter": 3.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -679,28 +795,27 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "3-8",
-    "initialPosition": "5r/p5/6/2R3/6/6 w - - 0 1",
+    "initialPosition": "6/p5/6/2R2r/6/6 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "r",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-3-8",
+    "story": "탑의 불을 밝혔어요. 안전한 길을 골라 사원으로 향할 준비를 해요.",
+    "storyBeat": true,
     "type": "SAFE_MOVE"
   },
   {
     "acceptedSolutions": [
-      "b2a1",
-      "b2c1",
-      "b2a3",
-      "b2c3",
-      "b2d4",
-      "b2e5",
-      "b2f6"
+      "b2d4"
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요. 도착점: d4.",
     "chapter": 4.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -714,12 +829,14 @@
     "id": "4-1",
     "initialPosition": "6/6/6/6/1B4/6 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "d4",
       "piece": "b",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-4-1",
+    "story": "탑에서 비춘 빛이 사원의 대각선 길을 드러냈어요. 비숍과 함께 잃어버린 문양을 찾아요.",
+    "storyBeat": true,
     "type": "MOVE"
   },
   {
@@ -728,6 +845,7 @@
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "새 친구와 상대 폰을 잡아요.",
     "chapter": 4.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -747,6 +865,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-4-2",
+    "story": "같은 색의 길 위에 문지기가 있어요. 비숍으로 대각선을 따라가요.",
+    "storyBeat": false,
     "type": "CAPTURE"
   },
   {
@@ -779,6 +899,8 @@
     "opponentResponsePolicy": "legal_capture_then_random",
     "revision": 2.0,
     "rewardId": "reward-4-3",
+    "story": "상대 룩이 문양을 든 폰을 노려요. 공격자를 먼저 막아야 해요.",
+    "storyBeat": false,
     "threat": [
       "f4",
       "f1"
@@ -816,6 +938,8 @@
     "opponentResponsePolicy": "legal_capture_then_random",
     "revision": 2.0,
     "rewardId": "reward-4-4",
+    "story": "이번에는 폰을 직접 구할 수 없어요. 잡히더라도 되잡을 수 있게 준비해요.",
+    "storyBeat": true,
     "threat": [
       "c6",
       "c4"
@@ -856,6 +980,8 @@
     "opponentResponsePolicy": "legal_capture_then_random",
     "revision": 2.0,
     "rewardId": "reward-4-5",
+    "story": "문양을 찾던 비숍이 공격받아요. 도망갈 곳에도 함정이 없는지 살펴요.",
+    "storyBeat": false,
     "threat": [
       "e6",
       "e3"
@@ -892,6 +1018,8 @@
     "opponentResponsePolicy": "legal_capture_then_random",
     "revision": 2.0,
     "rewardId": "reward-4-6",
+    "story": "친구 룩이 출구를 지키고 있어요. 비숍으로 친구를 위협하는 룩을 잡아요.",
+    "storyBeat": false,
     "threat": [
       "e5",
       "e1"
@@ -928,6 +1056,8 @@
     "opponentResponsePolicy": "legal_capture_then_random",
     "revision": 2.0,
     "rewardId": "reward-4-7",
+    "story": "출구 앞의 룩을 혼자 두지 마세요. 서로 지키는 자리를 찾아요.",
+    "storyBeat": false,
     "threat": [
       "c6",
       "c2"
@@ -971,6 +1101,8 @@
     "opponentResponsePolicy": "legal_capture_then_random",
     "revision": 2.0,
     "rewardId": "reward-4-8",
+    "story": "마지막 함정을 피하면 사원의 문양이 완성돼요. 문양은 여왕의 궁전을 가리킵니다.",
+    "storyBeat": true,
     "threat": [
       "f3",
       "c3"
@@ -979,26 +1111,11 @@
   },
   {
     "acceptedSolutions": [
-      "b2a1",
-      "b2b1",
-      "b2c1",
-      "b2a2",
-      "b2c2",
-      "b2d2",
-      "b2e2",
-      "b2f2",
-      "b2a3",
-      "b2b3",
-      "b2c3",
-      "b2b4",
-      "b2d4",
-      "b2b5",
-      "b2e5",
-      "b2b6",
-      "b2f6"
+      "b2b4"
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요. 도착점: b4.",
     "chapter": 5.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -1012,12 +1129,14 @@
     "id": "5-1",
     "initialPosition": "6/6/6/6/1Q4/6 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "b4",
       "piece": "q",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-5-1",
+    "story": "사원의 문양이 궁전 문을 열었어요. 여왕은 직선과 대각선의 힘을 함께 사용해요.",
+    "storyBeat": true,
     "type": "MOVE"
   },
   {
@@ -1026,6 +1145,7 @@
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "새 친구와 상대 폰을 잡아요.",
     "chapter": 5.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -1045,6 +1165,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-5-2",
+    "story": "궁전 계단의 문지기를 잡아 여왕의 길을 열어요.",
+    "storyBeat": false,
     "type": "CAPTURE"
   },
   {
@@ -1058,6 +1180,7 @@
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
     "chapter": 5.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -1077,18 +1200,22 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-5-3",
+    "story": "궁전의 긴 길을 이용해 상대 룩을 겨냥해요.",
+    "storyBeat": false,
     "type": "ATTACK"
   },
   {
     "acceptedSolutions": [
-      "b2a1",
-      "b2d2",
-      "b2f2",
-      "b2c3",
-      "b2b4"
+      "b1a1",
+      "b1d1",
+      "b1b2",
+      "b1d3",
+      "b1b4",
+      "b1e4"
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
     "chapter": 5.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -1100,14 +1227,18 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "5-4",
-    "initialPosition": "3r2/6/3P2/6/1Q4/6 w - - 0 1",
+    "initialPosition": "3r2/6/3P2/6/6/1Q4 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "q",
+      "requireNewDefense": true,
       "target": "d4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-5-4",
+    "story": "왕에게 소식을 전할 폰을 지켜야 해요.",
+    "storyBeat": true,
     "type": "PROTECT"
   },
   {
@@ -1115,19 +1246,18 @@
       "b2a1",
       "b2b1",
       "b2c1",
-      "b2a2",
-      "b2c2",
-      "b2d2",
-      "b2e2",
+      "b2f2",
       "b2a3",
-      "b2b3",
       "b2c3",
       "b2b4",
       "b2d4",
+      "b2b5",
+      "b2e5",
       "b2b6"
     ],
     "boardSize": 6.0,
     "boss": false,
+    "briefing": "상대의 공격을 받지 않는 칸으로 움직여요.",
     "chapter": 5.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -1139,14 +1269,18 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "5-5",
-    "initialPosition": "6/5r/6/6/1Q4/6 w - - 0 1",
+    "initialPosition": "6/6/2p3/6/1Q3r/6 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "q",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-5-5",
+    "story": "여왕도 공격받을 수 있어요. 강한 기물일수록 도착할 칸을 살펴요.",
+    "storyBeat": false,
     "type": "SAFE_MOVE"
   },
   {
@@ -1159,6 +1293,7 @@
     ],
     "boardSize": 6.0,
     "boss": true,
+    "briefing": "움직인 뒤 상대 퀸을 공격해요.",
     "chapter": 5.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1178,6 +1313,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-5-6",
+    "story": "상대 퀸을 겨냥해 친구들이 지나갈 틈을 만들어요.",
+    "storyBeat": false,
     "type": "ATTACK"
   },
   {
@@ -1188,6 +1325,7 @@
     ],
     "boardSize": 6.0,
     "boss": true,
+    "briefing": "퀸 하나로 상대 룩 둘을 동시에 공격해요.",
     "chapter": 5.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1207,6 +1345,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-5-7",
+    "story": "두 곳을 함께 공격하면 상대는 모두 지키기 어려워져요.",
+    "storyBeat": false,
     "type": "FORK"
   },
   {
@@ -1217,19 +1357,17 @@
       "c3b2",
       "c3c2",
       "c3d2",
-      "c3a3",
-      "c3b3",
-      "c3d3",
-      "c3e3",
+      "c3f3",
       "c3c4",
       "c3d4",
       "c3a5",
       "c3c5",
       "c3e5",
-      "c3f6"
+      "c3c6"
     ],
     "boardSize": 6.0,
     "boss": true,
+    "briefing": "안전한 이동으로 다음 길을 열어요.",
     "chapter": 5.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1241,14 +1379,18 @@
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "5-8",
-    "initialPosition": "5r/p5/6/2Q3/6/6 w - - 0 1",
+    "initialPosition": "6/p5/6/2Q2r/6/6 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "q",
+      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-5-8",
+    "story": "여왕과 함께 안전한 길을 찾았어요. 이제 왕의 성에서 들리는 도움 요청을 따라가요.",
+    "storyBeat": true,
     "type": "SAFE_MOVE"
   },
   {
@@ -1258,6 +1400,7 @@
     ],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "상대 왕을 공격하되 우리 왕을 안전하게 지켜요.",
     "chapter": 6.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -1277,6 +1420,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-1",
+    "story": "왕의 성에 도착했어요. 왕은 잡는 기물이 아니라 공격받으면 반드시 피해야 하는 기물이에요.",
+    "storyBeat": true,
     "type": "CHECK"
   },
   {
@@ -1288,6 +1433,7 @@
     ],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "왕이 체크를 받았어요. 체크에서 벗어나요.",
     "chapter": 6.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
@@ -1307,6 +1453,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-2",
+    "story": "우리 왕에게 체크가 걸렸어요. 먼저 위험을 없애야 다른 계획을 세울 수 있어요.",
+    "storyBeat": false,
     "type": "ESCAPE_CHECK"
   },
   {
@@ -1318,6 +1466,7 @@
     ],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "상대 왕이 빠져나올 수 없는 체크를 만들어요.",
     "chapter": 6.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -1337,6 +1486,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-3",
+    "story": "왕을 공격하는 것만으로는 끝나지 않아요. 빠져나갈 길이 하나도 없는 체크를 찾아요.",
+    "storyBeat": false,
     "type": "CHECKMATE"
   },
   {
@@ -1348,6 +1499,7 @@
     ],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "다른 배치에서도 체크메이트를 찾아요.",
     "chapter": 6.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -1367,6 +1519,8 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-4",
+    "story": "반대편 모서리에서도 왕과 퀸의 협력을 확인해요.",
+    "storyBeat": true,
     "type": "CHECKMATE"
   },
   {
@@ -1386,6 +1540,7 @@
     ],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "공격받는 룩을 안전한 칸으로 움직여요.",
     "chapter": 6.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
@@ -1405,12 +1560,15 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-5",
+    "story": "왕을 돕는 룩이 위험해요. 안전하게 구해야 마지막 계획을 이어갈 수 있어요.",
+    "storyBeat": false,
     "type": "SAFE_MOVE"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": true,
+    "briefing": "AI와 번갈아 두어 체크메이트를 완성해요.",
     "chapter": 6.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1430,12 +1588,15 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-6",
+    "story": "이제 상대가 실제로 응수해요. 왕과 퀸을 함께 움직여 도망갈 공간을 좁혀요.",
+    "storyBeat": false,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": true,
+    "briefing": "AI와 번갈아 두어 체크메이트를 완성해요.",
     "chapter": 6.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1455,12 +1616,15 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-7",
+    "story": "성의 다른 문에서도 같은 원리를 연습해요. 급히 체크하기보다 길을 막는 수를 찾아요.",
+    "storyBeat": false,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": true,
+    "briefing": "AI와 번갈아 두어 체크메이트를 완성해요.",
     "chapter": 6.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1480,137 +1644,333 @@
     },
     "opponentResponsePolicy": "legal_capture_then_random",
     "rewardId": "reward-6-8",
+    "story": "왕의 성을 지켜냈어요. 마지막 왕관을 찾기 전에 끝내는 기술을 정리해요.",
+    "storyBeat": true,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "닫힌 뒷줄을 찾아 룩으로 한 수 안에 체크메이트해요.",
     "chapter": 7.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
-      "great_move"
+      "checkmate_in_one"
     ],
     "hints": [
-      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "닫힌 뒷줄을 찾아 룩으로 한 수 안에 체크메이트해요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-1",
-    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "initialPosition": "6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - - 0 18",
+    "mateLimit": 1.0,
     "objective": {
       "destination": "",
       "piece": "",
       "target": ""
     },
-    "opponentResponsePolicy": "legal_capture_then_random",
+    "opponentResponsePolicy": "verified_defense",
+    "puzzleBook": {
+      "6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - -|1": [
+        "e1e8"
+      ]
+    },
+    "revision": 2.0,
     "rewardId": "reward-7-1",
+    "story": "왕관의 성으로 가는 길에서 이미 진행된 대국을 만났어요. 먼저 닫힌 뒷줄을 이용해 한 수로 끝내요.",
+    "storyBeat": true,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "왕의 도움을 받는 퀸으로 한 수 안에 체크메이트해요. 스테일메이트에 주의해요.",
     "chapter": 7.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
-      "protect_your_king"
+      "checkmate_in_one"
     ],
     "hints": [
-      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "왕의 도움을 받는 퀸으로 한 수 안에 체크메이트해요. 스테일메이트에 주의해요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-2",
-    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "initialPosition": "7k/5Q2/6K1/8/8/8/8/8 w - - 0 27",
+    "mateLimit": 1.0,
     "objective": {
       "destination": "",
       "piece": "",
       "target": ""
     },
-    "opponentResponsePolicy": "legal_capture_then_random",
+    "opponentResponsePolicy": "verified_defense",
+    "puzzleBook": {
+      "7k/5Q2/6K1/8/8/8/8/8 w - -|1": [
+        "f7e8",
+        "f7f8",
+        "f7g7",
+        "f7h7"
+      ]
+    },
+    "revision": 2.0,
     "rewardId": "reward-7-2",
+    "story": "두 번째 문은 왕과 퀸이 함께 열어요. 체크가 없는 막힘은 승리가 아니라 무승부예요.",
+    "storyBeat": false,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "두 룩이 번갈아 길을 막아요. 내 두 수 안에 체크메이트해요.",
     "chapter": 7.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "great_move"
+      "checkmate_you_win"
     ],
     "hints": [
-      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "두 룩이 번갈아 길을 막아요. 내 두 수 안에 체크메이트해요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-3",
-    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "initialPosition": "7k/8/8/8/8/8/1R6/R5K1 w - - 0 28",
+    "mateLimit": 2.0,
     "objective": {
       "destination": "",
       "piece": "",
       "target": ""
     },
-    "opponentResponsePolicy": "legal_capture_then_random",
+    "opponentResponsePolicy": "verified_defense",
+    "puzzleBook": {
+      "6k1/1R6/8/8/8/8/8/R5K1 w - -|1": [
+        "a1a8"
+      ],
+      "6k1/R7/8/8/8/8/1R6/6K1 w - -|1": [
+        "b2b8"
+      ],
+      "7k/1R6/8/8/8/8/8/R5K1 b - -|1": [
+        "h8g8"
+      ],
+      "7k/8/8/8/8/8/1R6/R5K1 w - -|2": [
+        "b2b7",
+        "a1a7"
+      ],
+      "7k/R7/8/8/8/8/1R6/6K1 b - -|1": [
+        "h8g8"
+      ]
+    },
+    "revision": 2.0,
     "rewardId": "reward-7-3",
+    "story": "세 번째 문에는 두 룩이 필요해요. 하나가 길을 막으면 다른 하나가 마무리해요.",
+    "storyBeat": false,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "먼저 왕의 도망갈 길을 좁히고, 내 두 수 안에 체크메이트해요.",
     "chapter": 7.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "protect_your_king"
+      "checkmate_you_win"
     ],
     "hints": [
-      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "먼저 왕의 도망갈 길을 좁히고, 내 두 수 안에 체크메이트해요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-4",
-    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "initialPosition": "7k/8/5K2/3Q4/8/8/8/8 w - - 0 32",
+    "mateLimit": 2.0,
     "objective": {
       "destination": "",
       "piece": "",
       "target": ""
     },
-    "opponentResponsePolicy": "legal_capture_then_random",
+    "opponentResponsePolicy": "verified_defense",
+    "puzzleBook": {
+      "6k1/1Q6/5K2/8/8/8/8/8 w - -|1": [
+        "b7g7"
+      ],
+      "6k1/3Q4/5K2/8/8/8/8/8 w - -|1": [
+        "d7g7"
+      ],
+      "7k/1Q6/5K2/8/8/8/8/8 b - -|1": [
+        "h8g8"
+      ],
+      "7k/3Q4/5K2/8/8/8/8/8 b - -|1": [
+        "h8g8"
+      ],
+      "7k/5K2/8/3Q4/8/8/8/8 b - -|1": [
+        "h8h7"
+      ],
+      "7k/8/5K2/3Q4/8/8/8/8 w - -|2": [
+        "f6f7",
+        "d5b7",
+        "d5d7",
+        "d5g5",
+        "d5g2"
+      ],
+      "7k/8/5K2/6Q1/8/8/8/8 b - -|1": [
+        "h8h7"
+      ],
+      "7k/8/5K2/8/8/8/6Q1/8 b - -|1": [
+        "h8h7"
+      ],
+      "8/5K1k/8/3Q4/8/8/8/8 w - -|1": [
+        "d5h5",
+        "d5h1"
+      ],
+      "8/7k/5K2/6Q1/8/8/8/8 w - -|1": [
+        "g5g7"
+      ],
+      "8/7k/5K2/8/8/8/6Q1/8 w - -|1": [
+        "g2g7"
+      ]
+    },
+    "revision": 2.0,
     "rewardId": "reward-7-4",
+    "story": "바로 체크할 필요는 없어요. 상대의 다음 수까지 생각해 도망갈 길을 먼저 좁혀요.",
+    "storyBeat": true,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
+    "briefing": "퀸으로 가두고 우리 왕을 가까이 데려와요. 내 세 수 안에 체크메이트해요.",
     "chapter": 7.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "great_move"
+      "checkmate_you_win"
     ],
     "hints": [
-      "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
+      "퀸으로 가두고 우리 왕을 가까이 데려와요. 내 세 수 안에 체크메이트해요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-5",
-    "initialPosition": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+    "initialPosition": "7k/8/8/5K2/8/1Q6/8/8 w - - 0 36",
+    "mateLimit": 3.0,
     "objective": {
       "destination": "",
       "piece": "",
       "target": ""
     },
-    "opponentResponsePolicy": "legal_capture_then_random",
+    "opponentResponsePolicy": "verified_defense",
+    "puzzleBook": {
+      "1Q6/7k/5K2/8/8/8/8/8 b - -|1": [
+        "h7h6"
+      ],
+      "1Q6/8/5K1k/8/8/8/8/8 w - -|1": [
+        "b8h8",
+        "b8h2"
+      ],
+      "5k2/1Q6/5K2/8/8/8/8/8 w - -|1": [
+        "b7a8",
+        "b7b8",
+        "b7c8",
+        "b7f7"
+      ],
+      "5k2/1Q6/6K1/8/8/8/8/8 w - -|1": [
+        "b7f7"
+      ],
+      "6k1/1Q6/5K2/8/8/8/8/8 b - -|1": [
+        "g8h8",
+        "g8f8"
+      ],
+      "6k1/1Q6/5K2/8/8/8/8/8 w - -|1": [
+        "b7g7"
+      ],
+      "6k1/1Q6/6K1/8/8/8/8/8 b - -|1": [
+        "g8h8",
+        "g8f8"
+      ],
+      "6k1/1Q6/8/5K2/8/8/8/8 w - -|2": [
+        "f5f6",
+        "f5g6"
+      ],
+      "7k/1Q6/5K2/8/8/8/8/8 w - -|1": [
+        "b7g7"
+      ],
+      "7k/1Q6/6K1/8/8/8/8/8 w - -|1": [
+        "b7a8",
+        "b7b8",
+        "b7c8",
+        "b7g7",
+        "b7h7"
+      ],
+      "7k/1Q6/8/5K2/8/8/8/8 b - -|2": [
+        "h8g8"
+      ],
+      "7k/5Q2/5K2/8/8/8/8/8 w - -|1": [
+        "f7g7"
+      ],
+      "7k/8/5K2/8/8/1Q6/8/8 b - -|2": [
+        "h8h7"
+      ],
+      "7k/8/5K2/8/8/6Q1/8/8 w - -|1": [
+        "g3g7"
+      ],
+      "7k/8/8/5K2/8/1Q6/8/8 w - -|3": [
+        "f5f6",
+        "b3b7",
+        "b3g3"
+      ],
+      "7k/8/8/5K2/8/6Q1/8/8 b - -|2": [
+        "h8h7"
+      ],
+      "8/1Q5k/5K2/8/8/8/8/8 b - -|1": [
+        "h7g8",
+        "h7h8",
+        "h7h6"
+      ],
+      "8/1Q6/5K1k/8/8/8/8/8 w - -|1": [
+        "b7h1"
+      ],
+      "8/5Q1k/5K2/8/8/8/8/8 b - -|1": [
+        "h7h8",
+        "h7h6"
+      ],
+      "8/5Q2/5K1k/8/8/8/8/8 w - -|1": [
+        "f7g6"
+      ],
+      "8/7k/5K2/8/8/1Q6/8/8 w - -|2": [
+        "b3b7",
+        "b3b8",
+        "b3f7",
+        "b3g3"
+      ],
+      "8/7k/5K2/8/8/6Q1/8/8 b - -|1": [
+        "h7h8",
+        "h7h6"
+      ],
+      "8/7k/8/5K2/8/6Q1/8/8 w - -|2": [
+        "f5f6"
+      ],
+      "8/8/5K1k/8/8/6Q1/8/8 w - -|1": [
+        "g3g6",
+        "g3h4",
+        "g3h3",
+        "g3h2"
+      ]
+    },
+    "revision": 2.0,
     "rewardId": "reward-7-5",
+    "story": "마지막 연습은 세 수 계획이에요. 퀸으로 가두고 왕을 도우러 보내 마무리해요.",
+    "storyBeat": false,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": true,
+    "briefing": "첫 정식 대국이에요. 중앙으로 나아가고 왕을 안전하게 지켜요.",
     "chapter": 7.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1629,17 +1989,21 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-7-6",
+    "story": "이제 처음 배치부터 정식 대국을 시작해요. 폰과 나이트로 길을 열고 왕을 지키세요.",
+    "storyBeat": true,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": true,
+    "briefing": "두 번째 정식 대국이에요. 공격 전에 내 기물이 안전한지 살펴봐요.",
     "chapter": 7.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
-      "great_move"
+      "protect_your_king"
     ],
     "hints": [
       "정식 대국이에요. 힌트와 무르기를 마음껏 사용하세요.",
@@ -1654,13 +2018,17 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-7-7",
+    "story": "다음 대국에서는 서로 지키는 기물을 만들어 보세요. 한 수마다 상대의 위협도 확인해요.",
+    "storyBeat": false,
     "type": "GAME"
   },
   {
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": true,
+    "briefing": "왕관을 되찾는 마지막 대국이에요. 배운 계획을 연결해 체크메이트를 완성해요.",
     "chapter": 7.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
@@ -1679,7 +2047,10 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 2.0,
     "rewardId": "reward-7-8",
+    "story": "왕관을 되찾을 마지막 대국이에요. 정원에서 배운 첫 걸음부터 함께 만든 모든 계획을 연결해요.",
+    "storyBeat": true,
     "type": "GAME"
   }
 ]
