@@ -10,7 +10,7 @@ Native GDScript rules mirror is independently tested against chess.js fixtures; 
 Font: Noto Sans KR, SIL Open Font License 1.1. Font and license are included in assets/.
 https://github.com/google/fonts/tree/main/ofl/notosanskr
 
-Speech: AI-generated English voice created through OpenAI gpt-4o-mini-tts, voice coral. Bright, high-register adult female delivery. Silence trimmed; +2 semitone pitch lift with duration compensation; tempo matched to the previous voice pack; loudness normalized to -16 LUFS / -1.5 dBTP. 56 delivered WAV files in assets/audio; generation and processing provenance in assets/audio/gpt-provenance.json. Generation uses a paid API; playback is offline and requires no key or remote service. The private API key is not included.
+Speech: AI-generated English voice created through OpenAI gpt-4o-mini-tts, voice coral. Bright, high-register adult female delivery. Silence trimmed; +2 semitone pitch lift with duration compensation; tempo matched to the previous voice pack; loudness normalized to -16 LUFS / -1.5 dBTP. Final pitch-preserving 0.90x tempo adjustment for easier listening. 56 delivered WAV files in assets/audio; generation and processing provenance in assets/audio/gpt-provenance.json. Generation uses a paid API; playback is offline and requires no key or remote service. The private API key is not included.
 
 Runtime: Godot Engine 4.7.2, MIT license, https://godotengine.org/license/
 
