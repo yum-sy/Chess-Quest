@@ -150,7 +150,7 @@ func draw_map(s:Vector2):
 			var done=learner.data.completed.has(str(c+1)+"-"+str(j+1))
 			var open=unlocked and (j==0 or learner.data.completed.has(str(c+1)+"-"+str(j)))
 			var cells_per_row=2 if narrow else 4
-			button(("★" if done else "B" if j>=5 else str(j+1)),Rect2(x+16+(j%cells_per_row)*((w-50)/cells_per_row),y+94+(j/cells_per_row)*(94 if narrow else 52),(w-65)/cells_per_row,88 if narrow else 44),"mission:"+str(c*8+j),done,not open)
+			button(("★" if done else "보스" if j>=5 else str(j+1)),Rect2(x+16+(j%cells_per_row)*((w-50)/cells_per_row),y+94+(j/cells_per_row)*(94 if narrow else 52),(w-65)/cells_per_row,88 if narrow else 44),"mission:"+str(c*8+j),done,not open)
 	if narrow:
 		button("도감",Rect2(44,s.y-110,190,88),"book",true)
 		button("설정",Rect2(250,s.y-110,190,88),"settings")
