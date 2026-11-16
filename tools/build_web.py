@@ -11,8 +11,8 @@ engine=engine[:engine.rfind('export {')]
 (d/'chess.js').write_text(engine+'\n'+(r/'web/bridge.js').read_text())
 html=(d/'index.html').read_text().replace('"serviceWorker":"index.service.worker.js"','"serviceWorker":""')
 html=html.replace('<head>','<head>\n<script src="chess.js"></script>\n<link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#367f7b">')
-html=html.replace('</body>','''<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js');</script>
-<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">Help · Source</a></body>''')
+html=html.replace('</body>','''<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update());</script>
+<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">GPT voice · v11.17 · Help</a></body>''')
 (d/'index.html').write_text(html)
 manifest={'name':'Chess Quest: The Lost Crown','short_name':'Chess Quest','start_url':'./index.html','scope':'./','id':'./','display':'standalone','orientation':'any','background_color':'#e8efdc','theme_color':'#367f7b','icons':[{'src':f'icon-{s}.png','sizes':f'{s}x{s}','type':'image/png','purpose':'any maskable'} for s in [192,512]]}
 (d/'index.manifest.json').write_text(json.dumps(manifest))
@@ -35,9 +35,9 @@ with zipfile.ZipFile(d/'source.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in r.rglob('*'):
   if p.is_file() and p.name!='SPEC-v3.md' and not any(a in p.relative_to(r).parts for a in ['.git','.godot','node_modules','dist','evidence']):z.write(p,p.relative_to(r))
 assets=sorted(p.name for p in d.iterdir() if p.is_file() and p.suffix not in ['.zip'] and not p.name.startswith('.') and p.name not in ['sw.js','index.service.worker.js'])
-version=hashlib.sha256(b''.join((d/n).read_bytes() for n in assets)).hexdigest()[:16]
+version=hashlib.sha256(b'cache-refresh-v2'+b''.join((d/n).read_bytes() for n in assets)).hexdigest()[:16]
 (d/'sw.js').write_text('const CACHE="chess-quest-'+version+'";const FILES='+json.dumps(assets)+''';
-self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
+self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k.startsWith('chess-quest-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==location.origin)return;e.respondWith(caches.match(e.request,{ignoreSearch:true}).then(async r=>r||(e.request.mode==='navigate' ? (await caches.match('index.html'))||fetch(e.request) : fetch(e.request))));});''')
 (d/'.nojekyll').touch()
