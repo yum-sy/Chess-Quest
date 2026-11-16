@@ -1,5 +1,5 @@
 Chess Quest: The Lost Crown
-Game code, content, original board geometry and guidebook vector artwork: created for this project, 2026. MIT license (see LICENSE).
+Game code, content, original board geometry and guidebook UI: created for this project, 2026. MIT license (see LICENSE).
 No third-party character or concept artwork is included. The previously referenced second concept image was not supplied with this request.
 
 Standard 8x8 browser rules: chess.js 1.4.0, Jeff Hlywa and contributors, BSD-2-Clause.
@@ -43,3 +43,6 @@ POSSIBILITY OF SUCH DAMAGE.
 
 2026-11-16 approved character update:
 assets/characters/approved-atlas-v1.png — AI-rendered original character sprites created with the built-in OpenAI image generation tool from user-approved concepts. 12 white/dark characters × 2 expressions. Provenance and complete generation prompts: art-source/README.md. Board geometry remains original GDScript-generated 3D geometry. No purchased or externally downloaded character model is claimed.
+
+2026-11-17 magic book update:
+assets/characters/magic-book-v1.png — Original AI-generated transparent spellbook companion, made with the built-in OpenAI image generation tool using the approved character atlas as a style reference. Generated source and prompt are documented in art-source/README.md. No external asset purchase is claimed.
