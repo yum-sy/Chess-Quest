@@ -8,6 +8,14 @@ func run():
  var ms=JSON.parse_string(FileAccess.get_file_as_string("res://data/missions.json"));var nodes=0
  for m in ms:
   if not m.has("mateLimit"):continue
+  var setup=R.new();setup.load_fen(m.initialPosition,8)
+  var white_count=0;var black_count=0
+  for piece in setup.cells:
+   if setup.color(piece)=="w":white_count+=1
+   if setup.color(piece)=="b":black_count+=1
+  check(white_count>=10 and black_count>=10,m.id+" developed middlegame armies")
+  check(not setup.check("w") and not setup.check("b"),m.id+" legal non-check start")
+  check(int(m.revision)>=3,m.id+" invalidates old sparse puzzle save")
   for key in m.puzzleBook:
    nodes+=1
    var parts=key.split("|");var left=int(parts[1]);var r=R.new();r.load_fen(parts[0]+" 0 1",8)
@@ -33,7 +41,9 @@ func run():
  check(g.lesson_step==1 and g.rules.fen()==saved.fen,"step progress resumes")
  g.player_move("c3c4");await create_timer(.65).timeout
  check(g.modal=="success" and g.learner.data.completed.has("1-4"),"both steps complete")
- g.start_mission(50);g.modal=""
+ g.learner.data.current={"id":"7-3","revision":2,"fen":"7k/8/8/8/8/8/1R6/R5K1 w - - 0 28"}
+ g.start_mission(50,true);g.modal=""
+ check(g.rules.fen()==g.missions[50].initialPosition,"old sparse puzzle save resets to middlegame")
  var initial=g.rules.fen();var solutions=g.puzzle_moves()
  for move in g.rules.legal():
   if not move in solutions:

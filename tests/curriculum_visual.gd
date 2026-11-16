@@ -10,6 +10,10 @@ func run():
   g.modal=""
   await create_timer(.3).timeout
   root.get_texture().get_image().save_png("res://evidence/lesson-"+str(i)+".png")
+  if i in [50,52]:
+   g.modal="success"
+   await create_timer(.2).timeout
+   root.get_texture().get_image().save_png("res://evidence/tactic-explanation-"+str(i)+".png")
  root.size=Vector2i(720,1280);g.responsive();g.start_mission(52);g.modal=""
  await create_timer(.4).timeout
  root.get_texture().get_image().save_png("res://evidence/puzzle-portrait.png")

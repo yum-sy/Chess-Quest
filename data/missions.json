@@ -1652,19 +1652,20 @@
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
-    "briefing": "닫힌 뒷줄을 찾아 룩으로 한 수 안에 체크메이트해요.",
+    "briefing": "많은 기물이 남아 있어도 뒷줄에는 빈틈이 있어요. 열린 e파일을 이용해 한 수 메이트를 찾아요.",
     "chapter": 7.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "checkmate_in_one"
     ],
+    "explanation": "상대 폰들이 왕의 도망갈 길을 막았어요. 열린 e파일로 룩을 보내 뒷줄 전체를 공격했어요.",
     "hints": [
-      "닫힌 뒷줄을 찾아 룩으로 한 수 안에 체크메이트해요.",
+      "많은 기물이 남아 있어도 뒷줄에는 빈틈이 있어요. 열린 e파일을 이용해 한 수 메이트를 찾아요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-1",
-    "initialPosition": "6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - - 0 18",
+    "initialPosition": "r1b3k1/ppp2ppp/2np4/q7/2BP1B2/2N5/PPPQ1PPP/R3R1K1 w - - 0 16",
     "mateLimit": 1.0,
     "objective": {
       "destination": "",
@@ -1673,13 +1674,13 @@
     },
     "opponentResponsePolicy": "verified_defense",
     "puzzleBook": {
-      "6k1/5ppp/8/8/8/8/5PPP/4R1K1 w - -|1": [
+      "r1b3k1/ppp2ppp/2np4/q7/2BP1B2/2N5/PPPQ1PPP/R3R1K1 w - -|1": [
         "e1e8"
       ]
     },
-    "revision": 2.0,
+    "revision": 3.0,
     "rewardId": "reward-7-1",
-    "story": "왕관의 성으로 가는 길에서 이미 진행된 대국을 만났어요. 먼저 닫힌 뒷줄을 이용해 한 수로 끝내요.",
+    "story": "왕관의 성 앞에서 양쪽 군대가 맞서고 있어요. 복잡한 전장에서도 열린 파일과 약한 뒷줄을 발견하면 단번에 끝낼 수 있어요.",
     "storyBeat": true,
     "type": "GAME"
   },
@@ -1687,19 +1688,20 @@
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
-    "briefing": "왕의 도움을 받는 퀸으로 한 수 안에 체크메이트해요. 스테일메이트에 주의해요.",
+    "briefing": "퀸 혼자 공격하지 않아요. 비숍과 나이트가 함께 지키는 칸에서 한 수 메이트를 찾아요.",
     "chapter": 7.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "checkmate_in_one"
     ],
+    "explanation": "h7의 퀸은 비숍과 나이트가 지켜요. 왕이 퀸을 잡을 수도, 다른 칸으로 피할 수도 없어요.",
     "hints": [
-      "왕의 도움을 받는 퀸으로 한 수 안에 체크메이트해요. 스테일메이트에 주의해요.",
+      "퀸 혼자 공격하지 않아요. 비숍과 나이트가 함께 지키는 칸에서 한 수 메이트를 찾아요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-2",
-    "initialPosition": "7k/5Q2/6K1/8/8/8/8/8 w - - 0 27",
+    "initialPosition": "r1bq1rk1/p1p1bppp/2np4/6NQ/3P4/2NB4/PP3PPP/R1B1R1K1 w - - 0 16",
     "mateLimit": 1.0,
     "objective": {
       "destination": "",
@@ -1708,16 +1710,13 @@
     },
     "opponentResponsePolicy": "verified_defense",
     "puzzleBook": {
-      "7k/5Q2/6K1/8/8/8/8/8 w - -|1": [
-        "f7e8",
-        "f7f8",
-        "f7g7",
-        "f7h7"
+      "r1bq1rk1/p1p1bppp/2np4/6NQ/3P4/2NB4/PP3PPP/R1B1R1K1 w - -|1": [
+        "h5h7"
       ]
     },
-    "revision": 2.0,
+    "revision": 3.0,
     "rewardId": "reward-7-2",
-    "story": "두 번째 문은 왕과 퀸이 함께 열어요. 체크가 없는 막힘은 승리가 아니라 무승부예요.",
+    "story": "성문 앞의 퀸을 비숍과 나이트가 멀리서 돕고 있어요. 서로 지키는 공격 지점을 찾아 단번에 왕을 몰아붙여요.",
     "storyBeat": false,
     "type": "GAME"
   },
@@ -1725,19 +1724,20 @@
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
-    "briefing": "두 룩이 번갈아 길을 막아요. 내 두 수 안에 체크메이트해요.",
+    "briefing": "상대 룩이 뒷줄을 지켜요. 기물의 값보다 체크메이트가 중요해요. 내 두 수 안에 끝내요.",
     "chapter": 7.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "checkmate_you_win"
     ],
+    "explanation": "e8의 퀸을 잡으러 수비 룩이 끌려 나왔어요. 우리 룩이 그 룩을 되잡으며 체크메이트! 퀸을 내줘도 바로 이긴다면 좋은 희생이에요.",
     "hints": [
-      "두 룩이 번갈아 길을 막아요. 내 두 수 안에 체크메이트해요.",
+      "상대 룩이 뒷줄을 지켜요. 기물의 값보다 체크메이트가 중요해요. 내 두 수 안에 끝내요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-3",
-    "initialPosition": "7k/8/8/8/8/8/1R6/R5K1 w - - 0 28",
+    "initialPosition": "r1br2k1/ppp2ppp/1qnp4/8/2BP4/2N5/PPP1QPPP/R3R1K1 w - - 0 16",
     "mateLimit": 2.0,
     "objective": {
       "destination": "",
@@ -1746,26 +1746,19 @@
     },
     "opponentResponsePolicy": "verified_defense",
     "puzzleBook": {
-      "6k1/1R6/8/8/8/8/8/R5K1 w - -|1": [
-        "a1a8"
+      "r1b1r1k1/ppp2ppp/1qnp4/8/2BP4/2N5/PPP2PPP/R3R1K1 w - -|1": [
+        "e1e8"
       ],
-      "6k1/R7/8/8/8/8/1R6/6K1 w - -|1": [
-        "b2b8"
+      "r1br2k1/ppp2ppp/1qnp4/8/2BP4/2N5/PPP1QPPP/R3R1K1 w - -|2": [
+        "e2e8"
       ],
-      "7k/1R6/8/8/8/8/8/R5K1 b - -|1": [
-        "h8g8"
-      ],
-      "7k/8/8/8/8/8/1R6/R5K1 w - -|2": [
-        "b2b7",
-        "a1a7"
-      ],
-      "7k/R7/8/8/8/8/1R6/6K1 b - -|1": [
-        "h8g8"
+      "r1brQ1k1/ppp2ppp/1qnp4/8/2BP4/2N5/PPP2PPP/R3R1K1 b - -|1": [
+        "d8e8"
       ]
     },
-    "revision": 2.0,
+    "revision": 3.0,
     "rewardId": "reward-7-3",
-    "story": "세 번째 문에는 두 룩이 필요해요. 하나가 길을 막으면 다른 하나가 마무리해요.",
+    "story": "상대 룩이 마지막 길을 지켜요. 가장 강한 퀸을 잠시 내주는 대신 룩이 마무리할 길을 여는 묘수를 찾아요.",
     "storyBeat": false,
     "type": "GAME"
   },
@@ -1773,19 +1766,20 @@
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
-    "briefing": "먼저 왕의 도망갈 길을 좁히고, 내 두 수 안에 체크메이트해요.",
+    "briefing": "상대 왕의 주변을 자기 기물이 막고 있어요. 퀸과 나이트를 연결해 두 수 메이트를 찾아요.",
     "chapter": 7.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "checkmate_you_win"
     ],
+    "explanation": "g8의 퀸을 잡은 상대 룩이 왕의 퇴로를 막았어요. f7의 나이트가 체크하면 사이를 막을 수도 없어 체크메이트예요.",
     "hints": [
-      "먼저 왕의 도망갈 길을 좁히고, 내 두 수 안에 체크메이트해요.",
+      "상대 왕의 주변을 자기 기물이 막고 있어요. 퀸과 나이트를 연결해 두 수 메이트를 찾아요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-4",
-    "initialPosition": "7k/8/5K2/3Q4/8/8/8/8 w - - 0 32",
+    "initialPosition": "r1b2r1k/ppp3pp/2npQ2N/q3p3/2BP4/8/PPP2PPP/R3R1K1 w - - 0 16",
     "mateLimit": 2.0,
     "objective": {
       "destination": "",
@@ -1794,48 +1788,19 @@
     },
     "opponentResponsePolicy": "verified_defense",
     "puzzleBook": {
-      "6k1/1Q6/5K2/8/8/8/8/8 w - -|1": [
-        "b7g7"
+      "r1b2r1k/ppp3pp/2npQ2N/q3p3/2BP4/8/PPP2PPP/R3R1K1 w - -|2": [
+        "e6g8"
       ],
-      "6k1/3Q4/5K2/8/8/8/8/8 w - -|1": [
-        "d7g7"
+      "r1b2rQk/ppp3pp/2np3N/q3p3/2BP4/8/PPP2PPP/R3R1K1 b - -|1": [
+        "f8g8"
       ],
-      "7k/1Q6/5K2/8/8/8/8/8 b - -|1": [
-        "h8g8"
-      ],
-      "7k/3Q4/5K2/8/8/8/8/8 b - -|1": [
-        "h8g8"
-      ],
-      "7k/5K2/8/3Q4/8/8/8/8 b - -|1": [
-        "h8h7"
-      ],
-      "7k/8/5K2/3Q4/8/8/8/8 w - -|2": [
-        "f6f7",
-        "d5b7",
-        "d5d7",
-        "d5g5",
-        "d5g2"
-      ],
-      "7k/8/5K2/6Q1/8/8/8/8 b - -|1": [
-        "h8h7"
-      ],
-      "7k/8/5K2/8/8/8/6Q1/8 b - -|1": [
-        "h8h7"
-      ],
-      "8/5K1k/8/3Q4/8/8/8/8 w - -|1": [
-        "d5h5",
-        "d5h1"
-      ],
-      "8/7k/5K2/6Q1/8/8/8/8 w - -|1": [
-        "g5g7"
-      ],
-      "8/7k/5K2/8/8/8/6Q1/8 w - -|1": [
-        "g2g7"
+      "r1b3rk/ppp3pp/2np3N/q3p3/2BP4/8/PPP2PPP/R3R1K1 w - -|1": [
+        "h6f7"
       ]
     },
-    "revision": 2.0,
+    "revision": 3.0,
     "rewardId": "reward-7-4",
-    "story": "바로 체크할 필요는 없어요. 상대의 다음 수까지 생각해 도망갈 길을 먼저 좁혀요.",
+    "story": "상대의 많은 기물이 오히려 왕의 퇴로를 막고 있어요. 퀸으로 수비수를 유인하고 나이트가 뛰어들 자리를 만들어요.",
     "storyBeat": true,
     "type": "GAME"
   },
@@ -1843,19 +1808,20 @@
     "acceptedSolutions": [],
     "boardSize": 8.0,
     "boss": false,
-    "briefing": "퀸으로 가두고 우리 왕을 가까이 데려와요. 내 세 수 안에 체크메이트해요.",
+    "briefing": "서로 길을 막고 있는 퀸과 나이트를 협력시켜요. 내 세 수 안에 체크메이트해요.",
     "chapter": 7.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "checkmate_you_win"
     ],
+    "explanation": "Nh6의 더블 체크로 왕을 h8로 몰았어요. Qg8로 룩을 유인하고 Nf7로 마무리했어요. 세 수가 하나의 계획으로 연결됐어요.",
     "hints": [
-      "퀸으로 가두고 우리 왕을 가까이 데려와요. 내 세 수 안에 체크메이트해요.",
+      "서로 길을 막고 있는 퀸과 나이트를 협력시켜요. 내 세 수 안에 체크메이트해요.",
       "초록 점은 이동할 수 있는 칸이에요.",
       "빛나는 경로를 따라 움직여 보세요."
     ],
     "id": "7-5",
-    "initialPosition": "7k/8/8/5K2/8/1Q6/8/8 w - - 0 36",
+    "initialPosition": "r1b2rk1/ppp2Npp/2npQ3/q3p3/2BP4/8/PPP2PPP/R3R1K1 w - - 0 16",
     "mateLimit": 3.0,
     "objective": {
       "destination": "",
@@ -1864,105 +1830,25 @@
     },
     "opponentResponsePolicy": "verified_defense",
     "puzzleBook": {
-      "1Q6/7k/5K2/8/8/8/8/8 b - -|1": [
-        "h7h6"
+      "r1b2r1k/ppp3pp/2npQ2N/q3p3/2BP4/8/PPP2PPP/R3R1K1 w - -|2": [
+        "e6g8"
       ],
-      "1Q6/8/5K1k/8/8/8/8/8 w - -|1": [
-        "b8h8",
-        "b8h2"
+      "r1b2rQk/ppp3pp/2np3N/q3p3/2BP4/8/PPP2PPP/R3R1K1 b - -|1": [
+        "f8g8"
       ],
-      "5k2/1Q6/5K2/8/8/8/8/8 w - -|1": [
-        "b7a8",
-        "b7b8",
-        "b7c8",
-        "b7f7"
+      "r1b2rk1/ppp2Npp/2npQ3/q3p3/2BP4/8/PPP2PPP/R3R1K1 w - -|3": [
+        "f7h6"
       ],
-      "5k2/1Q6/6K1/8/8/8/8/8 w - -|1": [
-        "b7f7"
+      "r1b2rk1/ppp3pp/2npQ2N/q3p3/2BP4/8/PPP2PPP/R3R1K1 b - -|2": [
+        "g8h8"
       ],
-      "6k1/1Q6/5K2/8/8/8/8/8 b - -|1": [
-        "g8h8",
-        "g8f8"
-      ],
-      "6k1/1Q6/5K2/8/8/8/8/8 w - -|1": [
-        "b7g7"
-      ],
-      "6k1/1Q6/6K1/8/8/8/8/8 b - -|1": [
-        "g8h8",
-        "g8f8"
-      ],
-      "6k1/1Q6/8/5K2/8/8/8/8 w - -|2": [
-        "f5f6",
-        "f5g6"
-      ],
-      "7k/1Q6/5K2/8/8/8/8/8 w - -|1": [
-        "b7g7"
-      ],
-      "7k/1Q6/6K1/8/8/8/8/8 w - -|1": [
-        "b7a8",
-        "b7b8",
-        "b7c8",
-        "b7g7",
-        "b7h7"
-      ],
-      "7k/1Q6/8/5K2/8/8/8/8 b - -|2": [
-        "h8g8"
-      ],
-      "7k/5Q2/5K2/8/8/8/8/8 w - -|1": [
-        "f7g7"
-      ],
-      "7k/8/5K2/8/8/1Q6/8/8 b - -|2": [
-        "h8h7"
-      ],
-      "7k/8/5K2/8/8/6Q1/8/8 w - -|1": [
-        "g3g7"
-      ],
-      "7k/8/8/5K2/8/1Q6/8/8 w - -|3": [
-        "f5f6",
-        "b3b7",
-        "b3g3"
-      ],
-      "7k/8/8/5K2/8/6Q1/8/8 b - -|2": [
-        "h8h7"
-      ],
-      "8/1Q5k/5K2/8/8/8/8/8 b - -|1": [
-        "h7g8",
-        "h7h8",
-        "h7h6"
-      ],
-      "8/1Q6/5K1k/8/8/8/8/8 w - -|1": [
-        "b7h1"
-      ],
-      "8/5Q1k/5K2/8/8/8/8/8 b - -|1": [
-        "h7h8",
-        "h7h6"
-      ],
-      "8/5Q2/5K1k/8/8/8/8/8 w - -|1": [
-        "f7g6"
-      ],
-      "8/7k/5K2/8/8/1Q6/8/8 w - -|2": [
-        "b3b7",
-        "b3b8",
-        "b3f7",
-        "b3g3"
-      ],
-      "8/7k/5K2/8/8/6Q1/8/8 b - -|1": [
-        "h7h8",
-        "h7h6"
-      ],
-      "8/7k/8/5K2/8/6Q1/8/8 w - -|2": [
-        "f5f6"
-      ],
-      "8/8/5K1k/8/8/6Q1/8/8 w - -|1": [
-        "g3g6",
-        "g3h4",
-        "g3h3",
-        "g3h2"
+      "r1b3rk/ppp3pp/2np3N/q3p3/2BP4/8/PPP2PPP/R3R1K1 w - -|1": [
+        "h6f7"
       ]
     },
-    "revision": 2.0,
+    "revision": 3.0,
     "rewardId": "reward-7-5",
-    "story": "마지막 연습은 세 수 계획이에요. 퀸으로 가두고 왕을 도우러 보내 마무리해요.",
+    "story": "이번에는 왕이 한 칸 더 멀리 있어요. 나이트와 퀸이 동시에 체크하는 첫 수를 찾아, 앞에서 배운 희생과 마무리로 연결해요.",
     "storyBeat": false,
     "type": "GAME"
   },

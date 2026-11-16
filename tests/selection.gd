@@ -7,7 +7,7 @@ func run():
 	var fails=0;var count=0
 	for viewport_size in [Vector2i(1280,800),Vector2i(720,1280)]:
 		root.size=viewport_size;g.responsive()
-		for index in [0,26,53]:
+		for index in [0,26,48,49,50,51,52,53]:
 			g.start_mission(index);g.modal="";g.layout_board(g.size_now())
 			g.board_view.update_position(g.rules.cells,-1,[],false,false)
 			g.board_view.animate(0)

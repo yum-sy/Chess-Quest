@@ -398,7 +398,7 @@
   {
     "expressionId": "checkmate_in_one",
     "wordOrSentence": "Checkmate in one!",
-    "meaning": "왕의 도움을 받는 퀸으로 한 수 안에 체크메이트해요. 스테일메이트에 주의해요.",
+    "meaning": "퀸 혼자 공격하지 않아요. 비숍과 나이트가 함께 지키는 칸에서 한 수 메이트를 찾아요.",
     "learningLevel": 4,
     "relatedActions": [
       "GAME"
@@ -442,7 +442,7 @@
   {
     "expressionId": "checkmate_you_win",
     "wordOrSentence": "Checkmate! You win!",
-    "meaning": "퀸으로 가두고 우리 왕을 가까이 데려와요. 내 세 수 안에 체크메이트해요.",
+    "meaning": "서로 길을 막고 있는 퀸과 나이트를 협력시켜요. 내 세 수 안에 체크메이트해요.",
     "learningLevel": 4,
     "relatedActions": [
       "GAME"
