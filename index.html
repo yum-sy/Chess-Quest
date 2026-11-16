@@ -218,7 +218,7 @@ const engine = new Engine(GODOT_CONFIG);
 	}
 }());
 		</script>
-	<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js');</script>
-<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">Help · Source</a></body>
+	<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update());</script>
+<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">GPT voice · v11.17 · Help</a></body>
 </html>
 
