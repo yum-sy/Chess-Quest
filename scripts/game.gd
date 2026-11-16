@@ -1,6 +1,7 @@
 extends Node2D
 const Rules=preload("res://scripts/rules.gd")
 const Goals=preload("res://scripts/objectives.gd")
+const MAGIC_BOOK=preload("res://assets/characters/magic-book-v1.png")
 const Learning=preload("res://scripts/learning.gd")
 var font=FontVariation.new()
 var missions: Array=JSON.parse_string(FileAccess.get_file_as_string("res://data/missions.json"))
@@ -150,7 +151,7 @@ func draw_home(s:Vector2):
 	board_view.update_position(cast,-1,[],false,learner.data.settings.motion)
 	board_view.update_markers([],-1,-1)
 	draw_texture_rect(board_view.get_texture(),hero_rect,false)
-	book(center+Vector2(0,-190),1.3)
+	book(center+Vector2(0,-173 if s.x<1100 else -190),1.3)
 func header(title:String,sub:String,s:Vector2):
 	text(title,Vector2(44,57),30)
 	text(sub,Vector2(46,88),17,muted)
@@ -322,15 +323,21 @@ func oval(p:Vector2,r:Vector2,c:Color):
 	for i in range(40):pts.append(p+Vector2(cos(i*TAU/40),sin(i*TAU/40))*r)
 	draw_colored_polygon(pts,c)
 func book(at:Vector2,z:float):
-	var bob=sin(clock*2)*5 if learner.data.settings.motion else 0
-	draw_set_transform_matrix(Transform2D(0,Vector2(z,z),0,at+Vector2(0,bob)))
-	oval(Vector2(0,36),Vector2(43,7),Color("354f4220"))
-	box(Rect2(-51,-29,102,61),gold,11)
-	box(Rect2(-44,-24,42,49),cream,5)
-	box(Rect2(2,-24,42,49),cream,5)
-	draw_line(Vector2(0,-24),Vector2(0,28),Color("a87840"),3)
-	for x in [-20,20]:draw_circle(Vector2(x,-2),6,ink);draw_circle(Vector2(x-2,-4),2,Color.WHITE)
-	draw_arc(Vector2(0,5),10,.1,PI-.1,16,ink,3,true)
+	var moving=learner.data.settings.motion
+	var bob=sin(clock*1.7)*4 if moving else 0.0
+	var tilt=sin(clock*1.15)*.025 if moving else 0.0
+	draw_set_transform_matrix(Transform2D(0,Vector2(z,z),0,at))
+	oval(Vector2(0,78),Vector2(34-bob*.4,5),Color("354f4218"))
+	draw_circle(Vector2(0,2),62,Color("eac77d0c"))
+	draw_set_transform_matrix(Transform2D(tilt,Vector2(z,z),0,at+Vector2(0,bob)))
+	var extent=Vector2(160,160.0*MAGIC_BOOK.get_height()/MAGIC_BOOK.get_width())
+	draw_texture_rect(MAGIC_BOOK,Rect2(-extent*.5,extent),false)
+	for i in range(3):
+		var phase=clock*.8+i*2.1 if moving else i*2.1
+		var star=Vector2(-65+i*64,-34+sin(phase)*9)
+		var glow=Color("e9bd65");glow.a=.25+(.15*(sin(phase)+1) if moving else .15)
+		draw_line(star-Vector2(0,3),star+Vector2(0,3),glow,1.5,true)
+		draw_line(star-Vector2(3,0),star+Vector2(3,0),glow,1.5,true)
 	draw_set_transform_matrix(Transform2D.IDENTITY)
 func draw_book(s:Vector2):
 	header("마법의 영어 도감", "행동으로 익힌 표현 · 기록은 이해도의 추정이며 시험 점수가 아니에요",s)
