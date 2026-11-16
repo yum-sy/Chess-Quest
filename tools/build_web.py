@@ -33,7 +33,7 @@ for size in [192,512]:
 (d/'CREDITS.txt').write_text((r/'CREDITS.txt').read_text())
 with zipfile.ZipFile(d/'source.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in r.rglob('*'):
-  if p.is_file() and p.name!='SPEC-v3.md' and not any(a in p.relative_to(r).parts for a in ['.godot','node_modules','dist','evidence']):z.write(p,p.relative_to(r))
+  if p.is_file() and p.name!='SPEC-v3.md' and not any(a in p.relative_to(r).parts for a in ['.git','.godot','node_modules','dist','evidence']):z.write(p,p.relative_to(r))
 assets=sorted(p.name for p in d.iterdir() if p.is_file() and p.suffix not in ['.zip'] and not p.name.startswith('.') and p.name not in ['sw.js','index.service.worker.js'])
 version=hashlib.sha256(b''.join((d/n).read_bytes() for n in assets)).hexdigest()[:16]
 (d/'sw.js').write_text('const CACHE="chess-quest-'+version+'";const FILES='+json.dumps(assets)+''';

@@ -4,7 +4,7 @@ const browser=await chromium.launch({executablePath:'/Applications/Google Chrome
 let failed=0;const errors=[];
 const context=await browser.newContext({viewport:{width:1280,height:800}});
 const page=await context.newPage();page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
-await page.goto('http://localhost:8765/');await page.waitForTimeout(6000);
+await page.goto(process.env.BASE_URL||'http://localhost:8765/');await page.waitForFunction(()=>window.CQ?.state?.screen==='home',{},{timeout:60000});await page.waitForTimeout(500);
 await page.screenshot({path:'evidence/web-home.png'});
 await page.mouse.click(210,490);await page.waitForTimeout(500);
 await page.mouse.click(600,520);await page.waitForTimeout(700);

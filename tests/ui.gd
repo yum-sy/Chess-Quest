@@ -29,5 +29,12 @@ func run():
 	await create_timer(1.4).timeout
 	check(g.rules.turn=="w" and g.rules.history.size()==2,"AI legal response")
 	g.action("undo");check(g.rules.fen()==g.Rules.START,"undo turn pair")
+	var saved=g.learner.data.current.duplicate(true)
+	var last=g.learner.data.lastMission
+	g.review=true;g.start_mission(0);g.persist()
+	check(g.learner.data.current==saved and g.learner.data.lastMission==last,"review preserves campaign save")
+	g.action("home");g.action("settings");g.action("back")
+	check(g.screen=="home","settings returns to originating screen")
+	await create_timer(2).timeout
 	print("UI FAILURES ",failures)
 	quit(1 if failures else 0)

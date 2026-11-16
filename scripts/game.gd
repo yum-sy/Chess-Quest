@@ -9,6 +9,7 @@ var expressions: Array=JSON.parse_string(FileAccess.get_file_as_string("res://da
 var learner=Learning.new()
 var rules=Rules.new()
 var screen="home"
+var settings_return="home"
 var buttons: Array=[]
 var index=0
 var chapter=1
@@ -409,12 +410,14 @@ func start_mission(i:int,resume=false):
 		var saved=learner.data.current
 		rules.load_fen(saved.fen,int(m.boardSize))
 		rules.history=saved.get("history",[]);rules.positions=saved.get("positions",[]);rules.notation=saved.get("notation",[])
-	screen="play";learner.data.lastMission=index
+	screen="play"
+	if not review:learner.data.lastMission=index
 	if i%8==0 and not resume:modal="intro"
 	else:speak_mission()
 	persist()
 	if rules.turn=="b" and m.type=="GAME":ai_turn()
 func persist():
+	if review:return
 	learner.data.current={"id":missions[index].id,"fen":rules.fen(),"history":rules.history,"positions":rules.positions,"notation":rules.notation}
 	learner.save()
 func _unhandled_input(event):
@@ -451,14 +454,15 @@ func tap(p:Vector2):
 				else:feedback="그 칸으로 갈 수 없어요. 초록 점을 살펴보세요.";learner.chess(missions[index].id).wrongCount+=1
 			return
 func action(a:String):
+	if busy and a in ["home","map","book","settings","back"]:return
 	if a=="home":screen="home";modal=""
 	elif a=="continue":review=false;free_play=false;start_mission(int(learner.data.lastMission),true)
 	elif a=="map":screen="map";modal="";map_page=0 if chapter<=4 else 1
 	elif a=="mappage":map_page=1-map_page
 	elif a=="book":screen="book";modal="";book_page=0
 	elif a=="bookpage":book_page=(book_page+1)%int(ceil(learner.review_ids().size()/(6.0 if size_now().x<1050 else 9.0)))
-	elif a=="settings":screen="settings"
-	elif a=="back":screen="play" if learner.data.current.size()>0 else "home"
+	elif a=="settings":settings_return=screen;screen="settings"
+	elif a=="back":screen=settings_return
 	elif a.begins_with("mission:"):review=false;free_play=false;start_mission(int(a.split(":")[1]))
 	elif a=="begin":modal="";speak_mission()
 	elif a in ["listen","slow"]:say_id(missions[index].englishExpressionIds[0],a=="slow",true)
@@ -556,5 +560,6 @@ func win():
 	introducing=""
 	if not free_play:learner.complete(missions[index],was_assisted or not target_evidence,korean_used)
 	if not review:learner.data.lastMission=mini(55,index+1)
-	learner.data.current={};learner.save()
+	if not review:learner.data.current={}
+	learner.save()
 	modal="success";feedback="Great move!";say_id("praise")

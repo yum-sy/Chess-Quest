@@ -12,6 +12,8 @@ func run():
 	g.action("next");ok=ok and g.screen=="ending"
 	g.action("free");ok=ok and g.rules.fen()==g.Rules.START and g.free_play
 	print("ENDING + FREE PLAY ","PASS" if ok else "FAIL")
-	await create_timer(2).timeout
+	await create_timer(4).timeout
+	g.audio.stop();g.audio.stream=null
+	await process_frame
 	g.queue_free();await process_frame
-	quit(0 if ok else 1)
+	call_deferred("quit",0 if ok else 1)

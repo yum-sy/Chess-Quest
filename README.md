@@ -1,15 +1,17 @@
 # Chess Quest: The Lost Crown
 
+[바로 플레이](https://yum-sy.github.io/Chess-Quest/) · [소스 저장소](https://github.com/yum-sy/Chess-Quest) · [소스 ZIP](https://yum-sy.github.io/Chess-Quest/source.zip)
+
 Godot 4 Compatibility + GDScript로 만든 터치 중심 체스·영어 모험 게임입니다. 기존 SDGO-like와 Mew's Escape 프로젝트와 독립적으로 실행됩니다.
 
 ## 실행
 
 - Godot 4.7.2에서 `project.godot`를 열어 실행합니다.
-- 웹 빌드: `npm ci` 후 `python3 tools/build_web.py`.
+- 웹 빌드: `npm ci --omit=dev` 후 `python3 tools/build_web.py`.
 - 로컬 웹 실행: `python3 -m http.server 8765 --directory dist`, 브라우저에서 `http://localhost:8765` 접속.
 - `file://`로 열면 WebAssembly와 저장 기능이 동작하지 않습니다.
 
-빌드 스크립트는 상위 폴더의 `.tools/Godot.app/Contents/MacOS/Godot`를 사용합니다. 다른 환경에서는 스크립트의 Godot 경로를 변경하세요. Godot 웹 내보내기 템플릿도 필요합니다.
+빌드 스크립트는 상위 폴더의 `.tools/Godot.app/Contents/MacOS/Godot`를 사용합니다. 다른 환경에서는 `GODOT_BIN` 환경변수로 Godot 실행 파일을 지정하세요. 자동 검사 도구까지 설치하려면 `npm ci`를 사용하세요. Godot 웹 내보내기 템플릿도 필요합니다.
 
 ## 구성
 
@@ -71,3 +73,15 @@ node tests/browser.mjs
 실제 iPad·Galaxy Z Fold 하드웨어에서 터치, 홈 화면 설치, 음성 출력, 30/60FPS 성능은 별도 실기기 검증이 필요합니다. 데스크톱 Chrome의 화면 크기 시뮬레이션은 실기기 검증을 대체하지 않습니다. 이전에 확정했다는 두 번째 콘셉트 이미지는 이번 첨부에 없었으므로 그 이미지와의 시각적 일치 여부는 확인할 수 없습니다. 그래픽은 실시간 3D 모델이 아닌 원본 2.5D 벡터 캐릭터입니다.
 
 라이선스와 출처는 `CREDITS.txt`, `LICENSE`, `assets/OFL.txt`, `vendor/chess.js.LICENSE`를 참고하세요.
+
+## 확인된 검사 결과
+
+- 규칙·콘텐츠·저장: 189개 검사 통과
+- 독립 chess.js 대조: 294개 포지션의 합법 수 일치
+- 전체 캠페인: 56/56 완료, 292개의 합법 수 검증
+- 학습 기록 분리·복습·백업 복원·마이그레이션 통과
+- 터치 미션 완료·오답 복귀·AI 응수·무르기·엔딩·자유 대전 통과
+- Chrome 웹: 규칙 엔진 실행, 첫 미션 완료, 오프라인 재실행 후 저장 복원, 콘솔 오류 없음
+- 360×780 / 1024×768 / 1280×800 화면 확인. 실제 하드웨어 검증은 위 미검증 항목 참고.
+
+테스트용 Stockfish는 승리 수순을 생성하는 독립 검사 도구로만 사용합니다. 게임에 포함된 상대 AI는 무작위 합법 수를 두는 초급 AI입니다. 이 검사는 어린이에게 적절한 체감 난이도나 실제 학습 효과를 입증하는 사용자 테스트가 아닙니다.
