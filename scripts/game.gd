@@ -183,8 +183,8 @@ func draw_map(s:Vector2):
 	if learner.data.completed.has("7-8"):button("자유 체스",Rect2(44+w,745,w-18,88) if narrow else Rect2(550,s.y-78,200,54),"free",true)
 func layout_board(s:Vector2):
 	var narrow=s.x<1050
-	board_area=Rect2(8,135,s.x-16,minf(520,maxf(440,s.y-800))) if narrow else Rect2(8,120,s.x*.68-14,s.y-160)
-	panel=Rect2(30,board_area.end.y+24,s.x-60,s.y-board_area.end.y-49) if narrow else Rect2(s.x*.70,135,s.x*.275,s.y-169)
+	board_area=Rect2(8,86,s.x-16,s.y-408) if narrow else Rect2(8,70,s.x-272,s.y-94)
+	panel=Rect2(20,s.y-310,s.x-40,278) if narrow else Rect2(s.x-258,76,246,s.y-104)
 	board_view.configure(rules.n,board_area,int(learner.data.settings.theme))
 	tile=Vector2(board_area.size.x/(rules.n+1.0),board_area.size.y/(rules.n+1.0))
 func point(file:float,rank:float)->Vector2:return board_view.projected(file,rank)
@@ -195,7 +195,8 @@ func team_label(label:String,at:Vector2,color:Color):
 	centered(label,at+Vector2(0,7),18,Color.WHITE)
 func draw_play(s:Vector2):
 	var m=missions[index]
-	header("CHESS QUEST   /   "+chapters[m.chapter-1].title,("도감 복습" if review else "모험 "+str(index%8+1)+" / 8")+"  ·  "+str(rules.n)+" × "+str(rules.n)+(" 훈련 보드" if rules.n<8 else " 정식 체스")+("  ·  왕관 수호자" if m.boss else ""),s)
+	text(chapters[m.chapter-1].title+" · 모험 "+str(index%8+1)+" / 8",Vector2(24,36),23,ink)
+	button("홈",Rect2(s.x-88,12,68,42),"home")
 	layout_board(s)
 	var destinations=[]
 	if selected>=0 and not busy:
@@ -212,7 +213,7 @@ func draw_play(s:Vector2):
 	# Coordinates and badges stay in screen space, anchored to the actual 3D board.
 	for x in range(rules.n):centered("abcdefgh"[x],point(x,-.72)+Vector2(0,8),16,Color("355f84"))
 	for rank in range(rules.n):centered(str(rank+1),point(-.77,rank)+Vector2(0,5),16,muted)
-	team_label("내 진영 · WHITE",point((rules.n-1)*.5,-1.15)+Vector2(0,35),Color("367db2"))
+	team_label("내 진영 · WHITE",Vector2(board_area.get_center().x,board_area.end.y-8),Color("367db2"))
 	team_label("상대 진영 · BLACK",Vector2(board_area.get_center().x,board_area.position.y-3),Color("896296"))
 	# One unobtrusive forward arrow makes pawn direction explicit even in empty training boards.
 	var arrow_start=point(-.92,.15);var arrow_end=point(-.92,1.1)
@@ -232,26 +233,22 @@ func draw_play(s:Vector2):
 	var px=panel.position.x;var py=panel.position.y;var pw=panel.size.x
 	box(panel,Color("fff9e9"),24)
 	var compact=s.x<1050
-	book(Vector2(px+pw/2,py+(40 if compact else 56)),.65 if compact else .8)
 	var names={"p":"폰","n":"나이트","b":"비숍","r":"룩","q":"퀸","k":"킹"}
-	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" 선택됨" if selected>=0 else "THE MAGIC CHESSBOOK"
-	text(caption,Vector2(px+24,py+(85 if compact else 115)),18 if selected>=0 else 15,teal)
-	if introducing!="":text(introducing,Vector2(px+24,py+(155 if compact else 205)),20,teal)
+	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" 선택됨" if selected>=0 else "기물을 눌러 움직여 보세요"
+	text(caption,Vector2(px+16,py+27),17,teal)
 	var expr=expression(m.englishExpressionIds[0])
-	wrapped(expr.wordOrSentence,Rect2(px+24,py+(115 if compact else 138),pw-48,100),30,ink)
+	wrapped(expr.wordOrSentence,Rect2(px+16,py+60,pw-32,90),24,ink)
 	var body=m.hints[mini(maxi(hints-1,0),2)] if hints else (expr.meaning if learner.data.settings.korean else "Listen. Think. Move.")
 	if learner.data.settings.korean and m.has("briefing") and hints<2:body=m.briefing
-	wrapped(body,Rect2(px+24,py+(190 if compact else 232),pw-48,100),19 if m.has("briefing") else 20,muted)
-	var by=py+(265 if compact else 335)
-	var bh=88 if s.x<1050 else 50
-	var gap=96 if s.x<1050 else 62
-	button("▶ 다시 듣기",Rect2(px+20,by,(pw-48)/2,bh),"listen")
-	button("느리게",Rect2(px+28+(pw-48)/2,by,(pw-48)/2,bh),"slow")
-	button("힌트",Rect2(px+20,by+gap,(pw-48)/2,bh),"hint",true)
-	button("↶ 무르기" if m.type=="GAME" else "다시 시작",Rect2(px+28+(pw-48)/2,by+gap,(pw-48)/2,bh),"undo" if m.type=="GAME" else "restart")
-	button("지도",Rect2(px+20,by+gap*2,(pw-48)/2,bh),"map")
-	button("설정",Rect2(px+28+(pw-48)/2,by+gap*2,(pw-48)/2,bh),"settings")
-	wrapped(feedback,Rect2(44,s.y-60,s.x-88,64) if s.x<1050 else Rect2(px+24,by+210,pw-48,72),18,teal)
+	wrapped(body,Rect2(px+16,py+(96 if compact else 154),pw-32,100),18,muted)
+	var by=py+(148 if compact else 290)
+	var labels=["▶ 듣기","느리게","힌트","↶ 무르기" if m.type=="GAME" else "다시 시작","지도","설정"]
+	var actions=["listen","slow","hint","undo" if m.type=="GAME" else "restart","map","settings"]
+	var columns=3 if compact else 2
+	var bw=(pw-32-(columns-1)*8)/columns
+	for j in range(6):
+		button(labels[j],Rect2(px+16+(j%columns)*(bw+8),by+(j/columns)*54,bw,46),actions[j],j==2)
+	wrapped(feedback,Rect2(px+16,py+266 if compact else by+192,pw-32,66),16,teal)
 	if rules.n==8 and rules.notation.size()>0:text("기보  "+" ".join(rules.notation.slice(maxi(0,rules.notation.size()-8))),Vector2(44,s.y-20),16,muted)
 func wrapped(value:String,r:Rect2,fs:int,col:Color):
 	var line="";var y=r.position.y

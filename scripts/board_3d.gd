@@ -3,7 +3,7 @@ extends SubViewport
 const ATLAS=preload("res://assets/characters/approved-atlas-v1.png")
 const COLUMN={"p":0,"n":1,"b":2,"r":3,"q":4,"k":5}
 const BASE_X=[137,132,128,121,116,121]
-const PIXEL_SIZE=.0038
+const PIXEL_SIZE=.0044
 var atlas_image:Image
 var stage=Node3D.new()
 var camera=Camera3D.new()
