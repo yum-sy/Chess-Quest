@@ -133,3 +133,11 @@ The dedicated curriculum suite passes 118 checks, including 20 safe tactical sol
 The first unfinished en-passant lesson (1-7) and both castling lessons (6-5, 6-6) automatically show a short, three-step board demonstration. En passant shows the opponent's double step, the diagonal landing, then removal of the passed pawn. Castling shows the king and rook sequentially, explicitly explaining that they form one move. Replay repeats the preview; Try now restores the original exercise. Watch remains available on completed lessons.
 
 Preview positions never enter saves or award completion. Replay, leaving the screen and changing missions cancel pending animation steps. Reduced-motion mode retains timed instructional poses without movement. Existing voice files remain unchanged.
+
+## Fantasy guide and tactical previews (v11.17.9)
+
+Promotion, knight underpromotion, knight/rook/queen forks, bishop pin, and rook/queen skewers now use the same Watch → Replay / Try now flow. Forks show two attack arrows; pins connect the attacker, pinned piece and king; skewers animate a legal king escape followed by capture of the rear piece. Preview moves never count as player completion. Story introductions lead into the preview before practice.
+
+The guide, kingdom map, vocabulary cards, settings and modal pages share raised parchment, brass corners, gold trim and teal buttons. The existing magic-book character accompanies the guide and settings. Settings adapt to wide and portrait screens and separate preferences, cosmetic rewards and progress reset.
+
+Settings → progress reset requires explicit confirmation. It clears completion, learning records, rewards and the active position while retaining sound, Korean guidance and motion preferences. Locked cosmetics return to defaults. Both the active save and recovery copy are reset, preventing erased progress from reappearing after recovery. Tests use isolated save files/browser profiles and do not reset the player's existing data.

@@ -65,5 +65,22 @@ await context.setOffline(false);
 await page.setViewportSize({width:360,height:780});await page.waitForTimeout(800);await page.screenshot({path:'evidence/web-fold-home.png'});
 await page.mouse.click(110,245);await page.waitForTimeout(500);await page.mouse.click(180,260);await page.waitForTimeout(500);await page.screenshot({path:'evidence/web-fold-play.png'});
 await page.setViewportSize({width:1024,height:768});await page.waitForTimeout(500);await page.screenshot({path:'evidence/web-ipad.png'});
-fs.writeFileSync('evidence/browser.json',JSON.stringify({engineLegal:engine,cachedFiles:cache,savedCompleted,restoredCompleted,errors,failed},null,2));
-console.log({engineLegal:engine,cachedFiles:cache,savedCompleted,restoredCompleted,errors,failed});await browser.close();process.exit(failed||errors.length?1:0);
+// Exercise settings and the explicit reset confirmation in this isolated test profile.
+await page.setViewportSize({width:1280,height:800});await page.reload();
+await page.waitForFunction(()=>CQ.state?.screen==='home');
+await page.mouse.click(140,640);await page.waitForFunction(()=>CQ.state?.screen==='settings');
+await page.screenshot({path:'evidence/web-fantasy-settings.png'});
+await page.mouse.click(1100,653);await page.waitForFunction(()=>CQ.state?.modal==='reset');
+await page.screenshot({path:'evidence/web-reset-confirm.png'});
+await page.mouse.click(490,528);await page.waitForFunction(()=>CQ.state?.modal==='');
+if(await page.evaluate(()=>CQ.state.completed)!==1){failed++;errors.push('reset cancellation lost progress');}
+await page.mouse.click(1100,653);await page.waitForFunction(()=>CQ.state?.modal==='reset');
+await page.mouse.click(790,528);await page.waitForFunction(()=>CQ.state?.screen==='home'&&CQ.state.completed===0);
+await page.waitForTimeout(1500);await page.reload();await page.waitForFunction(()=>CQ.state?.screen==='home');
+const resetCompleted=await page.evaluate(()=>CQ.state.completed);
+if(resetCompleted!==0){failed++;errors.push('reset did not survive reload');}
+await page.mouse.click(300,568);await page.waitForFunction(()=>CQ.state?.screen==='book');
+await page.screenshot({path:'evidence/web-empty-book.png'});
+await page.mouse.click(640,460);await page.waitForFunction(()=>CQ.state?.screen==='play');
+fs.writeFileSync('evidence/browser.json',JSON.stringify({engineLegal:engine,cachedFiles:cache,savedCompleted,restoredCompleted,resetCompleted,errors,failed},null,2));
+console.log({engineLegal:engine,cachedFiles:cache,savedCompleted,restoredCompleted,resetCompleted,errors,failed});await browser.close();process.exit(failed||errors.length?1:0);

@@ -69,3 +69,16 @@ func priority(id: String) -> float:
 	var e=record(id)
 	if e.nextReviewAt>0 and e.nextReviewAt<Time.get_unix_time_from_system():e.familiarityState="REVIEW"
 	return e.assistedSuccessCount*4+ (20 if e.familiarityState=="REVIEW" else 0)+(8 if e.independentSuccessCount==0 else 0)-e.lastReviewedAt/1e12
+
+func reset_progress()->bool:
+	var previous=data.duplicate(true)
+	var fresh=get_script().new()
+	for key in ["sound","korean","motion"]:fresh.data.settings[key]=data.settings.get(key,true)
+	data=fresh.data.duplicate(true)
+	save()
+	if save_error:
+		data=previous
+		return false
+	# The recovery copy must also be clean; old progress must not reappear.
+	if DirAccess.copy_absolute(path,path+".bak")!=OK:DirAccess.remove_absolute(path+".bak")
+	return true

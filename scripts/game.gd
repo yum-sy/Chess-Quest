@@ -49,6 +49,8 @@ var demo=false
 var demo_snapshot={}
 var demo_text=""
 var demo_heading=""
+var demo_links=[]
+var demo_focus=[]
 const THEME_COLORS=["eddcba","b7d3ba","b9ccd9","d6c7e4","e8c5c6","d8d8ea","d3bfdf","f1d78f"]
 const THEME_NAMES=["정원","다리","마법의 탑","사원","궁전","왕의 성","검은 성","왕관"]
 var cream=Color("fff6df")
@@ -106,9 +108,32 @@ func box(r:Rect2,c:Color,radius=18.0,border:Color=Color.TRANSPARENT):
 	style.border_color=border
 	style.set_border_width_all(2 if border.a else 0)
 	draw_style_box(style,r)
+func gem(at:Vector2,scale_value:float=1.0):
+	var points=PackedVector2Array([at+Vector2(0,-7)*scale_value,at+Vector2(6,0)*scale_value,at+Vector2(0,7)*scale_value,at+Vector2(-6,0)*scale_value])
+	draw_colored_polygon(points,Color("e8ba69"))
+	draw_line(at+Vector2(0,-5)*scale_value,at+Vector2(-3,0)*scale_value,Color("fff1bd"),2,true)
+func fantasy_panel(r:Rect2,muted_panel=false):
+	# Rounded book-cover rim, raised parchment and brass corner fittings.
+	box(Rect2(r.position+Vector2(0,6),r.size),Color("69553a25"),24)
+	box(r,Color("8a6a4e") if not muted_panel else Color("a4aa91"),24)
+	box(r.grow(-3),Color("e5bd7b") if not muted_panel else Color("c5c9ae"),21)
+	box(r.grow(-7),Color("fff4d7") if not muted_panel else Color("e4e5d2"),18)
+	box(Rect2(r.position+Vector2(12,11),Vector2(r.size.x-24,28)),Color("fffbee90"),12)
+	for x in [r.position.x+12,r.end.x-12]:
+		for y in [r.position.y+13,r.end.y-13]:
+			draw_circle(Vector2(x,y),3.5,Color("a67842"));draw_circle(Vector2(x-1,y-1),1.5,Color("ffe5a3"))
+	var middle=Vector2(r.get_center().x,r.position.y+5)
+	gem(middle,.75)
 func button(label:String,r:Rect2,action:String,accent=false,disabled=false):
-	box(r,Color("d8dfd4") if disabled else teal if accent else cream,14)
-	centered(label,r.get_center()+Vector2(0,8),28 if size_now().x<1050 else 22,Color("82928a") if disabled else cream if accent else ink)
+	var edge=Color("a8af98") if disabled else Color("295b60") if accent else Color("a87b45")
+	var face=Color("dce0cf") if disabled else Color("478d87") if accent else Color("f4dfaf")
+	box(Rect2(r.position+Vector2(0,4),r.size),Color("5d574b20"),15)
+	box(r,edge,15)
+	box(Rect2(r.position+Vector2(2,2),r.size-Vector2(4,6)),face,13)
+	draw_line(r.position+Vector2(14,5),Vector2(r.end.x-14,r.position.y+5),Color("ffffff50"),2,true)
+	var fs=28 if size_now().x<1050 else 22
+	while fs>14 and font.get_string_size(label,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x>r.size.x-18:fs-=1
+	centered(label,r.get_center()+Vector2(0,fs*.34-1),fs,Color("8b9380") if disabled else Color("fff6d9") if accent else Color("514630"))
 	buttons.append({"r":r,"action":action,"disabled":disabled})
 func _draw():
 	buttons.clear()
@@ -157,8 +182,10 @@ func draw_home(s:Vector2):
 	draw_texture_rect(board_view.get_texture(),hero_rect,false)
 	book(center+Vector2(0,-173 if s.x<1100 else -190),1.3)
 func header(title:String,sub:String,s:Vector2):
-	text(title,Vector2(44,57),30)
-	text(sub,Vector2(46,88),17,muted)
+	box(Rect2(28,22,s.x-56,82),Color("fff4d7d9"),24,Color("d9bc82"))
+	gem(Vector2(46,51),1.1)
+	text(title,Vector2(64,57),30)
+	text(sub,Vector2(46,88),15 if s.x<1050 else 17,muted)
 	button("처음",Rect2(s.x-142,28,100,52),"home")
 func draw_map(s:Vector2):
 	header("우리의 왕국 지도",str(learner.data.completed.size())+" / 56 모험 완료 · 힌트는 언제나 무료예요",s)
@@ -171,14 +198,14 @@ func draw_map(s:Vector2):
 		var x=44+(local%cols)*w
 		var y=125+(local/cols)*(500 if narrow else 235)
 		var unlocked=c==0 or learner.data.completed.has(str(c)+"-8")
-		box(Rect2(x,y,w-18,480 if narrow else 213),cream if unlocked else Color("dce2d3"),22)
+		fantasy_panel(Rect2(x,y,w-18,480 if narrow else 213),not unlocked)
 		text("0"+str(c+1)+" / "+chapters[c].subtitle,Vector2(x+18,y+34),16,teal)
 		text(chapters[c].title,Vector2(x+18,y+72),22)
 		for j in range(8):
 			var done=learner.data.completed.has(str(c+1)+"-"+str(j+1))
 			var open=unlocked and (j==0 or learner.data.completed.has(str(c+1)+"-"+str(j)))
 			var cells_per_row=2 if narrow else 4
-			button(("★" if done else ("대국" if c==6 else "보스") if j>=5 else str(j+1)),Rect2(x+16+(j%cells_per_row)*((w-50)/cells_per_row),y+94+(j/cells_per_row)*(94 if narrow else 52),(w-65)/cells_per_row,88 if narrow else 44),"mission:"+str(c*8+j),done,not open)
+			button(("★" if done else "대국" if c==6 and j>=5 else str(j+1)),Rect2(x+16+(j%cells_per_row)*((w-50)/cells_per_row),y+94+(j/cells_per_row)*(94 if narrow else 52),(w-65)/cells_per_row,88 if narrow else 44),"mission:"+str(c*8+j),done,not open)
 	if narrow:
 		button("도감",Rect2(44,s.y-110,190,88),"book",true)
 		button("설정",Rect2(250,s.y-110,190,88),"settings")
@@ -259,15 +286,25 @@ func draw_play(s:Vector2):
 		if rules.attacks(a,b):
 			var start=point(a%rules.n,a/rules.n);var end=point(b%rules.n,b/rules.n)
 			draw_line(start,end,Color("d66f4280"),3,true)
+	if demo:
+		for pair in demo_links:
+			var start=point(pair[0]%rules.n,pair[0]/rules.n);var end=point(pair[1]%rules.n,pair[1]/rules.n)
+			var direction=(end-start).normalized();var wing=Vector2(-direction.y,direction.x)
+			draw_line(start,end,Color("fff1ba"),7,true);draw_line(start,end,Color("c48640"),3,true)
+			draw_colored_polygon(PackedVector2Array([end,end-direction*16+wing*7,end-direction*16-wing*7]),gold)
+		for square in demo_focus:
+			var at=point(square%rules.n,square/rules.n)
+			draw_arc(at,19,0,TAU,32,gold,3,true)
 	var px=panel.position.x;var py=panel.position.y;var pw=panel.size.x
-	box(panel,Color("fff9e9"),24)
+	fantasy_panel(panel)
+	draw_line(Vector2(px+20,py+43),Vector2(px+pw-20,py+43),Color("dbbd7f"),1.5,true)
 	var compact=s.x<1050
 	var names={"p":"Pawn","n":"Knight","b":"Bishop","r":"Rook","q":"Queen","k":"King"}
 	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" selected" if selected>=0 else ("STEP "+str(lesson_step+1)+" / "+str(m.sequence.size()) if m.has("sequence") else "MATE IN "+str(maxi(0,puzzle_remaining())) if m.has("mateLimit") else m.get("topic","Choose a piece"))
 	if demo:caption=demo_heading
 	text(caption,Vector2(px+16,py+27),14 if selected<0 and m.has("topic") else 17,teal)
 	var expr=expression(m.englishExpressionIds[0])
-	wrapped(expr.wordOrSentence,Rect2(px+16,py+60,pw-32,90),24,ink)
+	wrapped(expr.wordOrSentence,Rect2(px+16,py+68,pw-32,90),24,ink)
 	var body=m.hints[mini(maxi(hints-1,0),2)] if hints else (expr.meaning if learner.data.settings.korean else "Listen. Think. Move.")
 	if learner.data.settings.korean and m.has("briefing") and hints<2:body=m.briefing
 	if demo:body=demo_text
@@ -283,6 +320,8 @@ func draw_play(s:Vector2):
 	for j in range(labels.size()):
 		button(labels[j],Rect2(px+16+(j%columns)*(bw+8),by+(j/columns)*54,bw,46),actions[j],j==2)
 	wrapped(feedback,Rect2(px+16,py+266 if compact else by+192,pw-32,66),16,teal)
+	if compact:book(Vector2(px+pw-48,py+37),.32)
+	else:book(Vector2(px+pw*.5,panel.end.y-86),.65)
 	if rules.n==8 and rules.notation.size()>0:text("Moves  "+" ".join(rules.notation.slice(maxi(0,rules.notation.size()-8))),Vector2(44,s.y-20),16,muted)
 func wrapped(value:String,r:Rect2,fs:int,col:Color):
 	var line="";var y=r.position.y
@@ -357,7 +396,11 @@ func book(at:Vector2,z:float):
 func draw_book(s:Vector2):
 	header("마법의 영어 도감", "행동으로 익힌 표현 · 기록은 이해도의 추정이며 시험 점수가 아니에요",s)
 	var ids=learner.review_ids()
-	if ids.is_empty():text("첫 모험에서 마법책과 함께 영어를 만나 보세요!",Vector2(60,180),26)
+	if ids.is_empty():
+		fantasy_panel(Rect2(40,130,s.x-80,390))
+		centered("첫 모험에서 새로운 말을 만나 보세요!",Vector2(s.x/2,185),25,teal)
+		book(Vector2(s.x/2,305),.95)
+		button("첫 표현 만나기",Rect2(s.x/2-130,432,260,56),"continue",true)
 	var cols=3 if s.x>1100 else 2
 	var w=(s.x-90)/cols
 	var narrow=s.x<1050
@@ -366,27 +409,41 @@ func draw_book(s:Vector2):
 	for j in range(visible.size()):
 		var e=expression(visible[j]);var record=learner.record(visible[j])
 		var x=40+(j%cols)*w;var y=125+(j/cols)*(250 if narrow else 155)
-		box(Rect2(x,y,w-16,230 if narrow else 140),cream,18)
+		fantasy_panel(Rect2(x,y,w-16,230 if narrow else 140))
 		wrapped(e.wordOrSentence,Rect2(x+16,y+35,w-48,70),24 if narrow else 22,ink)
-		text(record.familiarityState+" · 듣기 "+str(record.exposureCount)+" · 독립 "+str(record.independentSuccessCount),Vector2(x+16,y+(105 if narrow else 65)),15,muted)
+		text({"NEW":"처음 만난 말","LEARNING":"익히는 중","PRACTICING":"연습하는 말","FAMILIAR":"친숙한 말","REVIEW":"다시 만날 말"}.get(record.familiarityState,"연습하는 말")+" · 듣기 "+str(record.exposureCount)+" · 혼자 "+str(record.independentSuccessCount),Vector2(x+16,y+(105 if narrow else 65)),15,muted)
 		button("듣기",Rect2(x+14,y+(126 if narrow else 82),90,88 if narrow else 42),"audio:"+visible[j])
 		button("행동 복습",Rect2(x+116,y+(126 if narrow else 82),w-148,88 if narrow else 42),"review:"+visible[j],true)
 	button("왕국 지도",Rect2(40,s.y-70,200,50),"map")
 	if ids.size()>page_size:button("다음 페이지",Rect2(260,s.y-70,200,50),"bookpage")
 func draw_settings(s:Vector2):
-	header("나에게 맞는 모험", "설정과 진행은 이 기기의 저장 공간에 자동 저장돼요",s)
-	text("AI 생성 음성 · OpenAI",Vector2(80,112),16,muted)
-	var opts=[["sound","영어 음성"],["korean","한국어 도움말"],["motion","캐릭터 애니메이션"]]
+	header("모험가의 쉼터", "소리와 움직임을 고르고, 모은 보상으로 왕국을 꾸며요",s)
+	var narrow=s.x<1050
+	var left=Rect2(40,130,s.x-80 if narrow else s.x*.44,310)
+	var right=Rect2(40 if narrow else s.x*.5,464 if narrow else 130,s.x-80 if narrow else s.x*.5-40,438)
+	fantasy_panel(left);fantasy_panel(right)
+	text("마법의 목소리와 도움말",left.position+Vector2(24,40),25,ink)
+	var opts=[["sound","영어 음성"],["korean","한국어 도움말"],["motion","캐릭터 움직임"]]
 	for i in range(opts.size()):
-		text(opts[i][1],Vector2(80,180+i*84),26)
-		button("켜짐" if learner.data.settings[opts[i][0]] else "꺼짐",Rect2(400,140+i*84,140,56),"toggle:"+opts[i][0],learner.data.settings[opts[i][0]])
-	text("모은 보상  "+str(learner.data.rewards.size())+" / 56",Vector2(80,440),25)
-	text("일반 미션: 빛의 이동 효과 · 보스: 골드 장식 · 챕터: 지도와 테마",Vector2(80,480),20,muted)
+		var y=left.position.y+67+i*67
+		text(opts[i][1],Vector2(left.position.x+24,y+34),23,ink)
+		button("켜짐" if learner.data.settings[opts[i][0]] else "꺼짐",Rect2(left.end.x-146,y,120,49),"toggle:"+opts[i][0],learner.data.settings[opts[i][0]])
+	text("AI 생성 음성 · OpenAI",left.position+Vector2(24,285),15,muted)
+	if not narrow:book(Vector2(left.get_center().x,510),.72)
+	text("나의 보물 상자",right.position+Vector2(24,40),25,ink)
+	text("모은 보상  "+str(learner.data.rewards.size())+" / 56",right.position+Vector2(24,76),19,teal)
+	wrapped("왕국을 완성하면 새 색이 열려요. 폰의 승격을 배우면 골드 장식을 얻어요.",Rect2(right.position+Vector2(24,110),Vector2(right.size.x-48,70)),18,muted)
+	var cols=4;var width=(right.size.x-58)/cols
 	for t in range(8):
-		button(THEME_NAMES[t],Rect2(80+(t%4)*135,510+(t/4)*60,125,50),"theme:"+str(t),int(learner.data.settings.theme)==t,t>0 and not learner.data.completed.has(str(t)+"-8"))
-	button("골드 장식 "+("ON" if learner.data.settings.get("gold_skin",false) else "OFF"),Rect2(80,640,250,54),"skin",false,not learner.data.completed.has("1-6"))
-	button("돌아가기",Rect2(350,640,220,56),"back",true)
-	text("작은 보드: 첫 두 칸 전진 가능 / 승격·캐슬링·앙파상 없음",Vector2(80,720),18,muted)
+		button(THEME_NAMES[t],Rect2(right.position.x+24+(t%cols)*(width+3),right.position.y+176+(t/cols)*62,width-3,52),"theme:"+str(t),int(learner.data.settings.theme)==t,t>0 and not learner.data.completed.has(str(t)+"-8"))
+	button("골드 장식 "+("ON" if learner.data.settings.get("gold_skin",false) else "OFF"),Rect2(right.position.x+24,right.position.y+318,right.size.x-48,55),"skin",false,not learner.data.completed.has("1-6"))
+	text("보상은 모험을 마칠 때마다 차곡차곡 쌓여요.",right.position+Vector2(24,409),17,muted)
+	var reset=Rect2(40,932 if narrow else 598,s.x-80,158 if narrow else 112)
+	fantasy_panel(reset)
+	text("새로운 모험",reset.position+Vector2(24,35),23,ink)
+	wrapped("완료 기록·학습 기록·보상을 지우고 처음부터 시작해요.",Rect2(reset.position+Vector2(24,65),Vector2(reset.size.x-48 if narrow else reset.size.x-310,60)),17,muted)
+	button("진행도 초기화",Rect2(reset.position.x+24 if narrow else reset.end.x-248,reset.position.y+94 if narrow else reset.position.y+30,224,48),"reset_prompt")
+	button("모험으로 돌아가기",Rect2(40,s.y-72,280,52),"back",true)
 func draw_ending(s:Vector2):
 	book(Vector2(s.x/2,150),1.5)
 	centered("왕관의 빛이 돌아왔어요!",Vector2(s.x/2,290),46,ink)
@@ -401,7 +458,7 @@ func draw_ending(s:Vector2):
 func draw_modal(s:Vector2):
 	draw_rect(Rect2(Vector2.ZERO,s),Color("203b4580"))
 	var w=minf(650,s.x-60);var r=Rect2((s.x-w)/2,s.y/2-200,w,400)
-	box(r,cream,28)
+	fantasy_panel(r)
 	var x=r.position.x;var y=r.position.y
 	if modal=="intro":
 		centered(chapters[chapter-1].subtitle,Vector2(s.x/2,y+64),32,ink)
@@ -411,6 +468,11 @@ func draw_modal(s:Vector2):
 		centered("Great adventure!",Vector2(s.x/2,y+70),36,ink)
 		wrapped(missions[index].get("explanation",chapters[chapter-1].outro if index%8==7 else "새로운 빛을 모았어요. 다음 모험에서도 함께해요!"),Rect2(x+44,y+140,w-88,100),25,teal)
 		button("Next quest  →",Rect2(x+44,y+290,w-88,60),"next",true)
+	elif modal=="reset":
+		centered("처음부터 다시 시작할까요?",Vector2(s.x/2,y+65),30,ink)
+		wrapped("완료한 모험, 영어 학습 기록, 보상과 진행 중인 대국이 모두 지워져요. 소리·도움말·움직임 설정은 유지돼요. 이 작업은 되돌릴 수 없어요.",Rect2(x+40,y+125,w-80,150),23,muted)
+		button("취소 · 기록 지키기",Rect2(x+32,y+300,(w-76)/2,58),"reset_cancel",true)
+		button("모두 지우고 시작",Rect2(x+44+(w-76)/2,y+300,(w-76)/2,58),"reset_confirm")
 	elif modal=="promotion":
 		centered("Promotion! Choose a piece.",Vector2(s.x/2,y+70),28,ink)
 		for j in range(promotion.size()):button({"q":"Queen","r":"Rook","b":"Bishop","n":"Knight"}[promotion[j][4]],Rect2(x+30+j*(w-60)/4,y+170,(w-80)/4,70),"promote:"+promotion[j],true)
@@ -451,7 +513,7 @@ func speak_mission():
 	introducing=""
 	say_id(missions[index].englishExpressionIds[0])
 func start_mission(i:int,resume=false):
-	demo=false;demo_snapshot={};demo_heading=""
+	demo=false;demo_snapshot={};demo_heading="";demo_links=[];demo_focus=[]
 	generation+=1;lesson_step=0;busy=false;index=i;chapter=int(missions[i].chapter)
 	selected=-1;mistakes=0;feedback="";modal="";promotion=[];anim_t=1;target_evidence=false;last_move="";introducing=""
 	rules=Rules.new();rules.bridge=true
@@ -477,13 +539,13 @@ func start_mission(i:int,resume=false):
 	if modal=="" and has_demo() and not m.id in learner.data.completed and rules.history.is_empty():start_demo()
 	if rules.turn=="b" and m.type=="GAME":ai_turn()
 func has_demo()->bool:
-	return missions[index].id in ["1-7","6-5","6-6"]
+	return missions[index].id in ["1-7","6-5","6-6"] or missions[index].type in ["PROMOTION","PIN","FORK","SKEWER"]
 func finish_demo():
 	if not demo:return
 	generation+=1
 	rules.load_fen(demo_snapshot.fen,rules.n)
 	rules.history=demo_snapshot.history.duplicate();rules.positions=demo_snapshot.positions.duplicate();rules.notation=demo_snapshot.notation.duplicate()
-	demo=false;busy=false;anim_t=1;selected=-1;demo_heading=""
+	demo=false;busy=false;anim_t=1;selected=-1;demo_heading="";demo_links=[];demo_focus=[]
 	feedback="Your turn!";persist()
 func demo_pause(seconds:float,token:int)->bool:
 	await get_tree().create_timer(seconds).timeout
@@ -495,6 +557,7 @@ func start_demo():
 	generation+=1
 	var token=generation
 	demo_snapshot={"fen":rules.fen(),"history":rules.history.duplicate(),"positions":rules.positions.duplicate(),"notation":rules.notation.duplicate()}
+	demo_links=[];demo_focus=[];anim_t=1
 	demo=true;busy=true;selected=-1;modal="";introducing="";audio.stop();feedback="Watch first · Then try"
 	var m=missions[index]
 	if m.id=="1-7":
@@ -509,7 +572,7 @@ func start_demo():
 		if not await demo_pause(1.3,token):return
 		rules.cells[rules.square("d5")]=""
 		demo_heading="WATCH 3 / 3";demo_text="지나쳐 온 상대 폰이 잡혔어요. 이 특별한 포획은 바로 다음 수에만 가능해요."
-	else:
+	elif m.type=="CASTLE":
 		rules.load_fen(m.initialPosition)
 		var kingside=m.id=="6-5"
 		var king_move="e1g1" if kingside else "e1c1"
@@ -521,6 +584,55 @@ func start_demo():
 		if not await demo_pause(1.5,token):return
 		demo_heading="WATCH 3 / 3";demo_text="룩은 왕을 넘어 바로 옆에 와요. 순서대로 보여줬지만 둘이 합쳐 한 수, 캐슬링이에요."
 		rules.cells[rules.square(rook_move.substr(0,2))]="";rules.cells[rules.square(rook_move.substr(2,2))]="R";animate(rook_move,"R")
+	else:
+		rules.load_fen(m.initialPosition,int(m.boardSize))
+		var solutions=Goals.solutions(rules,m)
+		if solutions.is_empty():finish_demo();return
+		var move=solutions[0]
+		var a=rules.square(move.substr(0,2));var b=rules.square(move.substr(2,2));var piece_letter=rules.cells[a]
+		demo_heading="WATCH 1 / 3";demo_focus=[a]
+		if m.type=="PROMOTION":demo_text="폰이 끝줄에 닿으면 퀸·룩·비숍·나이트 중 하나로 바뀌어요."
+		elif m.type=="FORK":demo_text="한 번 움직여 상대 둘을 동시에 노려요. 어느 칸일까요?"
+		elif m.type=="PIN":demo_text="상대 나이트 뒤에 왕이 있어요. 둘을 한 대각선으로 묶어 볼까요?"
+		else:demo_text="앞에는 왕, 뒤에는 강한 기물이 있어요. 같은 줄을 노려요."
+		if not await demo_pause(1.5,token):return
+		demo_heading="WATCH 2 / 3";demo_focus=[b]
+		if m.type=="PROMOTION":
+			rules.cells[a]="";rules.cells[b]="P";animate(move,"P")
+			demo_text="끝줄에 도착했어요. 이제 새 기물을 골라요."
+			if not await demo_pause(1.5,token):return
+			rules.cells[b]=move[4].to_upper()
+			demo_heading="WATCH 3 / 3"
+			demo_text="이번에는 퀸! 앞으로는 퀸처럼 움직여요. 직접 풀 때 네 기물 중 고를 수 있어요."
+			if move[4]=="n":
+				demo_text="이번에는 나이트! L자 공격으로 왕과 룩을 동시에 노려요. 항상 퀸이 최선은 아니에요."
+				for square in m.objective.forkTargets:demo_links.append([b,rules.square(square)])
+		else:
+			rules.apply_raw(move);animate(move,piece_letter)
+			demo_text="새 자리에서 공격이 어떻게 이어지는지 보세요."
+			if not await demo_pause(1.3,token):return
+			if m.type=="FORK":
+				for square in m.objective.targets:demo_links.append([b,rules.square(square)])
+				demo_heading="WATCH 3 / 3";demo_text="공격선이 두 갈래예요! 한 기물로 둘을 동시에 공격하는 포크예요."
+			elif m.type=="PIN":
+				var front=rules.square(m.objective.target);var rear=rules.square(m.objective.rear)
+				demo_links=[[b,front],[front,rear]];demo_focus=[front,rear]
+				demo_heading="WATCH 3 / 3";demo_text="나이트가 비키면 뒤의 왕이 체크예요. 그래서 나이트는 움직일 수 없어요. 이것이 핀이에요."
+			else:
+				var front=rules.square(m.objective.target);var rear=rules.square(m.objective.rear)
+				demo_links=[[b,front],[front,rear]];demo_focus=[front,rear]
+				demo_text="앞의 왕에게 체크! 왕이 피하면 뒤의 기물이 드러나요."
+				if not await demo_pause(1.8,token):return
+				var reply=""
+				for candidate in rules.legal():
+					if rules.square(candidate.substr(0,2))==front:reply=candidate;break
+				if reply!="":
+					rules.apply_raw(reply);animate(reply,"k");demo_links=[[b,rear]]
+					if not await demo_pause(1.3,token):return
+					var capture=rules.coord(b)+rules.coord(rear)
+					if capture in rules.legal():rules.apply_raw(capture);animate(capture,piece_letter)
+					demo_links=[];demo_focus=[rear]
+				demo_heading="WATCH 3 / 3";demo_text="왕이 피한 뒤 뒤쪽 기물을 잡았어요. 앞을 몰아내고 뒤를 잡는 꼬치 공격이에요."
 	if not await demo_pause(2.4,token):return
 	demo_heading="YOUR TURN";demo_text="이제 직접 해 볼까요? Try now를 누르면 원래 문제로 돌아가요. Replay로 다시 볼 수도 있어요."
 	feedback="Replay · Try now"
@@ -536,7 +648,7 @@ func tap(p:Vector2):
 		var b=buttons[i]
 		if b.r.has_point(p):
 			if not b.disabled:
-				if modal!="" and not (b.action in ["begin","next","restart"] or b.action.begins_with("promote:")):return
+				if modal!="" and not (b.action in ["begin","next","restart","reset_cancel","reset_confirm"] or b.action.begins_with("promote:")):return
 				action(b.action)
 			return
 	if screen!="play" or modal!="" or busy or rules.turn!="w":return
@@ -570,7 +682,14 @@ func action(a:String):
 		return
 	if a=="watch":start_demo();return
 	if busy and a in ["home","map","book","settings","back"]:return
-	if a=="home":screen="home";modal=""
+	if a=="reset_prompt" and screen=="settings":modal="reset"
+	elif a=="reset_cancel":modal=""
+	elif a=="reset_confirm" and modal=="reset":
+		if learner.reset_progress():
+			generation+=1;audio.stop();demo=false;busy=false;modal="";screen="home";settings_return="home"
+			index=0;chapter=1;selected=-1;review=false;free_play=false;lesson_step=0;introducing="";feedback="";anim_t=1
+		else:modal="";feedback="저장 공간을 확인해 주세요. 초기화하지 못했어요."
+	elif a=="home":screen="home";modal=""
 	elif a=="continue":review=false;free_play=false;start_mission(int(learner.data.lastMission),true)
 	elif a=="map":screen="map";modal="";map_page=0 if chapter<=4 else 1
 	elif a=="mappage":map_page=1-map_page
@@ -579,7 +698,10 @@ func action(a:String):
 	elif a=="settings":settings_return=screen;screen="settings"
 	elif a=="back":screen=settings_return
 	elif a.begins_with("mission:"):review=false;free_play=false;start_mission(int(a.split(":")[1]))
-	elif a=="begin":modal="";speak_mission()
+	elif a=="begin":
+		modal=""
+		if has_demo() and not missions[index].id in learner.data.completed and rules.history.is_empty():start_demo()
+		else:speak_mission()
 	elif a in ["listen","slow"]:say_id(missions[index].englishExpressionIds[0],a=="slow",true)
 	elif a=="hint":
 		hints=mini(3,hints+1);was_assisted=true;learner.chess(missions[index].id).hintCount+=1
