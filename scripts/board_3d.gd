@@ -100,26 +100,25 @@ func build_board():
 	if theme>0:brown=material(["b87b50","6a9c85","7996b8","a286b8","c98e99","8299b6","7f729e","bd964c"][theme])
 	ivory.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
 	brown.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
-	# A substantial toy-like plinth, stepped golden bevels, and distinct team rails.
-	cube(ground,Vector3(0,-.31,0),Vector3(n+.48,.42,n+.48),material("754a39"))
-	cube(ground,Vector3(0,-.115,0),Vector3(n+.54,.13,n+.54),material("daa657",.35))
-	cube(ground,Vector3(0,-.085,0),Vector3(n+.2,.10,n+.2),material("ffe4a3",.2))
+	# One continuous body gives the vertical lettering an uninterrupted face.
+	var body=cube(ground,Vector3(0,-.275,0),Vector3(n+.54,.49,n+.54),material("754a39"))
+	body.name="BoardBody"
 	for rank in range(n):
 		for file in range(n):cube(ground,world(file,rank)+Vector3(0,-.055,0),Vector3(.992,.09,.992),ivory if (file+rank)%2 else brown)
-	cube(ground,Vector3(0,-.035,n*.5+.14),Vector3(n+.2,.14,.16),material("479ed0",.25))
-	cube(ground,Vector3(0,-.035,-n*.5-.14),Vector3(n+.2,.14,.16),material("9c6cb0",.25))
-	# Lettering sits on the existing visible vertical wooden side, one name per half.
-	for side in [-1,1]:
-		var label=Label3D.new()
-		label.name="BlackRailText" if side<0 else "WhiteRailText"
-		label.text="BLACK" if side<0 else "WHITE"
-		label.font=preload("res://assets/font-medium.ttf")
-		label.font_size=64;label.pixel_size=.006 if side<0 else .0045
-		label.outline_size=0;label.modulate=Color("fff8df")
-		label.no_depth_test=false;label.shaded=false
-		label.rotation_degrees.y=90 if side<0 else 0
-		label.position=Vector3(n*.5+.242,-.31,-n*.26) if side<0 else Vector3(0,-.31,n*.5+.242)
-		ground.add_child(label)
+	var white_rail=material("fffdf7");var black_rail=material("191b20")
+	white_rail.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+	black_rail.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+	cube(ground,Vector3(0,-.035,n*.5+.14),Vector3(n+.2,.14,.16),white_rail).name="WhiteTeamRail"
+	cube(ground,Vector3(0,-.035,-n*.5-.14),Vector3(n+.2,.14,.16),black_rail).name="BlackTeamRail"
+	# The opponent is identified by its black rail; only the player's side has text.
+	var label=Label3D.new()
+	label.name="WhiteRailText";label.text="WHITE"
+	label.font=preload("res://assets/font-medium.ttf")
+	label.font_size=64;label.pixel_size=.006
+	label.outline_size=0;label.modulate=Color("fff8df")
+	label.no_depth_test=false;label.shaded=false
+	label.position=Vector3(0,-.275,n*.5+.272)
+	ground.add_child(label)
 func update_position(cells:Array,selected:int,check_squares:Array,celebrate:bool,enabled:bool):
 	chosen=selected;checked=check_squares;happy=celebrate;motion=enabled
 	var key="|".join(cells)+str(gold_skin)

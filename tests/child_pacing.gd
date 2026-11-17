@@ -38,9 +38,10 @@ func run():
   for index in [0,16,53]:
    g.start_mission(index);g.modal="";g.layout_board(g.size_now())
    var front=g.board_view.ground.get_node("WhiteRailText")
-   var back=g.board_view.ground.get_node("BlackRailText")
-   check(front.text=="WHITE" and back.text=="BLACK","both team names on rails")
-   check(is_equal_approx(front.position.z,g.rules.n*.5+.242) and is_equal_approx(back.position.x,g.rules.n*.5+.242),"text on original outer wooden walls")
-   check(front.rotation_degrees.y==0 and back.rotation_degrees.y==90 and front.position.y<0 and back.position.y<0,"text on vertical thickness faces")
+   check(front.text=="WHITE" and not g.board_view.ground.has_node("BlackRailText"),"only player side has lettering")
+   check(is_equal_approx(front.position.z,g.rules.n*.5+.272) and front.rotation_degrees.y==0 and front.position.y<0,"text sits on continuous wooden side")
+   var white=g.board_view.ground.get_node("WhiteTeamRail").material_override.albedo_color
+   var black=g.board_view.ground.get_node("BlackTeamRail").material_override.albedo_color
+   check(white.r>.9 and white.g>.9 and white.b>.9 and black.r<.15 and black.g<.15 and black.b<.15,"white and black team rails")
  print("CHILD PACING manual steps, slower movement, English popups, symmetric board plaques; failures ",failures)
  quit(1 if failures else 0)

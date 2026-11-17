@@ -155,3 +155,7 @@ Removed both signs and their mounts. WHITE and BLACK are now depth-tested 3D let
 ## Original board proportions and side lettering (v11.17.12)
 
 Restored the original plinth and thin colored rails. Team text is no longer on the playing surface: WHITE is printed on the front wooden thickness face, and BLACK on the visible right wooden face toward the opposing half. Both are real depth-tested 3D text on vertical surfaces, without mounts, plaques or a widened frame.
+
+## Unified board body and monochrome team rails (v11.17.13)
+
+Replaced the stacked base and gold separator layers with one continuous wooden body, retaining the board footprint and overall thickness. The uninterrupted front face allows larger WHITE lettering. Removed BLACK lettering entirely. The player rail is white and the opponent rail is black in every theme, replacing blue and purple.
