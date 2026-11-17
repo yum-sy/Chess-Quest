@@ -167,3 +167,7 @@ All four rims use larger outlined coordinate labels. White rails use dark letter
 ## Board-plane coordinate alignment (v11.17.15)
 
 Coordinate glyphs use both projected board axes, so their tilt and foreshortening follow the board. Top and bottom letters use the exact same in-column corner inset on both rims, rather than different offsets. Left/right numbers use identical rank centers. Rear letters remain on the board rim, clear of back-rank faces, without floating legends or a wider board. Selection checks verify row/column collinearity in 4×4, 6×6 and 8×8 boards in both screen orientations.
+
+## Exact file centers (v11.17.16)
+
+Removed the 0.38-square horizontal inset from both alphabet rows. Each letter is now centered at its file's integer coordinate, matching the center line of the squares beneath it. Existing board-plane typography and rank labels remain unchanged. Alignment checks now compare against actual column centers.

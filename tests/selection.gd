@@ -21,8 +21,8 @@ func run():
 				count+=1
 			var n=g.rules.n
 			for file in range(n):
-				var top=g.coordinate_transform(file+.38,n-.31);var bottom=g.coordinate_transform(file+.38,-.69)
-				var center=g.point(file+.38,(n-1)*.5)
+				var top=g.coordinate_transform(file,n-.31);var bottom=g.coordinate_transform(file,-.69)
+				var center=g.point(file,(n-1)*.5)
 				if absf((top.origin-bottom.origin).normalized().cross(center-bottom.origin))>.01:fails+=1;printerr("FILE ALIGNMENT ",file)
 				if top.x.dot(bottom.x)<.999:fails+=1
 			for rank in range(n):

@@ -267,11 +267,10 @@ func draw_play(s:Vector2):
 	var target=rules.square(m.objective.target) if hints>0 and m.objective.target!="" else -1
 	board_view.update_markers(destinations,selected,target)
 	draw_texture_rect(board_view.get_texture(),board_area,false)
-	# Opposite labels share identical in-cell file/rank positions. File labels
-	# use the same corner inset on BOTH rims, avoiding back-rank silhouettes.
+	# Opposite file labels share the exact center of each column.
 	for x in range(rules.n):
-		coordinate_label("abcdefgh"[x],x+.38,-.69,true)
-		coordinate_label("abcdefgh"[x],x+.38,rules.n-.31)
+		coordinate_label("abcdefgh"[x],x,-.69,true)
+		coordinate_label("abcdefgh"[x],x,rules.n-.31)
 	for rank in range(rules.n):
 		coordinate_label(str(rank+1),-.69,rank)
 		coordinate_label(str(rank+1),rules.n-.31,rank)
