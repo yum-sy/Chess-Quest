@@ -159,3 +159,7 @@ Restored the original plinth and thin colored rails. Team text is no longer on t
 ## Unified board body and monochrome team rails (v11.17.13)
 
 Replaced the stacked base and gold separator layers with one continuous wooden body, retaining the board footprint and overall thickness. The uninterrupted front face allows larger WHITE lettering. Removed BLACK lettering entirely. The player rail is white and the opponent rail is black in every theme, replacing blue and purple.
+
+## High-contrast coordinates (v11.17.14)
+
+All four rims use larger outlined coordinate labels. White rails use dark lettering with a pale outline; black and wooden rims use pale lettering with a dark outline. Back-file labels now stay on the board rim at file corners rather than floating above occupied pieces. Board geometry, team rails and side lettering are unchanged.
