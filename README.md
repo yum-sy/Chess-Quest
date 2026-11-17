@@ -151,3 +151,7 @@ All modal text is simple English, including story introductions, success, retry,
 ## Printed team names (v11.17.11)
 
 Removed both signs and their mounts. WHITE and BLACK are now depth-tested 3D lettering on the blue and purple board rails, following the board surface. The rails provide space for the lettering outside the coordinates and back-rank characters.
+
+## Original board proportions and side lettering (v11.17.12)
+
+Restored the original plinth and thin colored rails. Team text is no longer on the playing surface: WHITE is printed on the front wooden thickness face, and BLACK on the visible right wooden face toward the opposing half. Both are real depth-tested 3D text on vertical surfaces, without mounts, plaques or a widened frame.
