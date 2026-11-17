@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1794886547|2046861';
+const CACHE_VERSION = '1794887406|1981593';
 /** @type {string} */
 const CACHE_PREFIX = 'Chess Quest: The-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
