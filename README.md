@@ -127,3 +127,9 @@ Special rules use full 8×8 boards, following [FIDE articles 3.7 and 3.8](https:
 Attack, fork, pin, skewer and discovered-attack solutions reject any move allowing an immediate legal capture of the moved piece, including en passant. Pinned opponents' illegal captures are excluded without changing king-square control rules. Defense separately requires a legal recapture. Route exercises explicitly keep opponents stationary.
 
 The dedicated curriculum suite passes 118 checks, including 20 safe tactical solutions, special-move UI completion, and an unsafe queen attack being captured and restored for retry. Chapter 7 and every voice WAV remain unchanged. Completed missions and rewards persist; obsolete intermediate positions restart the revised lesson.
+
+## Watch before playing (v11.17.8)
+
+The first unfinished en-passant lesson (1-7) and both castling lessons (6-5, 6-6) automatically show a short, three-step board demonstration. En passant shows the opponent's double step, the diagonal landing, then removal of the passed pawn. Castling shows the king and rook sequentially, explicitly explaining that they form one move. Replay repeats the preview; Try now restores the original exercise. Watch remains available on completed lessons.
+
+Preview positions never enter saves or award completion. Replay, leaving the screen and changing missions cancel pending animation steps. Reduced-motion mode retains timed instructional poses without movement. Existing voice files remain unchanged.

@@ -12,7 +12,7 @@ engine=engine[:engine.rfind('export {')]
 html=(d/'index.html').read_text().replace('"serviceWorker":"index.service.worker.js"','"serviceWorker":""')
 html=html.replace('<head>','<head>\n<script src="chess.js"></script>\n<link rel="apple-touch-icon" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#367f7b">')
 html=html.replace('</body>','''<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(r=>r.update());</script>
-<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">Piece skills · v11.17.7 · Help</a></body>''')
+<a href="guide.html" style="position:fixed;bottom:5px;right:10px;color:#367f7b;font:12px sans-serif">Watch & play · v11.17.8 · Help</a></body>''')
 (d/'index.html').write_text(html)
 manifest={'name':'Chess Quest: The Lost Crown','short_name':'Chess Quest','start_url':'./index.html','scope':'./','id':'./','display':'standalone','orientation':'any','background_color':'#e8efdc','theme_color':'#367f7b','icons':[{'src':f'icon-{s}.png','sizes':f'{s}x{s}','type':'image/png','purpose':'any maskable'} for s in [192,512]]}
 (d/'index.manifest.json').write_text(json.dumps(manifest))

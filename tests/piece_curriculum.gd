@@ -66,7 +66,7 @@ func run():
 	var g=load("res://main.tscn").instantiate();root.add_child(g);await process_frame
 	g.learner.path="user://piece-curriculum-test.json";g.learner.data.settings.sound=false
 	for sample in [[6,"e5d6"],[12,"b1c3"],[15,"c7c8n"],[37,"d1a4"],[44,"e1g1"],[45,"e1c1"]]:
-		g.start_mission(sample[0]);g.modal="";g.player_move(sample[1]);await create_timer(.65).timeout
+		g.start_mission(sample[0]);g.finish_demo();g.modal="";g.player_move(sample[1]);await create_timer(.65).timeout
 		expect(g.modal=="success","UI special mission "+str(sample[0]))
 	g.start_mission(39);g.modal="";g.player_move("d4c3");await create_timer(.65).timeout
 	expect(g.lesson_step==1 and g.active_mission().type=="ATTACK","sequence changes objective type")

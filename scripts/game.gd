@@ -45,6 +45,10 @@ var target_evidence=false
 var introducing=""
 var last_review_word=""
 var lesson_step=0
+var demo=false
+var demo_snapshot={}
+var demo_text=""
+var demo_heading=""
 const THEME_COLORS=["eddcba","b7d3ba","b9ccd9","d6c7e4","e8c5c6","d8d8ea","d3bfdf","f1d78f"]
 const THEME_NAMES=["정원","다리","마법의 탑","사원","궁전","왕의 성","검은 성","왕관"]
 var cream=Color("fff6df")
@@ -70,9 +74,9 @@ func _process(delta):
 	clock+=delta
 	if OS.has_feature("web") and int(clock*2)>status_tick:
 		status_tick=int(clock*2)
-		var state={"screen":screen,"mission":missions[index].id,"modal":modal,"completed":learner.data.completed.size(),"turn":rules.turn,"audioPlaying":audio.playing,"busy":busy,"fen":rules.fen(),"selected":selected,"squares":square_centers(),"actors":actor_centers()}
+		var state={"screen":screen,"mission":missions[index].id,"modal":modal,"completed":learner.data.completed.size(),"turn":rules.turn,"audioPlaying":audio.playing,"busy":busy,"demo":demo,"demoHeading":demo_heading,"fen":rules.fen(),"selected":selected,"squares":square_centers(),"actors":actor_centers()}
 		JavaScriptBridge.eval("window.CQ.state="+JSON.stringify(state))
-	if anim_t<1:anim_t=minf(1,anim_t+delta*2.5)
+	if anim_t<1:anim_t=minf(1,anim_t+delta*(1.15 if demo else 2.5))
 	board_view.moving_from=anim_from;board_view.moving_to=anim_to
 	board_view.moving_progress=anim_t;board_view.moving_letter=anim_piece
 	board_view.animate(delta)
@@ -239,13 +243,13 @@ func draw_play(s:Vector2):
 	draw_line(arrow_start,arrow_end,Color("468fc0"),3,true)
 	var d=(arrow_end-arrow_start).normalized();var side=Vector2(-d.y,d.x)
 	draw_colored_polygon(PackedVector2Array([arrow_end,arrow_end-d*12+side*6,arrow_end-d*12-side*6]),Color("468fc0"))
-	if m.has("previousMove") and rules.history.is_empty():
+	if not demo and m.has("previousMove") and rules.history.is_empty():
 		var a=rules.square(m.previousMove.substr(0,2));var b=rules.square(m.previousMove.substr(2,2))
 		var start=point(a%rules.n,a/rules.n);var end=point(b%rules.n,b/rules.n)
 		var direction=(end-start).normalized();var wing=Vector2(-direction.y,direction.x)
 		draw_line(start,end,Color("b287df"),4,true)
 		draw_colored_polygon(PackedVector2Array([end,end-direction*14+wing*7,end-direction*14-wing*7]),Color("b287df"))
-	if hints>=3 and m.type!="GAME":
+	if not demo and hints>=3 and m.type!="GAME":
 		var solution=Goals.solutions(rules,m)
 		if solution.size()>0:
 			var a=rules.square(solution[0].substr(0,2));var b=rules.square(solution[0].substr(2,2))
@@ -260,18 +264,23 @@ func draw_play(s:Vector2):
 	var compact=s.x<1050
 	var names={"p":"Pawn","n":"Knight","b":"Bishop","r":"Rook","q":"Queen","k":"King"}
 	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" selected" if selected>=0 else ("STEP "+str(lesson_step+1)+" / "+str(m.sequence.size()) if m.has("sequence") else "MATE IN "+str(maxi(0,puzzle_remaining())) if m.has("mateLimit") else m.get("topic","Choose a piece"))
+	if demo:caption=demo_heading
 	text(caption,Vector2(px+16,py+27),14 if selected<0 and m.has("topic") else 17,teal)
 	var expr=expression(m.englishExpressionIds[0])
 	wrapped(expr.wordOrSentence,Rect2(px+16,py+60,pw-32,90),24,ink)
 	var body=m.hints[mini(maxi(hints-1,0),2)] if hints else (expr.meaning if learner.data.settings.korean else "Listen. Think. Move.")
 	if learner.data.settings.korean and m.has("briefing") and hints<2:body=m.briefing
+	if demo:body=demo_text
 	wrapped(body,Rect2(px+16,py+(96 if compact else 154),pw-32,100),18,muted)
 	var by=py+(148 if compact else 290)
 	var labels=["▶ Listen","Slow","Hint","Undo" if m.type=="GAME" else "Restart","Map","Settings"]
 	var actions=["listen","slow","hint","undo" if m.type=="GAME" else "restart","map","settings"]
+	if has_demo():labels[1]="Watch";actions[1]="watch"
+	if demo:
+		labels=["Replay","Try now"];actions=["watch","practice"]
 	var columns=3 if compact else 2
 	var bw=(pw-32-(columns-1)*8)/columns
-	for j in range(6):
+	for j in range(labels.size()):
 		button(labels[j],Rect2(px+16+(j%columns)*(bw+8),by+(j/columns)*54,bw,46),actions[j],j==2)
 	wrapped(feedback,Rect2(px+16,py+266 if compact else by+192,pw-32,66),16,teal)
 	if rules.n==8 and rules.notation.size()>0:text("Moves  "+" ".join(rules.notation.slice(maxi(0,rules.notation.size()-8))),Vector2(44,s.y-20),16,muted)
@@ -442,6 +451,7 @@ func speak_mission():
 	introducing=""
 	say_id(missions[index].englishExpressionIds[0])
 func start_mission(i:int,resume=false):
+	demo=false;demo_snapshot={};demo_heading=""
 	generation+=1;lesson_step=0;busy=false;index=i;chapter=int(missions[i].chapter)
 	selected=-1;mistakes=0;feedback="";modal="";promotion=[];anim_t=1;target_evidence=false;last_move="";introducing=""
 	rules=Rules.new();rules.bridge=true
@@ -456,17 +466,66 @@ func start_mission(i:int,resume=false):
 		lesson_step=clampi(int(saved.get("lessonStep",0)),0,m.get("sequence",[{}]).size()-1)
 		rules.load_fen(saved.fen,int(m.boardSize))
 		rules.history=saved.get("history",[]);rules.positions=saved.get("positions",[]);rules.notation=saved.get("notation",[])
-	if m.has("previousMove") and rules.history.is_empty():
+	if not demo and m.has("previousMove") and rules.history.is_empty():
 		last_move=m.previousMove
 		feedback="LAST: "+last_move.substr(0,2)+" → "+last_move.substr(2,2)
 	screen="play"
 	if not review:learner.data.lastMission=index
 	if m.get("storyBeat",i%8==0) and not resume:modal="intro"
-	else:speak_mission()
+	elif not (has_demo() and not m.id in learner.data.completed and rules.history.is_empty()):speak_mission()
 	persist()
+	if modal=="" and has_demo() and not m.id in learner.data.completed and rules.history.is_empty():start_demo()
 	if rules.turn=="b" and m.type=="GAME":ai_turn()
+func has_demo()->bool:
+	return missions[index].id in ["1-7","6-5","6-6"]
+func finish_demo():
+	if not demo:return
+	generation+=1
+	rules.load_fen(demo_snapshot.fen,rules.n)
+	rules.history=demo_snapshot.history.duplicate();rules.positions=demo_snapshot.positions.duplicate();rules.notation=demo_snapshot.notation.duplicate()
+	demo=false;busy=false;anim_t=1;selected=-1;demo_heading=""
+	feedback="Your turn!";persist()
+func demo_pause(seconds:float,token:int)->bool:
+	await get_tree().create_timer(seconds).timeout
+	return demo and generation==token
+func start_demo():
+	if busy and not demo:return
+	if demo:finish_demo()
+	if not has_demo():return
+	generation+=1
+	var token=generation
+	demo_snapshot={"fen":rules.fen(),"history":rules.history.duplicate(),"positions":rules.positions.duplicate(),"notation":rules.notation.duplicate()}
+	demo=true;busy=true;selected=-1;modal="";introducing="";audio.stop();feedback="Watch first · Then try"
+	var m=missions[index]
+	if m.id=="1-7":
+		rules.load_fen(m.previousPosition)
+		demo_heading="WATCH 1 / 3";demo_text="상대 폰이 처음 자리에서 두 칸 앞으로 와요."
+		if not await demo_pause(1.2,token):return
+		rules.apply_raw("d7d5");animate("d7d5","p")
+		if not await demo_pause(1.8,token):return
+		demo_heading="WATCH 2 / 3";demo_text="바로 이번 수! 우리 폰이 빈 대각선 칸 d6으로 가요."
+		# Keep the victim visible until the capturing pawn lands.
+		rules.cells[rules.square("e5")]="";rules.cells[rules.square("d6")]="P";animate("e5d6","P")
+		if not await demo_pause(1.3,token):return
+		rules.cells[rules.square("d5")]=""
+		demo_heading="WATCH 3 / 3";demo_text="지나쳐 온 상대 폰이 잡혔어요. 이 특별한 포획은 바로 다음 수에만 가능해요."
+	else:
+		rules.load_fen(m.initialPosition)
+		var kingside=m.id=="6-5"
+		var king_move="e1g1" if kingside else "e1c1"
+		var rook_move="h1f1" if kingside else "a1d1"
+		demo_heading="WATCH 1 / 3";demo_text="왕과 룩이 처음 자리예요. 사이가 비고 왕의 길도 안전해요."
+		if not await demo_pause(1.5,token):return
+		demo_heading="WATCH 2 / 3";demo_text="왕이 룩 쪽으로 두 칸 가요. 두 기물이 함께 움직이는 한 수예요."
+		rules.cells[rules.square("e1")]="";rules.cells[rules.square(king_move.substr(2,2))]="K";animate(king_move,"K")
+		if not await demo_pause(1.5,token):return
+		demo_heading="WATCH 3 / 3";demo_text="룩은 왕을 넘어 바로 옆에 와요. 순서대로 보여줬지만 둘이 합쳐 한 수, 캐슬링이에요."
+		rules.cells[rules.square(rook_move.substr(0,2))]="";rules.cells[rules.square(rook_move.substr(2,2))]="R";animate(rook_move,"R")
+	if not await demo_pause(2.4,token):return
+	demo_heading="YOUR TURN";demo_text="이제 직접 해 볼까요? Try now를 누르면 원래 문제로 돌아가요. Replay로 다시 볼 수도 있어요."
+	feedback="Replay · Try now"
 func persist():
-	if review:return
+	if review or demo:return
 	learner.data.current={"id":missions[index].id,"revision":missions[index].get("revision",1),"lessonStep":lesson_step,"fen":rules.fen(),"history":rules.history,"positions":rules.positions,"notation":rules.notation}
 	learner.save()
 func _unhandled_input(event):
@@ -504,6 +563,12 @@ func tap(p:Vector2):
 				else:feedback="그 칸으로 갈 수 없어요. 초록 점을 살펴보세요.";learner.chess(missions[index].id).wrongCount+=1
 			return
 func action(a:String):
+	if demo:
+		if a=="watch":start_demo()
+		elif a=="practice":finish_demo();speak_mission()
+		elif a in ["home","map"]:finish_demo();action(a)
+		return
+	if a=="watch":start_demo();return
 	if busy and a in ["home","map","book","settings","back"]:return
 	if a=="home":screen="home";modal=""
 	elif a=="continue":review=false;free_play=false;start_mission(int(learner.data.lastMission),true)
