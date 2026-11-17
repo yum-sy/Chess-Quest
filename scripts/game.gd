@@ -200,7 +200,7 @@ func active_mission()->Dictionary:
 	if not base.has("sequence"):return base
 	var m=base.duplicate();m.objective=base.objective.duplicate()
 	var step=base.sequence[clampi(lesson_step,0,base.sequence.size()-1)]
-	m.objective.merge(step.objective,true);m.briefing=step.briefing
+	m.objective.merge(step.objective,true);m.briefing=step.briefing;m.type=step.get("type",base.type)
 	return m
 func puzzle_remaining()->int:
 	return int(missions[index].get("mateLimit",0))-int((rules.history.size()+1)/2)
@@ -239,6 +239,12 @@ func draw_play(s:Vector2):
 	draw_line(arrow_start,arrow_end,Color("468fc0"),3,true)
 	var d=(arrow_end-arrow_start).normalized();var side=Vector2(-d.y,d.x)
 	draw_colored_polygon(PackedVector2Array([arrow_end,arrow_end-d*12+side*6,arrow_end-d*12-side*6]),Color("468fc0"))
+	if m.has("previousMove") and rules.history.is_empty():
+		var a=rules.square(m.previousMove.substr(0,2));var b=rules.square(m.previousMove.substr(2,2))
+		var start=point(a%rules.n,a/rules.n);var end=point(b%rules.n,b/rules.n)
+		var direction=(end-start).normalized();var wing=Vector2(-direction.y,direction.x)
+		draw_line(start,end,Color("b287df"),4,true)
+		draw_colored_polygon(PackedVector2Array([end,end-direction*14+wing*7,end-direction*14-wing*7]),Color("b287df"))
 	if hints>=3 and m.type!="GAME":
 		var solution=Goals.solutions(rules,m)
 		if solution.size()>0:
@@ -253,8 +259,8 @@ func draw_play(s:Vector2):
 	box(panel,Color("fff9e9"),24)
 	var compact=s.x<1050
 	var names={"p":"Pawn","n":"Knight","b":"Bishop","r":"Rook","q":"Queen","k":"King"}
-	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" selected" if selected>=0 else ("STEP "+str(lesson_step+1)+" / "+str(m.sequence.size()) if m.has("sequence") else "MATE IN "+str(maxi(0,puzzle_remaining())) if m.has("mateLimit") else "Choose a piece")
-	text(caption,Vector2(px+16,py+27),17,teal)
+	var caption=rules.coord(selected)+" · "+names.get(rules.cells[selected].to_lower(),"")+" selected" if selected>=0 else ("STEP "+str(lesson_step+1)+" / "+str(m.sequence.size()) if m.has("sequence") else "MATE IN "+str(maxi(0,puzzle_remaining())) if m.has("mateLimit") else m.get("topic","Choose a piece"))
+	text(caption,Vector2(px+16,py+27),14 if selected<0 and m.has("topic") else 17,teal)
 	var expr=expression(m.englishExpressionIds[0])
 	wrapped(expr.wordOrSentence,Rect2(px+16,py+60,pw-32,90),24,ink)
 	var body=m.hints[mini(maxi(hints-1,0),2)] if hints else (expr.meaning if learner.data.settings.korean else "Listen. Think. Move.")
@@ -450,6 +456,9 @@ func start_mission(i:int,resume=false):
 		lesson_step=clampi(int(saved.get("lessonStep",0)),0,m.get("sequence",[{}]).size()-1)
 		rules.load_fen(saved.fen,int(m.boardSize))
 		rules.history=saved.get("history",[]);rules.positions=saved.get("positions",[]);rules.notation=saved.get("notation",[])
+	if m.has("previousMove") and rules.history.is_empty():
+		last_move=m.previousMove
+		feedback="LAST: "+last_move.substr(0,2)+" → "+last_move.substr(2,2)
 	screen="play"
 	if not review:learner.data.lastMission=index
 	if m.get("storyBeat",i%8==0) and not resume:modal="intro"
@@ -551,6 +560,7 @@ func player_move(move:String):
 	if busy:return
 	var m=active_mission();var token=generation
 	var before=rules.cells.duplicate();var old=rules.fen()
+	var old_history=rules.history.duplicate();var old_positions=rules.positions.duplicate();var old_notation=rules.notation.duplicate()
 	var c=learner.chess(m.id);c.attemptCount+=1
 	var p=rules.cells[rules.square(move.substr(0,2))]
 	if m.type=="CAPTURE" and before[rules.square(move.substr(2,2))]=="p":
@@ -577,8 +587,9 @@ func player_move(move:String):
 	var replies=rules.legal()
 	if replies.size():
 		var reply=replies.pick_random()
+		var attacker=rules.square(move.substr(2,2))
 		for candidate in replies:
-			if rules.cells[rules.square(candidate.substr(2,2))]!="":reply=candidate;break
+			if rules.square(candidate.substr(2,2))==attacker:reply=candidate;break
 		var enemy=rules.cells[rules.square(reply.substr(0,2))]
 		rules.play(reply);animate(reply,enemy)
 		feedback="상대의 가능한 응수를 살펴보세요. 아직 미션 목표를 이루지 못했어요."
@@ -586,7 +597,7 @@ func player_move(move:String):
 	say_id("retry")
 	await get_tree().create_timer(1.8).timeout
 	if token!=generation:return
-	rules.load_fen(old,rules.n);rules.history.clear();rules.positions.clear();rules.notation.clear()
+	rules.load_fen(old,rules.n);rules.history=old_history;rules.positions=old_positions;rules.notation=old_notation
 	hints=mini(3,1+mistakes);was_assisted=true;busy=false;anim_t=1
 	persist()
 func ai_turn():

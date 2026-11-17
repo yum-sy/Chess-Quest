@@ -133,6 +133,8 @@ for m in missions:
  if m['type']=='MOVE':m['briefing']+=' 도착점: '+m['objective']['destination']+'.'
  if m['chapter']<=3:m['revision']=max(2,m.get('revision',1))
  if m['id']=='1-6':m['objective']['safeCapture']=True
+from piece_curriculum import apply
+apply(missions,fen)
 json.dump(missions,open(R/'data/missions.json','w'),ensure_ascii=False,indent=2)
 vocab=[['pawn','move','forward','one','two','capture'],['knight','jump','over','left','right'],['rook','straight','attack','protect'],['bishop','diagonal','find','safe'],['queen','powerful','together','save'],['king','danger','check','checkmate'],['win','defend','great move']]
 meanings=['폰,움직여요,앞으로,하나,둘,잡아요','나이트,뛰어요,넘어서,왼쪽,오른쪽','룩,직선으로,공격해요,지켜요','비숍,대각선으로,찾아요,안전해요','퀸,강해요,함께,구해요','킹,위험해요,체크,체크메이트','이겨요,방어해요,멋진 수예요']

@@ -88,9 +88,9 @@ node tests/browser.mjs
 
 ## 확인된 검사 결과
 
-- 규칙·콘텐츠·저장: 189개 검사 통과
+- 규칙·콘텐츠·저장: 192개 검사 통과
 - 독립 chess.js 대조: 294개 포지션의 합법 수 일치
-- 전체 캠페인: 56/56 완료, 173개의 합법 수 검증
+- 전체 캠페인: 56/56 완료, 154개의 합법 수 검증
 - 학습 기록 분리·복습·백업 복원·마이그레이션 통과
 - 터치 미션 완료·오답 복귀·AI 응수·무르기·엔딩·자유 대전 통과
 - Chrome 웹: 규칙 엔진 실행, 첫 미션 완료, 오프라인 재실행 후 저장 복원, 콘솔 오류 없음
@@ -103,8 +103,27 @@ node tests/browser.mjs
 - 팔·손 없는 아군/적군 6종. 기본 웃음과 이동·체크 시 놀람 표정, 선택 반응, 폰 점프, 나이트의 L 경로 점프, 다른 기물의 이동과 승리 반응.
 - 플레이어 진영은 아래 파란 테두리, 상대 진영은 위 보라 테두리. 약 17도 측면 회전·52도 내려다보는 카메라와 작은 기물 크기로 앞뒤 겹침을 줄였습니다.
 - 보이는 기물 픽셀을 우선 선택합니다. 투명한 이미지 여백은 터치를 가로채지 않습니다. 기물 밖의 칸도 선택할 수 있으며 선택 링과 좌표·기물 이름이 표시됩니다.
-- 사원 3: 폰을 위협하는 룩 포획 / 4: 무방비 폰에 수비수 추가 / 5: 룩의 공격을 받는 비숍 구출 / 6: 우리 룩을 위협하는 상대 룩 포획 / 7: 상대 룩의 공격을 받는 룩 방어 / 8: 룩의 공격과 폰의 함정을 피하는 비숍 이동.
+- 사원 3~8: 긴 대각선 구조 / 공격선 열기 / 핀 / 대각선 수비 / 먼 거리 체크 / 안전한 룩 공격.
 - 방어는 상대 포획을 금지하는 것이 아니라 합법적으로 되잡을 수 있는 상태입니다. 설명과 판정 모두 이를 따릅니다. 이미 안전하거나 이미 방어 중인 상태를 정답 목표로 삼지 않습니다.
 - 수정된 사원 문제에 저장되어 있던 진행 중 배치는 새 버전으로 시작하며 완료 기록과 보상은 유지합니다.
 
 7장 전술 주제: 열린 파일의 뒷줄 메이트 → 비숍·나이트의 지원 공격 → 퀸 희생으로 수비 룩 유인 → 퀸 희생과 나이트의 질식 메이트 → 더블 체크에서 시작하는 3수 조합. 마지막 두 문제는 같은 전술을 한 수 더 멀리 내다보는 연결 학습입니다. 단순히 장식용 기물을 더한 종반이 아니라 양쪽 왕이 후방에 있고, 기물이 전개되어 서로의 공격과 방어에 관여하는 배치입니다.
+
+## Piece-specific curriculum (v11.17.7)
+
+The 48 lessons in chapters 1–6 are authored in `tools/piece_curriculum.py`.
+
+| Piece | Distinctive lessons |
+|---|---|
+| Pawn | Forward versus capture, first double step, blocked file, promotion, en passant and expiry |
+| Knight | Jump over either side, landing capture, route, fork, queen attack, edge trap, underpromotion |
+| Rook | Straight lines, detour, safe attack, recapture defense, battery, seventh rank, skewer, fork |
+| Bishop | Square colors, long diagonal, discovered attack, pin, diagonal defense and check |
+| Queen | Straight/diagonal routes, safe attack, fork, defense, skewer, mate versus stalemate, retreat/counterattack |
+| King | Separation, escape/capture/block check, both castles, forbidden castle in check, cooperative mate |
+
+Special rules use full 8×8 boards, following [FIDE articles 3.7 and 3.8](https://handbook.fide.com/chapter/E012023). En passant displays the actual previous double step. Castling rights do not return after the king or rook returns to its original square.
+
+Attack, fork, pin, skewer and discovered-attack solutions reject any move allowing an immediate legal capture of the moved piece, including en passant. Pinned opponents' illegal captures are excluded without changing king-square control rules. Defense separately requires a legal recapture. Route exercises explicitly keep opponents stationary.
+
+The dedicated curriculum suite passes 118 checks, including 20 safe tactical solutions, special-move UI completion, and an unsafe queen attack being captured and restored for retry. Chapter 7 and every voice WAV remain unchanged. Completed missions and rewards persist; obsolete intermediate positions restart the revised lesson.

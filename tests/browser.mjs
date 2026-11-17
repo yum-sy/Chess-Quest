@@ -22,6 +22,22 @@ if(savedCompleted!==1){failed++;errors.push('completion not recorded');}
 
 const engine=await page.evaluate(()=>JSON.parse(CQ.legal('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')).length);
 if(engine!==20){failed++;errors.push('browser engine failed');}
+const specialMissions=JSON.parse(fs.readFileSync(new URL('../data/missions.json',import.meta.url))).filter(m=>m.chapter<=6&&m.boardSize===8);
+const specialErrors=await page.evaluate(missions=>{
+ const errors=[];
+ for(const m of missions){
+  const legal=JSON.parse(CQ.legal(m.initialPosition));
+  for(const move of m.acceptedSolutions){
+   if(!legal.includes(move)){errors.push(m.id+' native/web disagreement '+move);continue;}
+   const result=JSON.parse(CQ.move(m.initialPosition,move));
+   if(m.type==='EN_PASSANT'&&result.fen.split(' ')[0].includes('p'))errors.push('EP victim remains');
+  }
+  if(m.id==='1-8'&&legal.includes('e5d6'))errors.push('expired EP allowed');
+  if(['6-6','6-7'].includes(m.id)&&legal.includes('e1g1'))errors.push('illegal castle '+m.id);
+ }
+ return errors;
+},specialMissions);
+errors.push(...specialErrors);
 const puzzleMissions=JSON.parse(fs.readFileSync(new URL('../data/missions.json',import.meta.url))).filter(m=>m.mateLimit);
 const puzzleErrors=await page.evaluate(missions=>{
  const out=[];

@@ -5,16 +5,17 @@
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "왕관의 빛이 사라지자 정원의 문이 닫혔어요. 작은 폰이 첫 편지를 들고 길을 나섭니다. 도착점: b3.",
+    "briefing": "폰은 앞으로만 가요. 편지를 들고 b3으로 한 칸 전진해요.",
     "chapter": 1.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "move_forward"
     ],
+    "explanation": "폰은 앞으로만 가요. 편지를 들고 b3으로 한 칸 전진해요.",
     "hints": [
-      "폰을 앞으로 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "폰은 앞으로만 가요. 편지를 들고 b3으로 한 칸 전진해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "1-1",
     "initialPosition": "4/4/1P2/4 w - - 0 1",
@@ -24,10 +25,11 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-1-1",
-    "story": "왕관의 빛이 사라지자 정원의 문이 닫혔어요. 작은 폰이 첫 편지를 들고 길을 나섭니다.",
+    "story": "정원 문이 닫혔어요. 작은 폰이 편지를 들고 길을 나섭니다. 뒤로 갈 수 없으니 첫 걸음을 신중하게 골라요.",
     "storyBeat": true,
+    "topic": "FORWARD",
     "type": "MOVE"
   },
   {
@@ -36,16 +38,17 @@
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "첫 걸음은 두 칸도 갈 수 있어요. 멀리 가기 전에 길이 비었는지 확인해요. 도착점: a4.",
+    "briefing": "처음 자리에서는 앞의 두 칸이 모두 비었을 때 두 칸도 갈 수 있어요. a4까지 가요.",
     "chapter": 1.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "move_two"
     ],
+    "explanation": "처음 자리에서는 앞의 두 칸이 모두 비었을 때 두 칸도 갈 수 있어요. a4까지 가요.",
     "hints": [
-      "처음 자리에서는 두 칸도 갈 수 있어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "처음 자리에서는 앞의 두 칸이 모두 비었을 때 두 칸도 갈 수 있어요. a4까지 가요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "1-2",
     "initialPosition": "4/4/P3/4 w - - 0 1",
@@ -55,10 +58,11 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-1-2",
-    "story": "첫 걸음은 두 칸도 갈 수 있어요. 멀리 가기 전에 길이 비었는지 확인해요.",
+    "story": "처음 자리에서는 앞의 두 칸이 모두 비었을 때 두 칸도 갈 수 있어요. a4까지 가요.",
     "storyBeat": false,
+    "topic": "FIRST DOUBLE STEP",
     "type": "MOVE"
   },
   {
@@ -67,16 +71,17 @@
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "문지기는 앞길이 아닌 대각선에 있어요. 폰의 이동과 잡는 방향을 구별해요.",
+    "briefing": "앞으로 이동하지만 잡을 때는 대각선이에요. c3의 문지기를 잡아요.",
     "chapter": 1.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "capture_the_pawn"
     ],
+    "explanation": "앞으로 이동하지만 잡을 때는 대각선이에요. c3의 문지기를 잡아요.",
     "hints": [
-      "대각선의 상대 폰을 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "앞으로 이동하지만 잡을 때는 대각선이에요. c3의 문지기를 잡아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "1-3",
     "initialPosition": "4/2p1/1P2/4 w - - 0 1",
@@ -86,10 +91,11 @@
       "target": "c3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-1-3",
-    "story": "문지기는 앞길이 아닌 대각선에 있어요. 폰의 이동과 잡는 방향을 구별해요.",
+    "story": "앞으로 이동하지만 잡을 때는 대각선이에요. c3의 문지기를 잡아요.",
     "storyBeat": false,
+    "topic": "DIAGONAL CAPTURE",
     "type": "CAPTURE"
   },
   {
@@ -98,16 +104,17 @@
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "편지를 다리 입구까지 배달해야 해요. 폰은 돌아갈 수 없으니 두 걸음을 차례로 계획해요. 도착점: c3.",
+    "briefing": "편지를 c4까지 두 걸음으로 배달해요. 움직인 폰은 다시 두 칸 전진할 수 없어요.",
     "chapter": 1.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "move_forward"
     ],
+    "explanation": "편지를 c4까지 두 걸음으로 배달해요. 움직인 폰은 다시 두 칸 전진할 수 없어요.",
     "hints": [
-      "폰을 앞으로 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "편지를 c4까지 두 걸음으로 배달해요. 움직인 폰은 다시 두 칸 전진할 수 없어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "1-4",
     "initialPosition": "4/4/P1P1/4 w - - 0 1",
@@ -117,153 +124,164 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-1-4",
     "sequence": [
       {
-        "briefing": "하늘길로 갈 편지를 옮겨요. 먼저 c3으로 한 칸 전진해요.",
+        "briefing": "먼저 c3으로 한 칸 전진해요.",
         "objective": {
           "destination": "c3"
-        }
+        },
+        "type": "MOVE"
       },
       {
-        "briefing": "편지를 문까지 배달해요. 이제 c4로 한 칸 더 전진해요.",
+        "briefing": "한 번 움직였으니 이제 c4까지 한 칸만 갈 수 있어요.",
         "objective": {
           "destination": "c4"
-        }
+        },
+        "type": "MOVE"
       }
     ],
-    "story": "편지를 다리 입구까지 배달해야 해요. 폰은 돌아갈 수 없으니 두 걸음을 차례로 계획해요.",
+    "story": "편지를 c4까지 두 걸음으로 배달해요. 움직인 폰은 다시 두 칸 전진할 수 없어요.",
     "storyBeat": true,
+    "topic": "NO SECOND DOUBLE",
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "b2c3",
-      "b2b4"
+      "b2c3"
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "숨어 있던 상대 폰이 다가왔어요. 지금 자리와 도착할 자리의 위험을 모두 살펴요.",
+    "briefing": "정면의 폰은 뛰어넘거나 앞으로 잡을 수 없어요. 대각선 문지기를 잡고 길을 열어요.",
     "chapter": 1.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "find_a_safe_move"
-    ],
-    "hints": [
-      "상대 폰이 공격하지 않는 칸을 찾아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "1-5",
-    "initialPosition": "p3/2p1/1P2/4 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "p",
-      "requireThreatened": true,
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-1-5",
-    "story": "숨어 있던 상대 폰이 다가왔어요. 지금 자리와 도착할 자리의 위험을 모두 살펴요.",
-    "storyBeat": false,
-    "type": "SAFE_MOVE"
-  },
-  {
-    "acceptedSolutions": [
-      "c2d3"
-    ],
-    "boardSize": 4.0,
-    "boss": true,
-    "briefing": "두 문지기 중 하나는 친구의 보호를 받고 있어요. 잡은 뒤에도 안전한 쪽을 골라요.",
-    "chapter": 1.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
       "capture_the_pawn"
     ],
+    "explanation": "정면의 폰은 뛰어넘거나 앞으로 잡을 수 없어요. 대각선 문지기를 잡고 길을 열어요.",
     "hints": [
-      "상대 폰 하나를 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "정면의 폰은 뛰어넘거나 앞으로 잡을 수 없어요. 대각선 문지기를 잡고 길을 열어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
-    "id": "1-6",
-    "initialPosition": "p3/1p1p/2P1/4 w - - 0 1",
+    "id": "1-5",
+    "initialPosition": "4/1pp1/1P2/4 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "p",
-      "safeCapture": true,
-      "target": ""
+      "target": "c3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-1-6",
-    "story": "두 문지기 중 하나는 친구의 보호를 받고 있어요. 잡은 뒤에도 안전한 쪽을 골라요.",
+    "revision": 4.0,
+    "rewardId": "reward-1-5",
+    "story": "정면의 폰은 뛰어넘거나 앞으로 잡을 수 없어요. 대각선 문지기를 잡고 길을 열어요.",
     "storyBeat": false,
+    "topic": "BLOCKED PAWN",
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
-      "c2b3",
-      "c2c4"
+      "b7b8q",
+      "b7b8r",
+      "b7b8b",
+      "b7b8n"
     ],
-    "boardSize": 4.0,
+    "boardSize": 8.0,
     "boss": true,
-    "briefing": "정원 끝에는 대각선 함정이 있어요. 첫 두 칸 전진을 기억하며 안전한 길을 찾아요.",
+    "briefing": "폰을 b8 끝줄까지 보내세요. 퀸·룩·비숍·나이트 중 하나로 승격할 수 있어요.",
     "chapter": 1.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
-      "find_a_safe_move"
+      "move_forward"
     ],
+    "explanation": "폰은 끝줄에 도착하는 즉시 새 기물이 돼요. 잡혔던 기물만 고를 필요도 없어요.",
     "hints": [
-      "안전한 칸으로 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "폰을 b8 끝줄까지 보내세요. 퀸·룩·비숍·나이트 중 하나로 승격할 수 있어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
-    "id": "1-7",
-    "initialPosition": "3p/1p2/2P1/4 w - - 0 1",
+    "id": "1-6",
+    "initialPosition": "7k/1P6/8/8/8/8/8/7K w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "b8",
       "piece": "p",
-      "requireThreatened": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-1-7",
-    "story": "정원 끝에는 대각선 함정이 있어요. 첫 두 칸 전진을 기억하며 안전한 길을 찾아요.",
+    "revision": 4.0,
+    "rewardId": "reward-1-6",
+    "story": "폰을 b8 끝줄까지 보내세요. 퀸·룩·비숍·나이트 중 하나로 승격할 수 있어요.",
     "storyBeat": false,
-    "type": "SAFE_MOVE"
+    "topic": "PROMOTION",
+    "type": "PROMOTION"
   },
   {
     "acceptedSolutions": [
-      "a2b3"
+      "e5d6"
     ],
-    "boardSize": 4.0,
+    "boardSize": 8.0,
     "boss": true,
-    "briefing": "마지막 문지기를 지나면 다리의 기사에게 편지를 전할 수 있어요.",
+    "briefing": "방금 상대가 d7→d5로 두 칸 전진했어요. 바로 이번 수에만 e5의 폰이 d6으로 가며 그 폰을 잡을 수 있어요.",
     "chapter": 1.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
       "capture_the_pawn"
     ],
+    "explanation": "빈 d6으로 대각 이동했지만 d5의 폰이 사라졌어요. 옆으로 두 칸 전진해 온 폰을 즉시 잡는 앙파상이에요.",
     "hints": [
-      "마지막 문지기 폰을 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "방금 상대가 d7→d5로 두 칸 전진했어요. 바로 이번 수에만 e5의 폰이 d6으로 가며 그 폰을 잡을 수 있어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "1-7",
+    "initialPosition": "6k1/8/8/3pP3/8/8/8/6K1 w - d6 0 2",
+    "objective": {
+      "destination": "d6",
+      "piece": "p",
+      "target": "d5"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "previousMove": "d7d5",
+    "previousPosition": "6k1/3p4/8/4P3/8/8/8/6K1 b - - 0 1",
+    "revision": 4.0,
+    "rewardId": "reward-1-7",
+    "story": "방금 상대가 d7→d5로 두 칸 전진했어요. 바로 이번 수에만 e5의 폰이 d6으로 가며 그 폰을 잡을 수 있어요.",
+    "storyBeat": false,
+    "topic": "EN PASSANT",
+    "type": "EN_PASSANT"
+  },
+  {
+    "acceptedSolutions": [
+      "e5f6"
+    ],
+    "boardSize": 8.0,
+    "boss": true,
+    "briefing": "이번에는 다른 수를 둬서 앙파상 기회가 지났어요. d6은 안 돼요. f6의 폰을 보통의 대각 포획으로 잡아요.",
+    "chapter": 1.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "capture_the_pawn"
+    ],
+    "explanation": "폰이 나란히 있어도 항상 앙파상은 아니에요. 직전 수의 두 칸 전진이어야 하고 바로 다음 수에만 가능해요.",
+    "hints": [
+      "이번에는 다른 수를 둬서 앙파상 기회가 지났어요. d6은 안 돼요. f6의 폰을 보통의 대각 포획으로 잡아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "1-8",
-    "initialPosition": "3p/1p2/P3/4 w - - 0 1",
+    "initialPosition": "6k1/8/5p2/3pP3/8/8/8/6K1 w - - 2 3",
     "objective": {
       "destination": "",
       "piece": "p",
-      "target": "b3"
+      "target": "f6"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-1-8",
-    "story": "마지막 문지기를 지나면 다리의 기사에게 편지를 전할 수 있어요.",
+    "story": "이번에는 다른 수를 둬서 앙파상 기회가 지났어요. d6은 안 돼요. f6의 폰을 보통의 대각 포획으로 잡아요.",
     "storyBeat": true,
+    "topic": "EN PASSANT EXPIRED",
     "type": "CAPTURE"
   },
   {
@@ -272,16 +290,17 @@
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "편지는 도착했지만 다리가 끊어졌어요. 나이트는 친구를 뛰어넘어 발판에 착지할 수 있어요. 도착점: c3.",
+    "briefing": "친구들이 길을 막아도 나이트는 뛰어넘어요. L자 모양으로 c3에 착지해요.",
     "chapter": 2.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "jump_over_the_pawn"
     ],
+    "explanation": "친구들이 길을 막아도 나이트는 뛰어넘어요. L자 모양으로 c3에 착지해요.",
     "hints": [
-      "나이트는 친구를 뛰어넘어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "친구들이 길을 막아도 나이트는 뛰어넘어요. L자 모양으로 c3에 착지해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "2-1",
     "initialPosition": "4/4/1P2/1NP1 w - - 0 1",
@@ -291,41 +310,11 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-2-1",
-    "story": "편지는 도착했지만 다리가 끊어졌어요. 나이트는 친구를 뛰어넘어 발판에 착지할 수 있어요.",
+    "story": "친구들이 길을 막아도 나이트는 뛰어넘어요. L자 모양으로 c3에 착지해요.",
     "storyBeat": true,
-    "type": "MOVE"
-  },
-  {
-    "acceptedSolutions": [
-      "c1b3"
-    ],
-    "boardSize": 4.0,
-    "boss": false,
-    "briefing": "반대편 발판에서도 같은 모양으로 뛸 수 있을까요? 도착할 칸을 먼저 찾아요. 도착점: b3.",
-    "chapter": 2.0,
-    "difficulty": "EASY",
-    "englishExpressionIds": [
-      "jump_over_the_pawn"
-    ],
-    "hints": [
-      "나이트는 친구를 뛰어넘어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "2-2",
-    "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
-    "objective": {
-      "destination": "b3",
-      "piece": "n",
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-2-2",
-    "story": "반대편 발판에서도 같은 모양으로 뛸 수 있을까요? 도착할 칸을 먼저 찾아요.",
-    "storyBeat": false,
+    "topic": "JUMP OVER FRIENDS",
     "type": "MOVE"
   },
   {
@@ -334,16 +323,50 @@
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "다리 위 문지기를 잡아야 친구들이 따라올 수 있어요.",
+    "briefing": "상대 폰도 뛰어넘을 수 있어요. c3으로 뛰면 중간의 폰은 잡히지 않아요.",
+    "chapter": 2.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "jump_over_the_pawn"
+    ],
+    "explanation": "상대 폰도 뛰어넘을 수 있어요. c3으로 뛰면 중간의 폰은 잡히지 않아요.",
+    "hints": [
+      "상대 폰도 뛰어넘을 수 있어요. c3으로 뛰면 중간의 폰은 잡히지 않아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "2-2",
+    "initialPosition": "4/4/1p2/1Np1 w - - 0 1",
+    "objective": {
+      "destination": "c3",
+      "piece": "n",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-2-2",
+    "story": "상대 폰도 뛰어넘을 수 있어요. c3으로 뛰면 중간의 폰은 잡히지 않아요.",
+    "storyBeat": false,
+    "topic": "JUMP OVER ENEMIES",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "b1c3"
+    ],
+    "boardSize": 4.0,
+    "boss": false,
+    "briefing": "점프 중간이 아니라 착지한 칸의 상대만 잡아요. c3의 폰을 잡아요.",
     "chapter": 2.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "capture_the_pawn"
     ],
+    "explanation": "점프 중간이 아니라 착지한 칸의 상대만 잡아요. c3의 폰을 잡아요.",
     "hints": [
-      "나이트로 상대 폰을 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "점프 중간이 아니라 착지한 칸의 상대만 잡아요. c3의 폰을 잡아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "2-3",
     "initialPosition": "4/2p1/1P2/1N2 w - - 0 1",
@@ -353,10 +376,11 @@
       "target": "c3"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-2-3",
-    "story": "다리 위 문지기를 잡아야 친구들이 따라올 수 있어요.",
+    "story": "점프 중간이 아니라 착지한 칸의 상대만 잡아요. c3의 폰을 잡아요.",
     "storyBeat": false,
+    "topic": "CAPTURE ON LANDING",
     "type": "CAPTURE"
   },
   {
@@ -365,16 +389,17 @@
     ],
     "boardSize": 4.0,
     "boss": false,
-    "briefing": "두 발판을 이어 건너야 해요. 첫 점프만 성공해도 끝나는 것은 아니에요. 도착점: b3.",
+    "briefing": "두 발판을 이어서 건너요. 상대가 움직이지 않는 경로 연습이에요.",
     "chapter": 2.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "jump_over_the_pawn"
     ],
+    "explanation": "두 발판을 이어서 건너요. 상대가 움직이지 않는 경로 연습이에요.",
     "hints": [
-      "나이트는 친구를 뛰어넘어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "두 발판을 이어서 건너요. 상대가 움직이지 않는 경로 연습이에요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "2-4",
     "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
@@ -384,88 +409,99 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-2-4",
     "sequence": [
       {
-        "briefing": "끊어진 다리의 첫 발판 b3으로 뛰어요. 상대는 움직이지 않는 경로 연습이에요.",
+        "briefing": "첫 발판 b3으로 뛰어요.",
         "objective": {
           "destination": "b3"
-        }
+        },
+        "type": "MOVE"
       },
       {
-        "briefing": "다음 발판 d4까지 한 번 더 뛰어 다리를 건너요.",
+        "briefing": "L자 방향을 바꿔 두 번째 발판 d4로 뛰어요.",
         "objective": {
           "destination": "d4"
-        }
+        },
+        "type": "MOVE"
       }
     ],
-    "story": "두 발판을 이어 건너야 해요. 첫 점프만 성공해도 끝나는 것은 아니에요.",
+    "story": "두 발판을 이어서 건너요. 상대가 움직이지 않는 경로 연습이에요.",
     "storyBeat": true,
+    "topic": "TWO-JUMP ROUTE",
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "c1a2"
+      "b1c3"
     ],
-    "boardSize": 4.0,
+    "boardSize": 6.0,
     "boss": false,
-    "briefing": "발판 위 나이트가 공격받아요. 뛰어넘는 동안은 안전해도 착지하는 칸은 살펴야 해요.",
+    "briefing": "한 번 뛰어서 상대 폰 둘을 동시에 공격해요. 착지한 나이트도 안전해야 해요.",
     "chapter": 2.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "jump_to_safety"
+      "attack_together"
     ],
+    "explanation": "한 번 뛰어서 상대 폰 둘을 동시에 공격해요. 착지한 나이트도 안전해야 해요.",
     "hints": [
-      "나이트가 안전하게 착지할 곳을 찾아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "한 번 뛰어서 상대 폰 둘을 동시에 공격해요. 착지한 나이트도 안전해야 해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "2-5",
-    "initialPosition": "2p1/4/1p2/2N1 w - - 0 1",
+    "initialPosition": "6/6/p3p1/6/1P4/1N4 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "n",
-      "requireThreatened": true,
-      "target": ""
+      "target": "",
+      "targets": [
+        "a4",
+        "e4"
+      ]
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-2-5",
-    "story": "발판 위 나이트가 공격받아요. 뛰어넘는 동안은 안전해도 착지하는 칸은 살펴야 해요.",
+    "story": "한 번 뛰어서 상대 폰 둘을 동시에 공격해요. 착지한 나이트도 안전해야 해요.",
     "storyBeat": false,
-    "type": "SAFE_MOVE"
+    "topic": "KNIGHT FORK",
+    "type": "FORK"
   },
   {
     "acceptedSolutions": [
-      "c1b3"
+      "b1d2",
+      "b1c3"
     ],
-    "boardSize": 4.0,
+    "boardSize": 6.0,
     "boss": true,
-    "briefing": "다리의 좁은 길은 친구가 막고 있어요. 나이트의 특별한 점프를 다시 사용해요. 도착점: b3.",
+    "briefing": "나이트의 L자 공격은 퀸의 직선·대각선과 달라요. 다음 수에 잡히지 않게 퀸을 공격해요.",
     "chapter": 2.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
-      "jump_over_the_pawn"
+      "attack_the_queen"
     ],
+    "explanation": "나이트의 L자 공격은 퀸의 직선·대각선과 달라요. 다음 수에 잡히지 않게 퀸을 공격해요.",
     "hints": [
-      "나이트는 친구를 뛰어넘어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "나이트의 L자 공격은 퀸의 직선·대각선과 달라요. 다음 수에 잡히지 않게 퀸을 공격해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "2-6",
-    "initialPosition": "4/4/2P1/1PN1 w - - 0 1",
+    "initialPosition": "6/6/4q1/6/1P4/1N4 w - - 0 1",
     "objective": {
-      "destination": "b3",
+      "destination": "",
       "piece": "n",
-      "target": ""
+      "target": "e4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-2-6",
-    "story": "다리의 좁은 길은 친구가 막고 있어요. 나이트의 특별한 점프를 다시 사용해요.",
+    "story": "나이트의 L자 공격은 퀸의 직선·대각선과 달라요. 다음 수에 잡히지 않게 퀸을 공격해요.",
     "storyBeat": false,
-    "type": "MOVE"
+    "topic": "ATTACK THE QUEEN",
+    "type": "ATTACK"
   },
   {
     "acceptedSolutions": [
@@ -473,16 +509,17 @@
     ],
     "boardSize": 4.0,
     "boss": true,
-    "briefing": "반대쪽에도 함정이 있어요. 상대 폰이 실제로 공격하는 대각선을 찾아요.",
+    "briefing": "가장자리 나이트가 폰에게 공격받아요. 상대 폰의 대각선을 피해 안전한 착지점을 찾아요.",
     "chapter": 2.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
       "jump_to_safety"
     ],
+    "explanation": "가장자리 나이트가 폰에게 공격받아요. 상대 폰의 대각선을 피해 안전한 착지점을 찾아요.",
     "hints": [
-      "나이트가 안전하게 착지할 곳을 찾아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "가장자리 나이트가 폰에게 공격받아요. 상대 폰의 대각선을 피해 안전한 착지점을 찾아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "2-7",
     "initialPosition": "1p2/4/2p1/1N2 w - - 0 1",
@@ -493,56 +530,50 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-2-7",
-    "story": "반대쪽에도 함정이 있어요. 상대 폰이 실제로 공격하는 대각선을 찾아요.",
+    "story": "가장자리 나이트가 폰에게 공격받아요. 상대 폰의 대각선을 피해 안전한 착지점을 찾아요.",
     "storyBeat": false,
+    "topic": "EDGE TRAP",
     "type": "SAFE_MOVE"
   },
   {
     "acceptedSolutions": [
-      "b1c3"
+      "c7c8n"
     ],
-    "boardSize": 4.0,
+    "boardSize": 8.0,
     "boss": true,
-    "briefing": "두 문지기를 차례로 지나 마지막 밧줄을 풀어요. 나이트가 길을 열면 탑의 친구가 기다려요.",
+    "briefing": "c8에 승격할 때 나이트를 골라 보세요. L자 공격으로 왕과 룩을 동시에 겨냥할 수 있어요.",
     "chapter": 2.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
-      "capture_the_pawn"
+      "attack_together"
     ],
+    "explanation": "항상 퀸 승격이 최선은 아니에요. c8의 나이트는 왕과 룩을 동시에 공격하지만 퀸은 같은 공격을 만들지 못해요.",
     "hints": [
-      "나이트로 상대 폰을 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "c8에 승격할 때 나이트를 골라 보세요. L자 공격으로 왕과 룩을 동시에 겨냥할 수 있어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "2-8",
-    "initialPosition": "p3/2p1/1P2/1N2 w - - 0 1",
+    "initialPosition": "8/r1P1k3/8/8/8/8/8/6K1 w - - 0 1",
     "objective": {
-      "destination": "",
-      "piece": "n",
-      "target": "c3"
+      "destination": "c8",
+      "forkTargets": [
+        "a7",
+        "e7"
+      ],
+      "piece": "p",
+      "promotion": "n",
+      "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-2-8",
-    "sequence": [
-      {
-        "briefing": "다리의 두 문지기를 차례로 잡아요. 먼저 c3의 폰을 잡아요.",
-        "objective": {
-          "target": "c3"
-        }
-      },
-      {
-        "briefing": "다리 끝 a4의 문지기까지 잡으면 친구들이 건널 수 있어요.",
-        "objective": {
-          "target": "a4"
-        }
-      }
-    ],
-    "story": "두 문지기를 차례로 지나 마지막 밧줄을 풀어요. 나이트가 길을 열면 탑의 친구가 기다려요.",
+    "story": "c8에 승격할 때 나이트를 골라 보세요. L자 공격으로 왕과 룩을 동시에 겨냥할 수 있어요.",
     "storyBeat": true,
-    "type": "CAPTURE"
+    "topic": "KNIGHT PROMOTION",
+    "type": "PROMOTION"
   },
   {
     "acceptedSolutions": [
@@ -550,16 +581,17 @@
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요. 도착점: b4.",
+    "briefing": "룩은 가로와 세로로 멀리 가요. 대각선으로는 갈 수 없어요. b4로 이동해요.",
     "chapter": 3.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "move_the_rook"
     ],
+    "explanation": "룩은 가로와 세로로 멀리 가요. 대각선으로는 갈 수 없어요. b4로 이동해요.",
     "hints": [
-      "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "룩은 가로와 세로로 멀리 가요. 대각선으로는 갈 수 없어요. b4로 이동해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "3-1",
     "initialPosition": "6/6/6/6/1R4/6 w - - 0 1",
@@ -569,42 +601,68 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-3-1",
-    "story": "탑의 불이 꺼졌어요. 룩이 곧은 복도를 따라 등불을 찾아 나섭니다.",
+    "story": "룩은 가로와 세로로 멀리 가요. 대각선으로는 갈 수 없어요. b4로 이동해요.",
     "storyBeat": true,
+    "topic": "STRAIGHT LINES",
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "b2b5"
+      "b2e2"
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "새 친구와 상대 폰을 잡아요.",
+    "briefing": "룩은 친구를 뛰어넘지 못해요. 세 번 꺾어 문지기에게 가는 경로 연습이에요.",
     "chapter": 3.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
-      "capture_the_pawn"
+      "move_the_rook"
     ],
+    "explanation": "룩은 친구를 뛰어넘지 못해요. 세 번 꺾어 문지기에게 가는 경로 연습이에요.",
     "hints": [
-      "새 친구와 상대 폰을 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "룩은 친구를 뛰어넘지 못해요. 세 번 꺾어 문지기에게 가는 경로 연습이에요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "3-2",
-    "initialPosition": "6/1p4/6/6/1R4/6 w - - 0 1",
+    "initialPosition": "6/1p4/6/1P4/1R4/6 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "e2",
       "piece": "r",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-3-2",
-    "story": "복도를 막은 문지기를 잡고 등불을 되찾아요.",
+    "sequence": [
+      {
+        "briefing": "막힌 b파일을 피해 e2로 옆걸음해요.",
+        "objective": {
+          "destination": "e2"
+        },
+        "type": "MOVE"
+      },
+      {
+        "briefing": "열린 e파일을 따라 e5까지 올라가요.",
+        "objective": {
+          "destination": "e5"
+        },
+        "type": "MOVE"
+      },
+      {
+        "briefing": "이제 b5로 꺾어 문지기를 잡아요.",
+        "objective": {
+          "destination": "b5"
+        },
+        "type": "MOVE"
+      }
+    ],
+    "story": "룩은 친구를 뛰어넘지 못해요. 세 번 꺾어 문지기에게 가는 경로 연습이에요.",
     "storyBeat": false,
-    "type": "CAPTURE"
+    "topic": "AROUND THE WALL",
+    "type": "MOVE"
   },
   {
     "acceptedSolutions": [
@@ -613,29 +671,31 @@
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
+    "briefing": "룩의 직선과 나이트의 L자는 달라요. 나이트가 다음 수에 잡을 수 없는 자리에서 공격해요.",
     "chapter": 3.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "attack_the_rook"
+      "move_the_rook"
     ],
+    "explanation": "룩의 직선과 나이트의 L자는 달라요. 나이트가 다음 수에 잡을 수 없는 자리에서 공격해요.",
     "hints": [
-      "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "룩의 직선과 나이트의 L자는 달라요. 나이트가 다음 수에 잡을 수 없는 자리에서 공격해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "3-3",
-    "initialPosition": "6/6/4r1/6/1R4/6 w - - 0 1",
+    "initialPosition": "6/6/4n1/6/1R4/6 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "r",
       "target": "e4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-3-3",
-    "story": "상대 룩을 겨냥하면 다음 길을 열 수 있어요. 잡기와 공격 준비는 달라요.",
+    "story": "룩의 직선과 나이트의 L자는 달라요. 나이트가 다음 수에 잡을 수 없는 자리에서 공격해요.",
     "storyBeat": false,
+    "topic": "ROOK VS KNIGHT",
     "type": "ATTACK"
   },
   {
@@ -645,16 +705,17 @@
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
+    "briefing": "등불을 든 폰이 공격받아요. 폰을 잡으면 우리 룩이 되잡을 수 있게 지켜요.",
     "chapter": 3.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "protect_the_pawn"
     ],
+    "explanation": "등불을 든 폰이 공격받아요. 폰을 잡으면 우리 룩이 되잡을 수 있게 지켜요.",
     "hints": [
-      "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "등불을 든 폰이 공격받아요. 폰을 잡으면 우리 룩이 되잡을 수 있게 지켜요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "3-4",
     "initialPosition": "3r2/6/3P2/6/1R4/6 w - - 0 1",
@@ -665,149 +726,151 @@
       "target": "d4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-3-4",
-    "story": "등불을 든 폰이 공격받아요. 친구가 잡히면 되잡을 수 있게 지켜요.",
+    "story": "등불을 든 폰이 공격받아요. 폰을 잡으면 우리 룩이 되잡을 수 있게 지켜요.",
     "storyBeat": true,
+    "topic": "READY TO RECAPTURE",
     "type": "PROTECT"
   },
   {
     "acceptedSolutions": [
-      "b2b1",
-      "b2f2",
-      "b2b3",
-      "b2b5",
-      "b2b6"
+      "a1c1"
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "상대의 공격을 받지 않는 칸으로 움직여요.",
+    "briefing": "뒤의 룩을 c2 룩과 같은 파일에 연결해요. 앞의 룩이 전진해도 뒤의 룩이 받쳐 줄 수 있어요.",
     "chapter": 3.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "find_a_safe_move"
+      "move_the_rook"
     ],
+    "explanation": "뒤의 룩을 c2 룩과 같은 파일에 연결해요. 앞의 룩이 전진해도 뒤의 룩이 받쳐 줄 수 있어요.",
     "hints": [
-      "상대의 공격을 받지 않는 칸으로 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "뒤의 룩을 c2 룩과 같은 파일에 연결해요. 앞의 룩이 전진해도 뒤의 룩이 받쳐 줄 수 있어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "3-5",
-    "initialPosition": "6/2p3/6/6/1R3r/6 w - - 0 1",
+    "initialPosition": "6/2p3/6/6/2R3/R5 w - - 0 1",
     "objective": {
+      "ally": "c2",
       "destination": "",
       "piece": "r",
-      "requireThreatened": true,
-      "target": ""
+      "target": "c5"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-3-5",
-    "story": "등불을 떨어뜨리지 않도록 상대의 공격 밖으로 옮겨요.",
+    "story": "뒤의 룩을 c2 룩과 같은 파일에 연결해요. 앞의 룩이 전진해도 뒤의 룩이 받쳐 줄 수 있어요.",
     "storyBeat": false,
-    "type": "SAFE_MOVE"
+    "topic": "DOUBLED ROOKS",
+    "type": "BATTERY"
   },
   {
     "acceptedSolutions": [
-      "a1f1",
-      "a1a5"
+      "a1a7"
     ],
-    "boardSize": 6.0,
+    "boardSize": 8.0,
     "boss": true,
-    "briefing": "움직인 뒤 상대 퀸을 공격해요.",
+    "briefing": "열린 a파일로 a7까지 침투해요. 룩은 7번째 줄에서 상대 폰들을 옆으로 공격할 수 있어요.",
     "chapter": 3.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
-      "attack_the_queen"
+      "move_the_rook"
     ],
+    "explanation": "열린 a파일로 a7까지 침투해요. 룩은 7번째 줄에서 상대 폰들을 옆으로 공격할 수 있어요.",
     "hints": [
-      "움직인 뒤 상대 퀸을 공격해요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "열린 a파일로 a7까지 침투해요. 룩은 7번째 줄에서 상대 폰들을 옆으로 공격할 수 있어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "3-6",
-    "initialPosition": "6/5q/6/6/6/R5 w - - 0 1",
+    "initialPosition": "6k1/5ppp/8/8/8/8/5PPP/R5K1 w - - 0 1",
     "objective": {
-      "destination": "",
+      "destination": "a7",
       "piece": "r",
-      "target": "f5"
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-3-6",
-    "story": "탑 꼭대기에서 상대 퀸이 길을 막아요. 룩의 긴 직선으로 겨냥해요.",
-    "storyBeat": false,
-    "type": "ATTACK"
-  },
-  {
-    "acceptedSolutions": [
-      "a1c1",
-      "a1a3"
-    ],
-    "boardSize": 6.0,
-    "boss": true,
-    "briefing": "상대가 폰을 잡으면 되잡을 수 있게 지켜요.",
-    "chapter": 3.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "protect_the_pawn"
-    ],
-    "hints": [
-      "상대가 폰을 잡으면 되잡을 수 있게 지켜요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "3-7",
-    "initialPosition": "2r3/6/6/2P3/6/R5 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "r",
-      "requireNewDefense": true,
-      "target": "c3"
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-3-7",
-    "story": "마지막 등불을 운반하는 폰 곁에 수비수를 보내요.",
-    "storyBeat": false,
-    "type": "PROTECT"
-  },
-  {
-    "acceptedSolutions": [
-      "c3c1",
-      "c3c2",
-      "c3f3",
-      "c3c4",
-      "c3c5",
-      "c3c6"
-    ],
-    "boardSize": 6.0,
-    "boss": true,
-    "briefing": "안전한 이동으로 다음 길을 열어요.",
-    "chapter": 3.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "find_a_safe_move"
-    ],
-    "hints": [
-      "안전한 이동으로 다음 길을 열어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "3-8",
-    "initialPosition": "6/p5/6/2R2r/6/6 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "r",
-      "requireThreatened": true,
+      "safeMove": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
+    "rewardId": "reward-3-6",
+    "story": "열린 a파일로 a7까지 침투해요. 룩은 7번째 줄에서 상대 폰들을 옆으로 공격할 수 있어요.",
+    "storyBeat": false,
+    "topic": "SEVENTH RANK",
+    "type": "MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "a1d1"
+    ],
+    "boardSize": 8.0,
+    "boss": true,
+    "briefing": "한 직선에 왕과 퀸이 있어요. 왕에게 체크를 걸어 비키게 하면 뒤의 퀸이 드러나요.",
+    "chapter": 3.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "check_the_king"
+    ],
+    "explanation": "한 직선에 왕과 퀸이 있어요. 왕에게 체크를 걸어 비키게 하면 뒤의 퀸이 드러나요.",
+    "hints": [
+      "한 직선에 왕과 퀸이 있어요. 왕에게 체크를 걸어 비키게 하면 뒤의 퀸이 드러나요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "3-7",
+    "initialPosition": "3q4/8/3k4/8/8/8/8/R5K1 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "rear": "d8",
+      "target": "d6"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-3-7",
+    "story": "한 직선에 왕과 퀸이 있어요. 왕에게 체크를 걸어 비키게 하면 뒤의 퀸이 드러나요.",
+    "storyBeat": false,
+    "topic": "ROOK SKEWER",
+    "type": "SKEWER"
+  },
+  {
+    "acceptedSolutions": [
+      "b2b5"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "briefing": "한 줄의 양쪽 문지기를 동시에 겨냥해요. 룩은 같은 직선의 양방향을 공격할 수 있어요.",
+    "chapter": 3.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "attack_together"
+    ],
+    "explanation": "한 줄의 양쪽 문지기를 동시에 겨냥해요. 룩은 같은 직선의 양방향을 공격할 수 있어요.",
+    "hints": [
+      "한 줄의 양쪽 문지기를 동시에 겨냥해요. 룩은 같은 직선의 양방향을 공격할 수 있어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "3-8",
+    "initialPosition": "6/p4p/6/6/1R4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "r",
+      "target": "",
+      "targets": [
+        "a5",
+        "f5"
+      ]
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-3-8",
-    "story": "탑의 불을 밝혔어요. 안전한 길을 골라 사원으로 향할 준비를 해요.",
+    "story": "한 줄의 양쪽 문지기를 동시에 겨냥해요. 룩은 같은 직선의 양방향을 공격할 수 있어요.",
     "storyBeat": true,
-    "type": "SAFE_MOVE"
+    "topic": "TWO-SIDED ATTACK",
+    "type": "FORK"
   },
   {
     "acceptedSolutions": [
@@ -815,16 +878,17 @@
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요. 도착점: d4.",
+    "briefing": "비숍은 대각선으로만 움직여요. b2에서 d4까지 같은 색의 칸을 따라가요.",
     "chapter": 4.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "move_the_bishop"
     ],
+    "explanation": "비숍은 대각선으로만 움직여요. b2에서 d4까지 같은 색의 칸을 따라가요.",
     "hints": [
-      "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "비숍은 대각선으로만 움직여요. b2에서 d4까지 같은 색의 칸을 따라가요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "4-1",
     "initialPosition": "6/6/6/6/1B4/6 w - - 0 1",
@@ -834,39 +898,44 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-4-1",
-    "story": "탑에서 비춘 빛이 사원의 대각선 길을 드러냈어요. 비숍과 함께 잃어버린 문양을 찾아요.",
+    "story": "비숍은 대각선으로만 움직여요. b2에서 d4까지 같은 색의 칸을 따라가요.",
     "storyBeat": true,
+    "topic": "DIAGONAL PATH",
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "b2d4"
+      "c1f4"
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "새 친구와 상대 폰을 잡아요.",
+    "briefing": "두 비숍은 서로 다른 색의 길을 맡아요. f4와 같은 색에서 출발한 비숍으로 문지기를 잡아요.",
     "chapter": 4.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "capture_the_pawn"
     ],
+    "explanation": "두 비숍은 서로 다른 색의 길을 맡아요. f4와 같은 색에서 출발한 비숍으로 문지기를 잡아요.",
     "hints": [
-      "새 친구와 상대 폰을 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "두 비숍은 서로 다른 색의 길을 맡아요. f4와 같은 색에서 출발한 비숍으로 문지기를 잡아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "4-2",
-    "initialPosition": "6/6/3p2/6/1B4/6 w - - 0 1",
+    "initialPosition": "6/6/5p/6/2P3/1BB3 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "b",
-      "target": ""
+      "target": "f4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-4-2",
-    "story": "같은 색의 길 위에 문지기가 있어요. 비숍으로 대각선을 따라가요.",
+    "story": "두 비숍은 서로 다른 색의 길을 맡아요. f4와 같은 색에서 출발한 비숍으로 문지기를 잡아요.",
     "storyBeat": false,
+    "topic": "TWO SQUARE COLORS",
     "type": "CAPTURE"
   },
   {
@@ -875,156 +944,104 @@
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "룩이 우리 폰을 노리고 있어요. 비숍으로 룩을 잡아 폰을 구해요.",
+    "briefing": "먼 곳의 룩이 우리 폰을 노려요. 긴 대각선을 따라 f4의 공격자를 먼저 잡아요.",
     "chapter": 4.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "capture_the_rook"
     ],
-    "explanation": "룩을 잡았어요! 이제 우리 폰은 그 룩에게 잡히지 않아요.",
+    "explanation": "먼 곳의 룩이 우리 폰을 노려요. 긴 대각선을 따라 f4의 공격자를 먼저 잡아요.",
     "hints": [
-      "룩이 우리 폰을 노리고 있어요. 비숍으로 룩을 잡아 폰을 구해요.",
-      "주황색 공격선을 살펴보세요. 선택한 비숍의 초록 칸을 비교해요.",
-      "금색 경로가 목표를 해결하는 이동이에요."
+      "먼 곳의 룩이 우리 폰을 노려요. 긴 대각선을 따라 f4의 공격자를 먼저 잡아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "4-3",
     "initialPosition": "6/p5/5r/6/6/2B2P w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "b",
-      "requireNewDefense": false,
-      "requireThreatened": false,
       "target": "f4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-4-3",
-    "story": "상대 룩이 문양을 든 폰을 노려요. 공격자를 먼저 막아야 해요.",
+    "story": "먼 곳의 룩이 우리 폰을 노려요. 긴 대각선을 따라 f4의 공격자를 먼저 잡아요.",
     "storyBeat": false,
     "threat": [
       "f4",
       "f1"
     ],
+    "topic": "LONG DIAGONAL RESCUE",
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
-      "b1a2",
-      "b1d3"
+      "c2c3"
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "폰이 룩의 공격을 받고 있어요. 폰이 잡히면 비숍으로 되잡을 수 있게 지켜요.",
+    "briefing": "비숍 앞을 친구 폰이 막고 있어요. 폰을 안전하게 옮겨 비숍의 대각선 공격을 열어요.",
     "chapter": 4.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "protect_the_pawn"
+      "move_forward"
     ],
-    "explanation": "이제 룩이 폰을 잡으면 비숍이 룩을 되잡을 수 있어요. 보호는 상대의 포획 자체를 금지하지는 않아요.",
+    "explanation": "비숍 앞을 친구 폰이 막고 있어요. 폰을 안전하게 옮겨 비숍의 대각선 공격을 열어요.",
     "hints": [
-      "폰이 룩의 공격을 받고 있어요. 폰이 잡히면 비숍으로 되잡을 수 있게 지켜요.",
-      "주황색 공격선을 살펴보세요. 선택한 비숍의 초록 칸을 비교해요.",
-      "금색 경로가 목표를 해결하는 이동이에요."
+      "비숍 앞을 친구 폰이 막고 있어요. 폰을 안전하게 옮겨 비숍의 대각선 공격을 열어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "4-4",
-    "initialPosition": "2r3/6/2P3/6/6/1B4 w - - 0 1",
+    "initialPosition": "6/6/4r1/6/2P3/1B4 w - - 0 1",
     "objective": {
+      "ally": "b1",
       "destination": "",
-      "piece": "b",
-      "requireNewDefense": true,
-      "requireThreatened": false,
-      "target": "c4"
+      "piece": "p",
+      "target": "e4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-4-4",
-    "story": "이번에는 폰을 직접 구할 수 없어요. 잡히더라도 되잡을 수 있게 준비해요.",
+    "story": "비숍 앞을 친구 폰이 막고 있어요. 폰을 안전하게 옮겨 비숍의 대각선 공격을 열어요.",
     "storyBeat": true,
-    "threat": [
-      "c6",
-      "c4"
-    ],
-    "type": "PROTECT"
+    "topic": "OPEN THE DIAGONAL",
+    "type": "DISCOVERED_ATTACK"
   },
   {
     "acceptedSolutions": [
-      "e3c1",
-      "e3d2",
-      "e3f2",
-      "e3f4",
-      "e3c5"
+      "c1g5"
     ],
-    "boardSize": 6.0,
+    "boardSize": 8.0,
     "boss": false,
-    "briefing": "비숍이 룩에게 잡힐 위험이에요! 룩과 폰 모두 공격하지 않는 칸으로 피하세요.",
+    "briefing": "나이트 뒤에 왕이 있어요. 비숍으로 둘을 대각선에 묶으면 나이트는 왕을 노출하며 움직일 수 없어요.",
     "chapter": 4.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
-      "save_the_bishop"
+      "move_the_bishop"
     ],
-    "explanation": "비숍이 공격받는 줄에서 벗어났어요. 도착한 칸도 상대의 공격 밖이에요.",
+    "explanation": "나이트 뒤에 왕이 있어요. 비숍으로 둘을 대각선에 묶으면 나이트는 왕을 노출하며 움직일 수 없어요.",
     "hints": [
-      "비숍이 룩에게 잡힐 위험이에요! 룩과 폰 모두 공격하지 않는 칸으로 피하세요.",
-      "주황색 공격선을 살펴보세요. 선택한 비숍의 초록 칸을 비교해요.",
-      "금색 경로가 목표를 해결하는 이동이에요."
+      "나이트 뒤에 왕이 있어요. 비숍으로 둘을 대각선에 묶으면 나이트는 왕을 노출하며 움직일 수 없어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "4-5",
-    "initialPosition": "4r1/2p3/6/4B1/6/6 w - - 0 1",
+    "initialPosition": "8/4k3/5n2/8/8/8/8/2B3K1 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "b",
-      "requireNewDefense": false,
-      "requireThreatened": true,
-      "target": ""
+      "rear": "e7",
+      "target": "f6"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
+    "revision": 4.0,
     "rewardId": "reward-4-5",
-    "story": "문양을 찾던 비숍이 공격받아요. 도망갈 곳에도 함정이 없는지 살펴요.",
+    "story": "나이트 뒤에 왕이 있어요. 비숍으로 둘을 대각선에 묶으면 나이트는 왕을 노출하며 움직일 수 없어요.",
     "storyBeat": false,
-    "threat": [
-      "e6",
-      "e3"
-    ],
-    "type": "SAFE_MOVE"
-  },
-  {
-    "acceptedSolutions": [
-      "b2e5"
-    ],
-    "boardSize": 6.0,
-    "boss": true,
-    "briefing": "상대 룩이 우리 룩을 노려요. 비숍으로 상대 룩을 먼저 잡아 친구를 구하세요.",
-    "chapter": 4.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "capture_the_rook"
-    ],
-    "explanation": "상대 룩을 먼저 잡았어요! 우리 룩은 그 공격에서 벗어났어요.",
-    "hints": [
-      "상대 룩이 우리 룩을 노려요. 비숍으로 상대 룩을 먼저 잡아 친구를 구하세요.",
-      "주황색 공격선을 살펴보세요. 선택한 비숍의 초록 칸을 비교해요.",
-      "금색 경로가 목표를 해결하는 이동이에요."
-    ],
-    "id": "4-6",
-    "initialPosition": "6/p3r1/6/6/1B4/4R1 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "b",
-      "requireNewDefense": false,
-      "requireThreatened": false,
-      "target": "e5"
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-4-6",
-    "story": "친구 룩이 출구를 지키고 있어요. 비숍으로 친구를 위협하는 룩을 잡아요.",
-    "storyBeat": false,
-    "threat": [
-      "e5",
-      "e1"
-    ],
-    "type": "CAPTURE"
+    "topic": "BISHOP PIN",
+    "type": "PIN"
   },
   {
     "acceptedSolutions": [
@@ -1032,82 +1049,101 @@
     ],
     "boardSize": 6.0,
     "boss": true,
-    "briefing": "상대 룩이 우리 룩을 노려요. 우리 룩이 잡히면 비숍으로 되잡을 수 있게 지켜요.",
+    "briefing": "룩의 직선과 비숍의 대각선이 만나게 해요. 친구 룩이 잡히면 비숍이 되잡을 수 있게 지켜요.",
     "chapter": 4.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
       "protect_the_rook"
     ],
-    "explanation": "룩에 수비수가 생겼어요. 상대 룩이 우리 룩을 잡아도 비숍으로 되잡아 손해를 막을 수 있어요.",
+    "explanation": "룩의 직선과 비숍의 대각선이 만나게 해요. 친구 룩이 잡히면 비숍이 되잡을 수 있게 지켜요.",
     "hints": [
-      "상대 룩이 우리 룩을 노려요. 우리 룩이 잡히면 비숍으로 되잡을 수 있게 지켜요.",
-      "주황색 공격선을 살펴보세요. 선택한 비숍의 초록 칸을 비교해요.",
-      "금색 경로가 목표를 해결하는 이동이에요."
+      "룩의 직선과 비숍의 대각선이 만나게 해요. 친구 룩이 잡히면 비숍이 되잡을 수 있게 지켜요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
-    "id": "4-7",
+    "id": "4-6",
     "initialPosition": "2r3/6/6/6/2R3/5B w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "b",
       "requireNewDefense": true,
-      "requireThreatened": false,
       "target": "c2"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-4-7",
-    "story": "출구 앞의 룩을 혼자 두지 마세요. 서로 지키는 자리를 찾아요.",
+    "revision": 4.0,
+    "rewardId": "reward-4-6",
+    "story": "룩의 직선과 비숍의 대각선이 만나게 해요. 친구 룩이 잡히면 비숍이 되잡을 수 있게 지켜요.",
     "storyBeat": false,
-    "threat": [
-      "c6",
-      "c2"
-    ],
+    "topic": "DIAGONAL DEFENDER",
     "type": "PROTECT"
   },
   {
     "acceptedSolutions": [
-      "c3a1",
-      "c3e1",
-      "c3b2",
-      "c3d2",
-      "c3b4",
-      "c3d4",
-      "c3a5",
-      "c3e5"
+      "c1b2"
     ],
-    "boardSize": 6.0,
+    "boardSize": 8.0,
     "boss": true,
-    "briefing": "룩이 비숍을 노리고 있어요. 도망갈 때 상대 폰의 대각선 공격도 피하세요.",
+    "briefing": "긴 대각선 끝의 왕을 겨냥해요. 비숍은 멀리서도 왕에게 체크를 걸 수 있어요.",
     "chapter": 4.0,
     "difficulty": "HARD",
     "englishExpressionIds": [
-      "save_the_bishop"
+      "check_the_king"
     ],
-    "explanation": "룩의 공격을 피하고 폰의 함정에도 빠지지 않았어요!",
+    "explanation": "긴 대각선 끝의 왕을 겨냥해요. 비숍은 멀리서도 왕에게 체크를 걸 수 있어요.",
     "hints": [
-      "룩이 비숍을 노리고 있어요. 도망갈 때 상대 폰의 대각선 공격도 피하세요.",
-      "주황색 공격선을 살펴보세요. 선택한 비숍의 초록 칸을 비교해요.",
-      "금색 경로가 목표를 해결하는 이동이에요."
+      "긴 대각선 끝의 왕을 겨냥해요. 비숍은 멀리서도 왕에게 체크를 걸 수 있어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
-    "id": "4-8",
-    "initialPosition": "6/3p2/6/2B2r/6/6 w - - 0 1",
+    "id": "4-7",
+    "initialPosition": "7k/8/8/8/8/8/8/2B3K1 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "b",
-      "requireNewDefense": false,
-      "requireThreatened": true,
+      "safeMove": true,
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-4-8",
-    "story": "마지막 함정을 피하면 사원의 문양이 완성돼요. 문양은 여왕의 궁전을 가리킵니다.",
-    "storyBeat": true,
-    "threat": [
-      "f3",
-      "c3"
+    "revision": 4.0,
+    "rewardId": "reward-4-7",
+    "story": "긴 대각선 끝의 왕을 겨냥해요. 비숍은 멀리서도 왕에게 체크를 걸 수 있어요.",
+    "storyBeat": false,
+    "topic": "DIAGONAL CHECK",
+    "type": "CHECK"
+  },
+  {
+    "acceptedSolutions": [
+      "b1a2",
+      "b1f5"
     ],
-    "type": "SAFE_MOVE"
+    "boardSize": 6.0,
+    "boss": true,
+    "briefing": "대각선으로 룩을 공격해요. 룩은 대각선으로 되잡을 수 없지만 다른 공격도 살펴야 해요.",
+    "chapter": 4.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "attack_the_rook"
+    ],
+    "explanation": "대각선으로 룩을 공격해요. 룩은 대각선으로 되잡을 수 없지만 다른 공격도 살펴야 해요.",
+    "hints": [
+      "대각선으로 룩을 공격해요. 룩은 대각선으로 되잡을 수 없지만 다른 공격도 살펴야 해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "4-8",
+    "initialPosition": "4r1/6/6/6/6/1B4 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": "e6"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-4-8",
+    "story": "대각선으로 룩을 공격해요. 룩은 대각선으로 되잡을 수 없지만 다른 공격도 살펴야 해요.",
+    "storyBeat": true,
+    "topic": "BISHOP VS ROOK",
+    "type": "ATTACK"
   },
   {
     "acceptedSolutions": [
@@ -1115,16 +1151,17 @@
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요. 도착점: b4.",
+    "briefing": "퀸은 룩과 비숍의 길을 모두 써요. 직선과 대각선을 차례로 사용해요.",
     "chapter": 5.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "move_the_queen"
     ],
+    "explanation": "퀸은 룩과 비숍의 길을 모두 써요. 직선과 대각선을 차례로 사용해요.",
     "hints": [
-      "룩은 직선, 비숍은 대각선, 퀸은 두 방향 모두 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "퀸은 룩과 비숍의 길을 모두 써요. 직선과 대각선을 차례로 사용해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "5-1",
     "initialPosition": "6/6/6/6/1Q4/6 w - - 0 1",
@@ -1134,62 +1171,80 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-5-1",
-    "story": "사원의 문양이 궁전 문을 열었어요. 여왕은 직선과 대각선의 힘을 함께 사용해요.",
+    "sequence": [
+      {
+        "briefing": "먼저 직선으로 b4에 가요.",
+        "objective": {
+          "destination": "b4"
+        },
+        "type": "MOVE"
+      },
+      {
+        "briefing": "이번에는 대각선으로 e1에 가요.",
+        "objective": {
+          "destination": "e1"
+        },
+        "type": "MOVE"
+      }
+    ],
+    "story": "퀸은 룩과 비숍의 길을 모두 써요. 직선과 대각선을 차례로 사용해요.",
     "storyBeat": true,
+    "topic": "TWO KINDS OF PATH",
     "type": "MOVE"
   },
   {
     "acceptedSolutions": [
-      "b2b5"
+      "b2e5"
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "새 친구와 상대 폰을 잡아요.",
+    "briefing": "직선과 대각선 양쪽에 문지기가 있어요. 이번 목표인 e5의 폰을 대각선으로 잡아요.",
     "chapter": 5.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "capture_the_pawn"
     ],
+    "explanation": "직선과 대각선 양쪽에 문지기가 있어요. 이번 목표인 e5의 폰을 대각선으로 잡아요.",
     "hints": [
-      "새 친구와 상대 폰을 잡아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "직선과 대각선 양쪽에 문지기가 있어요. 이번 목표인 e5의 폰을 대각선으로 잡아요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "5-2",
-    "initialPosition": "6/1p4/6/6/1Q4/6 w - - 0 1",
+    "initialPosition": "6/1p2p1/6/6/1Q4/6 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "q",
-      "target": ""
+      "target": "e5"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-5-2",
-    "story": "궁전 계단의 문지기를 잡아 여왕의 길을 열어요.",
+    "story": "직선과 대각선 양쪽에 문지기가 있어요. 이번 목표인 e5의 폰을 대각선으로 잡아요.",
     "storyBeat": false,
+    "topic": "CHOOSE THE DIAGONAL",
     "type": "CAPTURE"
   },
   {
     "acceptedSolutions": [
       "b2b1",
-      "b2c2",
-      "b2e2",
-      "b2b4",
-      "b2d4",
-      "b2e5"
+      "b2c2"
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
+    "briefing": "강한 퀸도 공짜로 내주면 안 돼요. 상대 룩이 다음 수에 잡을 수 없는 방향에서 공격해요.",
     "chapter": 5.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "attack_the_rook"
     ],
+    "explanation": "강한 퀸도 공짜로 내주면 안 돼요. 상대 룩이 다음 수에 잡을 수 없는 방향에서 공격해요.",
     "hints": [
-      "움직인 뒤 상대 룩을 공격해요. 지금 잡는 것이 아니에요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "강한 퀸도 공짜로 내주면 안 돼요. 상대 룩이 다음 수에 잡을 수 없는 방향에서 공격해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "5-3",
     "initialPosition": "6/6/4r1/6/1Q4/6 w - - 0 1",
@@ -1199,230 +1254,242 @@
       "target": "e4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-5-3",
-    "story": "궁전의 긴 길을 이용해 상대 룩을 겨냥해요.",
+    "story": "강한 퀸도 공짜로 내주면 안 돼요. 상대 룩이 다음 수에 잡을 수 없는 방향에서 공격해요.",
     "storyBeat": false,
+    "topic": "SAFE QUEEN ATTACK",
     "type": "ATTACK"
   },
   {
     "acceptedSolutions": [
-      "b1a1",
-      "b1d1",
-      "b1b2",
-      "b1d3",
-      "b1b4",
-      "b1e4"
+      "b2c3"
     ],
     "boardSize": 6.0,
     "boss": false,
-    "briefing": "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
+    "briefing": "퀸의 두 대각선으로 상대 룩 둘을 동시에 겨냥해요. 퀸 자체도 안전해야 해요.",
+    "chapter": 5.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "attack_together"
+    ],
+    "explanation": "퀸의 두 대각선으로 상대 룩 둘을 동시에 겨냥해요. 퀸 자체도 안전해야 해요.",
+    "hints": [
+      "퀸의 두 대각선으로 상대 룩 둘을 동시에 겨냥해요. 퀸 자체도 안전해야 해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "5-4",
+    "initialPosition": "6/r3r1/6/6/1Q4/6 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
+      "target": "",
+      "targets": [
+        "a5",
+        "e5"
+      ]
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-5-4",
+    "story": "퀸의 두 대각선으로 상대 룩 둘을 동시에 겨냥해요. 퀸 자체도 안전해야 해요.",
+    "storyBeat": true,
+    "topic": "QUEEN FORK",
+    "type": "FORK"
+  },
+  {
+    "acceptedSolutions": [
+      "b1c1",
+      "b1f1",
+      "b1a2",
+      "b1c2",
+      "b1b3",
+      "b1d3",
+      "b1b4",
+      "b1e4",
+      "b1b5"
+    ],
+    "boardSize": 6.0,
+    "boss": false,
+    "briefing": "여왕은 멀리 있는 친구도 지켜요. 폰을 잡으면 퀸으로 되잡을 수 있게 수비를 만들어요.",
     "chapter": 5.0,
     "difficulty": "NORMAL",
     "englishExpressionIds": [
       "protect_the_pawn"
     ],
+    "explanation": "여왕은 멀리 있는 친구도 지켜요. 폰을 잡으면 퀸으로 되잡을 수 있게 수비를 만들어요.",
     "hints": [
-      "상대 룩이 폰을 잡으면 되잡을 수 있게 지켜요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "여왕은 멀리 있는 친구도 지켜요. 폰을 잡으면 퀸으로 되잡을 수 있게 수비를 만들어요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
-    "id": "5-4",
-    "initialPosition": "3r2/6/3P2/6/6/1Q4 w - - 0 1",
+    "id": "5-5",
+    "initialPosition": "2r3/6/2P3/6/6/1Q4 w - - 0 1",
     "objective": {
       "destination": "",
       "piece": "q",
       "requireNewDefense": true,
-      "target": "d4"
+      "target": "c4"
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-5-4",
-    "story": "왕에게 소식을 전할 폰을 지켜야 해요.",
-    "storyBeat": true,
+    "revision": 4.0,
+    "rewardId": "reward-5-5",
+    "story": "여왕은 멀리 있는 친구도 지켜요. 폰을 잡으면 퀸으로 되잡을 수 있게 수비를 만들어요.",
+    "storyBeat": false,
+    "topic": "FLEXIBLE DEFENSE",
     "type": "PROTECT"
   },
   {
     "acceptedSolutions": [
-      "b2a1",
-      "b2b1",
-      "b2c1",
-      "b2f2",
-      "b2a3",
-      "b2c3",
-      "b2b4",
-      "b2d4",
-      "b2b5",
-      "b2e5",
-      "b2b6"
-    ],
-    "boardSize": 6.0,
-    "boss": false,
-    "briefing": "상대의 공격을 받지 않는 칸으로 움직여요.",
-    "chapter": 5.0,
-    "difficulty": "NORMAL",
-    "englishExpressionIds": [
-      "find_a_safe_move"
-    ],
-    "hints": [
-      "상대의 공격을 받지 않는 칸으로 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "5-5",
-    "initialPosition": "6/6/2p3/6/1Q3r/6 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "q",
-      "requireThreatened": true,
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-5-5",
-    "story": "여왕도 공격받을 수 있어요. 강한 기물일수록 도착할 칸을 살펴요.",
-    "storyBeat": false,
-    "type": "SAFE_MOVE"
-  },
-  {
-    "acceptedSolutions": [
-      "a1b1",
-      "a1f1",
-      "a1a5",
-      "a1e5",
-      "a1f6"
-    ],
-    "boardSize": 6.0,
-    "boss": true,
-    "briefing": "움직인 뒤 상대 퀸을 공격해요.",
-    "chapter": 5.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "attack_the_queen"
-    ],
-    "hints": [
-      "움직인 뒤 상대 퀸을 공격해요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "5-6",
-    "initialPosition": "6/5q/6/6/6/Q5 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "q",
-      "target": "f5"
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-5-6",
-    "story": "상대 퀸을 겨냥해 친구들이 지나갈 틈을 만들어요.",
-    "storyBeat": false,
-    "type": "ATTACK"
-  },
-  {
-    "acceptedSolutions": [
-      "b2a1",
-      "b2c3",
-      "b2b5"
-    ],
-    "boardSize": 6.0,
-    "boss": true,
-    "briefing": "퀸 하나로 상대 룩 둘을 동시에 공격해요.",
-    "chapter": 5.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "attack_together"
-    ],
-    "hints": [
-      "퀸 하나로 상대 룩 둘을 동시에 공격해요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "5-7",
-    "initialPosition": "6/r3r1/6/6/1Q4/6 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "q",
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-5-7",
-    "story": "두 곳을 함께 공격하면 상대는 모두 지키기 어려워져요.",
-    "storyBeat": false,
-    "type": "FORK"
-  },
-  {
-    "acceptedSolutions": [
-      "c3a1",
-      "c3c1",
-      "c3e1",
-      "c3b2",
-      "c3c2",
-      "c3d2",
-      "c3f3",
-      "c3c4",
-      "c3d4",
-      "c3a5",
-      "c3c5",
-      "c3e5",
-      "c3c6"
-    ],
-    "boardSize": 6.0,
-    "boss": true,
-    "briefing": "안전한 이동으로 다음 길을 열어요.",
-    "chapter": 5.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "find_a_safe_move"
-    ],
-    "hints": [
-      "안전한 이동으로 다음 길을 열어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "5-8",
-    "initialPosition": "6/p5/6/2Q2r/6/6 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "q",
-      "requireThreatened": true,
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "revision": 2.0,
-    "rewardId": "reward-5-8",
-    "story": "여왕과 함께 안전한 길을 찾았어요. 이제 왕의 성에서 들리는 도움 요청을 따라가요.",
-    "storyBeat": true,
-    "type": "SAFE_MOVE"
-  },
-  {
-    "acceptedSolutions": [
-      "a2e2",
-      "a2a8"
+      "d1a4"
     ],
     "boardSize": 8.0,
-    "boss": false,
-    "briefing": "상대 왕을 공격하되 우리 왕을 안전하게 지켜요.",
-    "chapter": 6.0,
-    "difficulty": "EASY",
+    "boss": true,
+    "briefing": "퀸은 직선뿐 아니라 대각선에서도 꼬치를 만들어요. 왕에게 체크하며 뒤의 룩을 드러내세요.",
+    "chapter": 5.0,
+    "difficulty": "HARD",
     "englishExpressionIds": [
       "check_the_king"
     ],
+    "explanation": "퀸은 직선뿐 아니라 대각선에서도 꼬치를 만들어요. 왕에게 체크하며 뒤의 룩을 드러내세요.",
     "hints": [
-      "상대 왕을 공격하되 우리 왕을 안전하게 지켜요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "퀸은 직선뿐 아니라 대각선에서도 꼬치를 만들어요. 왕에게 체크하며 뒤의 룩을 드러내세요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
-    "id": "6-1",
-    "initialPosition": "4k3/8/8/8/8/8/R7/4K3 w - - 0 1",
+    "id": "5-6",
+    "initialPosition": "4r3/8/2k5/8/8/8/8/3Q2K1 w - - 0 1",
     "objective": {
       "destination": "",
-      "piece": "r",
+      "piece": "q",
+      "rear": "e8",
+      "target": "c6"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-5-6",
+    "story": "퀸은 직선뿐 아니라 대각선에서도 꼬치를 만들어요. 왕에게 체크하며 뒤의 룩을 드러내세요.",
+    "storyBeat": false,
+    "topic": "DIAGONAL SKEWER",
+    "type": "SKEWER"
+  },
+  {
+    "acceptedSolutions": [
+      "g6g7"
+    ],
+    "boardSize": 8.0,
+    "boss": true,
+    "briefing": "도망갈 칸만 없애면 스테일메이트일 수 있어요. 체크까지 걸어 한 수에 승리해요.",
+    "chapter": 5.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "checkmate_in_one"
+    ],
+    "explanation": "스테일메이트는 체크 없이 합법적인 수가 없는 무승부예요. 체크메이트는 체크를 피할 수 없는 상태예요.",
+    "hints": [
+      "도망갈 칸만 없애면 스테일메이트일 수 있어요. 체크까지 걸어 한 수에 승리해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "5-7",
+    "initialPosition": "7k/8/5KQ1/8/8/8/8/8 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "q",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-6-1",
-    "story": "왕의 성에 도착했어요. 왕은 잡는 기물이 아니라 공격받으면 반드시 피해야 하는 기물이에요.",
+    "revision": 4.0,
+    "rewardId": "reward-5-7",
+    "story": "도망갈 칸만 없애면 스테일메이트일 수 있어요. 체크까지 걸어 한 수에 승리해요.",
+    "storyBeat": false,
+    "topic": "MATE NOT STALEMATE",
+    "type": "CHECKMATE"
+  },
+  {
+    "acceptedSolutions": [
+      "d4c3"
+    ],
+    "boardSize": 6.0,
+    "boss": true,
+    "briefing": "나이트가 퀸을 노려요. 안전하게 물러난 뒤 퀸의 긴 공격으로 반격해요.",
+    "chapter": 5.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "find_a_safe_move"
+    ],
+    "explanation": "나이트가 퀸을 노려요. 안전하게 물러난 뒤 퀸의 긴 공격으로 반격해요.",
+    "hints": [
+      "나이트가 퀸을 노려요. 안전하게 물러난 뒤 퀸의 긴 공격으로 반격해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "5-8",
+    "initialPosition": "r5/5n/3Q2/6/6/6 w - - 0 1",
+    "objective": {
+      "destination": "c3",
+      "piece": "q",
+      "requireThreatened": true,
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-5-8",
+    "sequence": [
+      {
+        "briefing": "먼저 c3으로 물러나 나이트의 공격을 피해요.",
+        "objective": {
+          "destination": "c3"
+        },
+        "type": "SAFE_MOVE"
+      },
+      {
+        "briefing": "이제 퀸을 잡히지 않는 칸으로 옮겨 f5의 나이트를 공격해요. 상대가 멈춘 계획 연습이에요.",
+        "objective": {
+          "destination": "",
+          "target": "f5"
+        },
+        "type": "ATTACK"
+      }
+    ],
+    "story": "나이트가 퀸을 노려요. 안전하게 물러난 뒤 퀸의 긴 공격으로 반격해요.",
     "storyBeat": true,
-    "type": "CHECK"
+    "topic": "RETREAT AND ATTACK",
+    "type": "SAFE_MOVE"
+  },
+  {
+    "acceptedSolutions": [
+      "e1d1"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "briefing": "왕끼리는 서로 붙을 수 없어요. 상대 왕의 공격 밖인 d1으로 이동해요.",
+    "chapter": 6.0,
+    "difficulty": "EASY",
+    "englishExpressionIds": [
+      "protect_the_king"
+    ],
+    "explanation": "왕끼리는 서로 붙을 수 없어요. 상대 왕의 공격 밖인 d1으로 이동해요.",
+    "hints": [
+      "왕끼리는 서로 붙을 수 없어요. 상대 왕의 공격 밖인 d1으로 이동해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "6-1",
+    "initialPosition": "8/8/8/8/8/4k3/8/4K3 w - - 0 1",
+    "objective": {
+      "destination": "d1",
+      "piece": "k",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-6-1",
+    "story": "왕끼리는 서로 붙을 수 없어요. 상대 왕의 공격 밖인 d1으로 이동해요.",
+    "storyBeat": true,
+    "topic": "KINGS KEEP DISTANCE",
+    "type": "MOVE"
   },
   {
     "acceptedSolutions": [
@@ -1433,16 +1500,17 @@
     ],
     "boardSize": 8.0,
     "boss": false,
-    "briefing": "왕이 체크를 받았어요. 체크에서 벗어나요.",
+    "briefing": "체크를 받았어요. 왕을 공격받지 않는 칸으로 피하세요.",
     "chapter": 6.0,
     "difficulty": "EASY",
     "englishExpressionIds": [
       "protect_the_king"
     ],
+    "explanation": "체크를 받았어요. 왕을 공격받지 않는 칸으로 피하세요.",
     "hints": [
-      "왕이 체크를 받았어요. 체크에서 벗어나요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "체크를 받았어요. 왕을 공격받지 않는 칸으로 피하세요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
     "id": "6-2",
     "initialPosition": "4r1k1/8/8/8/8/8/8/4K3 w - - 0 1",
@@ -1452,9 +1520,180 @@
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-6-2",
-    "story": "우리 왕에게 체크가 걸렸어요. 먼저 위험을 없애야 다른 계획을 세울 수 있어요.",
+    "story": "체크를 받았어요. 왕을 공격받지 않는 칸으로 피하세요.",
     "storyBeat": false,
+    "topic": "ESCAPE CHECK",
+    "type": "ESCAPE_CHECK"
+  },
+  {
+    "acceptedSolutions": [
+      "e1e2"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "briefing": "왕도 상대 기물을 잡을 수 있어요. 다른 기물이 지키지 않는 e2의 룩을 잡아 체크를 없애요.",
+    "chapter": 6.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "protect_the_king"
+    ],
+    "explanation": "왕도 상대 기물을 잡을 수 있어요. 다른 기물이 지키지 않는 e2의 룩을 잡아 체크를 없애요.",
+    "hints": [
+      "왕도 상대 기물을 잡을 수 있어요. 다른 기물이 지키지 않는 e2의 룩을 잡아 체크를 없애요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "6-3",
+    "initialPosition": "6k1/8/8/8/8/8/4r3/4K3 w - - 0 1",
+    "objective": {
+      "captureChecker": true,
+      "destination": "",
+      "piece": "k",
+      "target": "e2"
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-6-3",
+    "story": "왕도 상대 기물을 잡을 수 있어요. 다른 기물이 지키지 않는 e2의 룩을 잡아 체크를 없애요.",
+    "storyBeat": false,
+    "topic": "CAPTURE THE CHECKER",
+    "type": "ESCAPE_CHECK"
+  },
+  {
+    "acceptedSolutions": [
+      "f1e2"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "briefing": "직선 체크는 사이를 막을 수도 있어요. 비숍을 왕과 상대 룩 사이에 놓아 보세요.",
+    "chapter": 6.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "protect_the_king"
+    ],
+    "explanation": "직선 체크는 사이를 막을 수도 있어요. 비숍을 왕과 상대 룩 사이에 놓아 보세요.",
+    "hints": [
+      "직선 체크는 사이를 막을 수도 있어요. 비숍을 왕과 상대 룩 사이에 놓아 보세요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "6-4",
+    "initialPosition": "4r1k1/8/8/8/8/8/8/4KB2 w - - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "b",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-6-4",
+    "story": "직선 체크는 사이를 막을 수도 있어요. 비숍을 왕과 상대 룩 사이에 놓아 보세요.",
+    "storyBeat": true,
+    "topic": "BLOCK THE CHECK",
+    "type": "BLOCK_CHECK"
+  },
+  {
+    "acceptedSolutions": [
+      "e1g1"
+    ],
+    "boardSize": 8.0,
+    "boss": false,
+    "briefing": "왕을 e1→g1로 움직이면 h1 룩도 f1로 와요. 둘 다 움직인 적 없고 길과 왕이 지나는 칸이 안전해야 해요.",
+    "chapter": 6.0,
+    "difficulty": "NORMAL",
+    "englishExpressionIds": [
+      "protect_the_king"
+    ],
+    "explanation": "왕과 룩이 한 수에 함께 움직였어요. 왕이나 사용할 룩이 움직였다 돌아왔더라도 캐슬링 권리는 되살아나지 않아요.",
+    "hints": [
+      "왕을 e1→g1로 움직이면 h1 룩도 f1로 와요. 둘 다 움직인 적 없고 길과 왕이 지나는 칸이 안전해야 해요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "6-5",
+    "initialPosition": "r5k1/5ppp/8/8/8/8/5PPP/4K2R w K - 0 1",
+    "objective": {
+      "destination": "g1",
+      "piece": "k",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-6-5",
+    "story": "왕을 e1→g1로 움직이면 h1 룩도 f1로 와요. 둘 다 움직인 적 없고 길과 왕이 지나는 칸이 안전해야 해요.",
+    "storyBeat": false,
+    "topic": "KINGSIDE CASTLING",
+    "type": "CASTLE"
+  },
+  {
+    "acceptedSolutions": [
+      "e1c1"
+    ],
+    "boardSize": 8.0,
+    "boss": true,
+    "briefing": "f1은 상대 룩의 공격을 받아요. 그쪽으로 캐슬링할 수 없어요. 안전한 c1 쪽으로 왕을 옮겨 보세요.",
+    "chapter": 6.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "protect_the_king"
+    ],
+    "explanation": "퀸 쪽 캐슬링은 왕이 c1, 룩이 d1로 가요. 왕은 출발·통과·도착 칸 모두 공격받지 않아야 해요.",
+    "hints": [
+      "f1은 상대 룩의 공격을 받아요. 그쪽으로 캐슬링할 수 없어요. 안전한 c1 쪽으로 왕을 옮겨 보세요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "6-6",
+    "initialPosition": "5rk1/6pp/8/8/8/8/PPP3PP/R3K2R w KQ - 0 1",
+    "objective": {
+      "destination": "c1",
+      "piece": "k",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-6-6",
+    "story": "f1은 상대 룩의 공격을 받아요. 그쪽으로 캐슬링할 수 없어요. 안전한 c1 쪽으로 왕을 옮겨 보세요.",
+    "storyBeat": false,
+    "topic": "QUEENSIDE CASTLING",
+    "type": "CASTLE"
+  },
+  {
+    "acceptedSolutions": [
+      "e1d1",
+      "e1f1",
+      "e1d2",
+      "e1f2"
+    ],
+    "boardSize": 8.0,
+    "boss": true,
+    "briefing": "길이 비어도 지금은 체크 중이라 캐슬링할 수 없어요. 먼저 왕을 안전한 칸으로 피하세요.",
+    "chapter": 6.0,
+    "difficulty": "HARD",
+    "englishExpressionIds": [
+      "protect_the_king"
+    ],
+    "explanation": "체크에서 캐슬링으로 도망칠 수는 없어요. 왕을 움직였으므로 이후 원래 자리로 돌아와도 캐슬링 권리는 없어요.",
+    "hints": [
+      "길이 비어도 지금은 체크 중이라 캐슬링할 수 없어요. 먼저 왕을 안전한 칸으로 피하세요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
+    ],
+    "id": "6-7",
+    "initialPosition": "4r1k1/8/8/8/8/8/8/4K2R w K - 0 1",
+    "objective": {
+      "destination": "",
+      "piece": "k",
+      "target": ""
+    },
+    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
+    "rewardId": "reward-6-7",
+    "story": "길이 비어도 지금은 체크 중이라 캐슬링할 수 없어요. 먼저 왕을 안전한 칸으로 피하세요.",
+    "storyBeat": false,
+    "topic": "NO CASTLING IN CHECK",
     "type": "ESCAPE_CHECK"
   },
   {
@@ -1465,188 +1704,33 @@
       "f7f8"
     ],
     "boardSize": 8.0,
-    "boss": false,
-    "briefing": "상대 왕이 빠져나올 수 없는 체크를 만들어요.",
+    "boss": true,
+    "briefing": "왕은 퀸을 가까이서 지켜요. 둘의 힘을 합쳐 체크메이트로 성을 구하세요.",
     "chapter": 6.0,
-    "difficulty": "NORMAL",
+    "difficulty": "HARD",
     "englishExpressionIds": [
       "checkmate_in_one"
     ],
+    "explanation": "왕은 퀸을 가까이서 지켜요. 둘의 힘을 합쳐 체크메이트로 성을 구하세요.",
     "hints": [
-      "상대 왕이 빠져나올 수 없는 체크를 만들어요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
+      "왕은 퀸을 가까이서 지켜요. 둘의 힘을 합쳐 체크메이트로 성을 구하세요.",
+      "목표 기물을 누르고, 도착한 뒤의 공격과 방어를 비교해요.",
+      "금색 경로가 이 상황의 해결 방법이에요."
     ],
-    "id": "6-3",
+    "id": "6-8",
     "initialPosition": "7k/5Q2/6K1/8/8/8/8/8 w - - 0 1",
     "objective": {
       "destination": "",
-      "piece": "",
+      "piece": "q",
       "target": ""
     },
     "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-6-3",
-    "story": "왕을 공격하는 것만으로는 끝나지 않아요. 빠져나갈 길이 하나도 없는 체크를 찾아요.",
-    "storyBeat": false,
-    "type": "CHECKMATE"
-  },
-  {
-    "acceptedSolutions": [
-      "c7a7",
-      "c7b7",
-      "c7c8",
-      "c7d8"
-    ],
-    "boardSize": 8.0,
-    "boss": false,
-    "briefing": "다른 배치에서도 체크메이트를 찾아요.",
-    "chapter": 6.0,
-    "difficulty": "NORMAL",
-    "englishExpressionIds": [
-      "checkmate_in_one"
-    ],
-    "hints": [
-      "다른 배치에서도 체크메이트를 찾아요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "6-4",
-    "initialPosition": "k7/2Q5/1K6/8/8/8/8/8 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "",
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-6-4",
-    "story": "반대편 모서리에서도 왕과 퀸의 협력을 확인해요.",
-    "storyBeat": true,
-    "type": "CHECKMATE"
-  },
-  {
-    "acceptedSolutions": [
-      "c3c1",
-      "c3c2",
-      "c3a3",
-      "c3b3",
-      "c3d3",
-      "c3e3",
-      "c3f3",
-      "c3h3",
-      "c3c4",
-      "c3c5",
-      "c3c6",
-      "c3c8"
-    ],
-    "boardSize": 8.0,
-    "boss": false,
-    "briefing": "공격받는 룩을 안전한 칸으로 움직여요.",
-    "chapter": 6.0,
-    "difficulty": "NORMAL",
-    "englishExpressionIds": [
-      "save_your_rook"
-    ],
-    "hints": [
-      "공격받는 룩을 안전한 칸으로 움직여요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "6-5",
-    "initialPosition": "6k1/8/8/4b3/8/2R5/8/6K1 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "r",
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-6-5",
-    "story": "왕을 돕는 룩이 위험해요. 안전하게 구해야 마지막 계획을 이어갈 수 있어요.",
-    "storyBeat": false,
-    "type": "SAFE_MOVE"
-  },
-  {
-    "acceptedSolutions": [],
-    "boardSize": 8.0,
-    "boss": true,
-    "briefing": "AI와 번갈아 두어 체크메이트를 완성해요.",
-    "chapter": 6.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "checkmate_you_win"
-    ],
-    "hints": [
-      "AI와 번갈아 두어 체크메이트를 완성해요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "6-6",
-    "initialPosition": "7k/8/5K2/3Q4/8/8/8/8 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "",
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-6-6",
-    "story": "이제 상대가 실제로 응수해요. 왕과 퀸을 함께 움직여 도망갈 공간을 좁혀요.",
-    "storyBeat": false,
-    "type": "GAME"
-  },
-  {
-    "acceptedSolutions": [],
-    "boardSize": 8.0,
-    "boss": true,
-    "briefing": "AI와 번갈아 두어 체크메이트를 완성해요.",
-    "chapter": 6.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "checkmate_you_win"
-    ],
-    "hints": [
-      "AI와 번갈아 두어 체크메이트를 완성해요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "6-7",
-    "initialPosition": "k7/8/2K5/4Q3/8/8/8/8 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "",
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
-    "rewardId": "reward-6-7",
-    "story": "성의 다른 문에서도 같은 원리를 연습해요. 급히 체크하기보다 길을 막는 수를 찾아요.",
-    "storyBeat": false,
-    "type": "GAME"
-  },
-  {
-    "acceptedSolutions": [],
-    "boardSize": 8.0,
-    "boss": true,
-    "briefing": "AI와 번갈아 두어 체크메이트를 완성해요.",
-    "chapter": 6.0,
-    "difficulty": "HARD",
-    "englishExpressionIds": [
-      "checkmate_you_win"
-    ],
-    "hints": [
-      "AI와 번갈아 두어 체크메이트를 완성해요.",
-      "초록 점은 이동할 수 있는 칸이에요.",
-      "빛나는 경로를 따라 움직여 보세요."
-    ],
-    "id": "6-8",
-    "initialPosition": "7k/8/8/4K3/8/1Q6/8/8 w - - 0 1",
-    "objective": {
-      "destination": "",
-      "piece": "",
-      "target": ""
-    },
-    "opponentResponsePolicy": "legal_capture_then_random",
+    "revision": 4.0,
     "rewardId": "reward-6-8",
-    "story": "왕의 성을 지켜냈어요. 마지막 왕관을 찾기 전에 끝내는 기술을 정리해요.",
+    "story": "왕은 퀸을 가까이서 지켜요. 둘의 힘을 합쳐 체크메이트로 성을 구하세요.",
     "storyBeat": true,
-    "type": "GAME"
+    "topic": "KING AND QUEEN TEAM",
+    "type": "CHECKMATE"
   },
   {
     "acceptedSolutions": [],

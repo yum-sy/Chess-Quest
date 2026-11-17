@@ -22,6 +22,7 @@ func _initialize():
 			for step in m.get("sequence",[{}]):
 				var active=m.duplicate();active.objective=m.objective.duplicate()
 				active.objective.merge(step.get("objective",{}),true)
+				active.type=step.get("type",m.type)
 				var sol=O.solutions(r,active);var before=r.cells.duplicate()
 				if sol.is_empty():success=false;break
 				r.play(sol[0]);success=success and O.success(r,active,sol[0],before);plies+=1

@@ -1,3 +1,3 @@
 Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
 
-CAMPAIGN completed 56/56; legal plies 173; failures 0
+CAMPAIGN completed 56/56; legal plies 154; failures 0
