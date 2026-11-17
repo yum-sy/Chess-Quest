@@ -19,6 +19,17 @@ func run():
 					g.selected=-1;g.tap(p)
 					if g.selected!=i:fails+=1;printerr("TAP ",i)
 				count+=1
+			var n=g.rules.n
+			for file in range(n):
+				var top=g.coordinate_transform(file+.38,n-.31);var bottom=g.coordinate_transform(file+.38,-.69)
+				var center=g.point(file+.38,(n-1)*.5)
+				if absf((top.origin-bottom.origin).normalized().cross(center-bottom.origin))>.01:fails+=1;printerr("FILE ALIGNMENT ",file)
+				if top.x.dot(bottom.x)<.999:fails+=1
+			for rank in range(n):
+				var left=g.coordinate_transform(-.69,rank);var right=g.coordinate_transform(n-.31,rank)
+				var center=g.point((n-1)*.5,rank)
+				if absf((right.origin-left.origin).normalized().cross(center-left.origin))>.01:fails+=1;printerr("RANK ALIGNMENT ",rank)
+				if left.x.dot((right.origin-left.origin).normalized())<.999:fails+=1
 			for i in range(g.rules.n*g.rules.n):
 				if not Geometry2D.is_point_in_polygon(g.point(i%g.rules.n,i/g.rules.n),g.poly(i)):fails+=1
 	# Reduced motion must freeze idle pose and eye state, not disable selection.

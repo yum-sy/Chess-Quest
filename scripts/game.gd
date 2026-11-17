@@ -223,12 +223,20 @@ func layout_board(s:Vector2):
 	tile=Vector2(board_area.size.x/(rules.n+1.0),board_area.size.y/(rules.n+1.0))
 func point(file:float,rank:float)->Vector2:return board_view.projected(file,rank)
 func poly(i:int)->PackedVector2Array:return board_view.polygon(i)
-func coordinate_label(value:String,at:Vector2,on_white=false):
-	# A pale face and dark outline stay readable on white, black and wooden rails.
+func coordinate_transform(file:float,rank:float)->Transform2D:
+	var at=point(file,rank)
+	var file_axis=point(file+1,rank)-at
+	var rank_axis=point(file,rank-1)-at
+	var scale_unit=file_axis.length()
+	return Transform2D(file_axis/scale_unit,rank_axis/scale_unit,at)
+func coordinate_label(value:String,file:float,rank:float,on_white=false):
+	# Project both text axes onto the board plane, retaining the readable outline.
 	var fs=20
-	var baseline=at+Vector2(-font.get_string_size(value,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x*.5,7)
+	draw_set_transform_matrix(coordinate_transform(file,rank))
+	var baseline=Vector2(-font.get_string_size(value,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x*.5,7)
 	draw_string_outline(font,baseline,value,HORIZONTAL_ALIGNMENT_LEFT,-1,fs,3,Color("fff9e9") if on_white else Color("20343e"))
 	draw_string(font,baseline,value,HORIZONTAL_ALIGNMENT_LEFT,-1,fs,Color("20343e") if on_white else Color("fff9e9"))
+	draw_set_transform_matrix(Transform2D.IDENTITY)
 func active_mission()->Dictionary:
 	var base=missions[index]
 	if not base.has("sequence"):return base
@@ -259,14 +267,14 @@ func draw_play(s:Vector2):
 	var target=rules.square(m.objective.target) if hints>0 and m.objective.target!="" else -1
 	board_view.update_markers(destinations,selected,target)
 	draw_texture_rect(board_view.get_texture(),board_area,false)
-	# Four-sided coordinates are fixed to the rim; back letters sit at file corners
-	# instead of floating above occupied pieces or covering their faces.
+	# Opposite labels share identical in-cell file/rank positions. File labels
+	# use the same corner inset on BOTH rims, avoiding back-rank silhouettes.
 	for x in range(rules.n):
-		coordinate_label("abcdefgh"[x],point(x,-.69),true)
-		coordinate_label("abcdefgh"[x],point(x+.38,rules.n-.31))
+		coordinate_label("abcdefgh"[x],x+.38,-.69,true)
+		coordinate_label("abcdefgh"[x],x+.38,rules.n-.31)
 	for rank in range(rules.n):
-		coordinate_label(str(rank+1),point(-.70,rank))
-		coordinate_label(str(rank+1),point(rules.n-.30,rank))
+		coordinate_label(str(rank+1),-.69,rank)
+		coordinate_label(str(rank+1),rules.n-.31,rank)
 	# One unobtrusive forward arrow makes pawn direction explicit even in empty training boards.
 	var arrow_start=point(-.92,.15);var arrow_end=point(-.92,1.1)
 	draw_line(arrow_start,arrow_end,Color("468fc0"),3,true)

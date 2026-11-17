@@ -163,3 +163,7 @@ Replaced the stacked base and gold separator layers with one continuous wooden b
 ## High-contrast coordinates (v11.17.14)
 
 All four rims use larger outlined coordinate labels. White rails use dark lettering with a pale outline; black and wooden rims use pale lettering with a dark outline. Back-file labels now stay on the board rim at file corners rather than floating above occupied pieces. Board geometry, team rails and side lettering are unchanged.
+
+## Board-plane coordinate alignment (v11.17.15)
+
+Coordinate glyphs use both projected board axes, so their tilt and foreshortening follow the board. Top and bottom letters use the exact same in-column corner inset on both rims, rather than different offsets. Left/right numbers use identical rank centers. Rear letters remain on the board rim, clear of back-rank faces, without floating legends or a wider board. Selection checks verify row/column collinearity in 4×4, 6×6 and 8×8 boards in both screen orientations.
