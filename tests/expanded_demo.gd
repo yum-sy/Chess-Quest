@@ -13,7 +13,7 @@ func run():
   if g.modal=="intro":g.action("begin")
   var original=g.missions[i].initialPosition;var saved=g.learner.data.current.duplicate(true)
   expect(g.demo,"auto demo "+str(i))
-  await create_timer(9).timeout
+  await preload("res://tests/demo_driver.gd").finish(self,g)
   expect(g.demo_heading=="YOUR TURN","demo finished "+str(i))
   g.persist();expect(g.learner.data.current==saved,"demo never saves "+str(i))
   var m=g.missions[i]

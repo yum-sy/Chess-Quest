@@ -51,6 +51,7 @@ var demo_text=""
 var demo_heading=""
 var demo_links=[]
 var demo_focus=[]
+var demo_waiting=false
 const THEME_COLORS=["eddcba","b7d3ba","b9ccd9","d6c7e4","e8c5c6","d8d8ea","d3bfdf","f1d78f"]
 const THEME_NAMES=["정원","다리","마법의 탑","사원","궁전","왕의 성","검은 성","왕관"]
 var cream=Color("fff6df")
@@ -76,9 +77,9 @@ func _process(delta):
 	clock+=delta
 	if OS.has_feature("web") and int(clock*2)>status_tick:
 		status_tick=int(clock*2)
-		var state={"screen":screen,"mission":missions[index].id,"modal":modal,"completed":learner.data.completed.size(),"turn":rules.turn,"audioPlaying":audio.playing,"busy":busy,"demo":demo,"demoHeading":demo_heading,"fen":rules.fen(),"selected":selected,"squares":square_centers(),"actors":actor_centers()}
+		var state={"screen":screen,"mission":missions[index].id,"modal":modal,"completed":learner.data.completed.size(),"turn":rules.turn,"audioPlaying":audio.playing,"busy":busy,"demo":demo,"demoHeading":demo_heading,"demoWaiting":demo_waiting,"fen":rules.fen(),"selected":selected,"squares":square_centers(),"actors":actor_centers()}
 		JavaScriptBridge.eval("window.CQ.state="+JSON.stringify(state))
-	if anim_t<1:anim_t=minf(1,anim_t+delta*(1.15 if demo else 2.5))
+	if anim_t<1:anim_t=minf(1,anim_t+delta*(.55 if demo else 2.5))
 	board_view.moving_from=anim_from;board_view.moving_to=anim_to
 	board_view.moving_progress=anim_t;board_view.moving_letter=anim_piece
 	board_view.animate(delta)
@@ -154,7 +155,7 @@ func _draw():
 	elif screen=="settings":draw_settings(s)
 	elif screen=="ending":draw_ending(s)
 	if modal!="":draw_modal(s)
-	if learner.save_error:text("저장 공간을 확인해 주세요. 이번 진행을 저장하지 못했어요.",Vector2(20,s.y-16),18,Color("a13d38"))
+	if learner.save_error:text("Could not save. Please check your device storage.",Vector2(20,s.y-16),18,Color("a13d38"))
 func draw_home(s:Vector2):
 	text("A LITTLE MOVE. A GRAND ADVENTURE.",Vector2(60,68),18,teal)
 	text("CHESS",Vector2(58,173),88,ink)
@@ -222,10 +223,18 @@ func layout_board(s:Vector2):
 	tile=Vector2(board_area.size.x/(rules.n+1.0),board_area.size.y/(rules.n+1.0))
 func point(file:float,rank:float)->Vector2:return board_view.projected(file,rank)
 func poly(i:int)->PackedVector2Array:return board_view.polygon(i)
-func team_label(label:String,at:Vector2,color:Color):
-	var width=100.0
-	box(Rect2(at-Vector2(width/2,17),Vector2(width,34)),color,15)
-	centered(label,at+Vector2(0,7),18,Color.WHITE)
+func team_label(label:String,rank:float,color:Color):
+	var center=(rules.n-1)*.5
+	var origin=point(center,rank)
+	var along=(point(center+1,rank)-origin).normalized()
+	var depth=(origin-point(center,rank+1)).normalized()
+	var transform=Transform2D(along,depth,origin)
+	draw_set_transform_matrix(transform)
+	box(Rect2(-68,-18,136,36),Color("805d3f"),9)
+	box(Rect2(-65,-16,130,31),gold,8)
+	box(Rect2(-62,-14,124,27),color,7)
+	centered(label,Vector2(0,6),17,Color("fff8de"))
+	draw_set_transform_matrix(Transform2D.IDENTITY)
 func active_mission()->Dictionary:
 	var base=missions[index]
 	if not base.has("sequence"):return base
@@ -259,12 +268,15 @@ func draw_play(s:Vector2):
 	# Coordinates and badges stay in screen space, anchored to the actual 3D board.
 	for x in range(rules.n):
 		centered("abcdefgh"[x],point(x,-.69)+Vector2(0,6),16,Color("355f84"))
-		centered("abcdefgh"[x],point(x,rules.n-.31)-Vector2(0,(point(0,1)-point(0,0)).length()*.92 if rules.cells[(rules.n-1)*rules.n+x]!="" else 5),16,Color("355f84"))
+		var back_coord=point(x,rules.n-.31)-Vector2(0,(point(0,1)-point(0,0)).length()*.92 if rules.cells[(rules.n-1)*rules.n+x]!="" else 5)
+		var back_badge=point((rules.n-1)*.5,rules.n+.65)
+		if Rect2(back_badge-Vector2(82,38),Vector2(164,76)).has_point(back_coord):back_coord.y=back_badge.y-44
+		centered("abcdefgh"[x],back_coord,16,Color("355f84"))
 	for rank in range(rules.n):
 		centered(str(rank+1),point(-.70,rank)+Vector2(0,5),16,muted)
 		centered(str(rank+1),point(rules.n-.30,rank)+Vector2(0,5),16,muted)
-	team_label("WHITE",point((rules.n-1)*.5,-.82)+Vector2(0,33),Color("367db2"))
-	team_label("BLACK",point(-.70,rules.n-.40)+Vector2(-48,-12),Color("896296"))
+	team_label("WHITE TEAM",-1.65,Color("367db2"))
+	team_label("BLACK TEAM",rules.n+.65,Color("896296"))
 	# One unobtrusive forward arrow makes pawn direction explicit even in empty training boards.
 	var arrow_start=point(-.92,.15);var arrow_end=point(-.92,1.1)
 	draw_line(arrow_start,arrow_end,Color("468fc0"),3,true)
@@ -314,11 +326,12 @@ func draw_play(s:Vector2):
 	var actions=["listen","slow","hint","undo" if m.type=="GAME" else "restart","map","settings"]
 	if has_demo():labels[1]="Watch";actions[1]="watch"
 	if demo:
-		labels=["Replay","Try now"];actions=["watch","practice"]
+		labels=["Replay","Next","Try now"] if demo_heading!="YOUR TURN" else ["Replay","Try now"]
+		actions=["watch","demo_next","practice"] if demo_heading!="YOUR TURN" else ["watch","practice"]
 	var columns=3 if compact else 2
 	var bw=(pw-32-(columns-1)*8)/columns
 	for j in range(labels.size()):
-		button(labels[j],Rect2(px+16+(j%columns)*(bw+8),by+(j/columns)*54,bw,46),actions[j],j==2)
+		button(labels[j],Rect2(px+16+(j%columns)*(bw+8),by+(j/columns)*54,bw,46),actions[j],actions[j] in ["practice","demo_next","hint"],actions[j]=="demo_next" and not demo_waiting)
 	wrapped(feedback,Rect2(px+16,py+266 if compact else by+192,pw-32,66),16,teal)
 	if compact:book(Vector2(px+pw-48,py+37),.32)
 	else:book(Vector2(px+pw*.5,panel.end.y-86),.65)
@@ -446,15 +459,30 @@ func draw_settings(s:Vector2):
 	button("모험으로 돌아가기",Rect2(40,s.y-72,280,52),"back",true)
 func draw_ending(s:Vector2):
 	book(Vector2(s.x/2,150),1.5)
-	centered("왕관의 빛이 돌아왔어요!",Vector2(s.x/2,290),46,ink)
-	centered("듣고, 생각하고, 움직인 모든 순간이 왕국을 구했어요.",Vector2(s.x/2,355),24,teal)
+	centered("The crown shines again!",Vector2(s.x/2,290),46,ink)
+	centered("You listened. You learned. You saved the kingdom!",Vector2(s.x/2,355),24,teal)
 	var parade=Rect2(s.x/2-320,380,640,210)
 	board_view.configure(4,parade,7)
 	board_view.update_position(["R","N","B","Q","","P","K","","","","","","","","",""],-1,[],true,learner.data.settings.motion)
 	board_view.update_markers([],-1,-1)
 	draw_texture_rect(board_view.get_texture(),parade,false)
-	button("자유 체스 대전",Rect2(s.x/2-240,610,230,60),"free",true)
-	button("왕국으로 돌아가기",Rect2(s.x/2+10,610,230,60),"map")
+	button("Play chess",Rect2(s.x/2-240,610,230,60),"free",true)
+	button("Back to the kingdom",Rect2(s.x/2+10,610,230,60),"map")
+func popup_message(won:bool)->String:
+	var m=missions[index]
+	if won:
+		var special={"1-2":"Two squares on the first move! Both squares must be clear.","1-5":"Pawns take pieces on a diagonal, not straight ahead.","1-8":"Too late for en passant! You used a normal pawn capture.","2-8":"A knight was the right choice! It checks the king and attacks the rook.","3-5":"Your rooks work together on one line.","3-6":"Your rook reached the seventh row. It can attack pawns from the side.","4-4":"Your pawn moved out of the way. Now your bishop can attack.","5-7":"Checkmate! Without check, a side with no legal move gets a draw.","6-6":"The king's path must be safe. You used the safe side.","6-7":"No castling while in check! You moved your king to safety."}
+		if special.has(m.id):return special[m.id]
+		if m.has("sequence"):return "You finished the path! Every step helped."
+		return {"PROMOTION":"Your pawn has a new power! Choose the piece that helps your plan.","EN_PASSANT":"You caught the pawn just in time! En passant is only for the very next move.","CASTLE":"Your king and rook moved as a team. That was one move!","PIN":"The knight must stay. Moving it would leave its king in check.","FORK":"One piece, two threats! Your attacking piece is safe.","SKEWER":"The king must move away. Then you can take the piece behind it.","ATTACK":"You made a safe attack! The other side cannot take your piece next turn.","PROTECT":"Your friend has help! If it is taken, you can take that piece back.","CHECKMATE":"Checkmate! The king cannot escape. Great teamwork!","GAME":"You won! The lost crown is one step closer."}.get(m.type,"Great move! You found the way. Ready for the next adventure?")
+	var stories=["The garden gate is shut. Help the little pawn carry a letter.","The bridge is broken. Our knight can jump across!","The magic tower needs help. Find a path for the rook.","Light the secret temple. Follow the bishop's path.","The queen is back! Help her friends reach the castle.","The king needs your help. Keep the castle safe.","The lost crown is near. Look for a clever plan!"]
+	var goal="Look at the board. Find a safe move."
+	if m.has("sequence"):goal="Follow the path. Finish each step."
+	elif m.has("mateLimit"):goal="Win in "+str(m.mateLimit)+" moves or fewer."
+	elif m.type=="MOVE":goal="Move to "+m.objective.destination+"."
+	elif m.type=="CAPTURE":goal="Take the piece on "+m.objective.target+"." if m.objective.target!="" else "Take an enemy piece."
+	else:goal={"PROMOTION":"Reach the last row. Choose a new piece.","EN_PASSANT":"Watch the pawn's special capture. Then try it!","CASTLE":"Watch the king and rook move together. Then try it!","PIN":"Can you keep the knight in front of its king?","FORK":"Attack two pieces with one safe move.","SKEWER":"Check the king. Find the piece behind it.","ATTACK":"Make an attack. Keep your piece safe.","PROTECT":"Help your friend. Be ready to take back.","CHECKMATE":"Put the king in check with no way out.","GAME":"Play a full game. Keep your king safe!"}.get(m.type,goal)
+	return stories[int(m.chapter)-1]+" "+goal
 func draw_modal(s:Vector2):
 	draw_rect(Rect2(Vector2.ZERO,s),Color("203b4580"))
 	var w=minf(650,s.x-60);var r=Rect2((s.x-w)/2,s.y/2-200,w,400)
@@ -462,23 +490,23 @@ func draw_modal(s:Vector2):
 	var x=r.position.x;var y=r.position.y
 	if modal=="intro":
 		centered(chapters[chapter-1].subtitle,Vector2(s.x/2,y+64),32,ink)
-		wrapped(missions[index].get("story",chapters[chapter-1].intro),Rect2(x+44,y+127,w-88,100),25,teal)
+		wrapped(popup_message(false),Rect2(x+44,y+127,w-88,100),25,teal)
 		button("Let’s go!",Rect2(x+44,y+290,w-88,60),"begin",true)
 	elif modal=="success":
 		centered("Great adventure!",Vector2(s.x/2,y+70),36,ink)
-		wrapped(missions[index].get("explanation",chapters[chapter-1].outro if index%8==7 else "새로운 빛을 모았어요. 다음 모험에서도 함께해요!"),Rect2(x+44,y+140,w-88,100),25,teal)
+		wrapped(popup_message(true),Rect2(x+44,y+140,w-88,100),25,teal)
 		button("Next quest  →",Rect2(x+44,y+290,w-88,60),"next",true)
 	elif modal=="reset":
-		centered("처음부터 다시 시작할까요?",Vector2(s.x/2,y+65),30,ink)
-		wrapped("완료한 모험, 영어 학습 기록, 보상과 진행 중인 대국이 모두 지워져요. 소리·도움말·움직임 설정은 유지돼요. 이 작업은 되돌릴 수 없어요.",Rect2(x+40,y+125,w-80,150),23,muted)
-		button("취소 · 기록 지키기",Rect2(x+32,y+300,(w-76)/2,58),"reset_cancel",true)
-		button("모두 지우고 시작",Rect2(x+44+(w-76)/2,y+300,(w-76)/2,58),"reset_confirm")
+		centered("Start a new adventure?",Vector2(s.x/2,y+65),30,ink)
+		wrapped("This will erase your progress, word practice, rewards, and current game. Your sound and help settings will stay. You cannot undo this.",Rect2(x+40,y+125,w-80,150),23,muted)
+		button("Keep my progress",Rect2(x+32,y+300,(w-76)/2,58),"reset_cancel",true)
+		button("Erase and start",Rect2(x+44+(w-76)/2,y+300,(w-76)/2,58),"reset_confirm")
 	elif modal=="promotion":
 		centered("Promotion! Choose a piece.",Vector2(s.x/2,y+70),28,ink)
 		for j in range(promotion.size()):button({"q":"Queen","r":"Rook","b":"Bishop","n":"Knight"}[promotion[j][4]],Rect2(x+30+j*(w-60)/4,y+170,(w-80)/4,70),"promote:"+promotion[j],true)
 	else:
 		centered("Ready to try again?",Vector2(s.x/2,y+70),32,ink)
-		wrapped(feedback,Rect2(x+44,y+140,w-88,100),24,teal)
+		wrapped("Your king needs help. Try a new plan." if rules.check("w") else "This game is a draw. Try again with a new plan.",Rect2(x+44,y+140,w-88,100),24,teal)
 		button("Restart",Rect2(x+44,y+290,w-88,60),"restart",true)
 func expression(id:String)->Dictionary:
 	for e in expressions:
@@ -513,7 +541,7 @@ func speak_mission():
 	introducing=""
 	say_id(missions[index].englishExpressionIds[0])
 func start_mission(i:int,resume=false):
-	demo=false;demo_snapshot={};demo_heading="";demo_links=[];demo_focus=[]
+	demo=false;demo_snapshot={};demo_heading="";demo_links=[];demo_focus=[];demo_waiting=false
 	generation+=1;lesson_step=0;busy=false;index=i;chapter=int(missions[i].chapter)
 	selected=-1;mistakes=0;feedback="";modal="";promotion=[];anim_t=1;target_evidence=false;last_move="";introducing=""
 	rules=Rules.new();rules.bridge=true
@@ -545,10 +573,14 @@ func finish_demo():
 	generation+=1
 	rules.load_fen(demo_snapshot.fen,rules.n)
 	rules.history=demo_snapshot.history.duplicate();rules.positions=demo_snapshot.positions.duplicate();rules.notation=demo_snapshot.notation.duplicate()
-	demo=false;busy=false;anim_t=1;selected=-1;demo_heading="";demo_links=[];demo_focus=[]
+	demo=false;busy=false;anim_t=1;selected=-1;demo_heading="";demo_links=[];demo_focus=[];demo_waiting=false
 	feedback="Your turn!";persist()
 func demo_pause(seconds:float,token:int)->bool:
-	await get_tree().create_timer(seconds).timeout
+	await get_tree().create_timer(maxf(2.8,seconds*1.8)).timeout
+	if not demo or generation!=token:return false
+	demo_waiting=true;feedback="Take your time · Tap Next"
+	while demo and generation==token and demo_waiting:
+		await get_tree().process_frame
 	return demo and generation==token
 func start_demo():
 	if busy and not demo:return
@@ -557,7 +589,7 @@ func start_demo():
 	generation+=1
 	var token=generation
 	demo_snapshot={"fen":rules.fen(),"history":rules.history.duplicate(),"positions":rules.positions.duplicate(),"notation":rules.notation.duplicate()}
-	demo_links=[];demo_focus=[];anim_t=1
+	demo_links=[];demo_focus=[];demo_waiting=false;anim_t=1
 	demo=true;busy=true;selected=-1;modal="";introducing="";audio.stop();feedback="Watch first · Then try"
 	var m=missions[index]
 	if m.id=="1-7":
@@ -677,6 +709,7 @@ func tap(p:Vector2):
 func action(a:String):
 	if demo:
 		if a=="watch":start_demo()
+		elif a=="demo_next" and demo_waiting:demo_waiting=false;feedback="Watch the move"
 		elif a=="practice":finish_demo();speak_mission()
 		elif a in ["home","map"]:finish_demo();action(a)
 		return

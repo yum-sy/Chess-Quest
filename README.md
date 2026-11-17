@@ -141,3 +141,9 @@ Promotion, knight underpromotion, knight/rook/queen forks, bishop pin, and rook/
 The guide, kingdom map, vocabulary cards, settings and modal pages share raised parchment, brass corners, gold trim and teal buttons. The existing magic-book character accompanies the guide and settings. Settings adapt to wide and portrait screens and separate preferences, cosmetic rewards and progress reset.
 
 Settings → progress reset requires explicit confirmation. It clears completion, learning records, rewards and the active position while retaining sound, Korean guidance and motion preferences. Locked cosmetics return to defaults. Both the active save and recovery copy are reset, preventing erased progress from reappearing after recovery. Tests use isolated save files/browser profiles and do not reset the player's existing data.
+
+## Child-paced demonstrations and English popups (v11.17.10)
+
+Demonstration movement takes about 1.8 seconds (previously 0.87). Each pose is shown for at least 2.8 seconds, then waits for Next; children can inspect attack lines and captures for as long as they need. Next is disabled during the minimum viewing time. Replay and Try now remain available, and cancelled previews cannot advance later.
+
+All modal text is simple English, including story introductions, success, retry, promotion and reset confirmation. Optional Korean explanation remains in the guide. The ending screen is English too. Both team plaques share a centered placement outside opposite board rails and the same projected board-plane basis; the old asymmetric floating badges and front-only shield are removed.

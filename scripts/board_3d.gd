@@ -108,9 +108,9 @@ func build_board():
 		for file in range(n):cube(ground,world(file,rank)+Vector3(0,-.055,0),Vector3(.992,.09,.992),ivory if (file+rank)%2 else brown)
 	cube(ground,Vector3(0,-.035,n*.5+.14),Vector3(n+.2,.14,.16),material("479ed0",.25))
 	cube(ground,Vector3(0,-.035,-n*.5-.14),Vector3(n+.2,.14,.16),material("9c6cb0",.25))
-	# Blue shield badge physically attached to the player's front edge.
-	sphere(ground,Vector3(0,-.27,n*.5+.255),Vector3(.56,.39,.08),material("317caf"))
-	sphere(ground,Vector3(0,-.25,n*.5+.30),Vector3(.16,.18,.04),material("ffe3a0",.3))
+	# Matching brass mounts extend both rails; the pieces correctly occlude them.
+	for side in [-1,1]:
+		cube(ground,Vector3(0,-.07,side*(n*.5+.67)),Vector3(.22,.10,1.06),material("daa657",.35))
 func update_position(cells:Array,selected:int,check_squares:Array,celebrate:bool,enabled:bool):
 	chosen=selected;checked=check_squares;happy=celebrate;motion=enabled
 	var key="|".join(cells)+str(gold_skin)
