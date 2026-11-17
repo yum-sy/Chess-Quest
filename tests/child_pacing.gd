@@ -37,11 +37,10 @@ func run():
   root.size=size;g.responsive()
   for index in [0,16,53]:
    g.start_mission(index);g.modal="";g.layout_board(g.size_now())
-   var n=g.rules.n;var mid=(n-1)*.5
-   var front=g.point(mid,-1.65);var back=g.point(mid,n+.65)
-   check(Rect2(Vector2.ZERO,g.size_now()).has_point(front) and Rect2(Vector2.ZERO,g.size_now()).has_point(back),"both plaques on screen")
-   var axis=(g.point(mid+1,-1.65)-front).normalized()
-   var axis2=(g.point(mid+1,n+.65)-back).normalized()
-   check(axis.dot(axis2)>.999,"matching board-edge plaque angles")
+   var front=g.board_view.ground.get_node("WhiteRailText")
+   var back=g.board_view.ground.get_node("BlackRailText")
+   check(front.text=="WHITE" and back.text=="BLACK","both team names on rails")
+   check(front.position.x==0 and back.position.x==0 and is_equal_approx(front.position.z,-back.position.z),"symmetric rail text")
+   check(front.rotation==back.rotation and front.rotation_degrees.x==-90,"text follows board surface")
  print("CHILD PACING manual steps, slower movement, English popups, symmetric board plaques; failures ",failures)
  quit(1 if failures else 0)

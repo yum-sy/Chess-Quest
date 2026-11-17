@@ -147,3 +147,7 @@ Settings → progress reset requires explicit confirmation. It clears completion
 Demonstration movement takes about 1.8 seconds (previously 0.87). Each pose is shown for at least 2.8 seconds, then waits for Next; children can inspect attack lines and captures for as long as they need. Next is disabled during the minimum viewing time. Replay and Try now remain available, and cancelled previews cannot advance later.
 
 All modal text is simple English, including story introductions, success, retry, promotion and reset confirmation. Optional Korean explanation remains in the guide. The ending screen is English too. Both team plaques share a centered placement outside opposite board rails and the same projected board-plane basis; the old asymmetric floating badges and front-only shield are removed.
+
+## Printed team names (v11.17.11)
+
+Removed both signs and their mounts. WHITE and BLACK are now depth-tested 3D lettering on the blue and purple board rails, following the board surface. The rails provide space for the lettering outside the coordinates and back-rank characters.

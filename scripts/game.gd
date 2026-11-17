@@ -223,18 +223,6 @@ func layout_board(s:Vector2):
 	tile=Vector2(board_area.size.x/(rules.n+1.0),board_area.size.y/(rules.n+1.0))
 func point(file:float,rank:float)->Vector2:return board_view.projected(file,rank)
 func poly(i:int)->PackedVector2Array:return board_view.polygon(i)
-func team_label(label:String,rank:float,color:Color):
-	var center=(rules.n-1)*.5
-	var origin=point(center,rank)
-	var along=(point(center+1,rank)-origin).normalized()
-	var depth=(origin-point(center,rank+1)).normalized()
-	var transform=Transform2D(along,depth,origin)
-	draw_set_transform_matrix(transform)
-	box(Rect2(-68,-18,136,36),Color("805d3f"),9)
-	box(Rect2(-65,-16,130,31),gold,8)
-	box(Rect2(-62,-14,124,27),color,7)
-	centered(label,Vector2(0,6),17,Color("fff8de"))
-	draw_set_transform_matrix(Transform2D.IDENTITY)
 func active_mission()->Dictionary:
 	var base=missions[index]
 	if not base.has("sequence"):return base
@@ -269,14 +257,10 @@ func draw_play(s:Vector2):
 	for x in range(rules.n):
 		centered("abcdefgh"[x],point(x,-.69)+Vector2(0,6),16,Color("355f84"))
 		var back_coord=point(x,rules.n-.31)-Vector2(0,(point(0,1)-point(0,0)).length()*.92 if rules.cells[(rules.n-1)*rules.n+x]!="" else 5)
-		var back_badge=point((rules.n-1)*.5,rules.n+.65)
-		if Rect2(back_badge-Vector2(82,38),Vector2(164,76)).has_point(back_coord):back_coord.y=back_badge.y-44
 		centered("abcdefgh"[x],back_coord,16,Color("355f84"))
 	for rank in range(rules.n):
 		centered(str(rank+1),point(-.70,rank)+Vector2(0,5),16,muted)
 		centered(str(rank+1),point(rules.n-.30,rank)+Vector2(0,5),16,muted)
-	team_label("WHITE TEAM",-1.65,Color("367db2"))
-	team_label("BLACK TEAM",rules.n+.65,Color("896296"))
 	# One unobtrusive forward arrow makes pawn direction explicit even in empty training boards.
 	var arrow_start=point(-.92,.15);var arrow_end=point(-.92,1.1)
 	draw_line(arrow_start,arrow_end,Color("468fc0"),3,true)
